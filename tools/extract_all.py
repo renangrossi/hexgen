@@ -30,6 +30,8 @@ for key, s in S.items():
     pdf = os.path.join(ROOT, s['file'])
     if key == 'oh':
         run(py + [os.path.join(HERE, 'harvest_oh.py'), os.path.join(ROOT, 'Shadowdark/My Projects/tft-sd/oh-simple'), out])
+    elif key == 'tft':
+        run(py + [os.path.join(HERE, 'harvest_tft.py'), os.path.join(ROOT, 'Shadowdark/My Projects/tft-sd/merged_sd'), pdf, out])
     elif key == 'sea':
         run(py + [os.path.join(HERE, 'harvest_sea.py'), os.path.join(ROOT, 'Shadowdark/My Projects/sea-sd/build.py'), out])
     else:

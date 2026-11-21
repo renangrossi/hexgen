@@ -257,22 +257,25 @@ const OH_SLUG={grassland:'grasslands',forest:'forest',hills:'hills-and-mountains
 const SYSTEMS={
   sd:{key:'sd',name:'Shadowdark RPG (Western Reaches travel)',
     travel:'Walking 4 hexes a day, mounted 6, sailing 8; difficult terrain costs 2 (WR GM Guide p.40).',
-    check:'Roll 1-in-6 twice by day and twice by night (WR); on a hit roll the terrain table below.',
-    ENC:{grassland:'sd.enc.grassland',forest:'sd.enc.forest',jungle:'sd.enc.jungle',swamp:'sd.enc.swamp',hills:'sd.enc.mountain',mountains:'sd.enc.mountain',desert:'sd.enc.desert',arctic:'sd.enc.arctic',sea:'sd.enc.ocean',lake:'sd.enc.river-coast'},
+    check:"Roll 1-in-6 twice by day and twice by night (WR); on a hit roll the terrain's Thematic Foe Tables Wildland 4d6 below. A creature with its own Reactions (d6) uses them instead of the 2d6.",
+    ENC:{grassland:'tft.wl.grassland',forest:'tft.wl.forest',jungle:'tft.wl.forest',swamp:'tft.wl.swamp',hills:'tft.wl.hills',mountains:'tft.wl.mountain',desert:'tft.wl.desert',arctic:'tft.wl.glacier',sea:'tft.wl.sea',lake:'tft.wl.river'},
+    CORE:{grassland:'sd.enc.grassland',forest:'sd.enc.forest',jungle:'sd.enc.jungle',swamp:'sd.enc.swamp',hills:'sd.enc.mountain',mountains:'sd.enc.mountain',desert:'sd.enc.desert',arctic:'sd.enc.arctic',sea:'sd.enc.ocean',lake:'sd.enc.river-coast'},
+    foe(R,id){const d=R.roll(id),v=d.values;return{text:`${v['No.']||'1'} × ${v['Foe']} (LV ${v['LV']}, AC ${v['AC']}, HP ${v['HP']}, ${v['Attack']}). Reactions (d6): ${v['Reactions']||''}`.trim(),cite:d.cite}},
     DISTRICT:{Transient:'sd.enc.slums',Common:'sd.enc.low-district',Craft:'sd.enc.artisan',Mercantile:'sd.enc.market',Affluent:'sd.enc.high-district',Education:'sd.enc.university',Religious:'sd.enc.temple',Military:'sd.enc.castle',Spectacle:'sd.enc.tavern',Palace:'sd.enc.castle'},
     odds(){return '1 in 6, ×2 day ×2 night'},
     encounter(R,t,river,coast){if(t==='sea'&&R.dice.chance(1,2)&&R.has('sea.denizens-4d6')){const d=R.roll('sea.denizens-4d6'),v=d.values;return{text:`${v['No.']||'1'} × ${v['Foe']} (LV ${v['LV']}, AC ${v['AC']}, HP ${v['HP']}, ${v['Attack']}). ${v['Trait']||''}`.trim(),cite:d.cite}}
-      let id=(river||coast)&&R.dice.chance(1,3)?'sd.enc.river-coast':this.ENC[t];const r=R.roll(id);return{text:r.text,cite:r.cite}},
+      let id=(river||coast)&&t!=='sea'&&R.dice.chance(1,3)?this.ENC.lake:this.ENC[t];if(R.has(id))return this.foe(R,id);const r=R.roll(this.CORE[t]);return{text:r.text,cite:r.cite}},
     town(R,d){const r=R.roll(this.DISTRICT[d.split(' ')[0]]||'sd.enc.low-district');return{text:r.text,cite:r.cite}},
-    dungeon(R,kind){const r=R.roll({tomb:'sd.enc.tomb',cave:'sd.enc.cave',deep:'sd.enc.deep-tunnels'}[kind]||'sd.enc.ruins');return{text:r.text,cite:r.cite}},
+    dungeon(R,kind){if(kind==='cave'&&R.has('tft.wl.underground')&&R.dice.chance(1,2))return this.foe(R,'tft.wl.underground');const r=R.roll({tomb:'sd.enc.tomb',cave:'sd.enc.cave',deep:'sd.enc.deep-tunnels'}[kind]||'sd.enc.ruins');return{text:r.text,cite:r.cite}},
     tableFor(t){return this.ENC[t]}},
   ose:{key:'ose',name:'Old-School Essentials',
-    travel:'Base movement ÷ 5 = miles a day (120′ → 24 mi, 4 hexes); forest, hills, swamp ×⅔, mountains ×½; roads ×1½.',
-    check:'Roll once a day; encounter on the terrain odds below. Distance 4d6×10 yards; surprise as normal.',
+    travel:"Base movement ÷ 5 = miles a day (120′ → 24 mi, 4 hexes). Desert, forest, hills ×⅔; jungle, mountains, swamp ×½. A trail is normal speed anywhere, a road ×1½. Flying: double miles, terrain ignored. Forced march ×1½, then rest a full day. Rest 1 day in 7, or −1 to attack and damage until you do (Player's Book pp. 230–231).",
+    check:'Each travel day: roll for getting lost first (not on a road or trail, with a guide, or heading for a landmark), then once for encounters, on the terrain odds below. Distance 4d6×10 yards, 1d4×10 if either side is surprised. Foraging: 1-in-6 a day feeds 1d6. Hunting takes the day: +1-in-6 animal encounter.',
     CH:{grassland:1,forest:2,hills:2,desert:2,sea:2,lake:2,jungle:3,swamp:3,mountains:3,arctic:2},
+    LOST:{grassland:1,forest:2,hills:2,desert:3,jungle:3,swamp:3,mountains:2},
     BY:{grassland:'grasslands',forest:'forest',hills:'mountains',mountains:'mountains',jungle:'jungle',swamp:'swamp',desert:'desert',arctic:'mountains',sea:'ocean-sea',lake:'lake-river'},
     SUB:{'1':'ose.enc.sub1','2':'ose.enc.sub2',B:'ose.enc.B',C:'ose.enc.C',D:'ose.enc.D',F:'ose.enc.F',G:'ose.enc.G',J:'ose.enc.J',L:'ose.enc.L',O:'ose.enc.O',S:'ose.enc.S'},
-    odds(t){return `${this.CH[t]||2} in 6, once a day`},
+    odds(t){const l=this.LOST[t];return `encounter ${this.CH[t]||2} in 6 once a day · ${l?`lost ${l} in 6`:(t==='sea'||t==='lake'?'lost: waterborne rules':'lost: referee')}`},
     resolve(R,by){const t=R.roll(by);const[letter,kind0]=t.text.split('—');const kind=(kind0||'').trim(),L=letter.trim();const sub=this.SUB[L];
       if(!sub||!R.has(sub))return{text:kind||t.text,cite:t.cite};const tb=R.get(sub);
       let col=(tb.c||[]).find(c=>c.toLowerCase().startsWith(kind.toLowerCase().slice(0,5)));
@@ -549,10 +552,11 @@ function playTables(R,reg){const M=reg.M,sys=reg.sys;const ters=[...new Set(M.al
   const t=R.get('oh.daily-weather-by-terrain');const cols=t.c.filter(c=>ters.some(x=>OH_COL[x]===c));const idx=cols.map(c=>t.c.indexOf(c)+1);
   o.push(`<details class="entry"><summary>Daily weather <small>2d6 · 2–4 stormy, 10–12 excellent ${cite('OH')}</small></summary><div class="tw"><table><tr><th>2d6</th>${cols.map(c=>`<th>${E(c)}</th>`).join('')}</tr>${t.r.map(r=>`<tr><td class="n">${E(r[0])}</td>${idx.map(i=>`<td>${E(r[i])}</td>`).join('')}</tr>`).join('')}</table></div></details>`);
   const done=new Set();for(const x of ters){const id=sys.tableFor(x);if(done.has(id)||!R.has(id))continue;done.add(id);const tb=R.get(id);
-    o.push(`<details class="entry"><summary>${E(R.title(id))} <small>${E(tb.d)} · ${E(sys.odds(x))} ${cite(R.cite(id))}</small></summary><div class="tw"><table>${tb.r.map(r=>`<tr><td class="n">${E(r[0])}</td><td>${E(r.slice(1).join(' — '))}</td></tr>`).join('')}</table></div></details>`)}
+    const tft=id.startsWith('tft.'),n=tft?tb.c.indexOf('Reactions')+1:0;
+    o.push(`<details class="entry"><summary>${E(R.title(id))} <small>${E(tb.d)} · ${E(sys.odds(x))} ${cite(R.cite(id))}</small></summary><div class="tw"><table>${tft?`<tr><th>${E(tb.d)}</th>${tb.c.slice(0,n-1).map(c=>`<th>${E(c)}</th>`).join('')}</tr>`+tb.r.map(r=>`<tr>${r.slice(0,n).map((v,i)=>`<td${i?'':' class="n"'}>${E(v)}</td>`).join('')}</tr>`).join(''):tb.r.map(r=>`<tr><td class="n">${E(r[0])}</td><td>${E(r.slice(1).join(' — '))}</td></tr>`).join('')}</table></div></details>`)}
   const full=(id,ttl)=>{if(!R.has(id))return'';const tb=R.get(id);const head=tb.c&&tb.c.length>1?`<tr><th></th>${tb.c.map(c=>`<th>${E(c)}</th>`).join('')}</tr>`:'';
     return`<details class="entry"><summary>${E(ttl||R.title(id))} <small>${E(tb.d||'')} ${cite(R.cite(id))}</small></summary><div class="tw"><table>${head}${tb.r.map(r=>`<tr>${r.map((v,i)=>`<td${i?'':' class="n"'}>${E(v??'')}</td>`).join('')}</tr>`).join('')}</table></div></details>`};
-  const ex=[];if(sys.key==='sd')ex.push(full('sd.enc.cave'),full('sd.enc.deep-tunnels'),full('sd.enc.tomb'),full('sd.enc.ruins'),full('oh.rumours-wr','Rumours in the Reaches'));else ex.push(...R.find('ose.dungeon.').map(t=>full(t)));
+  const ex=[];if(sys.key==='sd')ex.push(full('sd.enc.cave'),full('tft.wl.underground'),full('sd.enc.deep-tunnels'),full('sd.enc.tomb'),full('sd.enc.ruins'),full('oh.rumours-wr','Rumours in the Reaches'));else ex.push(...R.find('ose.dungeon.').map(t=>full(t)));
   if(M.all().some(x=>x.road))ex.push(full('oh.path-encounters','On the road'));
   if(M.all().some(x=>x.terrain==='sea'))ex.push(full('sea.weather','Weather at sea'),full('sea.wind-strength-roll-when-the-last-wind-en','Wind strength'),full('sea.wind-direction-first-day-the-edge-it-blo','Wind direction'),full('sea.sea-event','Sea event'),full('sea.denizens-4d6','Denizens'),full('oss.enc.low'),full('oss.enc.mid'),full('oss.enc.high'),full('oss.hazard','Ship hazard'),full('oss.hazard.results','Ship hazard results'),full('sea.reaction-2d6-cha','Reaction at sea'),full('sea.sea-treasure','Sea treasure'));
   ex.push(full('uvg.p177.general-travel-misfortune-and-misery-a-c','Travel misfortune'),full('oh.quest-archetypes','Quest archetypes'),full('oh.patron','Patron'),full('oh.reward','Reward'),full('oh.acts-of-devotion-the-outcome','Downtime: devotion'),full('oh.combat-training-the-outcome','Downtime: training'),full('oh.magical-study-the-outcome','Downtime: study'));
