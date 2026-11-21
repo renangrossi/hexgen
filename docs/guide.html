@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Hexcrawl Forge — Guide</title>
+<style>
+@page{size:A4;margin:16mm 16mm 18mm}
+body{font:10.5pt/1.5 Georgia,serif;color:#1c2321}
+h1{font-size:26pt;color:#1f5d58;margin:0 0 4pt} h2{font-size:15pt;color:#1f5d58;border-bottom:1.5pt solid #1f5d58;margin:16pt 0 6pt;break-after:avoid}
+h3{font-size:11.5pt;margin:10pt 0 3pt;break-after:avoid} p,li{margin:3pt 0}
+code,pre{font:9pt 'DejaVu Sans Mono',monospace;background:#eef1ec} pre{padding:6pt 8pt;border-radius:3pt;white-space:pre-wrap;break-inside:avoid}
+table{border-collapse:collapse;width:100%;font-size:9.5pt;margin:4pt 0 8pt;break-inside:avoid}
+td,th{border-bottom:.5pt solid #cfd4cc;padding:2.5pt 5pt;text-align:left;vertical-align:top} th{background:#e3e8e1}
+.lead{color:#5d6763;font-size:11pt}
+</style></head><body>
+<h1>Hexcrawl Forge</h1>
+<p class="lead">Rolls a whole hexcrawl region from your table library, for Shadowdark now and Old-School Essentials later. Every line it writes cites its book and page.</p>
+
+<h2>Two ways to use it</h2>
+<table><tr><th>Web page</th><td>https://claude.ai/artifact/VPxqaZoNWxcwBME2pSa2qe — runs in the browser, nothing to install. Private to you.</td></tr>
+<tr><th>Command line</th><td>The <code>hexgen</code> folder. Makes HTML, Markdown, JSON and PDF files in <code>out/</code>.</td></tr></table>
+
+<h2>The web page</h2>
+<h3>Region tab</h3>
+<table>
+<tr><th>System</th><td>Shadowdark (Western Reaches travel, core encounter tables) or OSE (Referee’s Book encounter tables, real monster names).</td></tr>
+<tr><th>Width, Height</th><td>Map size in hexes. Each hex is 6 miles. 16×12 is a good start.</td></tr>
+<tr><th>Climate</th><td>Temperate, cold (glaciers), hot (jungle), dry (desert).</td></tr>
+<tr><th>Sea on</th><td>Which map edges are coast. Tick none for a landlocked region.</td></tr>
+<tr><th>Seed</th><td>The number every roll comes from. Same seed and settings, same region.</td></tr>
+<tr><th>Name</th><td>Optional. Left blank, the region name is rolled and matched to its main terrain.</td></tr>
+<tr><th>Generate region</th><td>Rolls the region for the seed in the box. Pressed again unchanged, it gives the same region.</td></tr>
+<tr><th>New seed</th><td>Puts a random seed in the box and rolls a new region.</td></tr>
+</table>
+<p>Tap a hex on the map to jump to its entry. Write down the seed of a region you want to keep.</p>
+<h3>Other tabs</h3>
+<p><b>Settlement</b> rolls one place of any size, with an optional port. <b>Ships</b> rolls ships. <b>Any table</b> searches all 982 tables by id or title, rolls one several times, or shows it whole.</p>
+
+<h2>What a region contains</h2>
+<table>
+<tr><th>Map</th><td>Terrain, rivers, lakes, coast, roads between settlements; ruins ⌂ and lairs ☠ marked.</td></tr>
+<tr><th>Settlements</th><td>Spectacular Settlements’ full procedure for the size; WWN reason, ruler, problem, a local who needs the PCs, what it offers, Community tags; Perilous Wilds feature and problem; Overland Hexcrawl districts, shops, tavern, events, rumours; street encounters by district; NPCs, hirelings, trade jobs, temple.</td></tr>
+<tr><th>Ports</th><td>Harbour, who rules the docks, trouble on the quay, passage and captain, ships at anchor.</td></tr>
+<tr><th>Ships</th><td>Of Ships &amp; the Sea type, purpose, attitude, crew, name, disposition; hull state, hold, crew mood, a crew member, her story; boat stats.</td></tr>
+<tr><th>Hex key</th><td>Hazards, lore, situations, creatures, points of interest, landmarks, discoveries, WWN wilderness tags.</td></tr>
+<tr><th>Ruins, lairs</th><td>WWN ruin chapter and tags, Perilous Wilds dungeons, OH dungeon tables and treasure; WWN lair complications.</td></tr>
+<tr><th>Powers</th><td>Two WWN courts, two OH factions, and how each pair stands.</td></tr>
+<tr><th>Play tables</th><td>Travel and encounter rules for the system, daily weather by terrain, every encounter table the map needs.</td></tr>
+</table>
+
+<h2>Command line</h2>
+<pre>cd "Shadowdark/My Projects/hexgen"
+python3 -m hexgen region                       # Shadowdark, 16×12, sea west
+python3 -m hexgen --seed 7 region --system ose --climate cold --sea n --size 20x14 --pdf
+python3 -m hexgen settlement --kind city --coastal
+python3 -m hexgen ship --count 3
+python3 -m hexgen roll pw.discovery --times 5
+python3 -m hexgen list wwn.p183                # browse table ids
+make test                                       # every table rolls, both systems render</pre>
+
+<h2>Sources</h2>
+<table>
+<tr><th>WWN</th><td>Worlds Without Number — settlements, courts, ruins, 200 tags, NPCs</td></tr>
+<tr><th>SS</th><td>Spectacular Settlements</td></tr>
+<tr><th>PW</th><td>The Perilous Wilds — discovery, danger, creatures, steadings, names</td></tr>
+<tr><th>OSS</th><td>Of Ships &amp; the Sea screen — random ships</td></tr>
+<tr><th>SD</th><td>Shadowdark core — 22 encounter d100s</td></tr>
+<tr><th>OSE</th><td>Old-School Essentials Referee’s Book — wilderness encounters</td></tr>
+<tr><th>OH, SV</th><td>Your Overland Hexcrawl Simplified and Sea Voyages</td></tr>
+<tr><th>MONT, UVG</th><td>Montfroid hirelings; Ultraviolet Grasslands trade jobs</td></tr>
+</table>
+
+<h2>Adding books and updating</h2>
+<p>List a book in <code>sources.yaml</code>, then run <code>make data</code>: it extracts the die tables from the PDF, gives each an id <code>&lt;book&gt;.p&lt;page&gt;.&lt;title&gt;</code>, and checks they all roll. Tables with gaps are marked for review and skipped. Fix a mangled table in <code>data/hand/overrides.yaml</code>.</p>
+<p>After changing tables, run <code>python3 tools/export_web.py</code> and republish the web page to the same link.</p>
+<p>The repository holds text from books you own. It is a private GitHub repository; keep it private.</p>
+</body></html>
