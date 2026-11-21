@@ -1,4 +1,4 @@
-"""Pack every table and extra into web/data.json for the in-browser generator."""
+"""Pack every table and extra into docs/data.json for the in-browser generator (GitHub Pages)."""
 import os, sys, json
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 from hexgen.tables import Registry
@@ -13,6 +13,6 @@ for tid, t in R.tables.items():
     if t.title != tid: d['t'] = t.title
     if t.review: d['x'] = 1
     out['tables'][tid] = d
-p = os.path.join(os.path.dirname(__file__), '..', 'web', 'data.json')
+p = os.path.join(os.path.dirname(__file__), '..', 'docs', 'data.json')
 json.dump(out, open(p, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 print(p, os.path.getsize(p))

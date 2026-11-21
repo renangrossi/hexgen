@@ -14,7 +14,7 @@ td,th{border-bottom:.5pt solid #cfd4cc;padding:2.5pt 5pt;text-align:left;vertica
 <p class="lead">Rolls a whole hexcrawl region from your table library, for Shadowdark now and Old-School Essentials later. Every line it writes cites its book and page.</p>
 
 <h2>Two ways to use it</h2>
-<table><tr><th>Web page</th><td>https://claude.ai/artifact/VPxqaZoNWxcwBME2pSa2qe — runs in the browser, nothing to install. Private to you.</td></tr>
+<table><tr><th>Web page</th><td>https://renangrossi.github.io/hexgen/ — runs in the browser, nothing to install.</td></tr>
 <tr><th>Command line</th><td>The <code>hexgen</code> folder. Makes HTML, Markdown, JSON and PDF files in <code>out/</code>.</td></tr></table>
 
 <h2>The web page</h2>
@@ -79,6 +79,6 @@ make test                                       # every table rolls, both system
 
 <h2>Adding books and updating</h2>
 <p>List a book in <code>sources.yaml</code>, then run <code>make data</code>: it extracts the die tables from the PDF, gives each an id <code>&lt;book&gt;.p&lt;page&gt;.&lt;title&gt;</code>, and checks they all roll. Tables with gaps are marked for review and skipped. Fix a mangled table in <code>data/hand/overrides.yaml</code>.</p>
-<p>After changing tables, run <code>python3 tools/export_web.py</code> and republish the web page to the same link.</p>
-<p>The repository holds text from books you own. It is a private GitHub repository; keep it private.</p>
+<p>After changing tables, run <code>python3 tools/export_web.py</code>, commit and push to <code>main</code>; GitHub Pages redeploys the web page.</p>
+<p>Source: https://github.com/renangrossi/hexgen</p>
 </body></html>

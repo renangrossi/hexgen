@@ -1,5 +1,7 @@
 # hexgen
 
+**Use it in the browser:** https://renangrossi.github.io/hexgen/
+
 Rolls a whole hexcrawl region from your table library: map, settlements and ports, roads
 and rivers, every hex keyed, ruins, lairs, powers and their feuds, ships, rumours, hooks.
 It writes a printable gazetteer (HTML → PDF), Markdown and JSON. Every line cites its book
@@ -80,4 +82,8 @@ misfortunes), Ruinous Explorations (a solo oracle, not tables), and the Philip R
 Raging Swan and Ashworth books in `Solo Gaming Assets/02 Random Tables` — add them to
 `sources.yaml` to pull their tables in.
 
-The extracted text comes from books you own. Keep this repository private.
+## The web page
+
+`docs/index.html` is the same generator in JavaScript; it loads `docs/data.json`
+(`python3 tools/export_web.py` rebuilds it from `data/`). GitHub Pages serves `docs/` from `main`,
+so pushing to `main` updates the site. `tools/build_guide.py` rebuilds the guide PDF and copies it there.
