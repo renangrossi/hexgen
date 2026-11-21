@@ -40,7 +40,7 @@ same region.
 | Wilderness tags | WWN pp. 202–216 |
 | Ruins | WWN ruin chapter p. 183 + ruin tags + PW dungeon + OH dungeon type, size, quirk + WWN hazards, enigmas, treasure spots |
 | Lairs | system encounter + WWN lair complications p. 229 + PW lair + OH treasure |
-| Creatures | **SD**: Thematic Foe Tables Wildland 4d6 by terrain, with stats and Reactions (TFT pp. 94–122); core d100s for ruins, tombs, tunnels and towns · **OSE**: Referee's Book d8 terrain → sub-tables (pp. 142–147) |
+| Creatures | **SD**: Thematic Foe Tables Wildland 4d6 by terrain, with stats and Reactions (TFT pp. 94–128, reefs and sea folk included); core d100s for ruins, tombs, tunnels and towns · **OSE**: Referee's Book d8 terrain → sub-tables (pp. 142–147) |
 | Sea hexes | Sea Voyages uncharted hex, finds, islands; OH sea points of interest |
 | Powers | WWN courts pp. 163–167 + court tags; OH faction generator; OH domain relations |
 | Weather (play tables) | OH 2d6 by terrain (WR odds) |
