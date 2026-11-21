@@ -6072,224 +6072,6 @@ tables:
       - The dragon Ixamir has awoken from her 200-year slumber
     die: d100
     note: 'source: SD:124'
-  oh.rumours-in-the-reaches-1-50:
-    title: Rumours in the Reaches · 1–50
-    page: null
-    cols:
-    - What they tell you
-    rows:
-    - - '01'
-      - Devil’s Peak in the Rimespires has a mighty spell upon it
-    - - '02'
-      - No road in the Western Reaches is safe from local bandits
-    - - '03'
-      - Deep underground, there is a dark library full of knowledge
-    - - '04'
-      - If you see a suspicious mountain goat, try to capture it
-    - - '05'
-      - In the Steppes, the Iron King guards a castle full of treasure
-    - - '06'
-      - Pit fighting is a common practice in the Djurum Desert
-    - - '07'
-      - There is an inescapable prison-island in the Last Sea
-    - - 08
-      - Rangers in the Sablewood are first to learn of dangers
-    - - 09
-      - Portals to other worlds are hidden all throughout the land
-    - - '10'
-      - Demons hatch out of black trees in The Gloaming forest
-    - - '11'
-      - Giant crabs swarm all over a tropical island far to the south
-    - - '12'
-      - A secretive village of halflings hides in the Lowland Moor
-    - - '13'
-      - The founding king of Stonehall was not buried there
-    - - '14'
-      - Atop a cloudy peak, an immortal man dwells in isolation
-    - - '15'
-      - The dwarves in the Bastions are beset by wyvern attacks
-    - - '16'
-      - St. Terragnis fought mighty devils in the Rimespire peaks
-    - - '17'
-      - Black structures in the jungle house otherworldly beings
-    - - '18'
-      - The elf City-State of Lydonia is a surreal place of magic
-    - - '19'
-      - An accursed dragon flies over the desert during storms
-    - - '20'
-      - An ancient tyrant’s castle lies abandoned in the Sablewood
-    - - '21'
-      - You might spot a rare blue tiger in the Dhalpurna range
-    - - '22'
-      - Elder dwarves called the dverg explored this land long ago
-    - - '23'
-      - The desert is home to ancient cults and dying traditions
-    - - '24'
-      - The villages in the Isles of Andrik are always in conflict
-    - - '25'
-      - A king’s pyramid lies buried in the trackless desert sands
-    - - '26'
-      - Every devil’s contract is pinned to a cursed tree in the bog
-    - - '27'
-      - You can find a dragon in almost every region of the Reaches
-    - - '28'
-      - Nuns who battle demons live in a priory in the Rimespires
-    - - '29'
-      - Beware mountains that spire fire; they have fierce denizens
-    - - '30'
-      - Don’t try to steal a silver camel from the Siruul elves or else
-    - - '31'
-      - Powerful dead creatures draw evil necromancers like flies
-    - - '32'
-      - The raiders from the northern isles war among themselves
-    - - '33'
-      - The archmage Murabi is entombed in the Silent Mountains
-    - - '34'
-      - Dwarves are creating a new settlement in the Bastions
-    - - '35'
-      - Daryos of Reme is the greatest duelist in all the Reaches
-    - - '36'
-      - Countless bandits wait to ambush merchants in the desert
-    - - '37'
-      - A rare blue tree frog in the jungle can cure any disease
-    - - '38'
-      - Pirates hide out along the rivers and coasts of the jungle
-    - - '39'
-      - Every village and town hides a secret if you look carefully
-    - - '40'
-      - The dwarves of Stonehall are friendly, if you can get inside
-    - - '41'
-      - A terrible plague has beset a small village in The Gloaming
-    - - '42'
-      - A pirate with a genius intellect rules a town in the desert
-    - - '43'
-      - The most ancient humans in the Reaches live in the jungle
-    - - '44'
-      - There’s a living mountain called Old Father who speaks
-    - - '45'
-      - Elemental powers take human shape in the Kyzian Steppes
-    - - '46'
-      - Do not trust ordinary folk who speak in the Dragon tongue
-    - - '47'
-      - A crazy blue kobold lives on a dinghy in the south Last Sea
-    - - '48'
-      - The lost citadel of an ancient bull god lies in the Steppes
-    - - '49'
-      - An old woman in the northern isles can change your fate
-    - - '50'
-      - Fire dwarves live on a volcanic island near the Rimespires
-    die: d100
-    note: 'source: WRG:50'
-    review: 50 results uncovered
-  oh.rumours-in-the-reaches-51-100:
-    title: Rumours in the Reaches · 51–100
-    page: null
-    cols:
-    - What they tell you
-    rows:
-    - - '51'
-      - An city of goblins and orcs sits high in the Gilzai Mountains
-    - - '52'
-      - Witches are hated in some villages in The Gloaming forest
-    - - '53'
-      - A famous saint stopped an earthquake on a rocky island
-    - - '54'
-      - Meeting a werebear is said to bring good health and luck
-    - - '55'
-      - There’s a lawless pirate town on the coast of the jungle
-    - - '56'
-      - A wolf with six burning eyes stalks the Lowland Moor
-    - - '57'
-      - A retired old man lives alone in a keep on the west coast
-    - - '58'
-      - There is a way to summon storms in the far southern peaks
-    - - '59'
-      - Lizardfolk ruled the central swamp long before humankind
-    - - '60'
-      - Wizards build their lonely towers in the most remote places
-    - - '61'
-      - A grumpy old goblin saved a hunter lost inside Myre Swamp
-    - - '62'
-      - Beware empty cabins in the woods; they’re always haunted
-    - - '63'
-      - Strange orcs that are sensitive to light dwell in the Bastions
-    - - '64'
-      - The best way to learn about a town is to visit its tavern
-    - - '65'
-      - Unsettling shamans in black gather in the Kyzian Steppes
-    - - '66'
-      - If you toss a coin in a well and don’t hear a splash, beware
-    - - '67'
-      - The priest on the remote island of Huran recently went mad
-    - - '68'
-      - The many Kyzian Princes each vie for power and influence
-    - - '69'
-      - Sailing near the west side of the Bastions can be dangerous
-    - - '70'
-      - The pirate ship Myth Mortis was seen at a northern island
-    - - '71'
-      - Many famous explorers are drawn to the Tal-Yool Jungle
-    - - '72'
-      - The Green Knights have fallen, but a few of them still exist
-    - - '73'
-      - A strange mystic lives in a high cave in the Silent Mountains
-    - - '74'
-      - Only true-hearted wizards can study at Gedgarrin University
-    - - '75'
-      - The famous elf bandit Lysandir lives in the Sablewood
-    - - '76'
-      - Ancient abominations sleep beneath purple mountains
-    - - '77'
-      - A witch gifted with dark fey magic lives in Myre Swamp
-    - - '78'
-      - A giant iceberg in the northern sea has shapes moving in it
-    - - '79'
-      - Goblins and orcs always gather in remote box canyons
-    - - '80'
-      - Foolish nobles built estates at the edge of Myre Swamp
-    - - '81'
-      - The fire dragon the Kyzian Queen drove off is still out there
-    - - '82'
-      - The Willowman is real and he haunts The Gloaming forest
-    - - '83'
-      - If you see an onyx statue of a twisted human, don’t touch it
-    - - '84'
-      - Some monks in the Dhalpurnas have transcended death
-    - - '85'
-      - If you want to learn witchcraft, find Uncle Grigor in the bogs
-    - - '86'
-      - Giant spiders have crept back into the Sablewood recently
-    - - '87'
-      - Madness lies beyond the lonely gate of metal and lightning
-    - - '88'
-      - There are no better horse trainers than the Kyzian people
-    - - '89'
-      - Gods walk in the Silent Mountains during the full moon
-    - - '90'
-      - Three island mark the site of a city that sank into the sea
-    - - '91'
-      - Trolls in the Lowland Moor know magical words of power
-    - - '92'
-      - Those on the road west of the swamp often hear yodeling
-    - - '93'
-      - Strange lords from the Fey Realms dwell in the Sablewood
-    - - '94'
-      - A retired gladiator named Rameer trains aspiring fighters
-    - - '95'
-      - Something bad is happening to travelers in Frostfall Pass
-    - - '96'
-      - A scary witch lives in the heath of the Duchy of Montmar
-    - - '97'
-      - The snake-people of myth still dwell in the remote jungle
-    - - '98'
-      - The Duke of the City of Masks and King of Lydonia are allies
-    - - '99'
-      - There is no more evil place under the sun than Myre Swamp
-    - - '100'
-      - There is an altar on a distant mountain that can restore life
-    die: d100
-    note: 'source: WRG:52'
-    review: 50 results uncovered
   oh.path-encounters:
     title: Path encounters
     page: null
@@ -8372,3 +8154,211 @@ tables:
       - Severity
       - 'A hazard’s band: minor, normal or major.'
     note: 'source: NEW'
+  oh.rumours-wr:
+    title: Rumours in the Reaches
+    page: null
+    cols:
+    - What they tell you
+    rows:
+    - - '01'
+      - Devil’s Peak in the Rimespires has a mighty spell upon it
+    - - '02'
+      - No road in the Western Reaches is safe from local bandits
+    - - '03'
+      - Deep underground, there is a dark library full of knowledge
+    - - '04'
+      - If you see a suspicious mountain goat, try to capture it
+    - - '05'
+      - In the Steppes, the Iron King guards a castle full of treasure
+    - - '06'
+      - Pit fighting is a common practice in the Djurum Desert
+    - - '07'
+      - There is an inescapable prison-island in the Last Sea
+    - - 08
+      - Rangers in the Sablewood are first to learn of dangers
+    - - 09
+      - Portals to other worlds are hidden all throughout the land
+    - - '10'
+      - Demons hatch out of black trees in The Gloaming forest
+    - - '11'
+      - Giant crabs swarm all over a tropical island far to the south
+    - - '12'
+      - A secretive village of halflings hides in the Lowland Moor
+    - - '13'
+      - The founding king of Stonehall was not buried there
+    - - '14'
+      - Atop a cloudy peak, an immortal man dwells in isolation
+    - - '15'
+      - The dwarves in the Bastions are beset by wyvern attacks
+    - - '16'
+      - St. Terragnis fought mighty devils in the Rimespire peaks
+    - - '17'
+      - Black structures in the jungle house otherworldly beings
+    - - '18'
+      - The elf City-State of Lydonia is a surreal place of magic
+    - - '19'
+      - An accursed dragon flies over the desert during storms
+    - - '20'
+      - An ancient tyrant’s castle lies abandoned in the Sablewood
+    - - '21'
+      - You might spot a rare blue tiger in the Dhalpurna range
+    - - '22'
+      - Elder dwarves called the dverg explored this land long ago
+    - - '23'
+      - The desert is home to ancient cults and dying traditions
+    - - '24'
+      - The villages in the Isles of Andrik are always in conflict
+    - - '25'
+      - A king’s pyramid lies buried in the trackless desert sands
+    - - '26'
+      - Every devil’s contract is pinned to a cursed tree in the bog
+    - - '27'
+      - You can find a dragon in almost every region of the Reaches
+    - - '28'
+      - Nuns who battle demons live in a priory in the Rimespires
+    - - '29'
+      - Beware mountains that spire fire; they have fierce denizens
+    - - '30'
+      - Don’t try to steal a silver camel from the Siruul elves or else
+    - - '31'
+      - Powerful dead creatures draw evil necromancers like flies
+    - - '32'
+      - The raiders from the northern isles war among themselves
+    - - '33'
+      - The archmage Murabi is entombed in the Silent Mountains
+    - - '34'
+      - Dwarves are creating a new settlement in the Bastions
+    - - '35'
+      - Daryos of Reme is the greatest duelist in all the Reaches
+    - - '36'
+      - Countless bandits wait to ambush merchants in the desert
+    - - '37'
+      - A rare blue tree frog in the jungle can cure any disease
+    - - '38'
+      - Pirates hide out along the rivers and coasts of the jungle
+    - - '39'
+      - Every village and town hides a secret if you look carefully
+    - - '40'
+      - The dwarves of Stonehall are friendly, if you can get inside
+    - - '41'
+      - A terrible plague has beset a small village in The Gloaming
+    - - '42'
+      - A pirate with a genius intellect rules a town in the desert
+    - - '43'
+      - The most ancient humans in the Reaches live in the jungle
+    - - '44'
+      - There’s a living mountain called Old Father who speaks
+    - - '45'
+      - Elemental powers take human shape in the Kyzian Steppes
+    - - '46'
+      - Do not trust ordinary folk who speak in the Dragon tongue
+    - - '47'
+      - A crazy blue kobold lives on a dinghy in the south Last Sea
+    - - '48'
+      - The lost citadel of an ancient bull god lies in the Steppes
+    - - '49'
+      - An old woman in the northern isles can change your fate
+    - - '50'
+      - Fire dwarves live on a volcanic island near the Rimespires
+    - - '51'
+      - An city of goblins and orcs sits high in the Gilzai Mountains
+    - - '52'
+      - Witches are hated in some villages in The Gloaming forest
+    - - '53'
+      - A famous saint stopped an earthquake on a rocky island
+    - - '54'
+      - Meeting a werebear is said to bring good health and luck
+    - - '55'
+      - There’s a lawless pirate town on the coast of the jungle
+    - - '56'
+      - A wolf with six burning eyes stalks the Lowland Moor
+    - - '57'
+      - A retired old man lives alone in a keep on the west coast
+    - - '58'
+      - There is a way to summon storms in the far southern peaks
+    - - '59'
+      - Lizardfolk ruled the central swamp long before humankind
+    - - '60'
+      - Wizards build their lonely towers in the most remote places
+    - - '61'
+      - A grumpy old goblin saved a hunter lost inside Myre Swamp
+    - - '62'
+      - Beware empty cabins in the woods; they’re always haunted
+    - - '63'
+      - Strange orcs that are sensitive to light dwell in the Bastions
+    - - '64'
+      - The best way to learn about a town is to visit its tavern
+    - - '65'
+      - Unsettling shamans in black gather in the Kyzian Steppes
+    - - '66'
+      - If you toss a coin in a well and don’t hear a splash, beware
+    - - '67'
+      - The priest on the remote island of Huran recently went mad
+    - - '68'
+      - The many Kyzian Princes each vie for power and influence
+    - - '69'
+      - Sailing near the west side of the Bastions can be dangerous
+    - - '70'
+      - The pirate ship Myth Mortis was seen at a northern island
+    - - '71'
+      - Many famous explorers are drawn to the Tal-Yool Jungle
+    - - '72'
+      - The Green Knights have fallen, but a few of them still exist
+    - - '73'
+      - A strange mystic lives in a high cave in the Silent Mountains
+    - - '74'
+      - Only true-hearted wizards can study at Gedgarrin University
+    - - '75'
+      - The famous elf bandit Lysandir lives in the Sablewood
+    - - '76'
+      - Ancient abominations sleep beneath purple mountains
+    - - '77'
+      - A witch gifted with dark fey magic lives in Myre Swamp
+    - - '78'
+      - A giant iceberg in the northern sea has shapes moving in it
+    - - '79'
+      - Goblins and orcs always gather in remote box canyons
+    - - '80'
+      - Foolish nobles built estates at the edge of Myre Swamp
+    - - '81'
+      - The fire dragon the Kyzian Queen drove off is still out there
+    - - '82'
+      - The Willowman is real and he haunts The Gloaming forest
+    - - '83'
+      - If you see an onyx statue of a twisted human, don’t touch it
+    - - '84'
+      - Some monks in the Dhalpurnas have transcended death
+    - - '85'
+      - If you want to learn witchcraft, find Uncle Grigor in the bogs
+    - - '86'
+      - Giant spiders have crept back into the Sablewood recently
+    - - '87'
+      - Madness lies beyond the lonely gate of metal and lightning
+    - - '88'
+      - There are no better horse trainers than the Kyzian people
+    - - '89'
+      - Gods walk in the Silent Mountains during the full moon
+    - - '90'
+      - Three island mark the site of a city that sank into the sea
+    - - '91'
+      - Trolls in the Lowland Moor know magical words of power
+    - - '92'
+      - Those on the road west of the swamp often hear yodeling
+    - - '93'
+      - Strange lords from the Fey Realms dwell in the Sablewood
+    - - '94'
+      - A retired gladiator named Rameer trains aspiring fighters
+    - - '95'
+      - Something bad is happening to travelers in Frostfall Pass
+    - - '96'
+      - A scary witch lives in the heath of the Duchy of Montmar
+    - - '97'
+      - The snake-people of myth still dwell in the remote jungle
+    - - '98'
+      - The Duke of the City of Masks and King of Lydonia are allies
+    - - '99'
+      - There is no more evil place under the sun than Myre Swamp
+    - - '100'
+      - There is an altar on a distant mountain that can restore life
+    die: d100
+    note: 'source: WRG:50'

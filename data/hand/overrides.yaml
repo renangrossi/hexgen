@@ -5,7 +5,7 @@ overrides:
   ose.enc.O:
     title: "Wilderness Encounter Sub-table O: Ocean, Sea"
     die: d20
-    page: 147
+    page: 145
     cols: [Human, Swimmer]
     rows:
       - ['1', Buccaneer, Dragon Turtle]

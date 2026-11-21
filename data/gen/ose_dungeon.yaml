@@ -1,0 +1,514 @@
+source:
+  id: OSE
+  title: Old-School Essentials — Referee's Book (2026)
+tables:
+  ose.dungeon.l1:
+    title: Dungeon encounters, level 1
+    die: d40
+    page: 138
+    rows:
+    - - '1'
+      - Acolyte (1d8)
+    - - '2'
+      - Bandit (1d8)
+    - - '3'
+      - Beetle, Fire (1d8)
+    - - '4'
+      - Beetle, Oil (1d3)
+    - - '5'
+      - Berserker (1d4)
+    - - '6'
+      - Brown Mould (1d3)
+    - - '7'
+      - Brownie (3d6)
+    - - '8'
+      - Dark Lurker (1)
+    - - '9'
+      - Dog, Wild (2d6)
+    - - '10'
+      - Dwarf (1d6)
+    - - '11'
+      - Frog, Mutant (3d6)
+    - - '12'
+      - Gas Spore (1d3)
+    - - '13'
+      - Gnome (1d6)
+    - - '14'
+      - Goblin (2d4)
+    - - '15'
+      - Green Slime (1d4)
+    - - '16'
+      - Gullygug (2d6)
+    - - '17'
+      - Halfling (3d6)
+    - - '18'
+      - Homunculus (1)
+    - - '19'
+      - Killer Bee (1d10)
+    - - '20'
+      - Kobold (4d4)
+    - - '21'
+      - Leprechaun (1)
+    - - '22'
+      - Lizard, Gecko (1d3)
+    - - '23'
+      - Mutoid (1d8)
+    - - '24'
+      - Necrophidius (1)
+    - - '25'
+      - Orc (2d4)
+    - - '26'
+      - Piercer 1 HD (3d6)
+    - - '27'
+      - Poltergeist (1d3)
+    - - '28'
+      - Robber Fly (1d3)
+    - - '29'
+      - Rot Grub (5d4)
+    - - '30'
+      - Shrew, Giant (1d10)
+    - - '31'
+      - Skeleton (3d4)
+    - - '32'
+      - Snake, Cobra (1d6)
+    - - '33'
+      - Spider, Crab (1d4)
+    - - '34'
+      - Sprite (3d6)
+    - - '35'
+      - Stirge (1d10)
+    - - '36'
+      - Toad, Poisonous (1d4)
+    - - '37'
+      - Trader (1d8)
+    - - '38'
+      - Troglodyte (1d4)
+    - - '39'
+      - Wolf (2d6)
+    - - '40'
+      - Zombie (1d4)
+  ose.dungeon.l2:
+    title: Dungeon encounters, level 2
+    die: d40
+    page: 138
+    rows:
+    - - '1'
+      - Ankheg 3 HD (1d2)
+    - - '2'
+      - Beetle, Oil (1d8)
+    - - '3'
+      - Berserker (1d6)
+    - - '4'
+      - Brown Mould (1d8)
+    - - '5'
+      - Cat, Mntn. Lion (1d4)
+    - - '6'
+      - Coffer Wight (1)
+    - - '7'
+      - Dark Lurker (1)
+    - - '8'
+      - Dog, Wild (2d6)
+    - - '9'
+      - Elf (1d4)
+    - - '10'
+      - Frog, Poisonous (1d6)
+    - - '11'
+      - Gas Spore (1d3)
+    - - '12'
+      - Ghoul (1d6)
+    - - '13'
+      - Gnoll (1d6)
+    - - '14'
+      - Grey Ooze (1)
+    - - '15'
+      - Gullygug (2d6)
+    - - '16'
+      - Hobgoblin (1d6)
+    - - '17'
+      - Homunculus (1)
+    - - '18'
+      - Lizardfolk (2d4)
+    - - '19'
+      - Lizard, Draco (1d4)
+    - - '20'
+      - Lycan., Wererat (1d4)
+    - - '21'
+      - Mutoid (2d6)
+    - - '22'
+      - Mycelian (1d12)
+    - - '23'
+      - Neanderthal (1d10)
+    - - '24'
+      - Necrophidius (1)
+    - - '25'
+      - Noble (2d6)
+    - - '26'
+      - Piercer 2 HD (3d8)
+    - - '27'
+      - Pixie (2d4)
+    - - '28'
+      - Poltergeist (1d8)
+    - - '29'
+      - Pseudo-Dragon (1)
+    - - '30'
+      - Robber Fly (1d6)
+    - - '31'
+      - Rock Baboon (2d6)
+    - - '32'
+      - Rot Grub (5d6)
+    - - '33'
+      - Snake, Pit Viper (1d8)
+    - - '34'
+      - Spider, Bl. Widow (1d3)
+    - - '35'
+      - Toad, Poisonous (1d8)
+    - - '36'
+      - Troglodyte (1d8)
+    - - '37'
+      - Veteran (2d4)
+    - - '38'
+      - Violet Fungus (1d2)
+    - - '39'
+      - Water Fiend (1)
+    - - '40'
+      - Zombie (2d4)
+  ose.dungeon.l3:
+    title: Dungeon encounters, level 3
+    die: d40
+    page: 138
+    rows:
+    - - '1'
+      - Ankheg 3 HD (1d6)
+    - - '2'
+      - Ape, White (1d6)
+    - - '3'
+      - Beetle, Tiger (1d6)
+    - - '4'
+      - Beginner Adv. (1d4+4)
+    - - '5'
+      - Brown Mould (1d10)
+    - - '6'
+      - Bugbear (2d4)
+    - - '7'
+      - Carcass Crawler (1d3)
+    - - '8'
+      - Coffer Wight (1d3)
+    - - '9'
+      - Dark Lurker (1d4)
+    - - '10'
+      - Deep One (2d12)
+    - - '11'
+      - Doppelgänger (1d6)
+    - - '12'
+      - Driver Ant (2d4)
+    - - '13'
+      - Drow (2d4)
+    - - '14'
+      - Duergar (2d6)
+    - - '15'
+      - Flail Snail (1)
+    - - '16'
+      - Gargoyle (1d6)
+    - - '17'
+      - Gas Spore (1d3)
+    - - '18'
+      - Gelatinous Cube (1)
+    - - '19'
+      - Ghast (1)
+    - - '20'
+      - Harpy (1d6)
+    - - '21'
+      - Living Stat., Crystal (1d6)
+    - - '22'
+      - Lycan., Wererat (1d8)
+    - - '23'
+      - Medium (1d4)
+    - - '24'
+      - Medusa (1d3)
+    - - '25'
+      - Mutoid (2d8)
+    - - '26'
+      - Mycelian (2d8)
+    - - '27'
+      - Necrophidius (1d3)
+    - - '28'
+      - Ochre Jelly (1)
+    - - '29'
+      - Ogre (1d6)
+    - - '30'
+      - Piercer 3 HD (4d6)
+    - - '31'
+      - Poltergeist (2d6)
+    - - '32'
+      - Rot Grub (5d6)
+    - - '33'
+      - Shadow (1d8)
+    - - '34'
+      - Spider, Tarantella (1d3)
+    - - '35'
+      - Svirfneblin (2d8)
+    - - '36'
+      - Thoul (1d6)
+    - - '37'
+      - Toad, Poisonous (2d6)
+    - - '38'
+      - Violet Fungus (1d4)
+    - - '39'
+      - Water Fiend (1d3)
+    - - '40'
+      - Wight (1d6)
+  ose.dungeon.l4-5:
+    title: Dungeon encounters, level 4–5
+    die: d40
+    page: 139
+    rows:
+    - - '1'
+      - Ankheg 5 HD (1d6)
+    - - '2'
+      - Bear, Cave (1d2)
+    - - '3'
+      - Blink Dog (1d6)
+    - - '4'
+      - Caecilia (1d3)
+    - - '5'
+      - Caryatid Column (1d12)
+    - - '6'
+      - Cockatrice (1d4)
+    - - '7'
+      - Deep One (3d12)
+    - - '8'
+      - Dispeller (1d2)
+    - - '9'
+      - Doppelgänger (1d6)
+    - - '10'
+      - Drow (3d6)
+    - - '11'
+      - Duergar (3d6)
+    - - '12'
+      - Expert Adv. (1d6+3)
+    - - '13'
+      - Flail Snail (1)
+    - - '14'
+      - Ghast (1d3)
+    - - '15'
+      - Gibbering Mouther (1)
+    - - '16'
+      - Grey Ooze (1)
+    - - '17'
+      - Hellhound (2d4)
+    - - '18'
+      - Hook Beast (2d6)
+    - - '19'
+      - Krell (1)
+    - - '20'
+      - Lizard, Tuatara (1d2)
+    - - '21'
+      - Lycan., Wereboar (1d4)
+    - - '22'
+      - Lycan., Werewolf (1d6)
+    - - '23'
+      - Minotaur (1d6)
+    - - '24'
+      - Ochre Jelly (1)
+    - - '25'
+      - Otyugh 6 HD (1)
+    - - '26'
+      - Owl Bear (1d4)
+    - - '27'
+      - Rhagodessa (1d4)
+    - - '28'
+      - Rust Monster (1d4)
+    - - '29'
+      - Slithering Stalker (1)
+    - - '30'
+      - Slyssthra (1d3)
+    - - '31'
+      - Spawn of the Worm (1d3)
+    - - '32'
+      - Spectre (1d4)
+    - - '33'
+      - Spider, Phase (1d4)
+    - - '34'
+      - Toad, Frost (1d4)
+    - - '35'
+      - Troll (1d8)
+    - - '36'
+      - Violet Fungus (2d4)
+    - - '37'
+      - Water Fiend (1d4)
+    - - '38'
+      - Weasel, Giant (1d4)
+    - - '39'
+      - Will-o’-the-Wisp (1)
+    - - '40'
+      - Wraith (1d4)
+  ose.dungeon.l6-7:
+    title: Dungeon encounters, level 6–7
+    die: d40
+    page: 139
+    rows:
+    - - '1'
+      - Amphisbaena (1d3)
+    - - '2'
+      - Banshee (1)
+    - - '3'
+      - Basilisk (1d6)
+    - - '4'
+      - Bear, Cave (1d2)
+    - - '5'
+      - Black Pudding (1)
+    - - '6'
+      - Caecilia (1d3)
+    - - '7'
+      - Caryatid Column (3d6)
+    - - '8'
+      - Dragon, White (1d4)
+    - - '9'
+      - Drider (1d4)
+    - - '10'
+      - Expert Adv. (1d6+3)
+    - - '11'
+      - Flail Snail (1d4)
+    - - '12'
+      - Ghast (2d4)
+    - - '13'
+      - Gibbering Mouther (1d3)
+    - - '14'
+      - Gorgon (1d2)
+    - - '15'
+      - Hellhound (2d4)
+    - - '16'
+      - Hook Beast (3d6)
+    - - '17'
+      - Hydra, 1d4+4 HD (1)
+    - - '18'
+      - Krell (1d3)
+    - - '19'
+      - Lizard, Flame (1d4)
+    - - '20'
+      - Lizard, Subterr. (1d6)
+    - - '21'
+      - Lycan., Weretiger (1d4)
+    - - '22'
+      - Mind Lasher (1d4)
+    - - '23'
+      - Minotaur (1d6)
+    - - '24'
+      - Mummy (1d4)
+    - - '25'
+      - Ochre Jelly (1)
+    - - '26'
+      - Otyugh 6 HD (1d3)
+    - - '27'
+      - Owl Bear (1d4)
+    - - '28'
+      - Rakshasa (1d4)
+    - - '29'
+      - Remorhaz 7 HD (1)
+    - - '30'
+      - Revenant (1)
+    - - '31'
+      - Rust Monster (1d4)
+    - - '32'
+      - Salam., Flame (1d4+1)
+    - - '33'
+      - Scorpion, Giant (1d6)
+    - - '34'
+      - Slithering Stalker (1)
+    - - '35'
+      - Slyssthra (1d6)
+    - - '36'
+      - Spectre (1d4)
+    - - '37'
+      - Troll (1d8)
+    - - '38'
+      - Warp Beast (1d4)
+    - - '39'
+      - Will-o’-the-Wisp (1d3)
+    - - '40'
+      - Xorn (1d4)
+  ose.dungeon.l8plus:
+    title: Dungeon encounters, level 8+
+    die: d40
+    page: 139
+    rows:
+    - - '1'
+      - Black Pudding (1)
+    - - '2'
+      - Chimera (1d2)
+    - - '3'
+      - Dragon, Black (1d4)
+    - - '4'
+      - Dragon, Blue (1d4)
+    - - '5'
+      - Dragon, Brass (1d4)
+    - - '6'
+      - Dragon, Bronze (1d4)
+    - - '7'
+      - Dragon, Copper (1d4)
+    - - '8'
+      - Dragon, Gold (1d4)
+    - - '9'
+      - Dragon, Green (1d4)
+    - - '10'
+      - Dragon, Red (1d4)
+    - - '11'
+      - Dragon, Silver (1d4)
+    - - '12'
+      - Dragonne (1)
+    - - '13'
+      - Expert Adv. (1d6+3)
+    - - '14'
+      - Eye of Terror (1)
+    - - '15'
+      - Ghost (1)
+    - - '16'
+      - Giant, Hill (1d4)
+    - - '17'
+      - Giant, Stone (1d2)
+    - - '18'
+      - Golem, Amber (1)
+    - - '19'
+      - Golem, Bone (1)
+    - - '20'
+      - Golem, Iron (1)
+    - - '21'
+      - Golem, Stone (1)
+    - - '22'
+      - Hag, Black (1)
+    - - '23'
+      - Hulker (1d4)
+    - - '24'
+      - Hydra, 1d4+8 HD (1)
+    - - '25'
+      - Lamia (1)
+    - - '26'
+      - Lurker Above (1)
+    - - '27'
+      - Lycan., Devil Swine (1d3)
+    - - '28'
+      - Lycan., Werebear (1d4)
+    - - '29'
+      - Manticore (1d2)
+    - - '30'
+      - Mimic (1)
+    - - '31'
+      - Mind Lasher (1d8)
+    - - '32'
+      - Purple Worm (1d2)
+    - - '33'
+      - Revenant (1)
+    - - '34'
+      - Roper (1d2)
+    - - '35'
+      - Salam., Flame (1d4+1)
+    - - '36'
+      - Salamander, Frost (1d3)
+    - - '37'
+      - Shambling Mound (1d3)
+    - - '38'
+      - Slug, Giant (1)
+    - - '39'
+      - Trapper (1)
+    - - '40'
+      - Vampire (1d4)

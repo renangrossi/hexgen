@@ -52,6 +52,22 @@ def check(t):
     return probs
 
 
+def trim_spill(rows):
+    """Body text sometimes lands on a table's last line or beside a short row: cut a cell
+    that is far longer than its column's norm at the point where the prose begins."""
+    import statistics
+    for c in range(1, max(len(r) for r in rows)):
+        lens = sorted(len(r[c]) for r in rows if len(r) > c and r[c])
+        if len(lens) < 4: continue
+        med = statistics.median(lens)
+        for r in rows:
+            if len(r) > c and len(r[c]) > max(80, 2.2 * med):
+                m = re.search(r'(?<=[a-z\)])\.?\s+(?=(?:Now|If|When|The GM|GMs|This|These|For|Once|Most|Some|Roll|Players)\b)', r[c][int(med * 0.5):])
+                if m:
+                    r[c] = r[c][:int(med * 0.5) + m.start()].rstrip(' .') 
+    return rows
+
+
 def merge_halves(ts):
     """Join a table split in two (side by side or over a page) when the second picks up
     where the first ends (1–2 … 49–50 | 51–52 … 99–00)."""
@@ -96,6 +112,8 @@ def from_extract(key, names=None, keep=None):
         tid = base if seen[base] == 1 else f'{base}-{seen[base]}'
         tid = names.get(tid, tid)
         rows = [[r[0]] + [clean(c) for c in r[1:]] for r in t['rows']]
+        if key != 'ss':
+            rows = trim_spill(rows)
         d = {'title': title, 'die': t['die'], 'page': t['page'], 'rows': rows}
         if t.get('cols'): d['cols'] = [clean(c) for c in t['cols']]
         probs = check(d)
@@ -221,6 +239,10 @@ def from_harvest(key, prefix, srcid):
             if t.get('src'): d['note'] = 'source: ' + clean(t['src'])
             if d.get('die') and check(d): d['review'] = '; '.join(check(d))
             tables[tid] = d
+    if 'oh.rumours-in-the-reaches-1-50' in tables:
+        a = tables.pop('oh.rumours-in-the-reaches-1-50'); b = tables.pop('oh.rumours-in-the-reaches-51-100')
+        a['rows'] += b['rows']; a['title'] = 'Rumours in the Reaches'; a.pop('review', None)
+        tables['oh.rumours-wr'] = a
     emit(key, SOURCES[key], tables)
 
 from_harvest('oh', 'oh', 'OH')

@@ -12,7 +12,8 @@ Layers, richest first:
 """
 import re
 from .common import line, roll, tidy_ss, first_sentence, name_settlement, name_person
-from .npc import npc
+from .npc import npc, bond
+from .quest import quest
 
 # Spectacular Settlements: printed page ranges of each chapter
 SS_RANGE = {'trading post': (10, 30), 'village': (49, 67), 'town': (95, 113), 'city': (141, 172),
@@ -147,6 +148,11 @@ def settlement(R, system, size='village', coastal=False, terrain='grassland', na
     if size in ('city', 'capital'):
         roles += [('rival', 'gentry'), ('fixer', 'underclass')]
     s['npcs'] = [npc(R, role, st) for role, st in roles]
+    bond(R, R.dice.pick(s['npcs']))
+    s['quests'] = [quest(R) for _ in range({'trading post': 1, 'village': 1, 'fortress': 1, 'town': 2}.get(size, 3))]
+    s['extra'] = ss_extras(R, size)
+    if size == 'fortress':
+        s['layout'] = fortress_layout(R)
     s['environment'] = terrain
     s['hirelings'] = [hireling(R) for _ in range({'trading post': 1, 'village': 1, 'fortress': 2}.get(size, 3))]
     if size in ('town', 'city', 'capital', 'trading post'):
@@ -177,6 +183,49 @@ def trade_job(R):
     va[0] = va[0].rstrip('.').replace('. ', ', ')
     return line('Trade job', f"They want {va[0].lower()}, because {va[-1][0].lower() + va[-1][1:]} "
                 f"The catch: {vb[0][0].lower() + vb[0][1:]} Bound for {vb[-1][0].lower() + vb[-1][1:]}", a['cite'])
+
+
+SS_SHOPS = {'trading post': ('ss.p19.shops', 'ss.p21.services'), 'village': ('ss.p62.other-locations', None),
+            'town': ('ss.p109.shops', 'ss.p110.services'), 'city': ('ss.p109.shops', 'ss.p110.services'),
+            'capital': ('ss.p109.shops', 'ss.p110.services'), 'fortress': ('ss.p19.shops', None)}
+FORT = re.compile(r'shape|base-size|number-of-floors|raised-entrance|entry-defenses|exterior-wall|curtain|tower-|moat|gatehouse|barracks|outbuilding|style-amplifications|brutal-defenses|magical-defenses')
+
+
+def _ss_name(text):
+    return re.split(r'\.\s', tidy_ss(text), 1)[0]
+
+
+def ss_extras(R, size):
+    """Spectacular Settlements' own shops and services with quality, its tavern pieces,
+    produce and a street scene (pp. 447–456), and a rumour (p. 445)."""
+    shop_t, serv_t = SS_SHOPS[size]
+    q = 'ss.p111.quality'
+    places = []
+    for t in (shop_t, serv_t):
+        if t and t in R:
+            for _ in range({'village': 2, 'trading post': 2, 'fortress': 1}.get(size, 4)):
+                places.append(f"{_ss_name(R.text(t))} ({_ss_name(R.text(q)).lower()})")
+    L = [line('Also here', ', '.join(sorted(set(places))), 'SS')] if places else []
+    L += [l for l in [roll(R, 'Tavern reputation', 'ss.p448.establishment-reputation'),
+                      roll(R, 'Tavern staff', 'ss.p448.establishment-staff'),
+                      roll(R, 'Regulars', 'ss.p448.patrons'),
+                      line('Grows', f"{R.text('ss.p450.crops')}; raises {R.text('ss.p450.farm-animals-meat').lower()}; mines {R.text('ss.p450.minerals').lower()}", 'SS p.450'),
+                      line('Street scene', f"{R.text('ss.p452.time-of-day')}: {R.text('ss.p451.smells').lower()}, {R.text('ss.p452.street-debris').lower()} underfoot; a {R.text('ss.p453.appearance').lower()} figure in {R.text('ss.p454.clothing').lower()} is {R.text('ss.p454.verbs').lower()}", 'SS pp.451–454'),
+                      roll(R, 'Someone needs help', 'ss.p453.problems'),
+                      roll(R, 'Rumour', 'ss.p445.rumors')] if l and l['text']]
+    return L
+
+
+def fortress_layout(R):
+    lo, hi = SS_RANGE['fortress']
+    out = []
+    for tid in sorted(t for t in R.tables if t.startswith('ss.') and lo <= (R.tables[t].page or 0) <= hi):
+        if FORT.search(tid) and not R.tables[tid].review:
+            res = R.roll(tid)
+            words = re.split(r'\s(?=[a-z(])', R.tables[tid].title)[0].split()
+            label = ' '.join(w for i, w in enumerate(words) if w not in words[:i])
+            out.append({'label': label, 'text': tidy_ss(str(next(iter(res['values'].values()), res['text']))), 'cite': res['cite']})
+    return out
 
 
 # ---------------------------------------------------------------------------- ports

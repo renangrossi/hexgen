@@ -1104,7 +1104,7 @@ tables:
     - - '7'
       - They were a conquering army gone native
     - - '8'
-      - They migrated here for profit or plunder Now roll or decide what became of the original inhabitants of the land, who might’ve been the last remnants of the former ruling power of the region or small,
+      - They migrated here for profit or plunder
   wwn.p132.what-became-of-the-original-inhabitants:
     title: What Became of the Original Inhabitants?
     die: d10
@@ -1260,8 +1260,7 @@ tables:
       - you
       - can stitch those existing events into the pattern
     - - '12'
-      - Wonderful works of architecture were built Yet all glories must fade in time. For its fall, pick or roll another historical crisis; this time, the group was unable to rise to the occasion and collapsed
-        due to the stress of the situation. Why couldn’t it handle the crisis?
+      - Wonderful works of architecture were built Yet all glories must fade in time
       - you’ve All with past to problems in. An
       - generated here. of the results in this section should be selected an eye for adventuring potential. The old conflicts, prides, and present travails of a nation are meant provide situations that
         the PCs can encounter, and that they might be called upon to intervene intricate tale of a hundred-year war is all well
@@ -1298,11 +1297,7 @@ tables:
       - They split into several new, smaller groups
     - - '12'
       - Roll twice; the resultant groups hate each other With the basic outline of the group’s history complete, you can now go on to decorate their past with other historical events, such as those given
-        on the following pages. If you’ve already established a few historical events for the group as part of building a backdrop with them, you can stitch those existing events into the pattern you’ve
-        generated here. All of the results in this section should be selected with an eye for adventuring potential. The old conflicts, past prides, and present travails of a nation are meant to provide
-        situations that the PCs can encounter, and problems that they might be called upon to intervene in. An intricate tale of a hundred-year war is all well and good, but if the story doesn’t provide
-        any adventure hooks, then it’s recreational worldbuilding rather than a source of playable content. Also keep in mind that these history tools don’t need to be applied strictly to great nations
-        or mighty tribes. Even a gentry family in some remote village might have a history patterned from this table, translated and shrunken down to the scale at which they live. The Barbarian
+        on the following pages
   wwn.p135.historical-event:
     title: Historical Event
     die: d100
@@ -5955,8 +5950,7 @@ tables:
     - - 92–95
       - Vigilant Banner
     - - 96–00
-      - Vothite Icon mundane disguise or magical spell of third level or less. If the GM thinks the subject has a stronger kind of concealment, they may make a secret Wis/ Notice skill check against an
-        appropriate difficulty to determine if a true answer is given. The eye can be used once per scene.
+      - Vothite Icon mundane disguise or magical spell of third level or less
   wwn.p272.the-elixirs-form:
     title: The Elixir’s Form
     die: d10

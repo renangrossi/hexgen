@@ -450,3 +450,90 @@ tables:
   pw.place.noun:
     page: 21
     rows: ['{names.given}', Arm, Ash, Blood, Child, Cinder, Corpse, Crystal, Dagger, Death, Demon, Devil, Doom, Eye, Fear, Finger, Fire, Foot, Ghost, Giant, Goblin, God, Gold, Hand, Head, Heart, Hero, Hope, King, Knave, Knight, Muck, Mud, Priest, Queen, Sailor, Silver, Skull, Smoke, Souls, Spear, Spirit, Stone, Sword, Thief, Troll, Warrior, Water, Witch, Wizard]
+
+  # ---------------------------------------------------------------- dungeons p65–67
+  pw.dungeon.size:
+    title: Dungeon size
+    die: 1d12
+    page: 65
+    cols: [Size, Areas, Themes]
+    rows: [['1–3', small, '{1d6+1}', '2'], ['4–6', medium, '{1d8+7}', '3'], ['7–9', large, '{1d10+15}', '4'], ['10–11', huge, '{1d12+25}', '5'], ['12', 'megadungeon', '{1d4+1} linked dungeons', '5']]
+  pw.dungeon.theme:
+    title: Dungeon theme
+    die: 1d12
+    page: 65
+    rows: [['1–2', 'hopeful: {pw.theme.hopeful}'], ['3–5', 'mysterious: {pw.theme.mysterious}'], ['6–11', 'grim: {pw.theme.grim}'], ['12', 'gonzo: {pw.theme.gonzo}']]
+  pw.theme.hopeful:
+    die: 1d12
+    page: 65
+    rows: [['1', nature/growth], ['2', law/order], ['3', beauty/wonder], ['4', healing/recovery], ['5', protection/defense], ['6', completion], ['7', inheritance/legacy], ['8', balance/harmony], ['9', light/life], ['10', prophecy], ['11', divine influence], ['12', transcendence]]
+  pw.theme.mysterious:
+    die: 1d12
+    page: 65
+    rows: [['1', burglary/theft], ['2', desire/obsession], ['3', secrets/deception], ['4', imitation/mimicry], ['5', inversion/reversal], ['6', '{pw.element}'], ['7', transformation], ['8', shadow/spirits], ['9', cryptic knowledge], ['10', divination/scrying], ['11', madness], ['12', '{pw.magic}']]
+  pw.theme.grim:
+    die: 1d12
+    page: 65
+    rows: [['1', pride/hubris], ['2', hunger/gluttony], ['3', greed/avarice], ['4', wildness/savagery], ['5', devotion/sacrifice], ['6', forbidden knowledge], ['7', control/dominance], ['8', pain/torture], ['9', wrath/war], ['10', tragedy/loss], ['11', chaos/corruption], ['12', darkness/death]]
+  pw.theme.gonzo:
+    die: 1d12
+    page: 65
+    rows: [['1', constructs/robots], ['2', unexpected sentience], ['3', space/time travel], ['4', advanced technology], ['5', utter insanity], ['6', alien life], ['7', cosmic alignment], ['8', other planes], ['9', demons/devils], ['10', unspeakable horrors], ['11', elder gods], ['12', 'alien life and elder gods']]
+  pw.dungeon.situation:
+    die: 1d12
+    page: 66
+    rows: [['1–2', aboveground], ['3–4', 'part aboveground, part below'], ['5–11', belowground], ['12', 'extraordinary (floating, ephemeral)']]
+  pw.dungeon.access:
+    title: Accessibility
+    die: 1d12
+    page: 66
+    rows: [['1', sealed shut], ['2', purposely hidden], ['3–4', concealed by natural feature/terrain], ['5–6', 'buried (in earth, rubble)'], ['7', blocked by obstacle/out of reach], ['8–10', clear/obvious], ['11–12', 'multiple entrances ({1d6+1})']]
+  pw.dungeon.builder:
+    die: 1d12
+    page: 66
+    rows: [['1', demigod/demon/alien], ['2–3', 'natural (caves)'], ['4–5', religious order/cult], ['6–10', '{pw.humanoid} society'], ['11', wizard/lunatic], ['12', monarch/warlord]]
+  pw.dungeon.function:
+    die: 1d12
+    page: 66
+    rows: [['1', indiscernible/mysterious], ['2', concealment/camouflage], ['3', extraction/production], ['4', confinement/containment], ['5', lair/den/hideout], ['6', archive/library/laboratory], ['7', commemoration/funerary], ['8', worship/devotion], ['9', defense/protection], ['10', observation/divination], ['11', empowerment/intensification], ['12', 'worship/devotion and confinement/containment']]
+  pw.dungeon.ruin:
+    title: Cause of ruin
+    die: 1d12
+    page: 66
+    rows: [['1', arcane disaster], ['2', damnation/curse], ['3–4', 'natural disaster (earthquake)'], ['5', plague/famine/drought], ['6–7', overrun by monsters], ['8–9', hubris], ['10', war/invasion], ['11', depleted resources], ['12', better prospects elsewhere]]
+  pw.area.dressing:
+    title: Area dressing
+    die: 1d12
+    page: 67
+    rows: [['1', breeze/sound/echo], ['2', smell/odor/stench], ['3', lichen/mold/moss/fungus], ['4', drip/seep/puddle/stream], ['5', tracks/marks/scratches], ['6', sign of activity/struggle/battle], ['7', 'bones of a {pw.beast}'], ['8', junk/debris/refuse/waste], ['9', broken structure/furniture], ['10', inscription/ornamentation], ['11–12', 'smell/odor/stench and drip/seep/puddle/stream']]
+  pw.area.exits:
+    title: Area exits
+    die: 1d12
+    page: 67
+    rows: [['1–2', 'none'], ['3', 'one, back'], ['4–6', 'one, forward'], ['7', 'two, forward and left'], ['8–9', 'two, left and right'], ['10', 'three, forward, left, right'], ['11', 'four, all ways'], ['12', '{1d6+1}, one leading up']]
+  pw.dungeon.discovery:
+    title: Dungeon discovery
+    die: 1d12
+    page: 67
+    rows: [['1–8', 'feature: {pw.dfeature}'], ['9–12', 'find: {pw.dfind}']]
+  pw.dfeature:
+    die: 1d12
+    page: 67
+    rows: [['1', cave-in/collapse/obstacle], ['2', blocked/locked exit], ['3', pit/shaft/chasm], ['4', pillars/columns], ['5', alcoves/niches], ['6', bridge/stairs/ramp], ['7', well/pool/fountain], ['8', puzzle], ['9', altar/dais/platform], ['10', statue/idol], ['11', multi-level/ledges/tiers], ['12', hidden/secret exit]]
+  pw.dfind:
+    die: 1d12
+    page: 67
+    rows: [['1', trinkets/clothing], ['2', supplies/tools/gear], ['3', light source/fuel/ammo], ['4', key/clue/map], ['5', weapons/armor], ['6', poison/antidote/potion], ['7', adventurer/captive], ['8', books/scrolls], ['9', coins/gems/jewelry], ['10', 'something touched by {pw.magic}'], ['11', '{pw.dfeature}, touched by {pw.magic}'], ['12', 'key/clue/map and books/scrolls']]
+  pw.dungeon.danger:
+    title: Dungeon danger
+    die: 1d12
+    page: 67
+    rows: [['1–4', 'trap: {pw.dtrap}'], ['5–12', 'creature: {pw.dcreature}']]
+  pw.dtrap:
+    die: 1d12
+    page: 67
+    rows: [['1', alarm], ['2', pit], ['3', ensnaring/paralyzing], ['4', crushing/smashing], ['5', piercing/puncturing], ['6', chopping/slashing/slicing], ['7', 'confusing (maze)'], ['8', 'gas (poison)'], ['9', ambush], ['10', 'based on {pw.element}'], ['11', 'based on {pw.magic}'], ['12', 'based on {pw.oddity}']]
+  pw.dcreature:
+    die: 1d12
+    page: 67
+    rows: [['1', '{pw.creature}, a leader with minions'], ['2–9', '{pw.creature}'], ['10–12', 'vermin (rats, bats), {pw.activity}']]
