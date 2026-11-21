@@ -2,7 +2,7 @@
 markdown source, with each foe's stat line taken from its block.
 
 Usage: harvest_tft.py MERGED_SD_DIR TFT.pdf OUT.json
-Reads 29-38 *-wl-*.md (one 4d6 table each). Pages are found in the PDF by the
+Reads 29-38 *-wl-*.md (and 36a, 36b) (one 4d6 table each). Pages are found in the PDF by the
 table's heading, so a TFT rebuild that moves pages only needs `make data`."""
 import glob, json, os, re, subprocess, sys
 
@@ -65,7 +65,7 @@ for g in sorted(glob.glob(os.path.join(src_dir, '*.md'))):   # a block printed o
         ALL.setdefault(k, v)
 
 tables, missing = [], []
-for f in sorted(glob.glob(os.path.join(src_dir, '[23][0-9]-wl-*.md'))):
+for f in sorted(glob.glob(os.path.join(src_dir, '[23][0-9]*-wl-*.md'))):
     text = open(f, encoding='utf-8').read()
     head = re.search(r'^### (.+?) — DENIZENS \((\d+d\d+)\) · party LV ([\d–-]+) · (.+)$', text, re.M)
     if not head:
@@ -88,7 +88,7 @@ for f in sorted(glob.glob(os.path.join(src_dir, '[23][0-9]-wl-*.md'))):
             missing.append(f'{os.path.basename(f)}: {foe}')
             st = {'AC': '', 'HP': '', 'Attack': '', 'LV': '', 'Reactions': ''}
         rows.append([roll, foe, typ, no, st['LV'], st['AC'], st['HP'], st['Attack'], st['Reactions']])
-    slug = re.sub(r'^\d+-wl-|\.md$', '', os.path.basename(f))
+    slug = re.sub(r'^\d+[a-z]?-wl-|\.md$', '', os.path.basename(f))
     tables.append({'id': f'tft.wl.{slug}', 'title': f'{chapter} — {title}', 'terrain': terrain,
                    'party_lv': lv, 'die': die, 'page': page,
                    'cols': ['Foe', 'Type', 'No.', 'LV', 'AC', 'HP', 'Attack', 'Reactions'], 'rows': rows})

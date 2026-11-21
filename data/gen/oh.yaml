@@ -1,11 +1,19 @@
 source:
   id: OH
-  title: Overland Hexcrawl — Simplified (your book; WR
+  title: Overland Hexcrawl — Simplified v3 (your book; WR
   SD core: null
   GC: null
   SG: null
-  TFT inside): null
-  file: Shadowdark/My Projects/Overland-Hexcrawl-Shadowdark-Simplified.pdf
+  TFT: null
+  ITW: null
+  PW: null
+  WWN: null
+  SS: null
+  DD: null
+  ShadowSails: null
+  Wolves: null
+  Emerald Sea inside): null
+  file: Shadowdark/My Projects/Overland-Hexcrawl-Shadowdark-Simplified-v3.pdf
   offset: 0
 tables:
   oh.daily-weather-by-terrain:
@@ -110,7 +118,7 @@ tables:
       - Dry breeze
       - Mild and dry
       - Clear and windless
-      - Following breeze
+      - Fresh breeze
     - - '12'
       - Endless blue
       - Golden afternoon
@@ -131,7 +139,7 @@ tables:
     rows:
     - - null
       - Excellent °
-      - Roll the next weather with advantage.
+      - Tomorrow, roll the 2d6 twice and keep the higher.
     - - null
       - Fair
       - No effect.
@@ -221,13 +229,13 @@ tables:
     - - null
       - On foot
       - '4'
-      - By water
-      - ("the boat's Speed — 23.1", '')
+      - Wagon
+      - '4'
     - - null
       - Mounted
       - '6'
-      - ''
-      - ''
+      - By water
+      - ("the boat's Speed — 23.1", '')
     note: 'source: WRG:40|SR:13'
   oh.terrain-cost:
     title: Terrain cost
@@ -289,7 +297,7 @@ tables:
     - - null
       - Muddy terrain
       - '2'
-      - Counts as difficult. Foraging costs double — 8.2.
+      - Counts as difficult. Forage DC +3 — 8.2.
     - - null
       - Shortcut
       - '1'
@@ -303,6 +311,32 @@ tables:
       - blocked
       - Blocks the two edges it touches. Go around or find a bridge.
     note: 'source: WRG:41|TT:29'
+  oh.sight:
+    title: Sight
+    page: null
+    cols:
+    - Condition
+    - Hexes
+    rows:
+    - - null
+      - Any day
+      - '1'
+    - - null
+      - Darkness
+      - −1
+    - - null
+      - Stormy — §1
+      - −1
+    - - null
+      - Excellent — §1
+      - '+1'
+    - - null
+      - Slight elevation
+      - '+1'
+    - - null
+      - High elevation
+      - '+3'
+    note: 'source: WRG:41'
   oh.pushing:
     title: Pushing
     page: null
@@ -315,7 +349,7 @@ tables:
       - At the start of the day. It cannot be taken back.
     - - null
       - Budget
-      - '×1.5: 6 MC on foot, 9 mounted, 1.5 × the boat’s Speed, rounded down.'
+      - '×1.5: 6 MC on foot or by wagon, 9 mounted, 1.5 × the boat’s Speed, rounded down.'
     - - null
       - Encounters
       - +1-in-6 on today’s checks — §6.
@@ -336,13 +370,17 @@ tables:
       - A road, river or coast runs the whole way.
       - —
     - - null
-      - '12'
+      - '9'
       - Open country, unknown hex. The default.
       - Roll 1d6 for the edge. They enter that hex instead and pay its MC. Generate it if unknown.
     - - null
+      - '12'
+      - Open sea, no land in sight — Sight, §2.
+      - Drift instead of the edge — 23.8.
+    - - null
       - '+3'
       - Travelling in darkness.
-      - As DC 12.
+      - As open country.
     - - null
       - '+3'
       - Stormy weather — §1.
@@ -354,7 +392,7 @@ tables:
     - - null
       - '+3'
       - A hazard has taken the landmarks — §10.3.
-      - As DC 12.
+      - As open country.
     note: 'source: SD:94|NEW'
   oh.fast-travel:
     title: Fast travel
@@ -385,6 +423,161 @@ tables:
       - INT
       - One character checks for the group. On a success nobody arrives drained.
     note: 'source: WRG:45|SR:14'
+  oh.riding:
+    title: Riding
+    page: null
+    cols:
+    - Rule
+    - Detail
+    rows:
+    - - null
+      - Mounted
+      - 6 MC a day. Everyone needs a mount.
+    - - null
+      - Wagon
+      - One per mount, 120 gp. 4 MC a day. That mount carries no rider; the wagon adds +15 gear slots.
+    - - null
+      - Flying
+      - Difficult and impassable hexes cost 1. Cannot end the day in impassable terrain or on water. One rider.
+    - - null
+      - Load
+      - The rider and what they carry fill 10 of the mount’s slots.
+    - - null
+      - Training
+      - 'Any rarity but common needs it to ride. Legendary: caught wild, trained from youth.'
+    - - null
+      - Feeding
+      - Grazes free in terrain it knows (a camel in the desert). Elsewhere 1 ration a day — 8.1.
+    - - null
+      - Morale
+      - 'Under duress or startled: morale check on the rider’s CHA. Personality, below.'
+    - - null
+      - In a fight
+      - 'Acts on the rider’s turn: rider or mount takes the action. Mounting or dismounting uses all movement. Saddle: ADV to stay on.'
+    note: 'source: WR:114|WR:109'
+  oh.mounts:
+    title: Mounts
+    page: null
+    cols:
+    - Mount
+    - Cost
+    - Rarity
+    - Slots
+    - ''
+    rows:
+    - - null
+      - Camel
+      - 50 gp
+      - C
+      - '15'
+      - —
+    - - null
+      - Camel, silver
+      - 200 gp
+      - R
+      - '15'
+      - G
+    - - null
+      - Donkey
+      - 40 gp
+      - C
+      - '20'
+      - S
+    - - null
+      - Elephant
+      - 400 gp
+      - R
+      - '30'
+      - S
+    - - null
+      - Griffon
+      - —
+      - L
+      - '20'
+      - A, F
+    - - null
+      - Hippogriff
+      - —
+      - L
+      - '15'
+      - A, F
+    - - null
+      - Horse
+      - 50 gp
+      - C
+      - '15'
+      - —
+    - - null
+      - Horse, prized
+      - 90 gp
+      - C
+      - '15'
+      - G
+    - - null
+      - Horse, war
+      - 100 gp
+      - U
+      - '20'
+      - A, S
+    - - null
+      - Moose
+      - 200 gp
+      - R
+      - '15'
+      - —
+    - - null
+      - Pegasus
+      - —
+      - L
+      - '15'
+      - A, F, G
+    - - null
+      - Pony
+      - 60 gp
+      - C
+      - '20'
+      - G, S
+    - - null
+      - Scrag
+      - 150 gp
+      - U
+      - '10'
+      - —
+    - - null
+      - Scrag, war
+      - 250 gp
+      - R
+      - '15'
+      - A
+    - - null
+      - Worg
+      - 200 gp
+      - U
+      - '10'
+      - A
+    note: 'source: WR:115'
+  oh.personality:
+    title: Personality
+    page: null
+    cols:
+    - Demeanor
+    - Behaviour
+    rows:
+    - - 0–4
+      - Horrid
+      - DISADV on morale. Stubborn, mean.
+    - - 5–7
+      - Ornery
+      - Tolerates a familiar rider. Sassy, rude.
+    - - 8–9
+      - Reliable
+      - ADV on morale. Protective, patient.
+    - - 10+
+      - Lovely
+      - Immune to morale. Loyal, intelligent.
+    die: 2d6
+    note: 'source: WR:115'
+    review: 2 results uncovered
   oh.hot:
     title: Hot
     page: null
@@ -403,7 +596,7 @@ tables:
       - '1'
     - - '4'
       - Heat wave
-      - 'CON or 1 damage and −1 to checks. Heavy armour: disadvantage. Forage DC +3. *Sea:* becalmed, no sailing.'
+      - 'CON or 1 damage and −1 to checks. Heavy armour: disadvantage. Forage DC +3. *Sea:* becalmed — Calm, 23.8.'
       - '2'
     - - '5'
       - Flash flood
@@ -411,7 +604,7 @@ tables:
       - '2'
     - - '6'
       - Windstorm
-      - Dust storm, gale or blowdown. No ranged attacks. +1 MC. Navigation DC +3. No fire, tents lost.
+      - Dust storm, gale or blowdown. No ranged attacks. +1 MC. Navigation DC +3. No fire, tents lost. *Sea:* a Gale — 23.8.
       - '2'
     - - '7'
       - Thunderstorm
@@ -465,7 +658,7 @@ tables:
       - '2'
     - - '6'
       - Ice gale
-      - No ranged attacks. +1 MC. Navigation DC +3. No fire, tents lost.
+      - No ranged attacks. +1 MC. Navigation DC +3. No fire, tents lost. *Sea:* a Gale — 23.8.
       - '2'
     - - '7'
       - Blizzard
@@ -515,7 +708,7 @@ tables:
       - '2'
     - - 9–10
       - Still air
-      - 'Sound carries: neither side can be surprised. *Sea:* becalmed, no sailing.'
+      - 'Sound carries: neither side can be surprised. *Sea:* Calm — 23.8.'
       - '2'
     - - 11–12
       - Bloom
@@ -523,6 +716,136 @@ tables:
       - '2'
     die: 2d6
     note: 'source: TT:20|NEW'
+  oh.strange-skies:
+    title: Strange skies
+    page: null
+    cols:
+    - Event
+    - What it does
+    - Spread
+    rows:
+    - - '1'
+      - The weather turns
+      - 'The region’s pattern shifts. d6: 1–3 wetter, Stormy on 2–5; 4–6 drier, Stormy only on 2–3. Lasts d6: 1–2 a week, 3 a month, 4 a year, 5 a decade, 6 for good.'
+      - All
+    - - '2'
+      - Strange rain
+      - 'From a clear sky. d12: 1 frogs, 2 snakes, 3 locusts (no forage), 4 blood, 5 fish (a ration each), 6 flowers, 7 crops double this year, 8 crops fail, 9 slime for 1d4 hours, 10 it vanishes as it
+        lands, 11 weak holy (1–3) or unholy water, 12 rust: metal armour −1 AC, metal weapons −1 damage until mended.'
+      - '2'
+    - - '3'
+      - A wind from nowhere
+      - '1d24 hours. It carries d8: 1 spice, 2 the sea, 3 a slaughterhouse, 4 fine ash, 5 whispers in no known tongue, 6–8 nothing.'
+      - '3'
+    - - '4'
+      - Comet
+      - '1d6 days, by night (1–4) or day and night. d6: 1 just a comet, 2 an old house will end, 3 a birth foretold, 4 an ancient evil wakes in a site within 1d6 hexes — §21, 5 all damage +1 (1–4) or −1
+        while it shows, 6 reactions −1 while it shows.'
+      - All
+    - - '5'
+      - A star goes out or is born
+      - '1–3 out, 4–6 born; 1d6 weeks. d6: 1 a power of Law or Chaos dies or rises, 2 a god dies or is born, 3 out: an outsider joins the encounters; born: summoning fails 1-in-6, 4 Turn Undead −1 (out)
+        or +1, 5 one kind of monster fades or swarms, 6 nothing.'
+      - All
+    - - '6'
+      - Meteors
+      - '1d4 nights. d6: 1 the year’s dead rise as zombies, 2 a sickness from the stars spreads, 3 fire falls: 3d6 in the strike hex, Wildfire on 1–4 in 6, 4 a stone cocoon cracks — something from beyond,
+        peaceful 1–2 in 6, 5–6 starmetal falls within 1d6 hexes: 1d4 × 100 gp a half-pound.'
+      - All
+    - - '7'
+      - The sky changes colour
+      - '1d12 hours. d6: 1–2 ill omen, a natural 20 counts as a 1; 3–4 the beasts panic, Hunt with advantage; 5–6 babies born now bear the colour.'
+      - All
+    - - '8'
+      - The sun goes dark
+      - '1d20 minutes. d6: 1 mundane fires go out, relight 1–3 in 6; 2 1d10−1 outsiders cross into the world; 3 bound undead walk free until it ends; 4 spellcasting checks +1 (1–3) or −1; 5 priest spells
+        of tier 4+ fail; 6 just an eclipse.'
+      - All
+    - - '9'
+      - Blood moon
+      - 'Tonight. d6: 1 wounds taken tonight heal only by magic, 2 a werebeast hunts: it is tonight’s encounter, 3 the spirits answer: one more question to any divination, 4–6 just an eclipse.'
+      - All
+    - - '10'
+      - Earthquake
+      - 'd12: 1–6 a tremor, 7–8 things fall, 9–10 DEX DC 12 or prone, 11 DEX DC 15, roofs fall, fires, 12 DEX DC 18, a river moves a hex. Then d6: 1–2 nothing, 3 something imprisoned walks free, 4 a lost
+        tomb opens — §21, 5 a gate to the Plane of Earth, 6 a rich vein of ore.'
+      - 1d6
+    - - '11'
+      - Twisters
+      - '1d12 funnels, 4d20 minutes. d6: 1–3 as Twister, Hot 12; 4 air elementals, hostile; 5 a gate to the Plane of Air, anyone caught is taken; 6 they drain the colour from the land, 1d12 hours (1-in-6
+        for good).'
+      - '1'
+    - - '12'
+      - Shapes in the clouds
+      - 'd6: 1 a person or creature, 2 a scene from history, 3 a scene still to come, 4 words in a known tongue, 5 runes in an unknown one, 6 the party.'
+      - '2'
+    - - '13'
+      - City in the clouds
+      - 'd6: 1–2 inhabited — cloud giants, bird-folk or a people sworn never to touch ground; 3–4 abandoned, but something lairs there; 5–6 an illusion. 1-in-6 it is gone in 1d6 days.'
+      - '3'
+    - - '14'
+      - Unnatural days
+      - '1d6 days. One (1–3), two (4–5) or three (6) of these, d10: 1 birds fly backwards, 2 prey hunts predator, 3 rain falls up, 4 coloured rain, 5 water will not boil, 6 fire gives no heat, 7 beasts
+        speak, 8 the entrails read wrong, 9 livestock born monstrous, 10 peasants debate philosophy.'
+      - 1d6
+    - - '15'
+      - Rainbow without rain
+      - '1d20 minutes. d6: 1–3 just a rainbow; 4 a fey offers the way to its gold, for a bargain; 5 a bridge to another world, guarded 1–2 in 6; 6 a sign from the gods, toward something sought (1–3) or
+        not yet known.'
+      - '1'
+    - - '16'
+      - Aurora
+      - 'By night, 3d20 minutes. d6: 1 it is alive, an elemental; 2 faint music; 3 a gate for anyone who can fly into it; 4 spells cast under it roll maximum on every die; 5–6 just lights.'
+      - All
+    - - '17'
+      - Corpse-lights
+      - 'Cold fire on masts, spires and spear-points, 1d20 hours. d6: 1–4 harmless; 5 a being, talking in flickers; 6 the dead stir: undead join the encounters while it lasts.'
+      - '2'
+    - - '18'
+      - Fog from elsewhere
+      - '1d20 hours. Navigation DC +3, no ranged attacks. d6: 1 just fog; 2 creatures from another terrain’s table; 3 thick as wool, every hex costs double; 4 it drains life, mist things hunt in it; 5 a
+        road to another world, 1-in-6 an hour for the lost; 6 the dead in it rise unless burned within the hour.'
+      - '2'
+    - - '19'
+      - Ball lightning
+      - '1d10 globes drift near. A touch is 2d6, DEX DC 12 to dodge. Drawn to d6: 1 metal, 2 tall things, 3 magic, 4 chaotic creatures, 5 lawful ones, 6 anything.'
+      - '1'
+    - - '20'
+      - Magic ebbs or floods
+      - '1d24 hours. d8 whose: 1–3 wizards, 4–6 priests, 7–8 both. d6: 1–3 ebb, spellcasting checks at disadvantage; 4–6 flood, at advantage.'
+      - All
+    die: d20
+    note: 'source: ITW:157-165'
+  oh.cause:
+    title: Cause
+    page: null
+    cols:
+    - Why the sky is strange
+    rows:
+    - - 1–4
+      - No reason. It happens.
+    - - 5–6
+      - It comes back. 1–3 in 6 a sage can say when.
+    - - '7'
+      - The wall to an elemental plane has thinned.
+    - - 8–9
+      - A curse. 1–3 in 6 it lasts until the caster is stopped.
+    - - 10–11
+      - A blessing someone cast.
+    - - 12–13
+      - A druid or warden, restoring a balance.
+    - - 14–15
+      - A great spell’s side-effect. It will come again, more often.
+    - - 16–17
+      - A god’s anger or gift. 1–2 in 6 it lasts until answered.
+    - - '18'
+      - A prophecy coming true.
+    - - '19'
+      - 'An omen: a birth, a death, an age ending.'
+    - - '20'
+      - An artefact.
+    die: d20
+    note: 'source: ITW:165'
   oh.troubles:
     title: Troubles
     page: null
@@ -586,7 +909,7 @@ tables:
       - Route blocked. Detour, +1 MC, then roll another event.
     - - '7'
       - Muddy terrain
-      - Terrain counts as difficult. Foraging costs double — 8.2.
+      - Terrain counts as difficult. Forage DC +3 — 8.2.
     - - '8'
       - Hunter's trap
       - DEX check or take damage and be held until freed.
@@ -920,12 +1243,12 @@ tables:
       - The Monster Overhaul
       - Hostile Forests
       - A forest that is itself the problem.
-      - p. 236
+      - p. 243
     - - null
       - The Monster Overhaul
       - Spring, Summer, Fall, Winter
       - Four chapters keyed to the season rather than the ground.
-      - p. 194
+      - p. 201
     - - null
       - d100 Forest Hooks
       - The whole book
@@ -960,7 +1283,7 @@ tables:
       - Negotiate, pay a toll, trick or fight. A failed social check may mean partial robbery.
     - - '4'
       - Horse trader
-      - Offers a mount at local prices.
+      - Offers a mount at local prices — 15.7.
     - - '5'
       - Hunters by a campfire
       - 'Share food: the party eats no rations tomorrow, and one adjacent hex is revealed.'
@@ -1043,23 +1366,33 @@ tables:
     - - null
       - Foe Tables, Part Four
       - Roads and Outskirts
-      - d12 — poachers, outlaws, highwaymen, deserters, bounty hunters, rabid dogs.
-      - p. 108
+      - 3d6 — poachers, outlaws, highwaymen, deserters, bounty hunters, rabid dogs.
+      - p. 133
     - - null
       - Foe Tables, Part Four
       - Roads · Outlaws, Poachers and Deserters
       - A stat block for every one of them.
-      - p. 118
+      - p. 143
     - - null
       - Foe Tables, Part Four
       - Town · Encounter Tables
-      - d12 by place and hour — streets, docks, outskirts. For §15.
-      - p. 107
+      - 3d6 by place and hour — streets by day and night, docks, taverns, roads. For §15.
+      - p. 132
+    - - null
+      - Foe Tables, Parts One–Two
+      - The People of the Old World · of the Hyborian Age
+      - '2d6 townsfolk: the street, the doorstep, the night, the road.'
+      - p. 50 · p. 84
+    - - null
+      - Foe Tables, Parts One–Two
+      - Soldiers and Sailors
+      - '2d6: a soldier alone on the road, a sailor ashore.'
+      - p. 56 · p. 90
     - - null
       - Foe Tables, Part Six
       - Retainers · Taking Service
       - Hiring the ones who will come with you. For §15.
-      - p. 131
+      - p. 157
     - - null
       - GM Companion
       - NPCs
@@ -1080,7 +1413,7 @@ tables:
       - Rival Crawlers
       - 'A rival party: ancestry, class, signature tactics and a secret.'
       - p. 55
-    note: 'source: TFT:108|GC:52|TFT:131'
+    note: 'source: TFT:133|GC:52|TFT:157'
   oh.creatures-by-terrain:
     title: Creatures by terrain
     page: null
@@ -1092,48 +1425,52 @@ tables:
     - - null
       - Grasslands
       - Grassland · The Open Range
-      - p. 75
+      - p. 94
     - - null
-      - Forest
-      - Forest & Jungle · Under the Canopy
-      - p. 78
+      - Moor — cold Grasslands
+      - Hills & Moor · The High Ground
+      - p. 100
     - - null
-      - Jungle
+      - Forest, Jungle
       - Forest & Jungle · Under the Canopy
-      - p. 78
+      - p. 97
     - - null
       - Hills
       - Hills & Moor · The High Ground
-      - p. 81
+      - p. 100
+    - - null
+      - Tundra — cold Hills
+      - Glacier & Tundra · The White Silence
+      - p. 125
     - - null
       - Mountains
       - Mountain & Crag · The Thin Air
-      - p. 84
+      - p. 103
     - - null
       - Desert
       - Desert & Barren · The Open Oven
-      - p. 87
+      - p. 106
     - - null
       - Swamp
       - Swamp & Fen · Standing Water
-      - p. 90
+      - p. 109
     - - null
-      - A river, in any terrain — 3.2
+      - A lake, or a river in any terrain — 3.2
       - River & Lakeshore · The Running Water
-      - p. 93
+      - p. 112
     - - null
-      - Sea / Lake — §23
-      - Sea & Deep Water · The Open Blue
-      - p. 96
+      - Sea — §23
+      - 'Sea & Deep Water · The Open Blue. Reefs and shore: Reefs & Shallows p. 119. Peoples: Sea Folk p. 122.'
+      - p. 115
     - - null
       - Glacier
       - Glacier & Tundra · The White Silence
-      - p. 100
+      - p. 125
     - - null
       - A cavern or crypt — §22
       - Caves & Underground · The Lightless Country
-      - p. 103
-    note: 'source: TFT:75'
+      - p. 128
+    note: 'source: TFT:94'
   oh.reading-a-wildland-entry:
     title: Reading a Wildland entry
     page: null
@@ -1143,63 +1480,62 @@ tables:
     rows:
     - - null
       - Type
-      - V vermin on 1–10, M minion on 11–20. The split is why d10 and d10+10 work.
+      - V vermin, M minion.
     - - null
       - No.
       - A flat die, already adjusted. A swarm past about two attacks per character per round is one creature with a pool of HP, not a crowd.
     - - null
       - LV
-      - Not a promise of a fair fight. A high-level creature on a d20 table is there to be avoided — the reaction roll is how you find out whether you may.
+      - Not a promise of a fair fight. A high-level creature on a Wildland table is there to be avoided — the reaction roll is how you find out whether you may.
     - - null
       - Harvest
       - What the body is worth, and the slots it costs. Hides spoil if unsold by the second settlement.
     - - null
       - Reaction
-      - Roll it before combat, always. Most of what lives in a hex has somewhere else to be — 6.1.
-    note: 'source: TFT:74'
+      - Every block has its own Reactions (d6). Roll it before combat, always — not 6.1’s 2d6.
+    note: 'source: TFT:93'
   oh.factions-by-terrain:
     title: Factions by terrain
     page: null
     cols:
     - Terrain in this book
-    - Factions, each with four tables
+    - Factions
     rows:
     - - null
       - Grasslands
-      - The Empire of Man p. 4 · Bretonnia p. 7 · The Wild Country p. 50 · The Hyborian Kingdoms p. 53
+      - The Empire of Man p. 4 · Bretonnia p. 7 · Kislev p. 37 · The Wild Country p. 59 · The Hyborian Kingdoms p. 62 · The Black Kingdoms p. 66 · Khitai and the East p. 69
     - - null
-      - Forest
-      - Beastmen Brayherds p. 9 · Lizardmen of Lustria p. 12 · Vampire Counts p. 15 · The Pictish Wilderness p. 55 · The Black Kingdoms p. 57 · Xuchotl p. 58
-    - - null
-      - Jungle
-      - 'Beastmen Brayherds p. 9 · Lizardmen of Lustria p. 12 · Greenskins: the Savage Tribes p. 25 · The Pictish Wilderness p. 55 · The Black Kingdoms p. 57 · Xuchotl p. 58'
+      - Forest, Jungle
+      - 'Bretonnia p. 7 · Beastmen Brayherds p. 9 · Lizardmen of Lustria p. 12 · Vampire Counts p. 15 · Greenskins: the Savage Tribes p. 25 · The Wild Country p. 59 · The Pictish Wilderness p. 64 · The
+        Black Kingdoms p. 66 · Xuchotl p. 67'
     - - null
       - Hills
-      - 'Greenskins: Goblins and Orcs p. 19 · Greenskins: the Big Ones p. 23 · Greenskins: the Savage Tribes p. 25'
+      - 'The Empire of Man p. 4 · Greenskins: Goblins and Orcs p. 19 · Greenskins: the Big Ones p. 23 · Greenskins: the Savage Tribes p. 25 · The Wild Country p. 59 · The Hyborian Kingdoms p. 62'
     - - null
       - Mountains
-      - 'Greenskins: Goblins and Orcs p. 19 · Greenskins: the Big Ones p. 23 · Dwarfs and Chaos Dwarfs p. 28 · Khitai and the East p. 60'
+      - 'Greenskins: Goblins and Orcs p. 19 · Greenskins: the Big Ones p. 23 · Dwarfs and Chaos Dwarfs p. 28 · Chaos of the Northern Wastes p. 34 · Dark Elves of Naggaroth p. 39 · The Deep Dark p. 48 ·
+        Khitai and the East p. 69 · Nordheim p. 76'
     - - null
       - Swamp
-      - Vampire Counts p. 15 · Stygia and the Serpent p. 61
+      - Vampire Counts p. 15 · The Wild Country p. 59 · The Pictish Wilderness p. 64 · Stygia and the Serpent p. 71
     - - null
       - Desert
-      - Tomb Kings of Khemri p. 31 · Stygia and the Serpent p. 61
+      - Dwarfs and Chaos Dwarfs p. 28 · Tomb Kings of Khemri p. 31 · Stygia and the Serpent p. 71
     - - null
       - Glacier
-      - Chaos of the Northern Wastes p. 34 · Kislev p. 37 · Nordheim p. 66
+      - Chaos of the Northern Wastes p. 34 · Kislev p. 37 · Nordheim p. 76
     - - null
       - Sea / Lake — §23
-      - Dark Elves of Naggaroth p. 39 · High Elves of Ulthuan p. 42 · The Black Coast p. 67
+      - Dark Elves of Naggaroth p. 39 · High Elves of Ulthuan p. 42 · The Black Coast p. 77
     - - null
       - A settlement — 15.1
-      - The Skaven of the Under-Empire p. 44 · Zamora and the Cities of Thieves p. 69
+      - The Skaven of the Under-Empire p. 44 · Zamora and the Cities of Thieves p. 79
     - - null
       - A cavern or crypt — §22
-      - The Dungeon Itself p. 47 · The Deep Dark p. 48
+      - 'Greenskins: the Big Ones p. 23 · The Skaven of the Under-Empire p. 44 · The Dungeon Itself p. 47 with The Deep Dark p. 48, one warband'
     - - null
       - Any hex
-      - The Outer Dark p. 72
+      - The Outer Dark p. 82, party LV 6+
     note: 'source: TFT:3'
   oh.a-creature-with-no-block:
     title: A creature with no block
@@ -1222,7 +1558,7 @@ tables:
       - Only when central. State what can hurt it.
     - - null
       - Treasure
-      - Shadowdark treasure by level. A wandering creature may carry nothing.
+      - Shadowdark treasure by level. Half of all wandering creatures carry nothing.
     note: 'source: NEW'
   oh.finding-an-isolated-feature:
     title: Finding an isolated feature
@@ -1247,19 +1583,19 @@ tables:
     rows:
     - - null
       - Dungeon
-      - Name and record it. Generate type, size and objective in §19.
+      - Name and record it. Quest in §19; map it in §21.
     - - null
       - Catacombs
-      - 1+1d3 levels. The objective may be lowest. Stairs may need searching or clues.
+      - 1+1d3 levels, a Tomb map each — §21. The objective may be lowest.
     - - null
       - Ancient Crypt
       - Chambers, guardians, traps, sealed contents. → §22
     - - null
       - Cavern
-      - An irregular map with water, drops, narrow passages, subterranean creatures.
+      - A Cave map — §21. Water, drops, narrow passages.
     - - null
       - Ruins
-      - Outdoor exploration with cover, weather, visibility and wilderness encounters.
+      - 'A Ruins map — §21. Open to the sky: weather and wilderness encounters too.'
     - - null
       - Village, Town, City
       - A band, not a type — build it in 15.1
@@ -1268,7 +1604,7 @@ tables:
       - A safe night’s rest — 8.4. Blessings, holy water, healing, hiring.
     - - null
       - Keep
-      - 20% chance of a commander's quest. Weapons, armour, military hiring.
+      - 20% chance of a commander's quest. Weapons, armour, military hiring. Build it in 15.11.
     - - null
       - Tavern
       - Information, rumours, rest, hiring. Roll 1d6; odd generates a traveller.
@@ -1283,7 +1619,7 @@ tables:
       - Roll 1d6 below.
     - - null
       - Creature Lair
-      - '2 days. Home of the terrain’s strongest creature: a Boss — 12.1, or the top of the §12 table. It does not attack automatically.'
+      - '2 days. Home of the terrain’s strongest creature: a Boss — 12.1, or the highest-LV creature on the §12 table. It does not attack automatically.'
     - - null
       - Deep Chasm
       - Blocks the two edges it touches. Rivers may vanish into it.
@@ -1814,7 +2150,7 @@ tables:
       - It pays what the deed is worth. Coin, or not coin at all.
     - - null
       - Monsters
-      - Your own tables — §12 — and they carry treasure half the time.
+      - Your own tables — §12. The d100 is their lair’s hoard.
     note: 'source: NEW'
   oh.disputes-to-arbitrate:
     title: Disputes to arbitrate
@@ -2562,7 +2898,7 @@ tables:
     - - null
       - Foe Tables, Part Three
       - Whatever lives at it, by terrain — §12.
-      - p. 75
+      - p. 93
     note: 'source: SG:24|LX:8|SD:176'
   oh.treasure-0-3:
     title: Treasure 0–3
@@ -4028,17 +4364,22 @@ tables:
       - Foe Tables, Part Six
       - Retainers
       - Who will actually come with you, with a stat block each.
-      - p. 131
+      - p. 157
     - - null
       - Foe Tables, Part Six
       - Taking Service
       - 'The terms: pay, shares, and when they leave.'
-      - p. 133
+      - p. 159
     - - null
       - Foe Tables, Part Six
       - Professionals and Services
       - The ones you pay without taking along.
-      - p. 134
+      - p. 160
+    - - null
+      - Foe Tables, Part Six
+      - Beasts of Burden
+      - Mounts and pack animals at the Reaches’ prices, with a stat block each.
+      - p. 161
     - - null
       - GM Companion
       - NPC Occupations
@@ -4049,7 +4390,856 @@ tables:
       - Rival Crawlers
       - The party that got there first, and would rather you had not.
       - p. 55
-    note: 'source: TFT:131|GC:54'
+    note: 'source: TFT:157|GC:54'
+  oh.a-village-why-who-and-who-matters:
+    title: A village — why, who, and who matters
+    page: null
+    cols:
+    - Why it is here
+    - Who runs it
+    - A notable local
+    rows:
+    - - '1'
+      - Once a garrison outpost of a nation
+      - A hereditary headman
+      - The village harlot
+    - - '2'
+      - A mine or quarry, perhaps worked out
+      - A reeve picked by a lord
+      - The worst local bully
+    - - '3'
+      - Where refugees of a calamity settled
+      - A temple representative
+      - A gifted young peasant
+    - - '4'
+      - Holy ground, or the temple of one faith
+      - A council of elders
+      - A half-wild shepherd
+    - - '5'
+      - A plant or animal grows very well here
+      - A cruel and feared bully
+      - A charismatic priest
+    - - '6'
+      - A safe waypost on a trade route
+      - A chief the people chose
+      - A major landowner
+    - - '7'
+      - Refuge for a despised minority
+      - A dreaded sorcerer
+      - A youth who wants out
+    - - '8'
+      - A bandit camp that went legitimate
+      - A pragmatic warlord
+      - A venerable old farmer
+    - - '9'
+      - A self-ruled home of demihumans
+      - The richest native
+      - A criminal in rural hiding
+    - - '10'
+      - A safe base for plundering ruins
+      - A traditional squire
+      - A hedge mage
+    - - '11'
+      - The decayed remnant of an ancient city
+      - A patriarch or matriarch
+      - A noble’s local reeve
+    - - '12'
+      - It grew up around a lordly manor
+      - The envoy of an organisation
+      - An important artisan
+    die: d12
+    note: 'source: WWN:153'
+  oh.a-village-trouble-and-what-it-means-for:
+    title: A village — trouble, and what it means for you
+    page: null
+    cols:
+    - The pressing problem
+    - Who comes to the party
+    - What it can offer
+    rows:
+    - - '1'
+      - Vital food stores lost or stolen
+      - An ambitious local who wants the city
+      - An unusual hoard of saved coin
+    - - '2'
+      - Two families in a long feud
+      - An outcast no local will help
+      - A valuable local specialty
+    - - '3'
+      - A new religion troubles the old
+      - Gentry who want no gossip about their need
+      - An heirloom magic item, the leader’s
+    - - '4'
+      - The lord’s reeve sets impossible quotas
+      - A city-born local hungry for news
+      - A magical service unique to the place
+    - - '5'
+      - An upstart newcomer upsets the order
+      - A well-off villager with a need
+      - A map or secret to a dungeon — §21
+    - - '6'
+      - An outcast family suspected of crimes
+      - A starry-eyed youth who adores adventurers
+      - A temple with potent healing
+    - - '7'
+      - A dangerous beast or foe lurks nearby
+      - The village priest, needing outside help
+      - A treasure hidden generations ago
+    - - '8'
+      - A bully and his friends cause trouble
+      - A reeve who cannot ask the locals
+      - Large stores of produce or goods
+    - - '9'
+      - Crops or herds in very poor shape
+      - The leader, wanting expendable help
+      - An abandoned farm or building to give
+    - - '10'
+      - A murky land dispute turns bloody
+      - A burly militiaman who watches new faces
+      - Contacts with bandits or smugglers
+    - - '11'
+      - A curse or magical woe on the people
+      - A shifty local after clueless accomplices
+      - Favours from a lord fond of the place
+    - - '12'
+      - Noble quarrels do collateral damage
+      - A clan elder who will not risk their kin
+      - Young locals willing to take service
+    die: d12
+    note: 'source: WWN:153'
+  oh.a-town-or-city-why-who-and-who-matters:
+    title: A town or city — why, who, and who matters
+    page: null
+    cols:
+    - Why it is here
+    - Who runs it
+    - A notable local
+    rows:
+    - - '1'
+      - Former seat of a vanished nation
+      - A hereditary lord
+      - A sinister crime boss
+    - - '2'
+      - A trade nexus that has prospered
+      - A merchant prince
+      - The head of a major temple
+    - - '3'
+      - An industrial or productive centre
+      - A council of oligarchs
+      - A neighbourhood patriarch
+    - - '4'
+      - Heavy mining or logging nearby
+      - Allied noble houses
+      - The elder of one people
+    - - '5'
+      - It holds a vital defensive point
+      - A royal viceroy
+      - A rich merchant
+    - - '6'
+      - Built around an ancient magical working
+      - A mayor the gentry elect
+      - A feared local mage
+    - - '7'
+      - Stronghold of a local people or sect
+      - A great cleric
+      - The captain of the watch
+    - - '8'
+      - Sacred city of an important faith
+      - A wielder of occult power
+      - A decadent noble
+    - - '9'
+      - A shared market for many villages
+      - A puppet of a criminal guild
+      - A local magistrate
+    - - '10'
+      - A place of great beauty or health
+      - The ruler of one people
+      - The leader of an outcast group
+    - - '11'
+      - A shelter from deadly lands around
+      - A chief magistrate
+      - A famous courtesan
+    - - '12'
+      - Its people are somehow bound here
+      - A military strongman
+      - The head of a demihuman enclave
+    die: d12
+    note: 'source: WWN:154'
+  oh.a-town-or-city-trouble-and-what-it-means:
+    title: A town or city — trouble, and what it means for you
+    page: null
+    cols:
+    - The pressing problem
+    - Who comes to the party
+    - What it can offer
+    rows:
+    - - '1'
+      - Raiders scourge the trade roads
+      - An official wanting deniable agents
+      - Large sums of coin
+    - - '2'
+      - Criminals have bought the watch
+      - A rich merchant wanting outside help
+      - Valuable town property
+    - - '3'
+      - The people are rioting
+      - A hapless newcomer from the country
+      - Rare and costly local goods
+    - - '4'
+      - The ruler makes harsh demands
+      - A guide to the underside, after clients
+      - Citizenship and its rights
+    - - '5'
+      - Food is not arriving as it should
+      - An urchin who trades in news
+      - Charges, or a past, quietly dropped
+    - - '6'
+      - Factions are arming for a showdown
+      - A criminal who uses naive newcomers
+      - Pleasures no smaller place can offer
+    - - '7'
+      - A calamity wrecked streets and walls
+      - A desperate merchant keeping afloat
+      - Master specialists for hire
+    - - '8'
+      - A disguised monster feeds from within
+      - A guard captain wary of trouble
+      - Ties to the great nobles
+    - - '9'
+      - The rulers offended a local faith
+      - A local too infamous for anyone else
+      - Ownership of villages or manors
+    - - '10'
+      - Rebels deny the ruler’s right
+      - A noble who thinks you do anything for coin
+      - Rare occult components
+    - - '11'
+      - A private war with another city looms
+      - Bored young gentry after thrills
+      - Blessings of the high priests
+    - - '12'
+      - A great local trade is threatened
+      - A foreigner seeking fellow strangers
+      - A monopoly, or tax rights
+    die: d12
+    note: 'source: WWN:154'
+  oh.how-they-treat-strangers:
+    title: How they treat strangers
+    page: null
+    cols:
+    - The locals are…
+    rows:
+    - - 1–2
+      - 'Hostile. Visitors are unwelcome: coldness, spite, even violence.'
+    - - 3–6
+      - Unfriendly. Contempt, fear or suspicion.
+    - - 7–14
+      - Neutral. Standoffish, but friendly once they know you.
+    - - 15–18
+      - Friendly. Welcoming and slow to take offence.
+    - - 19–20
+      - Open. They love visitors. Almost anyone is welcome.
+    die: d20
+    note: 'source: SS:57'
+  oh.a-local-superstition:
+    title: A local superstition
+    page: null
+    cols:
+    - Everyone here knows that…
+    rows:
+    - - '1'
+      - A dead cat under the doorstep makes a house prosper.
+    - - '2'
+      - Half a chicken tied to the sore cures any ailment.
+    - - '3'
+      - Two mirrors facing each other open a door for devils.
+    - - '4'
+      - Mistletoe over the lintel binds the host to harm no guest.
+    - - '5'
+      - A knife stuck point-down in wood invites violence.
+    - - '6'
+      - 'Spirits hide in cabbages: carve a holy sign before cooking.'
+    - - '7'
+      - Walk home from a grave by a winding path, to lose the dead.
+    - - '8'
+      - A knife given as a gift cuts the friendship. Pay a coin.
+    - - '9'
+      - Dull scissors can cut the thread that ties soul to body.
+    - - '10'
+      - Whoever knows your full name can curse you.
+    - - '11'
+      - A carrion bird landing before you means a death close by.
+    - - '12'
+      - A lone magpie is bad luck, unless you salute it.
+    - - '13'
+      - Never grab the dice. They are handed on, or cursed.
+    - - '14'
+      - A pregnant woman goes out at dusk only with a second lamp.
+    - - '15'
+      - A wishing-well coin must be worth the wish.
+    - - '16'
+      - Call no adult sir or madam, and bad luck follows.
+    - - '17'
+      - The first stone chip of the day goes in the striker’s pocket.
+    - - '18'
+      - Love declared at dawn or dusk is doomed.
+    - - '19'
+      - Kiss the door frame going in or out, for the gods’ protection.
+    - - '20'
+      - An empty cup left upright fills with a spirit — then the next drinker.
+    die: d20
+    note: 'source: SS:64'
+  oh.its-look-its-landmark-its-secret-its-dan:
+    title: Its look, its landmark, its secret, its danger
+    page: null
+    cols:
+    - It looks
+    - Its landmark
+    - Its secret
+    - Its danger
+    rows:
+    - - '1'
+      - Wide, sprawling and opulent
+      - A grand cathedral or temple
+      - Nothing special is going on
+      - A large, watchful garrison
+    - - '2'
+      - Grey, grim and ashen
+      - A colossal monument or fountain
+      - Catacombs run beneath it — §21
+      - Toxic waters and vapours
+    - - '3'
+      - Grand, old, steeped in tradition
+      - An important castle or palace — 15.11
+      - It is built on an older city
+      - Collapsing buildings or streets
+    - - '4'
+      - Towering, gleaming, majestic
+      - A magical structure or site
+      - The whole place is part of a ritual
+      - Treacherous ground
+    - - '5'
+      - Tall and rich, with dark alleys
+      - Intertwining canals
+      - Parts lie abandoned; nobody says why
+      - Rampant violent crime
+    - - '6'
+      - Solid, all power and chivalry
+      - A grand or long bridge
+      - It hides portals to other places
+      - Monsters in the streets
+    - - '7'
+      - Rugged and rough, mostly timber
+      - An ancient, mysterious machine
+      - It is prophesied to fall
+      - Brutal guards
+    - - '8'
+      - Magical, legendary architecture
+      - A massive market or harbour
+      - Vaults hide unimaginable wealth
+      - Dangerous magic or magical traps
+    - - '9'
+      - Tight deep alleys, many styles
+      - A tall tower or clocktower
+      - A secret cult works from here
+      - A violent, wary populace
+    - - '10'
+      - Dank, wet and filthy
+      - A great library or school
+      - Many citizens are spies
+      - Harsh weather
+    die: d10
+    note: 'source: DD:26'
+  oh.the-temple:
+    title: The temple
+    page: null
+    cols:
+    - Size — d4
+    - Locals think — d6
+    - In charge — d8
+    rows:
+    - - '1'
+      - Much smaller than most
+      - Contempt for its failings
+      - A venal time-server
+    - - '2'
+      - Shrunk from its old size
+      - Something about it bothers them
+      - A harried new leader
+    - - '3'
+      - Normal for its importance
+      - A tolerable shrine
+      - A tool of the local lord
+    - - '4'
+      - Unusually large or grand
+      - Good and trustworthy
+      - An incompetent sent here
+    - - '5'
+      - ''
+      - It lately won glory
+      - A local prodigy
+    - - '6'
+      - ''
+      - Utmost esteem
+      - A grizzled pragmatist
+    - - '7'
+      - ''
+      - ''
+      - A charismatic near-heretic
+    - - '8'
+      - ''
+      - ''
+      - A practical, pious cleric
+    die: d4
+    note: 'source: WWN:147'
+  oh.its-help-its-trouble-its-quirk:
+    title: Its help, its trouble, its quirk
+    page: null
+    cols:
+    - Can help with — d10
+    - Trouble — d12
+    - Quirk — d20
+    rows:
+    - - '1'
+      - Real magical resources
+      - A rival faith harms it
+      - Built in a secular building
+    - - '2'
+      - Plenty of cash
+      - Locals want a miracle it cannot give
+      - Well fortified
+    - - '3'
+      - Goods or land
+      - Its head fights their superiors
+      - Tied to a business
+    - - '4'
+      - The ear of important locals
+      - A priest did something awful
+      - The clergy are mostly kin
+    - - '5'
+      - The lord relies on it
+      - Deep in debt
+      - In a dangerous spot
+    - - '6'
+      - Useful lay servants
+      - Damaged by a disaster
+      - Shares a roof with a friendly faith
+    - - '7'
+      - Many useful secrets
+      - Armed men hold a grudge
+      - Odd rites or taboos
+    - - '8'
+      - Crimes forgiven
+      - The elite shun it
+      - Holds an ancient artifact
+    - - '9'
+      - Favours owed by other temples
+      - Signs of divine displeasure
+      - A remarkable library
+    - - '10'
+      - Many armed followers
+      - A priest meddles with dark forces
+      - Draws prophets and relic-sellers
+    - - '11'
+      - ''
+      - A schismatic draws off believers
+      - An illicit or scandalous service
+    - - '12'
+      - ''
+      - 'Roll twice: one caused the other'
+      - More business than shrine
+    - - '13'
+      - ''
+      - ''
+      - Unusually beautiful
+    - - '14'
+      - ''
+      - ''
+      - A shadow of a glorious past
+    - - '15'
+      - ''
+      - ''
+      - Founded very recently
+    - - '16'
+      - ''
+      - ''
+      - The clergy hate each other
+    - - '17'
+      - ''
+      - ''
+      - Led by foreigners or demihumans
+    - - '18'
+      - ''
+      - ''
+      - Deals only with the proven faithful
+    - - '19'
+      - ''
+      - ''
+      - Drove out an older faith, maybe by force
+    - - '20'
+      - ''
+      - ''
+      - Secretly another faith altogether
+    die: d10
+    note: 'source: WWN:147'
+  oh.the-rulers:
+    title: The rulers
+    page: null
+    cols:
+    - Stability — d4
+    - The ruler — d6
+    - Their ministers — d8
+    rows:
+    - - '1'
+      - Precarious, its right questioned
+      - An outsider with few allies
+      - The chief schemes against rivals
+    - - '2'
+      - Troubled, but it works
+      - Newly come to power
+      - Lazy or out of touch
+    - - '3'
+      - Fairly stable, widely accepted
+      - Some ties to strong allies
+      - Lately purged, bloodily
+    - - '4'
+      - Weathers even fierce shocks
+      - A hard core of supporters
+      - Enemies have friends among them
+    - - '5'
+      - ''
+      - A wide web of support
+      - Lost in faction fights
+    - - '6'
+      - ''
+      - Practically an institution
+      - Their advice is ignored
+    - - '7'
+      - ''
+      - ''
+      - They quietly usurp the ruler
+    - - '8'
+      - ''
+      - ''
+      - Set on a very bad idea
+    die: d4
+    note: 'source: WWN:139'
+  oh.its-strength-its-officials-its-news:
+    title: Its strength, its officials, its news
+    page: null
+    cols:
+    - Strength — d10
+    - Officials causing trouble — d12
+    - Lately — d20
+    rows:
+    - - '1'
+      - An efficient bureaucracy
+      - Grasping tax-farmers
+      - A great official hanged for treason
+    - - '2'
+      - A fiercely loyal army
+      - Thieving, unruly troops
+      - A vital heir was born
+    - - '3'
+      - Great legitimacy
+      - Bribe-hungry magistrates
+      - A chief minister fell from grace
+    - - '4'
+      - Firm grip on the economy
+      - Informers among neighbours
+      - A high noble talks of revolt
+    - - '5'
+      - People believe in it
+      - Greedy tithe-collectors
+      - The rulers offended a faith
+    - - '6'
+      - Cunning diplomats
+      - Corrupt market officials
+      - An ally was angered
+    - - '7'
+      - An expert spymaster
+      - Arrogant nobles and retinues
+      - An enemy spy ring exposed
+    - - '8'
+      - Powerful sorceries
+      - Thuggish watchmen
+      - A vast project announced
+    - - '9'
+      - Ties to an important faith
+      - Pitiless witch-hunters
+      - Officials looted a great plan
+    - - '10'
+      - Nobles of gifted blood
+      - Lawmen acting as the law
+      - A new bureaucracy formed
+    - - '11'
+      - ''
+      - Scholars teaching vile ideas
+      - A heavy new tax
+    - - '12'
+      - ''
+      - Village headmen turned tyrants
+      - A general dismissed
+    - - '13'
+      - ''
+      - ''
+      - A folk hero grows too popular
+    - - '14'
+      - ''
+      - ''
+      - A great building work begun
+    - - '15'
+      - ''
+      - ''
+      - A fief given to new hands
+    - - '16'
+      - ''
+      - ''
+      - Merchants fined to beggary
+    - - '17'
+      - ''
+      - ''
+      - A rebel or foreign attack
+    - - '18'
+      - ''
+      - ''
+      - A faction of officials collapsed
+    - - '19'
+      - ''
+      - ''
+      - A bureaucracy dissolved
+    - - '20'
+      - ''
+      - ''
+      - Province borders redrawn
+    die: d10
+    note: 'source: WWN:139'
+  oh.why-it-was-built:
+    title: Why it was built
+    page: null
+    cols:
+    - It was built…
+    rows:
+    - - '1'
+      - Because an attack was expected
+    - - '2'
+      - As someone’s dying wish
+    - - '3'
+      - Because a god commanded it
+    - - '4'
+      - As a show of power and wealth
+    - - '5'
+      - To guard or hide something
+    - - '6'
+      - In fear of what would happen if not
+    - - '7'
+      - Because a prophecy said so
+    - - '8'
+      - By a ruler’s decree
+    - - '9'
+      - As a master builder’s life work
+    - - '10'
+      - As something else, then rebuilt
+    die: d10
+    note: 'source: SS:300'
+  oh.its-state-and-who-holds-it.condition:
+    title: Its state, and who holds it — Condition
+    page: null
+    cols:
+    - Condition
+    rows:
+    - - 1–2
+      - Ruin. Barely livable.
+    - - 3–6
+      - Poor or unfinished. Gaps, rot, holes.
+    - - 7–14
+      - Average. Sound; small faults.
+    - - 15–19
+      - Strong. Well kept, no clear weakness.
+    - - '20'
+      - Impeccable. New or immaculate.
+    die: d20
+    note: 'source: SS:298|SS:302'
+  oh.its-state-and-who-holds-it.held-by:
+    title: Its state, and who holds it — Held by
+    page: null
+    cols:
+    - Held by
+    rows:
+    - - 1–8
+      - The builders, or their heirs.
+    - - 9–14
+      - 'Newcomers, in peace: bought, inherited, given, or found empty.'
+    - - 15–20
+      - Newcomers, by force, or after a war.
+    die: d20
+    note: 'source: SS:298|SS:302'
+  oh.the-garrison.size:
+    title: The garrison — Size
+    page: null
+    cols:
+    - Size
+    rows:
+    - - 1–4
+      - Minimum. Overworked.
+    - - 5–12
+      - Modest. Enough for shifts.
+    - - 13–19
+      - Large. Always well manned.
+    - - '20'
+      - Maximum. All it can hold.
+    die: d20
+    note: 'source: SS:303'
+  oh.the-garrison.mood:
+    title: The garrison — Mood
+    page: null
+    cols:
+    - Mood
+    rows:
+    - - '1'
+      - Angry — they hate it here
+    - - '2'
+      - Irritated
+    - - '3'
+      - Indifferent
+    - - '4'
+      - Content
+    - - '5'
+      - Happy
+    - - '6'
+      - Enthused — they will not leave
+    die: d6
+    note: 'source: SS:303'
+  oh.its-trouble-now:
+    title: Its trouble now
+    page: null
+    cols:
+    - Right now…
+    rows:
+    - - 1–6
+      - All is peaceful.
+    - - '7'
+      - A gate, door or drawbridge fails.
+    - - '8'
+      - A guard or servant hurt on duty.
+    - - '9'
+      - Poachers on its lands.
+    - - '10'
+      - The lord’s family is sick.
+    - - '11'
+      - A guard or servant is sick.
+    - - '12'
+      - The fresh food has spoiled.
+    - - '13'
+      - Supplies stolen.
+    - - '14'
+      - Weather has wrecked a wing.
+    - - '15'
+      - A neglected part collapsed.
+    - - '16'
+      - A botched repair weakened a wall.
+    - - '17'
+      - Pests.
+    - - '18'
+      - A magical anomaly.
+    - - '19'
+      - A strange beast prowls in or near it.
+    - - '20'
+      - Unfriendly outsiders take an interest.
+    die: d20
+    note: 'source: SS:304'
+  oh.its-past-and-its-secret.history:
+    title: Its past and its secret — History
+    page: null
+    cols:
+    - History
+    rows:
+    - - '1'
+      - Someone of note lived here first
+    - - '2'
+      - A resident has remarkable blood
+    - - '3'
+      - The site is cursed
+    - - '4'
+      - A great power once walked here
+    - - '5'
+      - A fateful meeting happened here
+    - - '6'
+      - Something strange was dug up here
+    - - '7'
+      - Its building was bitterly opposed
+    - - '8'
+      - Its architect was imprisoned
+    - - '9'
+      - A family of creatures has always lived here
+    - - '10'
+      - Built around marks held sacred
+    die: d10
+    note: 'source: SS:305'
+  oh.its-past-and-its-secret.secret:
+    title: Its past and its secret — Secret
+    page: null
+    cols:
+    - Secret
+    rows:
+    - - '1'
+      - A body buried before it was built
+    - - '2'
+      - A body buried since
+    - - '3'
+      - Treasure buried before it was built
+    - - '4'
+      - A hoard buried since
+    - - '5'
+      - Someone’s plain trinket is special
+    - - '6'
+      - A book of great value
+    - - '7'
+      - An old ritual was done here
+    - - '8'
+      - Two residents wed in secret
+    - - '9'
+      - An unnoticed spell lingers
+    - - '10'
+      - Someone works a secret night trade
+    - - '11'
+      - Someone sneaks out by a hidden way
+    - - '12'
+      - Someone living here does not belong
+    die: d12
+    note: 'source: SS:305'
+  oh.an-oddity:
+    title: An oddity
+    page: null
+    cols:
+    - Something is not right…
+    rows:
+    - - '1'
+      - It is haunted.
+    - - '2'
+      - A door stuck shut forever. The plans show no room.
+    - - '3'
+      - A breeze in sealed rooms.
+    - - '4'
+      - Voices from rooms that are empty.
+    - - '5'
+      - Rumbles, deep underground.
+    - - '6'
+      - One room sets everyone’s mood.
+    - - '7'
+      - A hallway that leads nowhere.
+    - - '8'
+      - Strange visitors no one can trace.
+    - - '9'
+      - A stone step that creaks.
+    - - '10'
+      - A small animal that stares, then vanishes.
+    - - '11'
+      - Small things go missing.
+    - - '12'
+      - Furniture nobody placed, and nobody moves.
+    die: d12
+    note: 'source: SS:306'
   oh.settlement-events:
     title: Settlement events
     page: null
@@ -4171,6 +5361,10 @@ tables:
       - Inside a tavern — 15.4
       - Tavern Encounters
       - p. 182
+    - - null
+      - The docks — a port, 23.10
+      - Docks encounters
+      - '23.10'
     note: 'source: SD:148'
   oh.acts-of-devotion-the-event:
     title: Acts of devotion · the event
@@ -5271,6 +6465,466 @@ tables:
       - -worthy
     die: d100
     note: 'source: KN:61'
+  oh.region-pattern:
+    title: Region pattern
+    page: null
+    cols:
+    - Name
+    rows:
+    - - 1–4
+      - (The) *adjective* *terrain
+    - - 5–7
+      - '*Terrain* of (the) *noun'
+    - - '8'
+      - The *terrain* *adjective
+    - - 9–10
+      - (The) *noun* *terrain
+    - - '11'
+      - (The) *noun*’s *adjective* *terrain
+    - - '12'
+      - '*Adjective* *terrain* of (the) *noun'
+    die: d12
+    note: 'source: PW:20'
+  oh.place-pattern:
+    title: Place pattern
+    page: null
+    cols:
+    - Name
+    rows:
+    - - 1–2
+      - The *place
+    - - 3–4
+      - The *adjective* *place
+    - - 5–6
+      - The *place* of (the) *noun
+    - - 7–8
+      - (The) *noun*’s *place
+    - - 9–10
+      - '*Place* of the *adjective* *noun'
+    - - 11–12
+      - The *adjective* *noun
+    die: d12
+    note: 'source: PW:21'
+  oh.region-words:
+    title: Region words
+    page: null
+    cols:
+    - Terrain
+    - Adjective
+    - Noun
+    rows:
+    - - 01–02
+      - Bay
+      - Ageless
+      - '*A name'
+    - - 03–04
+      - Bluffs
+      - Ashen
+      - Ash
+    - - 05–06
+      - Bog
+      - Black
+      - Bone
+    - - 07–08
+      - Cliffs
+      - Blessed
+      - Darkness
+    - - 09–10
+      - Desert
+      - Blighted
+      - Dead
+    - - 11–12
+      - Downs
+      - Blue
+      - Death
+    - - 13–14
+      - Dunes
+      - Broken
+      - Desolation
+    - - 15–16
+      - Expanse
+      - Burning
+      - Despair
+    - - 17–18
+      - Fells
+      - Cold
+      - Devil
+    - - 19–20
+      - Fen
+      - Cursed
+      - Doom
+    - - 21–22
+      - Flats
+      - Dark
+      - Dragon
+    - - 23–24
+      - Foothills
+      - Dead
+      - Fate
+    - - 25–26
+      - Forest
+      - Deadly
+      - Fear
+    - - 27–28
+      - Groves
+      - Deep
+      - Fire
+    - - 29–30
+      - Heath
+      - Desolate
+      - Fury
+    - - 31–32
+      - Heights
+      - Diamond
+      - Ghost
+    - - 33–34
+      - Hills
+      - Dim
+      - Giant
+    - - 35–36
+      - Hollows
+      - Dismal
+      - God
+    - - 37–38
+      - Jungle
+      - Dun
+      - Gold
+    - - 39–40
+      - Lake
+      - Eerie
+      - Heaven
+    - - 41–42
+      - Lowland
+      - Endless
+      - Hell
+    - - 43–44
+      - March
+      - Fallen
+      - Honor
+    - - 45–46
+      - Marsh
+      - Far
+      - Hope
+    - - 47–48
+      - Meadows
+      - Fell
+      - Horror
+    - - 49–50
+      - Moor
+      - Flaming
+      - King
+    - - 51–52
+      - Morass
+      - Forgotten
+      - Life
+    - - 53–54
+      - Mounds
+      - Forsaken
+      - Light
+    - - 55–56
+      - Mountains
+      - Frozen
+      - Lord
+    - - 57–58
+      - Peaks
+      - Glittering
+      - Mist
+    - - 59–60
+      - Plains
+      - Golden
+      - Peril
+    - - 61–62
+      - Prairie
+      - Green
+      - Queen
+    - - 63–64
+      - Quagmire
+      - Grim
+      - Rain
+    - - 65–66
+      - Range
+      - Holy
+      - Refuge
+    - - 67–68
+      - Reach
+      - Impassable
+      - Regret
+    - - 69–70
+      - Sands
+      - Jagged
+      - Savior
+    - - 71–72
+      - Savanna
+      - Light
+      - Shadow
+    - - 73–74
+      - Scarps
+      - Long
+      - Silver
+    - - 75–76
+      - Sea
+      - Misty
+      - Skull
+    - - 77–78
+      - Slough
+      - Perilous
+      - Sky
+    - - 79–80
+      - Sound
+      - Purple
+      - Smoke
+    - - 81–82
+      - Steppe
+      - Red
+      - Snake
+    - - 83–84
+      - Swamp
+      - Savage
+      - Sorrow
+    - - 85–86
+      - Sweep
+      - Shadowy
+      - Storm
+    - - 87–88
+      - Teeth
+      - Shattered
+      - Sun
+    - - 89–90
+      - Thicket
+      - Shifting
+      - Thorn
+    - - 91–92
+      - Upland
+      - Shining
+      - Thunder
+    - - 93–94
+      - Wall
+      - Silver
+      - Traitor
+    - - 95–96
+      - Waste
+      - White
+      - Troll
+    - - 97–98
+      - Wasteland
+      - Wicked
+      - Victory
+    - - 99–100
+      - Woods
+      - Yellow
+      - Witch
+    die: d100
+    note: 'source: PW:20'
+  oh.place-words:
+    title: Place words
+    page: null
+    cols:
+    - Place
+    - Adjective
+    - Noun
+    rows:
+    - - 01–02
+      - Barrier
+      - Ancient
+      - '*A name'
+    - - 03–04
+      - Beach
+      - Ashen
+      - Arm
+    - - 05–06
+      - Bowl
+      - Black
+      - Ash
+    - - 07–08
+      - Camp
+      - Bloody
+      - Blood
+    - - 09–10
+      - Cave
+      - Blue
+      - Child
+    - - 11–12
+      - Circle
+      - Bright
+      - Cinder
+    - - 13–14
+      - City
+      - Broken
+      - Corpse
+    - - 15–16
+      - Cliff
+      - Burning
+      - Crystal
+    - - 17–18
+      - Crater
+      - Clouded
+      - Dagger
+    - - 19–20
+      - Crossing
+      - Copper
+      - Death
+    - - 21–22
+      - Crypt
+      - Cracked
+      - Demon
+    - - 23–24
+      - Den
+      - Dark
+      - Devil
+    - - 25–26
+      - Ditch
+      - Dead
+      - Doom
+    - - 27–28
+      - Falls
+      - Doomed
+      - Eye
+    - - 29–30
+      - Fence
+      - Endless
+      - Fear
+    - - 31–32
+      - Field
+      - Fallen
+      - Finger
+    - - 33–34
+      - Fort
+      - Far
+      - Fire
+    - - 35–36
+      - Gate
+      - Fearsome
+      - Foot
+    - - 37–38
+      - Grove
+      - Floating
+      - Ghost
+    - - 39–40
+      - Hill
+      - Forbidden
+      - Giant
+    - - 41–42
+      - Hole
+      - Frozen
+      - Goblin
+    - - 43–44
+      - Hut
+      - Ghostly
+      - God
+    - - 45–46
+      - Keep
+      - Gloomy
+      - Gold
+    - - 47–48
+      - Lake
+      - Golden
+      - Hand
+    - - 49–50
+      - Marsh
+      - Grim
+      - Head
+    - - 51–52
+      - Meadow
+      - Hidden
+      - Heart
+    - - 53–54
+      - Mountain
+      - High
+      - Hero
+    - - 55–56
+      - Pit
+      - Iron
+      - Hope
+    - - 57–58
+      - Post
+      - Jagged
+      - King
+    - - 59–60
+      - Ridge
+      - Lonely
+      - Knave
+    - - 61–62
+      - Ring
+      - Lost
+      - Knight
+    - - 63–64
+      - Rise
+      - Low
+      - Muck
+    - - 65–66
+      - Road
+      - Near
+      - Mud
+    - - 67–68
+      - Rock
+      - Petrified
+      - Priest
+    - - 69–70
+      - Ruin
+      - Red
+      - Queen
+    - - 71–72
+      - Shrine
+      - Screaming
+      - Sailor
+    - - 73–74
+      - Spire
+      - Sharp
+      - Silver
+    - - 75–76
+      - Spring
+      - Shattered
+      - Skull
+    - - 77–78
+      - Stone
+      - Shifting
+      - Smoke
+    - - 79–80
+      - Tangle
+      - Shining
+      - Souls
+    - - 81–82
+      - Temple
+      - Shivering
+      - Spear
+    - - 83–84
+      - Throne
+      - Shrouded
+      - Spirit
+    - - 85–86
+      - Tomb
+      - Silver
+      - Stone
+    - - 87–88
+      - Tower
+      - Stalwart
+      - Sword
+    - - 89–90
+      - Town
+      - Stoney
+      - Thief
+    - - 91–92
+      - Tree
+      - Sunken
+      - Troll
+    - - 93–94
+      - Vale
+      - Thorny
+      - Warrior
+    - - 95–96
+      - Valley
+      - Thundering
+      - Water
+    - - 97–98
+      - Village
+      - White
+      - Witch
+    - - 99–100
+      - Wall
+      - Withered
+      - Wizard
+    die: d100
+    note: 'source: PW:21'
   oh.quest-source:
     title: Quest source
     page: null
@@ -6180,6 +7834,359 @@ tables:
       - A witch† (actually Shune the Vile) offers omens and advice
     die: d100
     note: 'source: WRG:62'
+  oh.site-size:
+    title: Site size
+    page: null
+    cols:
+    - Size
+    - Rooms
+    rows:
+    - - 1–2
+      - Small
+      - 5d10
+    - - 3–5
+      - Medium
+      - 8d10
+    - - '6'
+      - Large
+      - 12d10
+    die: 1d6
+    note: 'source: SD:134'
+  oh.from-a-quest:
+    title: From a quest
+    page: null
+    cols:
+    - It says
+    - Use
+    rows:
+    - - null
+      - Regular, Ruins, Woodland
+      - Ruins
+    - - null
+      - Cavern
+      - Cave
+    - - null
+      - Catacombs
+      - Tomb, one map per level
+    - - null
+      - Ancient Crypt
+      - Tomb — §22
+    - - null
+      - Small · Standard · Large
+      - Small · Medium · Large
+    - - null
+      - Very Large
+      - Large, plus a 5d10 lower level
+    - - null
+      - A number of areas
+      - That many d10
+    note: 'source: NEW'
+  oh.site-type:
+    title: Site type
+    page: null
+    cols:
+    - Type
+    - Creatures
+    - Hazards
+    rows:
+    - - 1–2
+      - Cave
+      - Core d100 p. 152 · Caves & Underground p. 128
+      - 21.4 Caves
+    - - '3'
+      - Tomb
+      - Core d100 p. 186
+      - 21.4 Tomb
+    - - '4'
+      - Deep tunnels
+      - Core d100 p. 154 · The Deep Dark p. 48
+      - 21.4 Deep Tunnels
+    - - 5–6
+      - Ruins
+      - Core d100 p. 176
+      - 21.4 Ruins
+    die: 1d6
+    note: 'source: SD:134|SD:152'
+  oh.room:
+    title: Room
+    page: null
+    cols:
+    - Room
+    - Hoard
+    - Detail
+    rows:
+    - - 1–2
+      - Empty
+      - 1-in-6
+      - Nothing lives here. Want it strange? Specials, below.
+    - - '3'
+      - Trap
+      - 2-in-6
+      - Trap, below. Guards the hoard if there is one. Full d20 — 21.3.
+    - - '4'
+      - Minor hazard
+      - —
+      - Minor hazard, below. Effect — 21.4.
+    - - '5'
+      - Solo monster
+      - 3-in-6
+      - 'Solo monster, below. Who: Site type.'
+    - - '6'
+      - NPC
+      - —
+      - NPC, below. Reaction — 6.1.
+    - - '7'
+      - Monster mob
+      - 3-in-6
+      - 'Monster mob, below. Who: Site type.'
+    - - '8'
+      - Major hazard
+      - —
+      - Major hazard, below. Effect — 21.4.
+    - - '9'
+      - Treasure
+      - 'yes'
+      - Treasure, below.
+    - - '10'
+      - Boss monster
+      - 'yes'
+      - Boss monster, below. The highest die is its room.
+    die: d10
+    note: 'source: SD:134|OSE:17'
+  oh.trap:
+    title: Trap
+    page: null
+    cols:
+    - Detail
+    - Detail
+    rows:
+    - - '1'
+      - Crude
+      - Ensnaring
+    - - '2'
+      - Ranged
+      - Toxic
+    - - 3–4
+      - Sturdy
+      - Mechanical
+    - - '5'
+      - Ancient
+      - Magical
+    - - '6'
+      - Large
+      - Deadly
+    die: 1d6
+    note: 'source: SD:135'
+  oh.monster-mob:
+    title: Monster mob
+    page: null
+    cols:
+    - Detail
+    - Detail
+    rows:
+    - - '1'
+      - Stealthy
+      - Outcasts
+    - - 2–3
+      - Reckless
+      - Minions
+    - - '4'
+      - Magical
+      - Tricksters
+    - - '5'
+      - Primitive
+      - Vermin
+    - - '6'
+      - Organized
+      - Warriors
+    die: 1d6
+    note: 'source: SD:135'
+  oh.minor-hazard:
+    title: Minor hazard
+    page: null
+    cols:
+    - Details
+    rows:
+    - - '1'
+      - Short fall
+    - - 2–3
+      - Stuck or locked barrier
+    - - '4'
+      - Dense rubble
+    - - '5'
+      - Collapsing walls
+    - - '6'
+      - Enfeebling magic
+    die: 1d6
+    note: 'source: SD:135'
+  oh.major-hazard:
+    title: Major hazard
+    page: null
+    cols:
+    - Details
+    rows:
+    - - 1–2
+      - Long fall
+    - - '3'
+      - Toxic gas or vapors
+    - - '4'
+      - Entrapping terrain
+    - - '5'
+      - Antimagic zone
+    - - '6'
+      - Drowning hazard
+    die: 1d6
+    note: 'source: SD:135'
+  oh.solo-monster:
+    title: Solo monster
+    page: null
+    cols:
+    - Detail
+    - Detail
+    rows:
+    - - '1'
+      - Sneaky
+      - Ambusher
+    - - 2–3
+      - Mighty
+      - Brute
+    - - 4–5
+      - Clever
+      - Spellcaster
+    - - '6'
+      - Mutated
+      - Pariah
+    die: 1d6
+    note: 'source: SD:135'
+  oh.treasure:
+    title: Treasure
+    page: null
+    cols:
+    - Details
+    rows:
+    - - 1–2
+      - Hidden
+    - - 3–4
+      - Guarded by monster
+    - - '5'
+      - Protected by trap
+    - - '6'
+      - Protected by hazard
+    die: 1d6
+    note: 'source: SD:135'
+  oh.npc:
+    title: NPC
+    page: null
+    cols:
+    - Details
+    rows:
+    - - '1'
+      - Hiding
+    - - 2–3
+      - Captive
+    - - 4–5
+      - Wounded
+    - - '6'
+      - Rival crawlers
+    die: 1d6
+    note: 'source: SD:135'
+  oh.boss-monster:
+    title: Boss monster
+    page: null
+    cols:
+    - Details
+    rows:
+    - - '1'
+      - Physically strongest
+    - - '2'
+      - Religious leader
+    - - 3–5
+      - Guarded by minions
+    - - '6'
+      - Supreme sorcerer
+    die: 1d6
+    note: 'source: SD:135'
+  oh.specials:
+    title: Specials
+    page: null
+    cols:
+    - Special
+    - What it does
+    rows:
+    - - '1'
+      - Alarm
+      - Entry alarm. Nearby guardians come.
+    - - '2'
+      - Animated objects
+      - Attack if disturbed.
+    - - '3'
+      - Falling block
+      - A stone block falls and seals the way.
+    - - '4'
+      - Illusion
+      - A false passage, door or stair.
+    - - '5'
+      - Shifting room
+      - Doors lock; the room rotates, rises or falls.
+    - - '6'
+      - Strange water
+      - A pool or fountain with a weird, magical effect.
+    - - '7'
+      - Teleport
+      - A portal to another room of the site.
+    - - '8'
+      - Trapdoor
+      - To a hidden area.
+    - - '9'
+      - Voices
+      - Walls or a statue speak or moan.
+    - - '10'
+      - Choose
+      - Or roll twice.
+    die: d10
+    note: 'source: OSE:17'
+  oh.danger-level:
+    title: Danger level
+    page: null
+    cols:
+    - Level
+    - Check every
+    - 'Resting: every'
+    rows:
+    - - 1–3
+      - Unsafe
+      - 3 rounds
+      - 3 hours
+    - - 4–5
+      - Risky
+      - 2 rounds
+      - 2 hours
+    - - '6'
+      - Deadly
+      - round
+      - hour
+    die: 1d6
+    note: 'source: SD:134|SD:116|SD:90'
+  oh.crawling:
+    title: Crawling
+    page: null
+    cols:
+    - Rule
+    - Detail
+    rows:
+    - - null
+      - Light
+      - A torch lights near for 1 hour of real time. A second light rides on the same timer, or put the old one out and start again.
+    - - null
+      - Total darkness
+      - DISADV on anything needing sight. Check every round.
+    - - null
+      - Encounter
+      - 'Who: Site type. Distance, activity, reaction — 6.1.'
+    - - null
+      - Rest
+      - '8 hours and a ration. Interrupted: CON DC 12 or no benefit.'
+    note: 'source: SD:88|SD:116|SD:90'
   oh.dungeon-effects:
     title: Dungeon effects
     page: null
@@ -6624,14 +8631,182 @@ tables:
     - - null
       - Foe Tables, Part Three
       - Caves & Underground
-      - d20 with a stat block for each, and Harvest.
-      - p. 103
+      - 4d6 with a stat block for each, and Harvest.
+      - p. 128
     - - null
       - GM Companion
       - Dungeons
       - Room type, how it changed, what the last fight left behind.
       - p. 40
-    note: 'source: SD:152|TFT:103|GC:40'
+    note: 'source: SD:152|TFT:128|GC:40'
+  oh.what-it-was:
+    title: What it was
+    page: null
+    cols:
+    - Built as…
+    rows:
+    - - '1'
+      - A city or great settlement
+    - - '2'
+      - Temple, monastery or pilgrim site
+    - - '3'
+      - 'A vast old works: aqueduct, dam, granary'
+    - - '4'
+      - Monument or work of art
+    - - '5'
+      - Grand manor
+    - - '6'
+      - Fortress or great stronghold
+    - - '7'
+      - Mine or tunnels
+    - - '8'
+      - Wizard’s tower or occult hold
+    - - '9'
+      - Border post, watchtower or garrison
+    - - '10'
+      - Village or farmstead
+    - - '11'
+      - Something not built by humans
+    - - '12'
+      - Tomb, necropolis or ossuary
+    die: d12
+    note: 'source: WWN:191'
+  oh.who-has-used-it-since:
+    title: Who has used it since
+    page: null
+    cols:
+    - Tenants, past or present
+    rows:
+    - - '1'
+      - Rebels against the local ruler
+    - - '2'
+      - Bandits or outlaws
+    - - '3'
+      - Fanatics
+    - - '4'
+      - A failed pretender to the throne
+    - - '5'
+      - Refugees from a disaster
+    - - '6'
+      - A wizard of doubtful aims
+    - - '7'
+      - A black-market trader
+    - - '8'
+      - Settlers trying to reclaim it
+    - - '9'
+      - A luckless garrison
+    - - '10'
+      - Monsters lying in wait
+    - - '11'
+      - Dangerous beasts
+    - - '12'
+      - Adventurers making it a base
+    - - '13'
+      - Outcasts seeking a haven
+    - - '14'
+      - Elves, dwarves or others avoiding humans
+    - - '15'
+      - Smugglers
+    - - '16'
+      - Owners on paper, laying claim
+    - - '17'
+      - Heirs of the builders
+    - - '18'
+      - A warband passing through
+    - - '19'
+      - Clever monsters suited to the place
+    - - '20'
+      - Restless undead
+    die: d20
+    note: 'source: WWN:191'
+  oh.how-it-fell:
+    title: How it fell
+    page: null
+    cols:
+    - Ruined by…
+    rows:
+    - - '1'
+      - Enemies who stormed it
+    - - '2'
+      - Strife within
+    - - '3'
+      - A natural disaster
+    - - '4'
+      - A spell gone wrong
+    - - '5'
+      - Abandoned when it was no use
+    - - '6'
+      - A plague or a curse
+    - - '7'
+      - A great monster
+    - - '8'
+      - Its people died out or left
+    die: d8
+    note: 'source: WWN:191'
+  oh.why-it-is-not-looted-yet:
+    title: Why it is not looted yet
+    page: null
+    cols:
+    - Because…
+    rows:
+    - - '1'
+      - The land around it is deadly
+    - - '2'
+      - It is cursed or foul
+    - - '3'
+      - Locals drive looters off
+    - - '4'
+      - Its true door is unknown
+    - - '5'
+      - It is very hard to reach
+    - - '6'
+      - Fearsome things live there
+    - - '7'
+      - Everyone thinks it was looted
+    - - '8'
+      - It is mistaken for a looted site nearby
+    - - '9'
+      - A local power claims it
+    - - '10'
+      - Its prizes are not gold
+    die: d10
+    note: 'source: WWN:191'
+  oh.how-old:
+    title: How old
+    page: null
+    cols:
+    - Ruined…
+    rows:
+    - - '1'
+      - Within living memory
+    - - '2'
+      - Generations ago
+    - - '3'
+      - Under a nation people still name
+    - - '4'
+      - In a past nobody knows
+    die: d4
+    note: 'source: WWN:191'
+  oh.what-the-locals-think:
+    title: What the locals think
+    page: null
+    cols:
+    - To them it is…
+    rows:
+    - - '1'
+      - Taboo ground
+    - - '2'
+      - Part of a ritual
+    - - '3'
+      - Hated and feared
+    - - '4'
+      - Someone’s property
+    - - '5'
+      - Bait for fools
+    - - '6'
+      - Something it is not
+    die: d6
+    note: 'source: WWN:191'
   oh.sealed-chamber:
     title: Sealed chamber
     page: null
@@ -6647,7 +8822,7 @@ tables:
       - Opens another chamber, or reveals a clue's target.
     - - '3'
       - Ancient trap
-      - 'Roll it in 21.1. DEX check: damage, restraint or alarm.'
+      - 'Roll it in 21.3. DEX check: damage, restraint or alarm.'
     - - '4'
       - Undead guardian
       - An encounter with the chamber's guard.
@@ -6780,10 +8955,10 @@ tables:
       - §13.2
     - - null
       - Foe Tables, Part Three
-      - Harvest
+      - Harvest Index
       - What the body is worth. Every Wildland creature has one.
-      - p. 74
-    note: 'source: SD:273|GC:79|LOOT:1|SEA:47|TFT:74'
+      - p. 175
+    note: 'source: SD:273|GC:79|LOOT:1|SEA:47|TFT:175'
   oh.boats:
     title: Boats
     page: null
@@ -6884,6 +9059,41 @@ tables:
       - U — Unseaworthy
       - A cumulative 1-in-6 chance of sinking each time it is caught in stormy weather on the open sea — see the band in §1.
     note: 'source: WR:118'
+  oh.siege-weapons:
+    title: Siege weapons
+    page: null
+    cols:
+    - Weapon
+    - Cost
+    - Range
+    - Damage
+    - Properties
+    rows:
+    - - null
+      - Crossbow, heavy
+      - 50 gp
+      - Far
+      - 2d8
+      - —
+    - - null
+      - Catapult
+      - 100 gp
+      - Far
+      - 3d8
+      - B
+    - - null
+      - Ballista
+      - 150 gp
+      - Far
+      - 3d6
+      - E
+    - - null
+      - Trebuchet
+      - 300 gp
+      - Far
+      - 5d6
+      - B, E · a galleon only
+    note: 'source: WR:119'
   oh.a-boat-under-fire:
     title: A boat under fire
     page: null
@@ -6900,6 +9110,9 @@ tables:
     - - null
       - Sinking
       - At 0 HP the boat sinks in 1d4 rounds.
+    - - null
+      - Moving in combat
+      - Near on the captain’s turn. Its siege weapons cannot fire that round.
     - - null
       - Repair
       - One week and 1 gp per HP restored.
@@ -6979,7 +9192,8 @@ tables:
       - A broken part, fire, a leak, no powder left, rats, shipworms, a torn sail. Roll the boat column in 23.6. Repair as 23.3.
     - - '5'
       - Trouble aboard — the crew
-      - Famine, madness, mutiny, sabotage, scurvy, a drunk or a dead crewman, someone overboard. Roll the crew column in 23.6. A C boat — 23.2 — that drops below four crew cannot move.
+      - Famine, madness, mutiny, sabotage, scurvy, a drunk or a dead crewman, someone overboard. Roll the crew column in 23.6, then crew morale — 23.11. A C boat — 23.2 — that drops below four crew cannot
+        move.
     - - '6'
       - Benign shallow water
       - Basking shark, eels, jellyfish, manatee, porpoises, sea birds, seals, a shoal of fish, a turtle. No threat, and a free Fish check — §8.2.
@@ -6994,26 +9208,27 @@ tables:
       - Nothing. Make the distance.
     - - '10'
       - Island
-      - Optional landing. Roll its terrain in §3 (reroll 01–09), then its feature in §4 and a point of interest in §13.3.
+      - 'Optional landing. Its kind: Island d8, 23.9. Roll its terrain in §3 Terrain (reroll Sea / Lake), then its feature in §4 and a point of interest in §13.3.'
     - - '11'
       - Benign deep water
       - Albatross, dolphins, flying fish, manta ray, orca, sail fish, a turtle, a shark, a whale. Taking one is a Fish check — §8.2.
     - - '12'
       - Weather turns
-      - 'Roll a weather event — 9.1: Hot in summer, Cold otherwise. A U boat — 23.2 — now checks its 1-in-6.'
+      - 'Stormy for the rest of the day: a Gale — 23.8. A U boat checks its 1-in-6 — 23.2. Harsh climate: a weather event too — 9.1.'
     - - '13'
       - Sea folk
-      - Mermaids, tritons, sahuagin, octomen, sea-elves, sea-goblins, sea-tortles, shark men. Roll the Sea folk column in 23.6, then reaction — 6.1. They know this water better than you do.
+      - Mermaids, tritons, sahuagin, octomen, sea-elves, sea-goblins, sea-tortles, shark men. Roll the Sea folk column in 23.6, or the Sea Folk 4d6 in Thematic Foe Tables p. 122, then reaction — 6.1. They
+        know this water better than you do.
     - - 14–15
-      - Weak winds
-      - The crossing costs one extra day. A boat of Speed 8 or more is unaffected.
+      - Wind dies
+      - Calm for the rest of the day — 23.8. Oars and paddles are unaffected.
     - - '16'
       - Pirates
-      - They give chase. Beat their boat’s Speed with yours, or fight — 23.3.
+      - They give chase — 23.11. Escape, or fight.
     - - 17–18
       - Dangerous creature
-      - A dragon or a dragon turtle, a hydra, a kraken, a megashark, a sea serpent, a giant whale, spider crabs. Roll it in 23.6, and stat it from Sea & Deep Water — §12. On a lake or a river roll that
-        water’s own d100 instead — below. The boat is in it too — 23.3.
+      - A dragon or a dragon turtle, a hydra, a kraken, a megashark, a sea serpent, a giant whale, spider crabs. Roll it in 23.6; the block is named there. On a lake or a river roll that water’s own d100
+        instead — below. The boat is in it too — 23.3.
     die: 3d6
     note: 'source: SEA:51|TT:32|WR:118|SD:172'
   oh.which-water-you-are-on:
@@ -7040,6 +9255,11 @@ tables:
       - Lake Encounters d100
       - Fresh water — hydras, sahuagin, fishers, a boat race, a sunken hoard.
       - '24.3'
+    - - null
+      - Reef or shallow sea
+      - Shallow Seas d100
+      - Coral, wrecks, drowned ruins, deep ones.
+      - '24.4'
     note: 'source: SD:172|SD:174|WRG:58'
   oh.what-could-go-wrong:
     title: What could go wrong
@@ -7148,23 +9368,32 @@ tables:
     page: null
     cols:
     - What finds you
+    - Stat block
     rows:
     - - '1'
       - Dragon turtle, or a dragon
+      - Dragon Turtle p. 119 · Dragon p. 49
     - - '2'
       - Ghosts
+      - Spectre p. 16 · Wraith p. 17
     - - '3'
       - Giant whale
+      - Sperm Whale p. 117
     - - '4'
       - Harpies
+      - Harpy p. 9
     - - '5'
       - Hydra
+      - War Hydra p. 40
     - - '6'
       - Kraken, or a megashark
+      - Kraken p. 40 · Megalodon p. 117
     - - '7'
       - Sea serpent
+      - Plesiosaur p. 117
     - - '8'
       - Spider crabs
+      - Giant Crab p. 115
     die: d8
     note: 'source: SEA:18'
   oh.weather-sea-folk-or-else:
@@ -7176,7 +9405,7 @@ tables:
     - Something else
     rows:
     - - '1'
-      - No wind — becalmed
+      - Becalmed — Calm today, 23.8
       - Crevettes Pistolero
       - An ancient sea god
     - - '2'
@@ -7184,7 +9413,7 @@ tables:
       - Fishtacos
       - A boom chain across the water
     - - '3'
-      - Storm
+      - Storm — a Gale today, 23.8
       - Mermaids
       - Cursed waters
     - - '4'
@@ -7403,6 +9632,968 @@ tables:
       - Whoever asked for the boat to be built had high expectations for it, but it always disappointed its successive captains.
     die: d20
     note: 'source: SEA:8'
+  oh.her-name.the:
+    title: Her name — The…
+    page: null
+    cols:
+    - The…
+    rows:
+    - - '1'
+      - Beautiful
+    - - '2'
+      - Bilious
+    - - '3'
+      - Bold
+    - - '4'
+      - Cold
+    - - '5'
+      - Dandy
+    - - '6'
+      - Dawn
+    - - '7'
+      - Drunken
+    - - '8'
+      - Fiery
+    - - '9'
+      - Furious
+    - - '10'
+      - Grinning
+    - - '11'
+      - Intrepid
+    - - '12'
+      - Jolly
+    - - '13'
+      - Misty
+    - - '14'
+      - Rambunctious
+    - - '15'
+      - Red
+    - - '16'
+      - Royal
+    - - '17'
+      - Salty
+    - - '18'
+      - Sinful
+    - - '19'
+      - Twilight
+    - - '20'
+      - Zealous
+    die: d20
+    note: 'source: OSS:3'
+  oh.her-name.table:
+    title: Her name — …
+    page: null
+    cols:
+    - …
+    rows:
+    - - '1'
+      - Adventure
+    - - '2'
+      - Barnacle
+    - - '3'
+      - Brawler
+    - - '4'
+      - Devil
+    - - '5'
+      - Dragon
+    - - '6'
+      - Gem
+    - - '7'
+      - Flower
+    - - '8'
+      - Jester
+    - - '9'
+      - Kraken
+    - - '10'
+      - Leviathan
+    - - '11'
+      - Mermaid
+    - - '12'
+      - Prince
+    - - '13'
+      - Princess
+    - - '14'
+      - Revenge
+    - - '15'
+      - Saber
+    - - '16'
+      - Shark
+    - - '17'
+      - Tide
+    - - '18'
+      - Treasure
+    - - '19'
+      - Victory
+    - - '20'
+      - Wanderer
+    die: d20
+    note: 'source: OSS:3'
+  oh.a-sailors-name.first:
+    title: A sailor’s name — First
+    page: null
+    cols:
+    - First
+    rows:
+    - - '1'
+      - Salty
+    - - '2'
+      - Ol’
+    - - '3'
+      - Silver
+    - - '4'
+      - Golden
+    - - '5'
+      - Black
+    - - '6'
+      - Blue
+    - - '7'
+      - Silky
+    - - '8'
+      - Heartless
+    - - '9'
+      - Drizzly
+    - - '10'
+      - Thirsty
+    - - '11'
+      - Rum
+    - - '12'
+      - Gloomy
+    - - '13'
+      - Handsome
+    - - '14'
+      - Wee
+    - - '15'
+      - Clever
+    - - '16'
+      - Ugly
+    - - '17'
+      - Pretty
+    - - '18'
+      - Lost
+    - - '19'
+      - Mad
+    - - '20'
+      - Poor
+    die: d20
+    note: 'source: OSS:3'
+  oh.a-sailors-name.second:
+    title: A sailor’s name — Second
+    page: null
+    cols:
+    - Second
+    rows:
+    - - '1'
+      - Beard
+    - - '2'
+      - Eye
+    - - '3'
+      - Copper
+    - - '4'
+      - Fish
+    - - '5'
+      - Whale
+    - - '6'
+      - Dog
+    - - '7'
+      - Cur
+    - - '8'
+      - Fingers
+    - - '9'
+      - Patches
+    - - '10'
+      - Hook
+    - - '11'
+      - Salt
+    - - '12'
+      - Rat
+    - - '13'
+      - Charm
+    - - '14'
+      - Beast
+    - - '15'
+      - Devil
+    - - '16'
+      - Liar
+    - - '17'
+      - Angel
+    - - '18'
+      - Blood
+    - - '19'
+      - Maps
+    - - '20'
+      - Mast
+    die: d20
+    note: 'source: OSS:3'
+  oh.wind-at-sea:
+    title: Wind at sea
+    page: null
+    cols:
+    - 2d6
+    - Sky — §1
+    - Wind
+    - A boat under sail
+    rows:
+    - - null
+      - 2–3
+      - Storm at sea, squalls
+      - Gale
+      - 'Stormy: every hex 2 MC. No bonus: the sails are reefed. Storm check — below.'
+    - - null
+      - '4'
+      - Sea fog
+      - Light
+      - 'Stormy: every hex 2 MC.'
+    - - null
+      - '5'
+      - Heavy swell
+      - Calm
+      - 'Every hex is difficult: 2 MC.'
+    - - null
+      - 6–7, 9
+      - Light chop, grey, showers
+      - Light
+      - Speed as listed — 23.1.
+    - - null
+      - 8, 10–12
+      - Brisk to fair winds
+      - Strong
+      - Speed +2.
+    note: 'source: WRG:40|WUC:11'
+  oh.wind-direction:
+    title: Wind direction
+    page: null
+    cols:
+    - It blows from
+    - Each later morning
+    rows:
+    - - '1'
+      - Edge 1, the top
+      - 1–2 one edge anticlockwise
+    - - '2'
+      - Edge 2
+      - 3–4 it holds
+    - - '3'
+      - Edge 3
+      - 5–6 one edge clockwise
+    - - '4'
+      - Edge 4
+      - ''
+    - - '5'
+      - Edge 5
+      - ''
+    - - '6'
+      - Edge 6
+      - ''
+    die: d6
+    note: 'source: WUC:11|PB:40'
+  oh.point-of-sail:
+    title: Point of sail
+    page: null
+    cols:
+    - Leaving the hex by…
+    - MC
+    - Why
+    rows:
+    - - null
+      - The wind’s edge
+      - '2'
+      - 'Upwind. Beating back and forth: difficult.'
+    - - null
+      - Any other edge
+      - '1'
+      - Sailing. The wind does the work.
+    note: 'source: WUC:11|WRG:41'
+  oh.which-boats-feel-it:
+    title: Which boats feel it
+    page: null
+    cols:
+    - Boat
+    - Wind
+    rows:
+    - - null
+      - Sloop, Sailboat · a Brigantine from 23.4
+      - 'All of it: calm, upwind, Strong, Gale.'
+    - - null
+      - Junk, Longboat, Galleon — R · a Ship of the Line from 23.4
+      - 'They row: difficult counts as normal — 23.2. Calm and upwind cost 1 MC. Strong still gives +2.'
+    - - null
+      - Raft, Canoe, Rowboat
+      - No sail. The wind changes nothing but the weather.
+    note: 'source: WR:118'
+  oh.drift:
+    title: Drift
+    page: null
+    cols:
+    - The navigator failed — 2.1. The ship…
+    rows:
+    - - '1'
+      - Makes no headway. It stays; that hex’s MC is spent.
+    - - 2–3
+      - 'Runs downwind. It enters the hex opposite the wind’s edge. Calm: a random edge.'
+    - - 4–5
+      - Wanders. A random adjacent hex, d6 for the edge — as core.
+    - - '6'
+      - Holds its course after all.
+    die: d6
+    note: 'source: SD:94|ES:11'
+  oh.when-the-sea-wins:
+    title: When the sea wins
+    page: null
+    cols:
+    - When
+    - What happens
+    rows:
+    - - null
+      - Severe at sea
+      - 'Stormy in a harsh climate — §1. No headway: the ship heaves to and is driven one hex downwind. Storm check at DC 18.'
+    - - null
+      - Land in sight
+      - 'Land within sight — §2: no Navigation check — 2.1.'
+    - - null
+      - Sailing on at night
+      - Navigation +3, as darkness — 2.1.
+    - - null
+      - A Sea Wolf or a Ranger
+      - Their Seafarer and Wayfinder talents give advantage on Navigation.
+    note: 'source: WRG:40|WR:64|WR:58|SD:94'
+  oh.storm-check:
+    title: Storm check
+    page: null
+    cols:
+    - Result
+    - What happens
+    rows:
+    - - null
+      - DC 15 met — 18 if Severe
+      - The ship rides it out.
+    - - null
+      - Failure, or nobody at the helm
+      - 2d6 damage to the boat — 23.3.
+    - - null
+      - A natural 1
+      - 'Capsized. Loose cargo is lost. Everyone on deck: DC 12 DEX or overboard. d6: on 4–6 she starts to sink — 23.3.'
+    note: 'source: SV:4|WUC:11|WR:64'
+  oh.overboard:
+    title: Overboard
+    page: null
+    cols:
+    - Who
+    - What happens
+    rows:
+    - - null
+      - Armour heavier than leather
+      - It drags you under.
+    - - null
+      - Anyone else
+      - A thrown line and DC 12 STR hauls you back.
+    note: 'source: SV:4'
+  oh.uncharted-hex:
+    title: Uncharted hex
+    page: null
+    cols:
+    - The hex holds…
+    rows:
+    - - '2'
+      - Deep water. A kraken’s hex — Kraken p. 40. The next encounter check here hits.
+    - - 3–6
+      - Open sea.
+    - - '7'
+      - Open sea and a find — Finds, right.
+    - - 8–9
+      - A sail. A vessel holds this hex — 23.7.
+    - - 10+
+      - Island — below.
+    die: 2d6
+    note: 'source: ES:10'
+    review: 2 results uncovered
+  oh.finds:
+    title: Finds
+    page: null
+    cols:
+    - On the water
+    rows:
+    - - '1'
+      - Someone clinging to debris. 1-in-6 hostile.
+    - - '2'
+      - A mirage — an island or a sail that is not there.
+    - - '3'
+      - A sunken mast breaks the surface. Undead crew and treasure below.
+    - - '4'
+      - A floating body. 1-in-6 it is a creature.
+    - - '5'
+      - A voice sings a shanty, nowhere to be seen. Heard every night after.
+    - - '6'
+      - A message in a bottle.
+    - - '7'
+      - 'Clear skies: no Navigation check tomorrow.'
+    - - '8'
+      - A small package on a fishing line.
+    - - '9'
+      - A castaway on a raft. Joins the crew if saved.
+    - - '10'
+      - 'A floating crate: 1d4 rations and one treasure.'
+    - - '11'
+      - A blue hole — a drowned cave with two treasures.
+    - - '12'
+      - 'A tiny atoll: rum, gold and one treasure.'
+    die: d12
+    note: 'source: ES:13'
+  oh.island:
+    title: Island
+    page: null
+    cols:
+    - Island
+    - Here
+    rows:
+    - - '1'
+      - Volcano
+      - Ash beaches, hot springs. 1-in-6 it erupts.
+    - - '2'
+      - Jungle
+      - Fresh water. Forage and hunt as on land — §8.2.
+    - - '3'
+      - Smuggler’s cove
+      - A lagoon and a cave of rum and gold. 1-in-6 the smugglers are home.
+    - - '4'
+      - Mountain peak
+      - From the top the next island needs no Navigation. 1-in-6 a cult at the summit.
+    - - '5'
+      - Mangroves
+      - Mud crabs, crocodiles, insects. 1-in-6 a hermit gone wild.
+    - - '6'
+      - Oasis
+      - Palms, a spring, coconuts. Refill all water.
+    - - '7'
+      - Village
+      - Fishers. Its port is a Fishing hamlet — 23.10. Reaction — 6.1.
+    - - '8'
+      - Ruin
+      - 'A drowned temple or a tower: a site, §21, and its past, 21.5. Two treasures.'
+    die: d8
+    note: 'source: ES:16-17'
+  oh.sea-treasure:
+    title: Sea treasure
+    page: null
+    cols:
+    - Find
+    rows:
+    - - '1'
+      - A chest of silver.
+    - - '2'
+      - 1d6 casks of rum. One is laced with powder.
+    - - '3'
+      - 'Fine navigation instruments: advantage on Navigation.'
+    - - '4'
+      - 'A book of shanties: advantage on CHA checks with a crew.'
+    - - '5'
+      - 'Crates of hardtack: 2d6 rations.'
+    - - '6'
+      - A crate of cutlasses, boarding axes and crossbows.
+    - - '7'
+      - 'A potion. d6: 1–2 healing, 3 strength, 4–5 something strange, 6 poison.'
+    - - '8'
+      - A shark-tooth necklace. The wearer becomes a wereshark.
+    - - '9'
+      - 'A seashell ring: immune to sea curses.'
+    - - '10'
+      - 'A seashell harpoon: thrown, it always hits underwater.'
+    - - '11'
+      - 'A jar of blue clay. Smeared on a thing, it blows within a minute: 2d6 near.'
+    - - '12'
+      - 'A chart of these waters: advantage on Navigation here.'
+    die: d12
+    note: 'source: ES:13|ES:15|SD:125'
+  oh.port:
+    title: Port
+    page: null
+    cols:
+    - Port
+    - Band
+    - Has
+    rows:
+    - - 1–2
+      - Fishing hamlet
+      - Village
+      - Rations, water. Repair to half HP. Rowboats. 1d4 sailors.
+    - - 3–5
+      - Port town
+      - Town
+      - Full repair, grog, siege ammunition. Boats up to a sailboat. 2d6 sailors.
+    - - '6'
+      - Harbour city
+      - City
+      - Shipwright, siege weapons, galleons. A navy. 4d6 sailors.
+    die: d6
+    note: 'source: SV:7|WR:118'
+  oh.in-port:
+    title: In port
+    page: null
+    cols:
+    - Who rules
+    - Trouble on the quay
+    rows:
+    - - '1'
+      - A navy governor
+      - A press gang works the docks.
+    - - '2'
+      - A merchant guild
+      - A plague ship lies in quarantine.
+    - - '3'
+      - A pirate lord
+      - The harbour toll has doubled.
+    - - '4'
+      - The temple of the sea
+      - A pirate hangs at dawn.
+    - - '5'
+      - A council of captains
+      - The fishing boats come back empty.
+    - - '6'
+      - Smugglers, behind a figurehead
+      - A ghost ship was seen off the point.
+    die: d6
+    note: 'source: ES:7|SSL:40'
+  oh.the-coastal-town:
+    title: The coastal town
+    page: null
+    cols:
+    - Look — d10
+    - Defences — d8
+    rows:
+    - - '1'
+      - Ancient
+      - None
+    - - '2'
+      - Dull
+      - A town wall
+    - - '3'
+      - Exotic
+      - A fortified harbour
+    - - '4'
+      - Gloomy
+      - A fort out at sea
+    - - '5'
+      - Industrious
+      - A citadel
+    - - '6'
+      - Luxurious
+      - Two of 2–5
+    - - '7'
+      - New-built
+      - Three of 2–5
+    - - '8'
+      - Picturesque
+      - All of them
+    - - '9'
+      - Shabby
+      - ''
+    - - '10'
+      - Unsettling
+      - ''
+    die: d10
+    note: 'source: SEA:32'
+  oh.known-for-and-its-trade.known-for:
+    title: Known for, and its trade — Known for
+    page: null
+    cols:
+    - Known for
+    rows:
+    - - 1–12
+      - Nothing special
+    - - '13'
+      - A corrupt governor
+    - - '14'
+      - A famous export
+    - - '15'
+      - The house of someone famous
+    - - '16'
+      - The last town before danger
+    - - '17'
+      - Being often attacked
+    - - '18'
+      - The way to a treasure isle
+    - - '19'
+      - A strategic point
+    - - '20'
+      - Pirate rule
+    die: d20
+    note: 'source: SEA:32'
+  oh.known-for-and-its-trade.trades-in:
+    title: Known for, and its trade — Trades in
+    page: null
+    cols:
+    - Trades in
+    rows:
+    - - '1'
+      - Nothing
+    - - '2'
+      - Farm produce
+    - - '3'
+      - Hides, wool, livestock
+    - - '4'
+      - Antiques
+    - - '5'
+      - Drink
+    - - '6'
+      - Fish and fishing gear
+    - - '7'
+      - Luxuries
+    - - '8'
+      - Manufactured goods
+    - - '9'
+      - Contraband
+    - - '10'
+      - Ore and ingots
+    - - '11'
+      - Slaves
+    - - '12'
+      - Weapons
+    die: d12
+    note: 'source: SEA:32'
+  oh.trade-prices:
+    title: Trade prices
+    page: null
+    cols:
+    - Rolled
+    - 'It imports it: you sell'
+    - … you buy
+    - 'It exports it: you sell'
+    - … you buy
+    rows:
+    - - null
+      - Once
+      - +10%
+      - +25%
+      - −25%
+      - −10%
+    - - null
+      - Twice
+      - +25%
+      - +50%
+      - −50%
+      - −25%
+    - - null
+      - Three times
+      - +50%
+      - Not for sale
+      - Nobody buys
+      - −50%
+    note: 'source: SEA:32'
+  oh.docks-encounters:
+    title: Docks encounters
+    page: null
+    cols:
+    - At the docks
+    rows:
+    - - '01'
+      - A family of five tosses a toad-like figurine into the water
+    - - 02-03
+      - The Ferryman is about to set sail; there is room on his ferry
+    - - 04-05
+      - 2d8 drunk pirates trying to read a poorly made map
+    - - 06-07
+      - A two-headed seagull fights with itself for a fish
+    - - 08-09
+      - Enraged chuul bursts out from one of the crates
+    - - 10-11
+      - A barrel labeled “wine” is leaking blood
+    - - 12-13
+      - A crewless ship crashes violently into the docks
+    - - 14-15
+      - Three workers trying to remove a giant barnacle
+    - - 16-17
+      - 2d6 thugs drop someone in the water then walk away
+    - - 18-19
+      - A severed fish head speaks one word, then dies
+    - - 20-21
+      - A card-reading witch whispers, "I’ve seen your fate."
+    - - 22-23
+      - A bottle with a mummified pixie inside floats by
+    - - 24-25
+      - A grizzled old pirate wants a fist-fight with the biggest PC
+    - - 26-27
+      - A gang of spotty youths writing vulgarities on walls
+    - - 28-29
+      - 2d6 giant crabs invade the dock’s food stalls
+    - - 30-31
+      - A sharpshooter searching for a missing silver bullet
+    - - 32-33
+      - A shady captain needs help loading cargo onto her ship
+    - - 34-35
+      - 2d6 enraged mutants emerge from the shallows
+    - - 36-37
+      - Two old sailors share crazy stories while playing cards
+    - - 38-39
+      - A mutant selling eel pies; he swears they’re untainted
+    - - 40-41
+      - d6 cultists draw an eldritch sigil on a ship then flee
+    - - 42-43
+      - A priest, saying a prayer alongside a weeping family
+    - - 44-45
+      - A smuggler wants a favor from the PCs; pays well
+    - - 46-47
+      - A huge minotaur selling brightly colored asprits
+    - - 48-49
+      - 2d8 deep ones sneak into an abandoned warehouse
+    - - 50-51
+      - A sly-looking man offering tickets to a private show
+    - - 52-53
+      - Children are playing with dolls that look just like the PCs
+    - - 54-55
+      - Two nobles arguing over the ownership of a figurehead
+    - - 56-57
+      - A barnacle-covered man creepily stands in the water
+    - - 58-59
+      - A deep one being arrested while yelling “It’s a mistake!”
+    - - 60-61
+      - 1d6 merfolk trading with the locals; they seem terrified
+    - - 62-63
+      - 2d4 dockyard guards mistake you for wanted criminals
+    - - 64-65
+      - A fisherman pulls out a fresh corpse from his fishing net
+    - - 66-67
+      - An auroch escapes a cargo hold and runs amok
+    - - 68-69
+      - Two dueling pirates; spectators cheer and gamble
+    - - 70-71
+      - A shady smuggler offers the Ferryman’s Coin for a favor
+    - - 72-73
+      - 2d6 berserker raiders attack everyone on sight
+    - - 74-75
+      - A saint walks on water, briefly, then slips and sinks
+    - - 76-77
+      - A hooded figure pours red powder into a barrel of rum
+    - - 78-79
+      - A very serious child is having a map tattooed on her back
+    - - 80-81
+      - People apply for a fish stew competition; starts next week
+    - - 82-83
+      - A giant albatross is trying to nest atop a ship’s mast
+    - - 84-85
+      - A woman covered in 1d4 giant leeches runs at the PCs
+    - - 86-87
+      - A navy ant delegate looking to hire mercenaries
+    - - 88-89
+      - 2d6 cultists carry a driftwood effigy; few locals pray
+    - - 90-91
+      - A bedraggled knight selling his old warhorse for meat
+    - - 92-93
+      - The Old Cob, a famous fisherman is missing for a week
+    - - 94-95
+      - A brawler’s mask rips off, revealing him as a salt golem
+    - - 96-97
+      - Barrels of rum roll down the alley straight into the water
+    - - 98-99
+      - Roll two encounters and combine the results (reroll 98-99)
+    - - '00'
+      - An injured captain gives a magic item to the PCs then dies
+    die: d100
+    note: 'source: SSL:44-45'
+  oh.sea-rumours:
+    title: Sea rumours
+    page: null
+    cols:
+    - They say…
+    rows:
+    - - '01'
+      - Notorious pirate gang is looking for the PCs
+    - - 02-03
+      - The deep ones are gathering at the sunken temple
+    - - 04-05
+      - The Barnacle King, a mad beggar, knows many secrets
+    - - 06-07
+      - A ship of cannibal pirates ravaged a nearby port town
+    - - 08-09
+      - A local governor hides the Ferryman’s Coin in his mansion
+    - - 10-11
+      - Gurgling voices chanting from the nearby cave
+    - - 12-13
+      - A sailor with yellow eyes swears he’s seen a sunrise
+    - - 14-15
+      - Cultists of the Many-Armed Prince are poisoning the rum
+    - - 16-17
+      - A choir of flutes lures children to the sea at night
+    - - 18-19
+      - All fishing boats return empty; people suspect witchcraft
+    - - 20-21
+      - A goodwife claims her goose is laying golden eggs again
+    - - 22-23
+      - Harpies are stealing a child every year; they will come soon
+    - - 24-25
+      - The lighthouse keeper is a ghost, still keeping watch
+    - - 26-27
+      - Strange fish formations follow every ship coming this way
+    - - 28-29
+      - A canteen ship, the Roving Palate, serves delicious food
+    - - 30-31
+      - Tentacles in the mist; their touch brings madness
+    - - 32-33
+      - The merling queen’s disgraced heir is recruiting
+    - - 34-35
+      - Sea giants are marching to war; no ship is safe
+    - - 36-37
+      - A flower that grows on driftwood cures mutations
+    - - 38-39
+      - Locals are going to parade a captured sea troll tomorrow
+    - - 40-41
+      - Seagulls are transforming into large soft eggs
+    - - 42-43
+      - Shell of a dead dragon turtle washed ashore; it’s not empty
+    - - 44-45
+      - The auguries are false and lead only to doom
+    - - 46-47
+      - Ghost ship appears at midnight once every full moon
+    - - 48-49
+      - An ethereal rudder floated ashore last week
+    - - 50-51
+      - Some local children have found a stone tablet map
+    - - 52-53
+      - Sargassum is the hair of a cursed siren
+    - - 54-55
+      - The deep ones are building a giant driftwood effigy
+    - - 56-57
+      - Corpse of a priest of Dagon was found in a barrel of rum
+    - - 58-59
+      - Zombies rise from their graves and go to the sea
+    - - 60-61
+      - Spies are writing messages on homing serpent scales
+    - - 62-63
+      - No man lives past 50; the governor is turning 49 soon
+    - - 64-65
+      - A white bull was seen cavorting in the surf
+    - - 66-67
+      - Two witches arrived to the port town; must be scheming
+    - - 68-69
+      - A self-proclaimed saint is giving gray bread to the hungry
+    - - 70-71
+      - Local fishermen found a cryptic message in a bottle
+    - - 72-73
+      - Every ship’s figurehead here looks afraid
+    - - 74-75
+      - There is a city of tentacle-faced people under the sea
+    - - 76-77
+      - Taxes were lowered; the Mayor is an imposter
+    - - 78-79
+      - Someone called the King of Depths demands a tribute
+    - - 80-81
+      - Someone has been poisoning deadeyes
+    - - 82-83
+      - Anyone who sails through the Old Obed’s Pass goes mad
+    - - 84-85
+      - Raiders sailing icebergs have been seen to the north
+    - - 86-87
+      - Goblin surfer gang is racketeering a fish monger
+    - - 88-89
+      - Those born under the Myrmidon’s sign dream of war
+    - - 90-91
+      - Priests of Ashiar are worried about the next lunar phase
+    - - 92-93
+      - A glowing metal shard fell out of the sky last week
+    - - 94-95
+      - Colossal jellyfish washed ashore; its cap carved with sigils
+    - - 96-97
+      - A crew of minotaurs is hunting the Sea Urchin
+    - - 98-99
+      - Something blinded the priests of Arem; or someone
+    - - '00'
+      - There’s a pearl that can bring back the dead
+    die: d100
+    note: 'source: SSL:40-41'
+  oh.crew-morale:
+    title: Crew morale
+    page: null
+    cols:
+    - Roll when…
+    - Modifiers
+    rows:
+    - - null
+      - The crew is halved
+      - 'Advantage: fed, paid, and grog aboard — 23.10.'
+    - - null
+      - Rations or water run out
+      - 'Disadvantage: unpaid for a month.'
+    - - null
+      - The boat drops below half HP
+      - ''
+    - - null
+      - A month with no prize and no pay
+      - ''
+    - - null
+      - A horror comes aboard
+      - ''
+    - - null
+      - Crew trouble — 23.5, 23.6
+      - ''
+    note: 'source: SD:93|SV:4|WR:64'
+  oh.failed-morale:
+    title: Failed morale
+    page: null
+    cols:
+    - The crew…
+    rows:
+    - - 1–3
+      - Sulks. Disadvantage on ship checks until shore leave or a prize.
+    - - 4–5
+      - Deserts. 1d4 slip away at the next landfall.
+    - - '6'
+      - Mutinies. Parley, DC 15 CHA, or fight.
+    die: d6
+    note: 'source: SV:4'
+  oh.crew-actions:
+    title: Crew actions
+    page: null
+    cols:
+    - Action
+    - Roll
+    - Effect
+    rows:
+    - - null
+      - Fire
+      - d20 + DEX vs AC
+      - One siege weapon fires — 23.2. Reloading takes a full turn.
+    - - null
+      - Trim
+      - INT vs weather
+      - +1 band of movement this round.
+    - - null
+      - Evade
+      - DEX vs weather
+      - Enemy siege weapons attack at disadvantage this round.
+    - - null
+      - Repair
+      - STR or INT, DC 12
+      - 1d6 HP, never above half its HP at sea.
+    - - null
+      - Ram
+      - DEX vs AC, at close
+      - 1d6 per 30 HP of the rammer, at least 1d6. The rammer takes 1d6.
+    - - null
+      - Board
+      - DEX DC 9, at close
+      - Sailors need no roll. Then ordinary combat.
+    note: 'source: SV:4|WR:119'
+  oh.weather-dc:
+    title: Weather DC
+    page: null
+    cols:
+    - Wind — 23.8
+    - DC
+    rows:
+    - - null
+      - Calm, clear
+      - ADV
+    - - null
+      - Light or Strong
+      - '9'
+    - - null
+      - Sea fog, rain
+      - '12'
+    - - null
+      - Gale
+      - '15'
+    - - null
+      - Severe at sea
+      - '18'
+    note: 'source: SV:5'
   oh.more-sea:
     title: More sea
     page: null
@@ -7420,8 +10611,8 @@ tables:
     - - null
       - Foe Tables, Part Three
       - Sea & Deep Water
-      - d20 with a stat block for each.
-      - p. 96
+      - 4d6 with a stat block for each.
+      - p. 115
     - - null
       - When Sea Is Calling
       - Pirate generator
@@ -7448,11 +10639,11 @@ tables:
       - For going over the side.
       - p. 24
     - - null
-      - When Sea Is Calling
-      - Coastal town generator
-      - A port that is not worth all of 15.1.
-      - p. 32
-    note: 'source: WR:118|TFT:96|SEA:14'
+      - Sea Voyages
+      - Storms, crew, ship combat
+      - Storm checks, watch tasks, crew morale, cannon.
+      - pp. 3-6
+    note: 'source: WR:118|TFT:115|SEA:14'
   oh.ocean:
     title: Ocean
     page: null
@@ -7777,6 +10968,116 @@ tables:
       - A fiery meteorite hits the water; it’s a LV 10+ treasure roll
     die: d100
     note: 'source: WRG:58'
+  oh.shallow-seas:
+    title: Shallow seas
+    page: null
+    cols:
+    - Detail
+    rows:
+    - - '01'
+      - 1d6 flesheater corals climbing a stranded ship
+    - - 02-03
+      - An ogre pirate on a sinking raft; will trade a map for safety
+    - - 04-05
+      - 1d4 seaweed stranglers climb aboard the PCs’ ship
+    - - 06-07
+      - The tallest branches of a drowned forest rattle the ship
+    - - 08-09
+      - An orc-sized glass bottle with a giant parchment in it
+    - - 10-11
+      - A floating clump of sargassum begins to follow the ship
+    - - 12-13
+      - The PCs are caught in a toxic geyser field
+    - - 14-15
+      - Shells arranged in runes are visible on the sea floor
+    - - 16-17
+      - 2d6 horrified pirates repairing their boat in haste
+    - - 18-19
+      - A devilfish trapped in the ribcage of a long-dead whale
+    - - 20-21
+      - 1d4 sea troll children building a raft out of corpses
+    - - 22-23
+      - Three powder goblins, floating on a giant barrel of powder
+    - - 24-25
+      - A coral forest grows rapidly around a calcified lighthouse
+    - - 26-27
+      - A gullet-bird, nesting on a wreck, fighting 2d6 lampreys
+    - - 28-29
+      - 3d6 bloated ones tangled in a fishing net
+    - - 30-31
+      - An old wizard, calmly napping in his floating shack
+    - - 32-33
+      - A talking swordfish challenges one of the PCs to a duel
+    - - 34-35
+      - A rowboat-sized stone pestle floats past. It smells of garlic
+    - - 36-37
+      - A school of bio-luminescent fish swim by, then explode
+    - - 38-39
+      - An icon of Miathal atop an obelisk juts above the water
+    - - 40-41
+      - The PCs’ ship hits a domed roof of a sunken palace
+    - - 42-43
+      - A desperate maroon clinging to a dry rock begs for justice
+    - - 44-45
+      - 3d6 deep ones digging for something
+    - - 46-47
+      - A troop of 2d6 salt corpses march in line on the sea floor
+    - - 48-49
+      - A coral forest blocks the passage; there is a village in it
+    - - 50-51
+      - A fishing boat, with nets overflowing with human-faced eels
+    - - 52-53
+      - Wooden poles sticking from the water; strange symbols
+    - - 54-55
+      - A figurehead beckons you to dive in to hear its secrets
+    - - 56-57
+      - Two sharks pulling the sea chariot of a sea elf wizard
+    - - 58-59
+      - A lung shark inscribes a symbol on the ship’s hull, then flees
+    - - 60-61
+      - 1d4 phantom jellies casting illusions in the water
+    - - 62-63
+      - A titan-sized statue stands ankle-deep above a sunken ruin
+    - - 64-65
+      - 1d4 sailors trapped in a translucent air bubble
+    - - 66-67
+      - A flickering Ashair’s lantern, floating on the surface
+    - - 68-69
+      - A wave of steaming hot water splashes the PCs’ ship
+    - - 70-71
+      - A string of rocks are really 1d6 random mud-covered corals
+    - - 72-73
+      - 1d6 harpies fighting a hydra; blood attracts 1d4 sharks
+    - - 74-75
+      - A carnivorous starfish choking on a giant clam’s pearl
+    - - 76-77
+      - A dungeon entrance glimmers at the bottom
+    - - 78-79
+      - An unfinished Idol of Rhedon; builder’s tools visible below
+    - - 80-81
+      - A floating treasure chest about to sink in 1d4 rounds
+    - - 82-83
+      - 1d6 pearl divers braving the shallow waters
+    - - 84-85
+      - 1d4 sirens sunbathing on a coral reef; sea troll guard
+    - - 86-87
+      - A sea ettin atop a reef, demanding tolls for passage
+    - - 88-89
+      - An old angler struggling with a caught stingray
+    - - 90-91
+      - 3d6 bloated leechfolk drunk on sea giant blood
+    - - 92-93
+      - 2d20 tidefolk on a pilgrimage; their leader is an aboleth
+    - - 94-95
+      - A reef wraith haunting a half-sunk wreck
+    - - 96-97
+      - 1d6 sharks follow the PCs’ ship for 1d6 days
+    - - 98-99
+      - A sleeping dragon turtle with a small island on its shell
+    - - '00'
+      - The Sea Urchin offering a magic item for an unusual favor
+    die: d100
+    note: 'source: SSL:46-47'
   oh.hex-record:
     title: Hex record
     page: null
@@ -7859,7 +11160,7 @@ tables:
       - Further districts
       - ''
     - - null
-      - Leadership — the highest die
+      - Leadership — the highest die; who, 15.8
       - ''
     - - null
       - Alignment
@@ -7871,7 +11172,7 @@ tables:
       - Unique event used — §16
       - ''
     - - null
-      - Attitude
+      - Attitude — 15.9
       - ''
     - - null
       - Important NPCs — 11.1
@@ -8030,14 +11331,14 @@ tables:
     - - '1'
       - Weather
       - 2d6
-      - §1. Lasts 1d4 days. Stormy? Difficult terrain. Harsh climate? Double rations. Severe? Weather event — 9.1.
+      - §1. Every morning. Stormy? Difficult terrain. Harsh climate? Double rations. Severe? Weather event — 9.1. A 2 or 12? Strange skies — 9.2. Afloat? It sets the wind — 23.8.
     - - '2'
       - Move
       - spend MC
-      - §2. 4 on foot, 6 mounted. Push ×1.5. Unknown route? INT DC 12 — 2.1.
+      - §2. 4 on foot, 6 mounted. Push ×1.5. Unknown route? INT DC 9 — 2.1.
     - - '3'
       - New hex
-      - d100, 1d6, d100
+      - 2d6, 1d6, d100
       - §3 terrain, roads, rivers.
     - - '4'
       - Feature
@@ -8050,7 +11351,7 @@ tables:
     - - '6'
       - Encounters
       - 1d6, 2 by day, 2 by night
-      - §6. Distance, activity, reaction.
+      - §6. Distance, activity, reaction. Afloat, a hit rolls 23.5.
     - - '7'
       - Actions
       - choose
@@ -8095,7 +11396,7 @@ tables:
     - - null
       - Trouble
       - §10.1
-      - Dungeon effect
+      - Dungeon
       - §21
     - - null
       - Wilderness hazard
@@ -8137,7 +11438,7 @@ tables:
     rows:
     - - null
       - Hex
-      - A map cell 6 miles across. Number its edges clockwise 1–6.
+      - A map cell 6 miles across. Number its edges clockwise 1–6, edge 1 at the top.
     - - null
       - MC
       - Movement cost. Normal hex 1, difficult 2. A day buys 4 on foot, 6 mounted, or the boat’s Speed.

@@ -158,7 +158,7 @@ def play_tables(R, reg):
     t = R.get('oh.daily-weather-by-terrain')
     cols = [c for c in t.cols if any(reg['weather_cols'][x] == c for x in terrains)]
     idx = [t.cols.index(c) + 1 for c in cols]
-    o.append(f'<div class="keep"><h3>Daily weather <small>2d6 · 2–4 stormy, 10–12 excellent</small></h3><table><tr><th>2d6</th>'
+    o.append(f'<div class="keep"><h3>Daily weather <small>2d6 · 2–4 stormy, 10–12 excellent · 2 or 12: strange skies</small></h3><table><tr><th>2d6</th>'
              + ''.join(f'<th>{E(c)}</th>' for c in cols) + '</tr>')
     for r in t.rows:
         o.append(f'<tr><td>{E(r[0])}</td>' + ''.join(f'<td>{E(r[i])}</td>' for i in idx) + '</tr>')
@@ -190,7 +190,7 @@ def play_tables(R, reg):
         head = f'<tr><th></th>' + ''.join(f'<th>{E(c)}</th>' for c in tb.cols) + '</tr>' if tb.cols and len(tb.cols) > 1 else ''
         rows = ''.join('<tr>' + ''.join(f'<td>{E(x if x is not None else "")}</td>' for x in r) + '</tr>' for r in tb.rows)
         return f'<div class="keep"><h3>{E(title or tb.title)} <small>{E(tb.die or "")} · {E(tb.cite())}</small></h3><table class="enc">{head}{rows}</table></div>'
-    extra = []
+    extra = [full('oh.strange-skies', 'Strange skies — weather rolled 2 or 12'), full('oh.cause', 'Why the sky is strange')]
     if sysp.key == 'sd':
         extra += [full('sd.enc.cave'), full('tft.wl.underground'), full('sd.enc.deep-tunnels'), full('sd.enc.tomb'), full('sd.enc.ruins'), full('oh.rumours-wr')]
     else:
