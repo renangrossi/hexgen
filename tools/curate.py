@@ -246,4 +246,16 @@ def from_harvest(key, prefix, srcid):
     emit(key, SOURCES[key], tables)
 
 from_harvest('oh', 'oh', 'OH')
+
+
+def from_tft():
+    """raw/tft.json (harvest_tft.py) → data/gen/tft.yaml: the ten Wildland 4d6 tables."""
+    tables = {}
+    for t in json.load(open(os.path.join(RAW, 'tft.json'))):
+        tables[t['id']] = {'title': t['title'], 'page': t['page'], 'die': t['die'], 'cols': t['cols'],
+                           'rows': t['rows'], 'note': f"party LV {t['party_lv']} · {t['terrain']}"}
+    emit('tft', SOURCES['tft'], tables)
+
+
+from_tft()
 from_harvest('sea', 'sea', 'SV')

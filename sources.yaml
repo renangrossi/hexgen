@@ -7,5 +7,6 @@ mont:   {id: MONT, title: "WWN — The Diocesi of Montfroid", file: "OSR/Tools &
 sdcore: {id: SD,   title: Shadowdark RPG core rules v4.9, file: "Shadowdark/shadowdark-v4.9.pdf", offset: 4, pages: [146, 189], cols: 1}
 ose:    {id: OSE,  title: "Old-School Essentials — Referee's Book (2026)", file: "OSR/Systems/Old-School Essentials/Old-School Essentials - Referee's Book [2026].pdf", offset: 2, pages: [142, 147], cols: 1}
 oh:     {id: OH,   title: Overland Hexcrawl — Simplified (your book; WR, SD core, GC, SG, TFT inside), file: "Shadowdark/My Projects/Overland-Hexcrawl-Shadowdark-Simplified.pdf", offset: 0}
+tft:    {id: TFT,  title: "Thematic Foe Tables & Wildland (your book)", file: "Shadowdark/My Projects/Thematic-Foe-Tables-and-Wildland-Shadowdark.pdf", offset: 0}
 sea:    {id: SV,   title: Sea Voyages (your book; WR, Wolves, Emerald Sea, ShadowSails, Pirate Borg inside), file: "Shadowdark/My Projects/Sea-Voyages-Shadowdark.pdf", offset: 0}
 uvg:    {id: UVG,  title: Ultraviolet Grasslands and the Black City (2e), file: "OSR/Tools & Maps/Tables/UVG_2E_Ultraviolet_Grasslands_and_the_Black_City_Digital_Small_1.pdf", offset: 0, pages: [1, 260], cols: 2}

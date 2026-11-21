@@ -175,8 +175,14 @@ def play_tables(R, reg):
         done.add(tid)
         tb = R.get(tid)
         o.append(f'<div class="keep"><h3>{E(tb.title)} <small>{E(tb.die)} · {E(tb.cite())} · {E(sysp.odds(ter))}</small></h3><table class="enc">')
-        for r in tb.rows:
-            o.append(f'<tr><td>{E(r[0])}</td><td>{E(" — ".join(str(x) for x in r[1:]))}</td></tr>')
+        if tid.startswith('tft.'):   # stat columns; Reactions stay in the rolled hex keys
+            n = tb.cols.index('Reactions') + 1
+            o.append('<tr><th>' + E(tb.die) + '</th>' + ''.join(f'<th>{E(c)}</th>' for c in tb.cols[:n - 1]) + '</tr>')
+            for r in tb.rows:
+                o.append('<tr>' + ''.join(f'<td>{E(x)}</td>' for x in r[:n]) + '</tr>')
+        else:
+            for r in tb.rows:
+                o.append(f'<tr><td>{E(r[0])}</td><td>{E(" — ".join(str(x) for x in r[1:]))}</td></tr>')
         o.append('</table></div>')
     def full(tid, title=None):
         if tid not in R: return ''
@@ -186,7 +192,7 @@ def play_tables(R, reg):
         return f'<div class="keep"><h3>{E(title or tb.title)} <small>{E(tb.die or "")} · {E(tb.cite())}</small></h3><table class="enc">{head}{rows}</table></div>'
     extra = []
     if sysp.key == 'sd':
-        extra += [full('sd.enc.cave'), full('sd.enc.deep-tunnels'), full('sd.enc.tomb'), full('sd.enc.ruins'), full('oh.rumours-wr')]
+        extra += [full('sd.enc.cave'), full('tft.wl.underground'), full('sd.enc.deep-tunnels'), full('sd.enc.tomb'), full('sd.enc.ruins'), full('oh.rumours-wr')]
     else:
         extra += [full(t) for t in sorted(R.find('ose.dungeon.'))]
     if any(h.road for h in M):

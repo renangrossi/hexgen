@@ -18,10 +18,15 @@ class Shadowdark:
     key, name = 'sd', 'Shadowdark RPG (Western Reaches travel)'
     hex_miles = 6
     travel = 'Walking 4 hexes a day, mounted 6, sailing 8; difficult terrain costs 2 (WR GM Guide p.40).'
-    check = 'Roll 1-in-6 twice by day and twice by night (WR); on a hit roll the terrain table below.'
-    ENC = {'grassland': 'sd.enc.grassland', 'forest': 'sd.enc.forest', 'jungle': 'sd.enc.jungle',
-           'swamp': 'sd.enc.swamp', 'hills': 'sd.enc.mountain', 'mountains': 'sd.enc.mountain',
-           'desert': 'sd.enc.desert', 'arctic': 'sd.enc.arctic', 'sea': 'sd.enc.ocean', 'lake': 'sd.enc.river-coast'}
+    check = ('Roll 1-in-6 twice by day and twice by night (WR); on a hit roll the terrain\'s Thematic Foe Tables '
+             'Wildland 4d6 below. A creature with its own Reactions (d6) uses them instead of the 2d6.')
+    # Thematic Foe Tables, Part Three: Wildland. Core's d100s stay as the fallback.
+    ENC = {'grassland': 'tft.wl.grassland', 'forest': 'tft.wl.forest', 'jungle': 'tft.wl.forest',
+           'swamp': 'tft.wl.swamp', 'hills': 'tft.wl.hills', 'mountains': 'tft.wl.mountain',
+           'desert': 'tft.wl.desert', 'arctic': 'tft.wl.glacier', 'sea': 'tft.wl.sea', 'lake': 'tft.wl.river'}
+    CORE = {'grassland': 'sd.enc.grassland', 'forest': 'sd.enc.forest', 'jungle': 'sd.enc.jungle',
+            'swamp': 'sd.enc.swamp', 'hills': 'sd.enc.mountain', 'mountains': 'sd.enc.mountain',
+            'desert': 'sd.enc.desert', 'arctic': 'sd.enc.arctic', 'sea': 'sd.enc.ocean', 'lake': 'sd.enc.river-coast'}
     DISTRICT = {'Transient': 'sd.enc.slums', 'Common': 'sd.enc.low-district', 'Craft': 'sd.enc.artisan',
                 'Mercantile': 'sd.enc.market', 'Affluent': 'sd.enc.high-district', 'Education': 'sd.enc.university',
                 'Religious': 'sd.enc.temple', 'Military': 'sd.enc.castle', 'Spectacle': 'sd.enc.tavern',
@@ -35,11 +40,22 @@ class Shadowdark:
             d = R.roll('sea.denizens-4d6'); v = d['values']
             return {'text': f"{v.get('No.', '1')} × {v.get('Foe')} (LV {v.get('LV')}, AC {v.get('AC')}, HP {v.get('HP')}, {v.get('Attack')}). {v.get('Trait', '')}".strip(),
                     'cite': d['cite']}
-        tid = 'sd.enc.river-coast' if (river or coast) and R.dice.chance(1, 3) else self.ENC[terrain]
         if ruins and R.dice.chance(1, 2):
-            tid = 'sd.enc.ruins'
-        r = R.roll(tid)
-        return {'text': r['text'], 'cite': r['cite'], 'roll': r['roll']}
+            r = R.roll('sd.enc.ruins')
+            return {'text': r['text'], 'cite': r['cite'], 'roll': r['roll']}
+        tid = self.ENC['lake'] if (river or coast) and terrain != 'sea' and R.dice.chance(1, 3) else self.ENC[terrain]
+        if tid not in R:
+            tid = self.CORE[terrain]
+            r = R.roll(tid)
+            return {'text': r['text'], 'cite': r['cite'], 'roll': r['roll']}
+        return self.foe(R, tid)
+
+    @staticmethod
+    def foe(R, tid):
+        d = R.roll(tid); v = d['values']
+        text = (f"{v.get('No.', '1')} × {v.get('Foe')} (LV {v.get('LV')}, AC {v.get('AC')}, HP {v.get('HP')}, "
+                f"{v.get('Attack')}). Reactions (d6): {v.get('Reactions', '')}").strip()
+        return {'text': text, 'cite': d['cite'], 'roll': d['roll'], 'monster': v.get('Foe')}
 
     def town_encounter(self, R, district):
         tid = self.DISTRICT.get(district.split()[0], 'sd.enc.low-district')
@@ -47,6 +63,8 @@ class Shadowdark:
         return {'text': r['text'], 'cite': r['cite']}
 
     def dungeon_encounter(self, R, kind):
+        if kind == 'cave' and 'tft.wl.underground' in R and R.dice.chance(1, 2):
+            return self.foe(R, 'tft.wl.underground')
         tid = {'tomb': 'sd.enc.tomb', 'cave': 'sd.enc.cave', 'deep': 'sd.enc.deep-tunnels'}.get(kind, 'sd.enc.ruins')
         r = R.roll(tid)
         return {'text': r['text'], 'cite': r['cite']}
@@ -55,10 +73,15 @@ class Shadowdark:
 class OSE:
     key, name = 'ose', 'Old-School Essentials'
     hex_miles = 6
-    travel = 'Base movement ÷ 5 = miles a day (120′ → 24 mi, 4 hexes); forest, hills, swamp ×⅔, mountains ×½; roads ×1½.'
-    check = 'Roll once a day; encounter on the terrain odds below. Distance 4d6×10 yards; surprise as normal.'
+    travel = ('Base movement ÷ 5 = miles a day (120′ → 24 mi, 4 hexes). Desert, forest, hills ×⅔; jungle, mountains, '
+              'swamp ×½. A trail is normal speed anywhere, a road ×1½. Flying: double miles, terrain ignored. Forced march '
+              '×1½, then rest a full day. Rest 1 day in 7, or −1 to attack and damage until you do (Player\'s Book pp. 230–231).')
+    check = ('Each travel day: roll for getting lost first (not on a road or trail, with a guide, or heading for a '
+             'landmark), then once for encounters, on the terrain odds below. Distance 4d6×10 yards, 1d4×10 if either '
+             'side is surprised. Foraging: 1-in-6 a day feeds 1d6. Hunting takes the day: +1-in-6 animal encounter.')
     CHANCE = {'grassland': 1, 'forest': 2, 'hills': 2, 'desert': 2, 'sea': 2, 'lake': 2, 'jungle': 3, 'swamp': 3,
               'mountains': 3, 'arctic': 2}
+    LOST = {'grassland': 1, 'forest': 2, 'hills': 2, 'desert': 3, 'jungle': 3, 'swamp': 3, 'mountains': 2}
     BY = {'grassland': 'grasslands', 'forest': 'forest', 'hills': 'mountains', 'mountains': 'mountains',
           'jungle': 'jungle', 'swamp': 'swamp', 'desert': 'desert', 'arctic': 'mountains', 'sea': 'ocean-sea',
           'lake': 'lake-river'}
@@ -67,7 +90,9 @@ class OSE:
               'J': 'ose.enc.J', 'L': 'ose.enc.L', 'O': 'ose.enc.O', 'S': 'ose.enc.S'}
 
     def odds(self, terrain):
-        return f'{self.CHANCE.get(terrain, 2)} in 6, once a day'
+        lost = self.LOST.get(terrain)
+        lost = f'lost {lost} in 6' if lost else ('lost: waterborne rules' if terrain in ('sea', 'lake') else 'lost: referee')
+        return f'encounter {self.CHANCE.get(terrain, 2)} in 6 once a day · {lost}'
 
     def _resolve(self, R, by_tid):
         t = R.roll(by_tid)

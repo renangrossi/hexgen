@@ -1,0 +1,2046 @@
+source:
+  id: TFT
+  title: Thematic Foe Tables & Wildland (your book)
+  file: Shadowdark/My Projects/Thematic-Foe-Tables-and-Wildland-Shadowdark.pdf
+  offset: 0
+tables:
+  tft.wl.grassland:
+    title: Grassland · The Open Range — Denizens of the Open Range
+    page: 94
+    die: 4d6
+    cols:
+    - Foe
+    - Type
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Reactions
+    rows:
+    - - '4'
+      - Steppe Lion
+      - M
+      - '1'
+      - '6'
+      - '13'
+      - '30'
+      - 2 claw +5 (1d10)
+      - 1–2 it watches from the grass and lets the party pass · 3–4 it follows for a day · 5–6 it hunts.
+    - - '5'
+      - Cheetahs
+      - M
+      - 1d3
+      - '3'
+      - '13'
+      - '14'
+      - 1 rend +3 (1d8)
+      - 1–3 it watches from the grass and does not close · 4–5 it takes the straggler and runs · 6 it hunts in earnest.
+    - - '6'
+      - Aurochs
+      - M
+      - 1d4+1
+      - '3'
+      - '11'
+      - '18'
+      - 1 gore +3 (1d8)
+      - 1–3 the herd moves off · 4–5 the bull puts itself between the party and the calves · 6 it charges.
+    - - '7'
+      - Locust Swarm
+      - V
+      - '1'
+      - '2'
+      - '12'
+      - '10'
+      - 2 bite +2 (1d4)
+      - 1–4 it passes over in a quarter hour, eating everything green · 5–6 it settles on the party.
+    - - '8'
+      - Horsehead Hawks
+      - M
+      - 1d6
+      - '2'
+      - '13'
+      - '9'
+      - 1 talon +2 (1d6)
+      - 1–2 they keep to their height · 3–4 they drive the party off a nest · 5–6 they stoop.
+    - - '9'
+      - Hyenas
+      - M
+      - 1d6+2
+      - '2'
+      - '12'
+      - '10'
+      - 1 bite +2 (1d6)
+      - 1–3 they follow and call to each other · 4–5 they take the rearmost character · 6 they attack together.
+    - - '10'
+      - Biting Fly Cloud
+      - V
+      - '1'
+      - '1'
+      - '11'
+      - '6'
+      - 1 bite +1 (1d4)
+      - 1–2 it drifts off · 3–6 it stays with the party until wind or smoke moves it.
+    - - '11'
+      - Wild Dogs
+      - V
+      - 1d6+1
+      - '1'
+      - '12'
+      - '6'
+      - 1 bite +1 (1d4)
+      - 1–2 they beg · 3–4 they shadow the party · 5–6 they attack.
+    - - '12'
+      - Antelope Herd
+      - V
+      - 2d6
+      - '1'
+      - '12'
+      - '5'
+      - 1 kick +1 (1d4)
+      - 1–4 they run · 5 they run through the party · 6 something else is hunting them — roll on this table again.
+    - - '13'
+      - Prairie Rats
+      - V
+      - 2d6
+      - '0'
+      - '11'
+      - '1'
+      - 1 bite +1 (1)
+      - 1–4 they vanish down the holes · 5–6 they swarm what is already on the ground.
+    - - '14'
+      - Grass Adders
+      - V
+      - 2d6
+      - '1'
+      - '12'
+      - '5'
+      - 1 bite +1 (1d4 + venom)
+      - 1–3 it is gone before anyone draws · 4–5 it holds its ground and strikes only if stepped over · 6 it strikes.
+    - - '15'
+      - Steppe Hares
+      - V
+      - 2d6
+      - '0'
+      - '12'
+      - '1'
+      - 1 kick +1 (1)
+      - 1–6 they flee. The question is only what you catch.
+    - - '16'
+      - Carrion Vultures
+      - V
+      - 1d6+2
+      - '1'
+      - '12'
+      - '5'
+      - 1 beak +1 (1d4)
+      - 1–4 they circle and wait, following the party for a day and staying with it · 5–6 they come down and settle within near, attacking the moment any character is wounded.
+    - - '17'
+      - Steppe Ponies
+      - V
+      - 1d6
+      - '1'
+      - '11'
+      - '6'
+      - 1 hoof +1 (1d4)
+      - 1–5 the band scatters · 6 the lead mare stands over a foal and kicks.
+    - - '18'
+      - Jackals
+      - M
+      - 1d6+2
+      - '2'
+      - '12'
+      - '10'
+      - 1 bite +2 (1d6)
+      - 1–2 they follow at a distance, waiting for a casualty · 3–4 they scatter · 5–6 they rush the smallest character.
+    - - '19'
+      - Giant Dung Beetles
+      - V
+      - 1d4+1
+      - '2'
+      - '13'
+      - '10'
+      - 1 horn +1 (1d4 + knock)
+      - 1–5 they go on rolling · 6 they defend the ball.
+    - - '20'
+      - Ostriches
+      - M
+      - 1d4+1
+      - '2'
+      - '12'
+      - '10'
+      - 1 kick +2 (1d6)
+      - 1–4 it outruns everything · 5 it guards a clutch of eggs · 6 it attacks.
+    - - '21'
+      - Wild Boar
+      - M
+      - 1d4+1
+      - '3'
+      - '13'
+      - '16'
+      - 1 tusk +3 (1d8)
+      - 1–2 it crashes away through the grass · 3–4 it stands and screams · 5–6 it charges.
+    - - '22'
+      - Lesser Ant Lions
+      - M
+      - 1d3
+      - '3'
+      - '14'
+      - '15'
+      - 1 bite +3 (1d8 + drag)
+      - Always fights. It cannot leave the pit.
+    - - '23'
+      - Lionesses
+      - M
+      - 1d4+1
+      - '4'
+      - '13'
+      - '20'
+      - 2 claw +3 (1d6)
+      - 1–2 they let the party pass · 3–4 they follow at a hundred paces for a day · 5–6 they hunt.
+    - - '24'
+      - Terror Bird
+      - M
+      - 1d3
+      - '5'
+      - '13'
+      - '25'
+      - 2 beak +4 (1d8)
+      - 1 it is already feeding and ignores the party · 2–3 it screams and displays · 4–6 it runs the party down.
+    note: party LV 1–6 · Grassland
+  tft.wl.forest:
+    title: Forest & Jungle · Under the Canopy — Denizens Under the Canopy
+    page: 97
+    die: 4d6
+    cols:
+    - Foe
+    - Type
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Reactions
+    rows:
+    - - '4'
+      - Forest Tiger
+      - M
+      - '1'
+      - '6'
+      - '13'
+      - '30'
+      - 2 claw +5 (1d10)
+      - 1–2 it is seen once, across a river, and not again · 3–4 it follows the camp for two nights · 5–6 it takes someone at the edge of the firelight.
+    - - '5'
+      - Leopard
+      - M
+      - 1d2
+      - '4'
+      - '13'
+      - '20'
+      - 2 claw +3 (1d6)
+      - 1–2 it lets the party pass beneath it · 3–4 it follows along the branches for a mile · 5–6 it drops.
+    - - '6'
+      - Black Bear
+      - M
+      - 1d2
+      - '4'
+      - '13'
+      - '21'
+      - 2 claw +3 (1d6)
+      - 1–2 it goes up a tree · 3–4 it bluffs · 5 it takes the food · 6 it fights.
+    - - '7'
+      - Army Ants
+      - M
+      - '1'
+      - '3'
+      - '12'
+      - '17'
+      - 2 bite +3 (1d6)
+      - Always advances. It will not stop for anything but fire or deep water.
+    - - '8'
+      - Carnivorous Nettles
+      - V
+      - 1d3+1
+      - '2'
+      - '12'
+      - '11'
+      - 1 lash +2 (1d6 + sting)
+      - Always attacks anything within close. It has no choice in the matter.
+    - - '9'
+      - Giant Wasps
+      - V
+      - 1d4+1
+      - '2'
+      - '13'
+      - '9'
+      - 1 sting +3 (1d6 + venom)
+      - 1–4 they are working and ignore a party that moves quietly · 5–6 the nest turns out.
+    - - '10'
+      - Grey Wolves
+      - M
+      - 1d6+1
+      - '2'
+      - '12'
+      - '11'
+      - 1 bite +3 (1d6)
+      - 1–2 they watch from the treeline and follow · 3 they melt away · 4–6 they hunt.
+    - - '11'
+      - Giant Centipedes
+      - V
+      - 1d4+1
+      - '1'
+      - '11'
+      - '4'
+      - 1 bite +1 (1d4 + poison)
+      - 1–3 it flees into the litter · 4–6 it bites.
+    - - '12'
+      - Fruit Bats
+      - V
+      - 2d6
+      - '0'
+      - '12'
+      - '1'
+      - 1 bite +1 (1)
+      - 1–5 they flood out and are gone · 6 something came in behind them — roll on this table again.
+    - - '13'
+      - Blood Midges
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '5'
+      - 1 bite +1 (1d4)
+      - 1–2 they thin out by dusk · 3–6 they follow the party through the hex.
+    - - '14'
+      - Poison Frogs
+      - V
+      - 1d6+2
+      - '0'
+      - '12'
+      - '1'
+      - 1 touch +2 (poison)
+      - 1–6 they sit there. Everything that happens next is the party's own doing.
+    - - '15'
+      - Rot Grubs
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '4'
+      - 1 burrow +1 (1)
+      - Always attacks whatever disturbs the wood.
+    - - '16'
+      - Red Deer
+      - V
+      - 1d6+2
+      - '1'
+      - '12'
+      - '6'
+      - 1 kick +1 (1d4)
+      - 1–4 the herd is gone · 5 they hold still and are catchable · 6 the stag stands its ground.
+    - - '17'
+      - Howler Troop
+      - M
+      - 1d6+2
+      - '2'
+      - '12'
+      - '9'
+      - 1 bite +2 (1d4)
+      - 1–3 they scream and throw and nothing else · 4–5 they steal and run · 6 they mob the party.
+    - - '18'
+      - Forest Spiders
+      - V
+      - 1d4+1
+      - '2'
+      - '13'
+      - '11'
+      - 1 bite +2 (1d6 + venom)
+      - Always fights while anything is in the web.
+    - - '19'
+      - Tree Vipers
+      - V
+      - 1d6
+      - '2'
+      - '13'
+      - '8'
+      - 1 bite +2 (1d4 + venom)
+      - 1–4 it does not move and is never noticed · 5–6 it strikes the first to pass.
+    - - '20'
+      - Giant Eagles
+      - M
+      - 1d3
+      - '3'
+      - '13'
+      - '15'
+      - 1 talon +3 (1d8)
+      - 1–3 it keeps its height and watches · 4 it takes an animal · 5–6 it defends a nest.
+    - - '21'
+      - Tusked Boar
+      - M
+      - 1d4+1
+      - '4'
+      - '13'
+      - '21'
+      - 2 tusk +3 (1d8)
+      - 1 it withdraws · 2–3 it stands and screams · 4–6 it charges.
+    - - '22'
+      - Giant Chameleon
+      - M
+      - 1d2
+      - '4'
+      - '13'
+      - '19'
+      - 2 bite +3 (1d6) or 1 tongue (near) +3 (1d4)
+      - 1–2 it stays still and is never found · 3–6 it takes the nearest character.
+    - - '23'
+      - Giant Constrictor
+      - M
+      - '1'
+      - '5'
+      - '14'
+      - '27'
+      - 1 bite +4 (1d8 + coil)
+      - 1 it is torpid and ignores everything · 2–3 it withdraws into the water · 4–6 it takes the nearest character.
+    - - '24'
+      - Silverback Gorilla
+      - M
+      - '1'
+      - '6'
+      - '13'
+      - '32'
+      - 2 fist +5 (1d8) or 1 thrown branch (near) +5 (1d6)
+      - 1–2 it displays and the troop withdraws · 3–4 it drives the party out of the hex without closing · 5–6 it attacks.
+    note: party LV 1–7 · Forest & Jungle
+  tft.wl.hills:
+    title: Hills & Moor · The High Ground — Denizens of the High Ground
+    page: 100
+    die: 4d6
+    cols:
+    - Foe
+    - Type
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Reactions
+    rows:
+    - - '4'
+      - Hippogriff
+      - M
+      - 1d2
+      - '4'
+      - '13'
+      - '20'
+      - 1 claw +3 (1d6) and 1 bite +3 (1d8)
+      - 1–3 it circles and leaves · 4–5 it stoops on a pack animal · 6 it attacks.
+    - - '5'
+      - Griffon
+      - M
+      - 1d2
+      - '4'
+      - '12'
+      - '19'
+      - 2 rend +4 (1d10)
+      - 1–2 it takes an animal and leaves · 3–4 it circles and does not close · 5–6 it attacks.
+    - - '6'
+      - Moor Stag
+      - M
+      - 1d3
+      - '3'
+      - '12'
+      - '17'
+      - 1 antler +3 (1d8)
+      - 1–3 it stands, screams, and goes · 4 it drives the party off its hinds · 5–6 it charges.
+    - - '7'
+      - Giant Badgers
+      - M
+      - 1d3
+      - '2'
+      - '13'
+      - '13'
+      - 2 claw +2 (1d6)
+      - 1–2 it goes to ground · 3–4 it warns and holds the entrance · 5–6 it attacks.
+    - - '8'
+      - Giant Shrews
+      - V
+      - 1d4+1
+      - '2'
+      - '12'
+      - '8'
+      - 2 bite +2 (1d4)
+      - 1–2 it is gone down a hole · 3–6 it attacks, because it always attacks.
+    - - '9'
+      - Heather Wasps
+      - V
+      - 1d4+1
+      - '2'
+      - '13'
+      - '10'
+      - 1 sting +2 (1d4 + venom)
+      - Always attacks once the nest is trodden on.
+    - - '10'
+      - Grey Wolves
+      - M
+      - 1d6+1
+      - '2'
+      - '12'
+      - '11'
+      - 1 bite +3 (1d6)
+      - 1–2 they watch from the treeline and follow · 3 they melt away · 4–6 they hunt.
+    - - '11'
+      - Buzzards
+      - V
+      - 1d6
+      - '1'
+      - '12'
+      - '6'
+      - 1 beak +1 (1d4)
+      - 1–4 they lift off and settle again fifty paces on · 5–6 they defend the carcass.
+    - - '12'
+      - Wild Goats
+      - V
+      - 1d6+2
+      - '1'
+      - '12'
+      - '6'
+      - 1 butt +1 (1d4)
+      - 1–4 they go up and out of reach · 5 they start a slide · 6 the billy blocks the only path.
+    - - '13'
+      - Hill Rats
+      - V
+      - 2d6
+      - '0'
+      - '11'
+      - '1'
+      - 1 bite +1 (1 + infection)
+      - 1–3 they scatter into the stones · 4–6 they defend the nest.
+    - - '14'
+      - Crag Bats
+      - V
+      - 2d6
+      - '0'
+      - '12'
+      - '1'
+      - 1 bite +1 (1)
+      - 1–5 they stream past and are gone · 6 they mob the nearest light.
+    - - '15'
+      - Moor Adders
+      - V
+      - 1d6+2
+      - '1'
+      - '12'
+      - '5'
+      - 1 bite +1 (1d4 + venom)
+      - 1–4 they pour off the rock · 5–6 the trodden-on one strikes.
+    - - '16'
+      - Giant Ticks
+      - V
+      - 1d4+1
+      - '1'
+      - '12'
+      - '5'
+      - 1 attach +1 (1)
+      - Always attaches to whatever walks through the bracken.
+    - - '17'
+      - Moor Hounds
+      - M
+      - 1d6+1
+      - '2'
+      - '12'
+      - '11'
+      - 1 bite +2 (1d6)
+      - 1–2 they come to the command · 3 they circle and bay · 4–6 they hunt.
+    - - '18'
+      - Bombardier Beetles
+      - V
+      - 1d4+1
+      - '2'
+      - '14'
+      - '12'
+      - 1 spray (close) +2 (1d6)
+      - 1–4 they trundle away · 5–6 they turn and spray.
+    - - '19'
+      - Blood Hawks
+      - V
+      - 1d6
+      - '2'
+      - '13'
+      - '9'
+      - 1 talon +2 (1d6)
+      - 1–2 they wheel away · 3–4 they drive the party off a nesting crag · 5–6 the flock stoops.
+    - - '20'
+      - Giant Ravens
+      - M
+      - 1d4+1
+      - '2'
+      - '12'
+      - '10'
+      - 1 beak +2 (1d6)
+      - 1–3 they follow and call · 4–5 they steal · 6 they mob.
+    - - '21'
+      - Giant Scorpions
+      - M
+      - 1d3
+      - '3'
+      - '14'
+      - '13'
+      - 1 claw +2 (1d6 + grab) and 1 sting +2 (1d4 + poison)
+      - 1–2 it backs under the stone · 3–6 it fights.
+    - - '22'
+      - Lynx
+      - M
+      - 1d2
+      - '3'
+      - '13'
+      - '13'
+      - 2 claw +3 (1d4)
+      - 1–4 it watches and is not seen again · 5 it takes the watchman at night · 6 it fights.
+    - - '23'
+      - Crag Bear
+      - M
+      - 1d2
+      - '5'
+      - '13'
+      - '26'
+      - 2 claw +4 (1d8)
+      - 1 it withdraws uphill · 2–4 it stands across the path and roars · 5–6 it attacks.
+    - - '24'
+      - Cave Lion
+      - M
+      - '1'
+      - '6'
+      - '13'
+      - '30'
+      - 2 claw +5 (1d10)
+      - 1 it is feeding and will not be disturbed · 2–3 it follows the party for a day · 4–6 it hunts.
+    note: party LV 1–7 · Hills
+  tft.wl.mountain:
+    title: Mountain & Crag · The Thin Air — Denizens of the Thin Air
+    page: 103
+    die: 4d6
+    cols:
+    - Foe
+    - Type
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Reactions
+    rows:
+    - - '4'
+      - Snow Leopard
+      - M
+      - '1'
+      - '5'
+      - '14'
+      - '24'
+      - 2 claw +4 (1d8)
+      - 1–3 it is a shape on a ridge at dusk and nothing more · 4–5 it takes a goat or a mule and is gone · 6 it hunts.
+    - - '5'
+      - Cave Bear
+      - M
+      - 1d2
+      - '5'
+      - '13'
+      - '27'
+      - 2 claw +4 (1d10)
+      - 1 it is asleep and may be left alone · 2–3 it roars and holds the entrance · 4–6 it attacks.
+    - - '6'
+      - Snow Ape
+      - M
+      - 1d3
+      - '4'
+      - '13'
+      - '19'
+      - 2 fist +4 (1d6) or 1 rock (far) +4 (2d6)
+      - 1–2 it withdraws uphill · 3–4 it throws until the party leaves the hex · 5–6 it closes.
+    - - '7'
+      - Great Condor
+      - M
+      - 1d2
+      - '3'
+      - '11'
+      - '16'
+      - 2 beak +3 (1d8 + grab)
+      - 1–3 it takes the dead and goes · 4 it circles for a day · 5–6 it stoops.
+    - - '8'
+      - Crag Spiders
+      - M
+      - 1d3
+      - '3'
+      - '13'
+      - '14'
+      - 1 bite +3 (1d6 + venom)
+      - Always fights while anything is in the web.
+    - - '9'
+      - Yak Herd
+      - V
+      - 1d6
+      - '2'
+      - '11'
+      - '14'
+      - 1 gore +2 (1d6)
+      - 1–4 the herd moves off up the slope · 5 one can be taken · 6 the bull stands over a calf.
+    - - '10'
+      - Stone Adders
+      - V
+      - 1d6
+      - '2'
+      - '13'
+      - '8'
+      - 1 bite +2 (1d4 + venom)
+      - 1–3 it withdraws into the rock · 4–6 it strikes.
+    - - '11'
+      - Rock Baboons
+      - V
+      - 1d6+2
+      - '2'
+      - '12'
+      - '11'
+      - 1 bite +2 (1d6) or 1 thrown rock (near) +2 (1d4)
+      - 1–2 they scream and show teeth only · 3–4 they throw and withdraw · 5–6 the troop comes down.
+    - - '12'
+      - Cliff Swifts
+      - V
+      - 2d6
+      - '0'
+      - '12'
+      - '1'
+      - 1 beak +1 (1)
+      - 1–6 they wheel and scream. They fight only for the nests.
+    - - '13'
+      - Cave Bats
+      - V
+      - 2d6
+      - '0'
+      - '12'
+      - '1'
+      - 1 bite +1 (1)
+      - 1–5 they pour out and are gone for the night · 6 they mob the nearest light.
+    - - '14'
+      - Rock Mites
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '4'
+      - 1 bite +1 (1)
+      - Always swarms whatever stands on the colony.
+    - - '15'
+      - Marmots
+      - V
+      - 2d6
+      - '0'
+      - '11'
+      - '1'
+      - 1 bite +1 (1)
+      - 1–6 they whistle and vanish. That is the whole encounter and the whole problem.
+    - - '16'
+      - Mountain Goats
+      - V
+      - 1d6+2
+      - '1'
+      - '12'
+      - '6'
+      - 1 butt +1 (1d4)
+      - 1–4 they are two hundred feet up before anyone speaks · 5 they start a slide, DC 12 DEX or 1d6 · 6 the billy blocks the path.
+    - - '17'
+      - Scree Beetles
+      - V
+      - 1d4+1
+      - '2'
+      - '14'
+      - '11'
+      - 1 bite +2 (1d6)
+      - 1–3 they clamp down and are stones again · 4–6 they bite.
+    - - '18'
+      - Mountain Vultures
+      - V
+      - 1d6
+      - '2'
+      - '12'
+      - '10'
+      - 1 beak +2 (1d6)
+      - 1–4 they circle for a day and do nothing · 5–6 they come down on the wounded.
+    - - '19'
+      - Thunder Beetles
+      - M
+      - 1d4+1
+      - '3'
+      - '14'
+      - '16'
+      - 1 bite +3 (1d6)
+      - 1–2 they drum and dig in · 3–6 they drum and then fight.
+    - - '20'
+      - Giant Eagles
+      - M
+      - 1d3
+      - '3'
+      - '13'
+      - '15'
+      - 1 talon +3 (1d8)
+      - 1–3 it keeps its height and watches · 4 it takes an animal · 5–6 it defends a nest.
+    - - '21'
+      - Dire Wolves
+      - M
+      - 1d4+1
+      - '4'
+      - '12'
+      - '19'
+      - 2 bite +4 (1d8)
+      - 1 they let the party pass · 2–3 they shadow the party all day and attack at the night watch · 4–6 they hunt now.
+    - - '22'
+      - Mountain Lion
+      - M
+      - 1d2
+      - '4'
+      - '13'
+      - '22'
+      - 2 claw +3 (1d8)
+      - 1–3 it follows for a day and is never seen · 4–5 it takes the rearmost and withdraws · 6 it hunts.
+    - - '23'
+      - Lesser Roc
+      - M
+      - '1'
+      - '7'
+      - '14'
+      - '36'
+      - 2 talon +6 (2d6) or 1 beak +6 (2d8)
+      - 1–2 it takes a pack animal and is gone · 3 it passes overhead and ignores the party · 4–6 it hunts.
+    - - '24'
+      - Wyvern
+      - M
+      - '1'
+      - '8'
+      - '15'
+      - '37'
+      - 2 rend +6 (1d8) and 1 stinger +6 (1d6 + poison)
+      - 1–2 it takes an animal and goes · 3 it circles and does not close · 4–6 it hunts the party.
+    note: party LV 1–8 · Mountain
+  tft.wl.desert:
+    title: Desert & Barren · The Open Oven — Denizens of the Open Oven
+    page: 106
+    die: 4d6
+    cols:
+    - Foe
+    - Type
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Reactions
+    rows:
+    - - '4'
+      - King Monitor
+      - M
+      - '1'
+      - '6'
+      - '15'
+      - '30'
+      - 1 bite +5 (2d6 + rot)
+      - 1–2 it is basking and will not move · 3–4 it bites once and waits · 5–6 it attacks.
+    - - '5'
+      - Giant Rhagodessa
+      - M
+      - 1d2
+      - '4'
+      - '13'
+      - '21'
+      - 2 bite +3 (1d6 + latch)
+      - 1 it is already feeding · 2–6 it runs the party down.
+    - - '6'
+      - Desert Lion
+      - M
+      - 1d3
+      - '4'
+      - '13'
+      - '22'
+      - 2 claw +3 (1d8)
+      - 1–2 it gives the water up and withdraws · 3–4 it holds the water and will not attack if the party backs off · 5–6 it hunts.
+    - - '7'
+      - Monitor Lizards
+      - M
+      - 1d4+1
+      - '3'
+      - '14'
+      - '18'
+      - 1 bite +3 (1d8 + rot)
+      - 1–2 it walks away at its own pace · 3–4 it stands its ground and hisses · 5–6 it attacks.
+    - - '8'
+      - Desert Hyenas
+      - M
+      - 1d6+1
+      - '3'
+      - '12'
+      - '15'
+      - 1 bite +3 (1d6)
+      - 1–3 it follows and waits · 4 it takes the stores in the night · 5–6 it attacks the watch.
+    - - '9'
+      - Sand Moles
+      - V
+      - 1d3
+      - '2'
+      - '12'
+      - '12'
+      - 1 bite +2 (1d6)
+      - 1–3 it takes a pack and burrows away · 4–6 it attacks.
+    - - '10'
+      - Camel Spiders
+      - V
+      - 1d4+1
+      - '2'
+      - '13'
+      - '11'
+      - 2 bite +2 (1d4)
+      - 1–2 it crosses the camp and keeps going · 3–6 it goes for the nearest shadow and bites what is casting it.
+    - - '11'
+      - Rock Baboons
+      - M
+      - 1d6+2
+      - '2'
+      - '12'
+      - '11'
+      - 1 bite +2 (1d6) or 1 thrown rock (near) +2 (1d4)
+      - 1–2 they scream and show teeth only · 3–4 they throw and withdraw · 5–6 the troop comes down.
+    - - '12'
+      - Carrion Vultures
+      - V
+      - 1d6+2
+      - '1'
+      - '12'
+      - '5'
+      - 1 beak +1 (1d4)
+      - 1–4 they circle and do not attack at all, following the party for a day · 5–6 they come down and settle within near, attacking the moment any character is wounded.
+    - - '13'
+      - Dust Mites
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '5'
+      - 1 bite +1 (1d4)
+      - 1–3 the wind takes them on · 4–6 they stay with the party for the hour.
+    - - '14'
+      - Sand Fleas
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '4'
+      - 1 bite +1 (1)
+      - Always infests. There is no fight to have.
+    - - '15'
+      - Scorpion Swarm
+      - V
+      - 2d6
+      - '1'
+      - '12'
+      - '6'
+      - 1 sting +1 (1 + venom)
+      - Always stings whatever is on the ground.
+    - - '16'
+      - Jackals of the Waste
+      - V
+      - 1d6+2
+      - '2'
+      - '12'
+      - '9'
+      - 1 bite +2 (1d6)
+      - 1–2 they lead the party to water without meaning to · 3–4 they scatter · 5–6 they take the straggler.
+    - - '17'
+      - Horned Vipers
+      - V
+      - 1d6
+      - '2'
+      - '13'
+      - '8'
+      - 1 bite +2 (1d4 + venom)
+      - 1–3 it stays buried and is never found · 4–6 it strikes the leg that passes.
+    - - '18'
+      - Wild Camels
+      - V
+      - 1d6
+      - '2'
+      - '10'
+      - '13'
+      - 1 hoof +3 (1d6) or 1 spit (near) +0 (1d4)
+      - 1–3 the herd moves off · 4 it can be taken · 5 it spits in somebody's face · 6 the bull kicks.
+    - - '19'
+      - Locust Swarm
+      - V
+      - '1'
+      - '2'
+      - '12'
+      - '10'
+      - 2 bite +2 (1d4)
+      - 1–4 it passes over in a quarter hour, eating everything green · 5–6 it settles on the party.
+    - - '20'
+      - Spitting Cobras
+      - M
+      - 1d6
+      - '3'
+      - '13'
+      - '14'
+      - 1 bite +3 (1d6 + venom) or 1 spit (near) +3
+      - 1–3 it hoods and gives ground · 4–5 it spits and withdraws · 6 it strikes.
+    - - '21'
+      - Giant Scorpions
+      - M
+      - 1d3
+      - '3'
+      - '14'
+      - '13'
+      - 1 claw +2 (1d6 + grab) and 1 sting +2 (1d4 + poison)
+      - ''
+    - - '22'
+      - Giant Ant Lion
+      - M
+      - 1d2
+      - '4'
+      - '15'
+      - '21'
+      - 2 bite +4 (1d10 + drag)
+      - Always fights. It cannot leave the pit, and the pit is thirty feet across.
+    - - '23'
+      - Gaping Worm
+      - M
+      - '1'
+      - '6'
+      - '14'
+      - '31'
+      - 2 bite +5 (2d8 + swallow)
+      - Always attacks anything that moves across its ground. It cannot leave.
+    - - '24'
+      - Desert Behemoth
+      - M
+      - '1'
+      - '8'
+      - '14'
+      - '41'
+      - 3 stomp +6 (2d10) or 1 tusk +6 (3d6)
+      - 1–3 the herd passes and the party had better not be in the way · 4 it blocks the only road and will not move · 5–6 it charges.
+    note: party LV 1–8 · Desert
+  tft.wl.swamp:
+    title: Swamp & Fen · Standing Water — Denizens of Standing Water
+    page: 109
+    die: 4d6
+    cols:
+    - Foe
+    - Type
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Reactions
+    rows:
+    - - '4'
+      - Giant Salamander
+      - M
+      - '1'
+      - '6'
+      - '14'
+      - '34'
+      - 1 bite +5 (2d6)
+      - 1–2 it sinks and does not return · 3–4 it watches the boat from the bottom · 5–6 it takes the nearest wader.
+    - - '5'
+      - Giant Caecilia
+      - M
+      - '1'
+      - '6'
+      - '13'
+      - '31'
+      - 2 bite +5 (2d8 + swallow)
+      - 1 it passes beneath and does not surface · 2–6 it takes the heaviest character.
+    - - '6'
+      - Snapping Turtle
+      - M
+      - 1d2
+      - '4'
+      - '16'
+      - '22'
+      - 1 bite +4 (2d6 + shear)
+      - 1–3 it withdraws into the shell and waits them out · 4–6 it bites whatever comes within close.
+    - - '7'
+      - Draco Lizards
+      - M
+      - 1d3
+      - '3'
+      - '13'
+      - '16'
+      - 1 bite +3 (1d6)
+      - 1–3 they glide away over the water · 4–6 they drop onto the party one at a time.
+    - - '8'
+      - Water Buffalo
+      - M
+      - 1d6
+      - '3'
+      - '11'
+      - '17'
+      - 1 gore +3 (1d8)
+      - 1–3 the herd moves deeper · 4–5 the bull puts itself between the party and the calves · 6 it charges.
+    - - '9'
+      - Giant Toads
+      - V
+      - 1d4+1
+      - '2'
+      - '12'
+      - '13'
+      - 1 bite +2 (1d6) or 1 tongue (near) +2
+      - 1–3 it sits and is never noticed · 4–6 it takes the nearest small target.
+    - - '10'
+      - Fen Spiders
+      - V
+      - 1d4+1
+      - '2'
+      - '13'
+      - '11'
+      - 1 bite +2 (1d6 + venom)
+      - 1–3 it skates away · 4–6 it takes whoever is deepest in the water.
+    - - '11'
+      - Marsh Hounds
+      - M
+      - 1d6+1
+      - '2'
+      - '12'
+      - '11'
+      - 1 bite +2 (1d6)
+      - 1–2 they bay and shadow the party · 3 they go · 4–6 they drive the party into the water and fight there.
+    - - '12'
+      - Giant Leeches
+      - V
+      - 1d6+2
+      - '2'
+      - '9'
+      - '10'
+      - 1 bite +1 (1d4 + attach)
+      - Always attaches to whatever enters the water.
+    - - '13'
+      - Bog Flies
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '4'
+      - 1 bite +1 (1)
+      - 1–2 they move on with the wind · 3–6 they stay on the party all day.
+    - - '14'
+      - Mosquito Cloud
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '5'
+      - 1 bite +1 (1d4)
+      - Always present. Smoke moves it; nothing else does.
+    - - '15'
+      - Rot Grubs
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '4'
+      - 1 burrow +1 (1)
+      - Always attacks whatever disturbs the wood.
+    - - '16'
+      - Stirges
+      - V
+      - 1d6+2
+      - '2'
+      - '13'
+      - '8'
+      - 1 proboscis +2 (1d4 + drain)
+      - 1–2 the flock passes over · 3–6 they come down, one per character.
+    - - '17'
+      - Water Adders
+      - V
+      - 1d6
+      - '2'
+      - '12'
+      - '10'
+      - 1 bite +2 (1d4 + venom)
+      - 1–3 they swim away · 4–6 they strike whatever is in the water.
+    - - '18'
+      - Marsh Gas Flares
+      - V
+      - 1d6
+      - '2'
+      - '12'
+      - '10'
+      - 1 flare +2 (1d6)
+      - 1–4 it drifts ahead of the party, inviting them to follow · 5–6 it drifts into the party's torches.
+    - - '19'
+      - Giant Frogs
+      - V
+      - 1d4+1
+      - '2'
+      - '12'
+      - '10'
+      - 1 tongue and 1 bite +2 (1d6)
+      - 1–3 it is gone into the water · 4–6 it leaps on the nearest character.
+    - - '20'
+      - Green Sludge
+      - M
+      - 1d3
+      - '3'
+      - '12'
+      - '15'
+      - 1 engulf +3 (1d6 + corrode)
+      - Always engulfs whatever enters the water. It does not pursue onto land.
+    - - '21'
+      - Swamp Crocodile
+      - M
+      - 1d4+1
+      - '4'
+      - '15'
+      - '22'
+      - 2 bite +4 (1d8 + lock)
+      - 1–2 it submerges and waits for a better moment · 3–6 it takes whoever is nearest the water.
+    - - '22'
+      - Hangman Tree
+      - M
+      - '1'
+      - '5'
+      - '14'
+      - '27'
+      - 2 vine +4 (1d8 + strangle)
+      - Always attacks anything that passes within close. It has waited a long time.
+    - - '23'
+      - Fen Constrictor
+      - M
+      - '1'
+      - '7'
+      - '12'
+      - '33'
+      - 2 bite +6 (1d10 + swallow)
+      - 1 it has fed and ignores everything · 2–3 it submerges and goes · 4–6 it takes whoever is in the water.
+    - - '24'
+      - The Fen Serpent
+      - M
+      - '1'
+      - '7'
+      - '15'
+      - '36'
+      - 3 bite +6 (2d8 + venom)
+      - 1 it is sleeping off a meal · 2 it surfaces, is seen, and submerges · 3–6 it hunts.
+    note: party LV 1–8 · Swamp
+  tft.wl.river:
+    title: River & Lakeshore · The Running Water — Denizens of the Running Water
+    page: 112
+    die: 4d6
+    cols:
+    - Foe
+    - Type
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Reactions
+    rows:
+    - - '4'
+      - Giant Pike
+      - M
+      - '1'
+      - '5'
+      - '13'
+      - '28'
+      - 1 bite +5 (2d6)
+      - 1–2 it ignores the party · 3–4 it takes the bait and the line · 5–6 it attacks whoever is in the water.
+    - - '5'
+      - Hippopotamus
+      - M
+      - 1d2
+      - '5'
+      - '12'
+      - '24'
+      - 2 bite +4 (1d10)
+      - 1 it yawns, which is a warning, and the party may still leave · 2–3 it drives the party off the water · 4–6 it attacks.
+    - - '6'
+      - Giant Catfish
+      - M
+      - 1d2
+      - '4'
+      - '14'
+      - '23'
+      - 2 bite +3 (1d8 + swallow)
+      - 1–2 it stays on the bottom · 3–4 it strikes the boat and goes · 5–6 it takes a swimmer.
+    - - '7'
+      - Piranha Shoal
+      - M
+      - '1'
+      - '3'
+      - '12'
+      - '17'
+      - 3 bite +3 (1d6)
+      - 1–2 the shoal is downstream and misses the party · 3–6 it finds them mid-crossing.
+    - - '8'
+      - Giant Bass
+      - M
+      - 1d3
+      - '3'
+      - '13'
+      - '16'
+      - 1 bite +3 (1d8)
+      - 1–3 it is gone with a swirl · 4–5 it takes what is trailing in the water · 6 it attacks a swimmer.
+    - - '9'
+      - Giant Otters
+      - V
+      - 1d4+1
+      - '2'
+      - '13'
+      - '11'
+      - 2 bite +2 (1d6)
+      - 1–2 they follow and watch · 3–4 they take the catch and go · 5–6 they defend a stretch of bank.
+    - - '10'
+      - Reed Vipers
+      - V
+      - 1d6
+      - '2'
+      - '13'
+      - '8'
+      - 1 bite +2 (1d4 + venom)
+      - 1–4 it is gone into the water · 5–6 it strikes.
+    - - '11'
+      - Giant Water Beetles
+      - V
+      - 1d4+1
+      - '2'
+      - '14'
+      - '12'
+      - 1 bite +2 (1d6 + grip)
+      - 1–2 it goes to the bottom · 3–6 it takes whoever is swimming.
+    - - '12'
+      - Water Striders
+      - V
+      - 1d6
+      - '1'
+      - '12'
+      - '6'
+      - 1 stab +1 (1d4)
+      - 1–4 they skate away upriver · 5–6 they go for whatever is in the water.
+    - - '13'
+      - River Rats
+      - V
+      - 2d6
+      - '0'
+      - '11'
+      - '1'
+      - 1 bite +1 (1 + infection)
+      - 1–3 they go into the water · 4–6 they swarm the bank.
+    - - '14'
+      - Caddis Swarm
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '4'
+      - 1 swarm +1 (1)
+      - 1–3 the hatch passes within the hour · 4–6 it lasts the day.
+    - - '15'
+      - Water Termites
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '5'
+      - 1 bite +1 (1)
+      - 1–5 they ignore the party entirely and eat the boat · 6 they swarm whatever is holding an oar.
+    - - '16'
+      - Giant Leeches
+      - V
+      - 1d6+2
+      - '2'
+      - '9'
+      - '10'
+      - 1 bite +1 (1d4 + attach)
+      - Always attaches to whatever enters the water.
+    - - '17'
+      - Lamprey Knot
+      - V
+      - 1d6
+      - '2'
+      - '12'
+      - '9'
+      - 1 attach +2 (1d4 + drain)
+      - Always attaches to whatever enters the water.
+    - - '18'
+      - Swan Flock
+      - V
+      - 1d6
+      - '2'
+      - '12'
+      - '10'
+      - 1 buffet +2 (1d6)
+      - 1–3 they hiss and pace the party along the bank · 4 they block the only landing · 5–6 they attack.
+    - - '19'
+      - Giant Beavers
+      - M
+      - 1d4+1
+      - '3'
+      - '13'
+      - '15'
+      - 1 bite +3 (1d8 + fell)
+      - 1–3 they slap the water and dive · 4–5 they drive the party off the dam · 6 they attack.
+    - - '20'
+      - Electric Eel
+      - M
+      - 1d3
+      - '3'
+      - '12'
+      - '14'
+      - 1 shock +3 (2d6)
+      - 1–2 it moves off · 3–6 it discharges into the ford.
+    - - '21'
+      - River Crocodile
+      - M
+      - 1d3
+      - '4'
+      - '15'
+      - '20'
+      - 1 bite +3 (1d8 + lock)
+      - 1–2 they submerge and let the party cross · 3–6 they take whoever enters the water first.
+    - - '22'
+      - Giant Gar
+      - M
+      - 1d2
+      - '5'
+      - '15'
+      - '26'
+      - 2 bite +4 (1d10)
+      - 1 it ignores the party · 2–3 it circles the boat · 4–6 it attacks.
+    - - '23'
+      - Giant Sturgeon
+      - M
+      - '1'
+      - '6'
+      - '14'
+      - '31'
+      - 2 ram +5 (2d8)
+      - 1–3 it passes under the boat and is a wonder, not an encounter · 4 it rams once and goes · 5–6 it will not be shaken off.
+    - - '24'
+      - The River Bull
+      - M
+      - '1'
+      - '7'
+      - '14'
+      - '37'
+      - 2 bite +6 (3d6)
+      - 1 it allows one boat through · 2 it yawns and the party may yet leave · 3–6 it attacks, and goes on attacking.
+    note: party LV 1–8 · River/Lake
+  tft.wl.sea:
+    title: Sea & Deep Water · The Open Blue — Denizens of the Open Blue
+    page: 115
+    die: 4d6
+    cols:
+    - Foe
+    - Type
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Reactions
+    rows:
+    - - '4'
+      - Great White Shark
+      - M
+      - '1'
+      - '8'
+      - '14'
+      - '40'
+      - 1 bite +6 (2d8)
+      - 1–2 it passes under the hull · 3–4 it follows the ship for a day · 5–6 it attacks.
+    - - '5'
+      - Killer Whale
+      - M
+      - 1d3
+      - '8'
+      - '12'
+      - '39'
+      - 2 bite +5 (1d10)
+      - 1–3 the pod inspects the boat and goes · 4 it takes a seal instead and the party watches · 5–6 it hunts the party.
+    - - '6'
+      - Giant Squid
+      - M
+      - '1'
+      - '6'
+      - '13'
+      - '30'
+      - 2 tentacle +5 (2d6 + grapple) or 1 beak +5 (2d8)
+      - 1 it passes beneath · 2–6 it comes aboard.
+    - - '7'
+      - Giant Crabs
+      - M
+      - 1d3
+      - '5'
+      - '15'
+      - '24'
+      - 2 pincer +4 (1d8 + crush)
+      - 1–2 it scuttles into deeper water · 3–6 it defends its ground.
+    - - '8'
+      - Barracuda
+      - M
+      - 1d4+1
+      - '3'
+      - '13'
+      - '15'
+      - 1 bite +3 (1d10)
+      - 1–3 it holds its distance and watches · 4–6 it strikes.
+    - - '9'
+      - Moray Eels
+      - M
+      - 1d4+1
+      - '3'
+      - '13'
+      - '17'
+      - 1 bite +3 (1d8 + hold)
+      - 1–3 it withdraws into the rock · 4–6 it takes the hand that came near it.
+    - - '10'
+      - Barbed Stars
+      - V
+      - 1d4+1
+      - '2'
+      - '13'
+      - '11'
+      - 1 rasp +2 (1d6 + grip)
+      - Always attaches to whatever it touches.
+    - - '11'
+      - Seals
+      - V
+      - 1d6
+      - '1'
+      - '12'
+      - '6'
+      - 1 bite +1 (1d4)
+      - 1–4 the colony pours into the water · 5 they are curious and follow the boat · 6 a bull holds the rock.
+    - - '12'
+      - Carnivorous Fish
+      - V
+      - 2d6
+      - '1'
+      - '12'
+      - '6'
+      - 1 bite +1 (1d4)
+      - 1–2 the shoal moves off · 3–6 it finds whoever is swimming.
+    - - '13'
+      - Sea Lice
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '4'
+      - 1 bite +1 (1)
+      - Always swarms. Throw them something dead and they are no longer a problem.
+    - - '14'
+      - Jellyfish Bloom
+      - V
+      - 2d6
+      - '1'
+      - '12'
+      - '5'
+      - 1 sting +1 (1d4 + sting)
+      - Always stings whatever enters the bloom. It cannot do anything else.
+    - - '15'
+      - Gull Flock
+      - V
+      - 2d6
+      - '1'
+      - '12'
+      - '5'
+      - 1 beak +1 (1d4)
+      - 1–2 they wheel off · 3–5 they steal · 6 they mob anyone holding food.
+    - - '16'
+      - Urchin Bed
+      - V
+      - 1d6+2
+      - '1'
+      - '14'
+      - '5'
+      - 1 spine +1 (1d4 + venom)
+      - No reaction. They are where they are.
+    - - '17'
+      - Sea Snakes
+      - V
+      - 1d6
+      - '2'
+      - '13'
+      - '9'
+      - 1 bite +2 (1d4 + venom)
+      - 1–4 they investigate and move on · 5–6 they bite what is in the water.
+    - - '18'
+      - Dolphins
+      - V
+      - 1d6
+      - '2'
+      - '13'
+      - '13'
+      - 1 ram +2 (1d6)
+      - 1–4 they escort the boat for a day · 5 they drive off whatever else was coming · 6 a bull rams a boat that has harmed one.
+    - - '19'
+      - Reef Sharks
+      - M
+      - 1d4+1
+      - '3'
+      - '13'
+      - '16'
+      - 1 bite +3 (1d8)
+      - 1–2 they pass through · 3–4 they circle and do not commit · 5–6 they take whoever is bleeding.
+    - - '20'
+      - Man-o'-War
+      - V
+      - 1d3
+      - '3'
+      - '12'
+      - '15'
+      - 2 tendril (near) +3 (1d6 + sting)
+      - 1–3 the current takes it past · 4–6 it drifts into the party and keeps stinging.
+    - - '21'
+      - Giant Octopus
+      - M
+      - 1d2
+      - '5'
+      - '13'
+      - '23'
+      - 2 tentacle (near) +4 (1d8 + grab)
+      - 1–2 it observes and withdraws · 3 it takes one thing from the deck and goes · 4–6 it attacks.
+    - - '22'
+      - Plesiosaur
+      - M
+      - '1'
+      - '6'
+      - '13'
+      - '31'
+      - 2 bite +5 (2d8)
+      - 1–2 it surfaces, looks, and dives · 3 it follows the boat for a day · 4–6 it hunts.
+    - - '23'
+      - Megalodon
+      - M
+      - '1'
+      - '8'
+      - '14'
+      - '41'
+      - 3 bite +7 (2d8)
+      - 1 it passes under the boat, which is a thing the crew will talk about for years · 2–6 it attacks.
+    - - '24'
+      - Sperm Whale
+      - M
+      - '1'
+      - '8'
+      - '14'
+      - '41'
+      - 3 ram +6 (2d10) or 1 bite +6 (3d10)
+      - 1–4 it sounds, passes, and is gone · 5 it surfaces beside the boat and does nothing · 6 it has been harpooned before, and it remembers.
+    note: party LV 1–9 · Sea/Lake
+  tft.wl.glacier:
+    title: Glacier & Tundra · The White Silence — Denizens of the White Silence
+    page: 119
+    die: 4d6
+    cols:
+    - Foe
+    - Type
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Reactions
+    rows:
+    - - '4'
+      - Sabre-tooth Cat
+      - M
+      - '1'
+      - '7'
+      - '13'
+      - '34'
+      - 2 claw +5 (1d8) and 1 bite +5 (2d6)
+      - 1 it is feeding and will not be disturbed · 2–3 it follows the party for a day · 4–6 it hunts.
+    - - '5'
+      - Woolly Rhinoceros
+      - M
+      - 1d2
+      - '6'
+      - '14'
+      - '33'
+      - 2 gore +5 (2d8)
+      - 1–2 it ignores the party entirely · 3 it blocks the route and will not be moved · 4–6 it charges.
+    - - '6'
+      - Snow Ape
+      - M
+      - 1d3
+      - '4'
+      - '13'
+      - '19'
+      - 2 fist +4 (1d6) or 1 rock (far) +4 (2d6)
+      - 1–2 it withdraws uphill · 3–4 it throws until the party leaves the hex · 5–6 it closes.
+    - - '7'
+      - Walrus
+      - M
+      - 1d4+1
+      - '3'
+      - '12'
+      - '18'
+      - 1 tusk +3 (1d8)
+      - 1–3 the herd shuffles aside · 4 a bull blocks the route and bellows · 5–6 it attacks.
+    - - '8'
+      - Ice Worms
+      - M
+      - 1d4+1
+      - '3'
+      - '13'
+      - '16'
+      - 1 bite +3 (1d6 + cold)
+      - 1–2 they move off through the ice · 3–6 they come up under the party.
+    - - '9'
+      - Arctic Wolves
+      - M
+      - 1d6+1
+      - '3'
+      - '13'
+      - '17'
+      - 1 bite +3 (1d8)
+      - 1 they let the party pass · 2–3 they shadow the party and attack the night watch · 4–6 they hunt now.
+    - - '10'
+      - Snow Adders
+      - V
+      - 1d6
+      - '2'
+      - '12'
+      - '11'
+      - 1 bite +2 (1d4 + venom)
+      - 1–3 they are too cold to do anything at all · 4–6 they strike.
+    - - '11'
+      - Ptarmigan Flock
+      - V
+      - 1d6+2
+      - '1'
+      - '12'
+      - '7'
+      - 1 peck +1 (1)
+      - 1–6 they flush. Catching them is the only question.
+    - - '12'
+      - Carrion Gulls
+      - V
+      - 2d6
+      - '1'
+      - '12'
+      - '6'
+      - 1 beak +1 (1d4)
+      - 1–3 they circle and wait · 4–5 they rob the sledge · 6 they come down on the wounded.
+    - - '13'
+      - Ice Mites
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '5'
+      - 1 bite +1 (1d4)
+      - Always swarms whatever breaks through into the colony.
+    - - '14'
+      - Snow Fleas
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '7'
+      - 1 bite +1 (1)
+      - Always infests. There is no fight.
+    - - '15'
+      - Lemming Swarm
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '5'
+      - 1 bite +1 (1)
+      - 1–6 they pour past. Whatever is behind them is the encounter.
+    - - '16'
+      - Reindeer Herd
+      - V
+      - 2d6
+      - '1'
+      - '12'
+      - '6'
+      - 1 antler +1 (1d4)
+      - 1–4 the herd moves off · 5 one may be taken · 6 a bull in rut charges.
+    - - '17'
+      - Frost Leeches
+      - V
+      - 1d6
+      - '2'
+      - '11'
+      - '12'
+      - 1 attach +2 (1)
+      - Always attaches to whatever crosses the meltwater.
+    - - '18'
+      - Snow Owls
+      - V
+      - 1d3
+      - '2'
+      - '13'
+      - '11'
+      - 2 talon +2 (1d4)
+      - 1–3 it watches from a rock and is not noticed at all · 4–5 it drives the party off a nest · 6 it strikes.
+    - - '19'
+      - Crevasse Spiders
+      - V
+      - 1d4+1
+      - '3'
+      - '13'
+      - '15'
+      - 1 bite +3 (1d6 + venom)
+      - Always attacks whatever is in the web.
+    - - '20'
+      - Musk Oxen
+      - M
+      - 1d6
+      - '3'
+      - '12'
+      - '19'
+      - 1 gore +3 (1d8)
+      - 1–2 they form the ring and nothing else happens · 3–4 the ring holds the only pass · 5–6 the bull charges.
+    - - '21'
+      - Glacier Toads
+      - M
+      - 1d3
+      - '4'
+      - '12'
+      - '19'
+      - 1 bite +3 (2d4)
+      - 1–3 it sits and is never noticed · 4–6 it bites whatever comes within close.
+    - - '22'
+      - Dire Wolverine
+      - M
+      - 1d2
+      - '4'
+      - '13'
+      - '22'
+      - 2 claw +3 (1d6 + rend)
+      - 1 it takes the harvest and goes · 2–6 it attacks, and goes on attacking.
+    - - '23'
+      - Polar Bear
+      - M
+      - 1d2
+      - '7'
+      - '13'
+      - '34'
+      - 2 claw +6 (2d6)
+      - 1 it is already feeding and may be avoided · 2 it takes a seal instead · 3–6 it hunts the party.
+    - - '24'
+      - Woolly Mammoth
+      - M
+      - '1'
+      - '8'
+      - '14'
+      - '41'
+      - 3 stomp +6 (2d10) or 1 tusk +6 (3d8)
+      - 1–3 the herd passes and the party had better be elsewhere · 4 the matriarch drives the party out of the hex without closing · 5–6 it charges.
+    note: party LV 1–9 · Glacier
+  tft.wl.underground:
+    title: Caves & Underground · The Lightless Country — Denizens of the Lightless Country
+    page: 122
+    die: 4d6
+    cols:
+    - Foe
+    - Type
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Reactions
+    rows:
+    - - '4'
+      - Cave Python
+      - M
+      - '1'
+      - '6'
+      - '14'
+      - '30'
+      - 1 bite +4 (1d8 + coil)
+      - 1 it is torpid and ignores everything · 2–3 it withdraws into a crack · 4–6 it takes the nearest character.
+    - - '5'
+      - Giant Caecilia
+      - M
+      - '1'
+      - '6'
+      - '13'
+      - '31'
+      - 2 bite +5 (2d8 + swallow)
+      - 1 it passes beneath and does not surface · 2–6 it takes the heaviest character.
+    - - '6'
+      - Cave Fisher
+      - M
+      - 1d2
+      - '4'
+      - '14'
+      - '19'
+      - 2 pincer +3 (1d8 + crush)
+      - Always fishes. It has nothing else to do and no reason to stop.
+    - - '7'
+      - Cave Toads
+      - M
+      - 1d3
+      - '3'
+      - '12'
+      - '16'
+      - 1 bite +3 (1d8) or 1 tongue (near) +3
+      - 1–3 it sits and is never found · 4–6 it takes the smallest character.
+    - - '8'
+      - Giant Geckos
+      - M
+      - 1d4+1
+      - '2'
+      - '13'
+      - '13'
+      - 1 bite +2 (1d6)
+      - 1–3 it scuttles off across the ceiling · 4–6 it drops on the lamp-bearer.
+    - - '9'
+      - Carrion Beetles
+      - V
+      - 1d4+1
+      - '2'
+      - '14'
+      - '12'
+      - 2 bite +2 (1d4)
+      - 1–3 they take the dead and go · 4–6 they attack what is nearest.
+    - - '10'
+      - Giant Centipedes
+      - V
+      - 1d4+1
+      - '1'
+      - '11'
+      - '4'
+      - 1 bite +1 (1d4 + poison)
+      - ''
+    - - '11'
+      - Blind Cave Fish
+      - V
+      - 2d6
+      - '0'
+      - '12'
+      - '1'
+      - 1 bite +1 (1)
+      - 1–5 they investigate and disperse · 6 they nibble at whoever is in the water, for 1 HP a round.
+    - - '12'
+      - Cave Bats
+      - V
+      - 2d6
+      - '0'
+      - '12'
+      - '1'
+      - 1 bite +1 (1)
+      - 1–5 they pour out and are gone for the night · 6 they mob the nearest light.
+    - - '13'
+      - Cave Crickets
+      - V
+      - 2d6
+      - '1'
+      - '12'
+      - '5'
+      - 1 bite +1 (1d4)
+      - 1–4 they leap past and are gone · 5–6 they leap onto the party first.
+    - - '14'
+      - Glow Worms
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '4'
+      - 1 thread +1 (1)
+      - No reaction. They hang there and let the cave come to them.
+    - - '15'
+      - Albino Rats
+      - V
+      - 2d6
+      - '0'
+      - '11'
+      - '1'
+      - 1 bite +1 (1 + infection)
+      - 1–2 they flow past · 3–6 they swarm whatever is warm.
+    - - '16'
+      - Rot Grubs
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '4'
+      - 1 burrow +1 (1)
+      - Always attacks whatever disturbs the wood.
+    - - '17'
+      - Fungus Gnats
+      - V
+      - 2d6
+      - '1'
+      - '11'
+      - '5'
+      - 1 swarm +1 (1)
+      - 1–2 they settle back onto the fungus · 3–6 they stay on the party for as long as it is in the chamber.
+    - - '18'
+      - Cave Spiders
+      - V
+      - 1d4+1
+      - '2'
+      - '13'
+      - '11'
+      - 1 bite +2 (1d6 + venom)
+      - Always attacks whatever is in the web.
+    - - '19'
+      - Giant Cave Shrews
+      - M
+      - 1d4+1
+      - '2'
+      - '12'
+      - '10'
+      - 2 bite +2 (1d4)
+      - 1 it is already eating something · 2–6 it attacks immediately.
+    - - '20'
+      - Blind Cave Lizards
+      - M
+      - 1d4+1
+      - '3'
+      - '13'
+      - '15'
+      - 1 bite +3 (1d8)
+      - 1–2 it keeps its distance · 3–6 it runs the party down.
+    - - '21'
+      - Albino Apes
+      - M
+      - 1d3
+      - '4'
+      - '13'
+      - '20'
+      - 2 fist +3 (1d6) or 1 thrown stone (near) +3 (1d6)
+      - 1–2 they withdraw up the chimney · 3–4 they throw until the party leaves · 5–6 they close.
+    - - '22'
+      - Cave Bear
+      - M
+      - 1d2
+      - '5'
+      - '13'
+      - '27'
+      - 2 claw +4 (1d10)
+      - 1 it is asleep and may be left alone · 2–3 it roars and holds the entrance · 4–6 it attacks.
+    - - '23'
+      - Great Mole
+      - M
+      - '1'
+      - '7'
+      - '14'
+      - '37'
+      - 2 claw +6 (2d8)
+      - 1–3 it passes through the chamber and keeps going · 4–6 it clears the obstruction, which is the party.
+    - - '24'
+      - Young Purple Worm
+      - M
+      - '1'
+      - '8'
+      - '14'
+      - '41'
+      - 3 bite +7 (2d10 + swallow) or 1 sting +7 (1d10 + venom)
+      - 1 it is sleeping off something large · 2 it passes through the wall and is gone · 3–6 it attacks.
+    note: party LV 1–9 · Underground
