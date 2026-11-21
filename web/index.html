@@ -253,9 +253,10 @@ const SYSTEMS={
     ENC:{grassland:'sd.enc.grassland',forest:'sd.enc.forest',jungle:'sd.enc.jungle',swamp:'sd.enc.swamp',hills:'sd.enc.mountain',mountains:'sd.enc.mountain',desert:'sd.enc.desert',arctic:'sd.enc.arctic',sea:'sd.enc.ocean',lake:'sd.enc.river-coast'},
     DISTRICT:{Transient:'sd.enc.slums',Common:'sd.enc.low-district',Craft:'sd.enc.artisan',Mercantile:'sd.enc.market',Affluent:'sd.enc.high-district',Education:'sd.enc.university',Religious:'sd.enc.temple',Military:'sd.enc.castle',Spectacle:'sd.enc.tavern',Palace:'sd.enc.castle'},
     odds(){return '1 in 6, ×2 day ×2 night'},
-    encounter(R,t,river,coast){let id=(river||coast)&&R.dice.chance(1,3)?'sd.enc.river-coast':this.ENC[t];const r=R.roll(id);return{text:r.text,cite:r.cite}},
+    encounter(R,t,river,coast){if(t==='sea'&&R.dice.chance(1,2)&&R.has('sea.denizens-4d6')){const d=R.roll('sea.denizens-4d6'),v=d.values;return{text:`${v['No.']||'1'} × ${v['Foe']} (LV ${v['LV']}, AC ${v['AC']}, HP ${v['HP']}, ${v['Attack']}). ${v['Trait']||''}`.trim(),cite:d.cite}}
+      let id=(river||coast)&&R.dice.chance(1,3)?'sd.enc.river-coast':this.ENC[t];const r=R.roll(id);return{text:r.text,cite:r.cite}},
     town(R,d){const r=R.roll(this.DISTRICT[d.split(' ')[0]]||'sd.enc.low-district');return{text:r.text,cite:r.cite}},
-    dungeon(R){const r=R.roll('sd.enc.ruins');return{text:r.text,cite:r.cite}},
+    dungeon(R,kind){const r=R.roll({tomb:'sd.enc.tomb',cave:'sd.enc.cave',deep:'sd.enc.deep-tunnels'}[kind]||'sd.enc.ruins');return{text:r.text,cite:r.cite}},
     tableFor(t){return this.ENC[t]}},
   ose:{key:'ose',name:'Old-School Essentials',
     travel:'Base movement ÷ 5 = miles a day (120′ → 24 mi, 4 hexes); forest, hills, swamp ×⅔, mountains ×½; roads ×1½.',
@@ -271,7 +272,7 @@ const SYSTEMS={
       const res=R.roll(sub,col??0);const name=res.text.replace(/\*$/,'').trim();return{text:`${name} (${kind.toLowerCase()})`,cite:`${t.cite}, ${res.cite}`}},
     encounter(R,t,river,coast){let k=this.BY[t];if((river||coast)&&t!=='sea'&&t!=='lake'&&R.dice.chance(1,3))k='lake-river';return this.resolve(R,'ose.enc.by.'+k)},
     town(R){return this.resolve(R,'ose.enc.by.city')},
-    dungeon(){return{text:'Roll on the dungeon level table (OSE Referee’s Book)',cite:'OSE'}},
+    dungeon(R){const lv=R.dice.pick(['1','1','2','2','3','4-5']);const r=R.roll('ose.dungeon.l'+lv);return{text:`${r.text}, level ${lv.replace('-','–')} table`,cite:r.cite}},
     tableFor(t){return 'ose.enc.by.'+this.BY[t]}}
 };
 
@@ -282,14 +283,45 @@ const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
 const title=s=>s.toLowerCase().replace(/(^|[\s-])\w/g,m=>m.toUpperCase());
 function namePerson(R){const f=R.text(R.dice.chance(1,2)?'oh.male':'oh.female');const sur=(R.text('oh.surname-prefix').replace(/-$/,'')+R.text('oh.surname-suffix').replace(/^-/,''));return f+' '+title(sur)}
 function nameSettlement(R){return title(R.text('oh.surname-prefix').replace(/-$/,'')+R.text('oh.surname-suffix').replace(/^-/,''))}
-function tidySS(t){return t.replace(/\s*\((?:[+−-]\d+|Skip|Roll|Re-?roll)[^)]*\)/g,'').replace(/\s*\[[^\]]*\]/g,'').trim()}
+function tidySS(t){return t.replace(/\s*\((?:[+−-]\d+|Skip|Roll|Re-?roll)[^)]*\)/g,'').replace(/\s*\[[^\]]*\]/g,'').split(/\s[A-Z]\s[a-z]+\s[A-Z]\s[a-z]+/)[0].trim()}
 
 /* ---- NPCs (WWN pp. 380–387) */
 const STATION={underclass:'Underclass',commoner:'Commoners',gentry:'Gentry'};
 function npc(R,role,station){const st=station||R.dice.pick(['underclass','commoner','commoner','gentry']);
   const L=[roll(R,'Who','wwn.p380.underclass-commoners-gentry',STATION[st])];
   for(const[l,id]of[['First noticed','wwn.p383.the-first-thing-noticed'],['Manner','wwn.p383.visible-mannerisms-or-traits'],['Unexpected','wwn.p383.one-way-they-differ-from-expectations'],['Twist','wwn.p380.npc-characteristic-twists'],['Wants','wwn.p384.whats-the-basic-ambitions-form'],['In the way','wwn.p384.whats-the-biggest-immediate-obstacle']])L.push(roll(R,l,id));
+  for(const[l,id]of[['Virtue','cwn.p135.notable-npc-virtues-or-qualities'],['Flaw','cwn.p135.npc-personality-flaws'],['Problem','cwn.p135.current-npc-problems'],['Desire','cwn.p135.current-npc-desires']])if(R.dice.chance(1,2))L.push(roll(R,l,id));
   return{name:namePerson(R),role:role||'',lines:L.filter(Boolean)}}
+const BONDS={'a friendship':[['Met','wwn.p385.how-did-they-meet'],['Done together','wwn.p385.what-have-they-done-together'],['Holds them together','wwn.p385.what-tie-harmonizes-their-differences'],['Threatens it','wwn.p385.what-threatens-to-divide-them']],
+  'a tragedy':[['What happened','wwn.p386.what-was-its-basic-form'],['When','wwn.p386.when-did-it-happen'],['Their part in it','wwn.p386.what-was-their-responsibility-for-it'],['After','wwn.p386.what-ugly-consequences-followed'],['Scars','wwn.p386.what-scars-do-they-have-from-it']],
+  'a romance':[['Met','wwn.p387.how-did-they-meet'],['Sparked by','wwn.p387.what-sparked-the-romance'],['Trouble','wwn.p387.what-problem-does-one-or-both-have'],['Now','wwn.p387.whats-the-current-issue-they-face']]};
+function bond(R,p){const k=R.dice.pick(Object.keys(BONDS));const w=namePerson(R);p.lines.push({label:'Bond',text:`${k} with ${w}`,cite:'WWN'});for(const[l,id]of BONDS[k]){const r=roll(R,l,id);if(r)p.lines.push(r)}return p}
+
+/* ---- quests and adventures (OH quest generator; WWN pp. 227–249, 372–373) */
+function quest(R){const q=R.roll('oh.quest-archetypes'),p=R.roll('oh.patron');
+  const L=[line('Comes as',R.roll('oh.quest-source')),line('The trouble',R.roll('oh.type-of-trouble')),line('Urgency',R.roll('oh.urgency')),line('Where',R.roll('oh.location')),
+    line('Objective',q.values['Objective']||'',q.cite),line('Patron',`${p.values['Who']||''}, ${namePerson(R)} — ${p.values['Reward']||''}`,p.cite),
+    roll(R,'Why it hooks','wwn.p247.what-makes-the-hook-so-enticing'),roll(R,'Patron will not simply cooperate because','wwn.p249.why-wont-they-cooperate'),
+    roll(R,'Their weak point','wwn.p249.whats-their-weakest-point'),roll(R,'Complication','wwn.p246.possible-investigation-complications'),
+    roll(R,'A clue costs','wwn.p247.whats-the-cost-of-the-clue'),roll(R,'Twist at the end','wwn.p246.twists-to-the-resolution')];
+  if(/dungeon|lair|hideout|tomb|crypt|ruin/i.test(q.text))L.splice(5,0,line('Dungeon',`${R.text('oh.dungeon-type')}, ${R.text('oh.dungeon-size').toLowerCase()}`,'OH'));
+  return{title:q.values['Quest']||q.text,lines:L.filter(l=>l&&l.text)}}
+function adventure(R){return{title:'Adventure',lines:[roll(R,'Bait','wwn.p372.bait-for-adventure-hooks'),roll(R,'How it reaches the PCs','wwn.p372.ways-of-introducing-an-adventure-hook'),
+  roll(R,'Theme','wwn.p373.this-theme-informs-the-adventure'),roll(R,'What is going on','wwn.p228.whats-going-on-right-now'),roll(R,'The target’s troubles','wwn.p228.what-problems-do-they-have-may-or-may-no',0),
+  roll(R,'Twist','wwn.p228.twists-about-the-target-or-their-allies'),roll(R,'A mistake that twists it','wwn.p373.this-mistake-twists-the-adventure'),
+  roll(R,'Reality intrudes','wwn.p373.this-reality-intrudes-into-the-situation'),roll(R,'Throw in','wwn.p373.throw-this-event-into-the-adventure')].filter(l=>l&&l.text)}}
+
+/* ---- realm, faiths, great features (WWN pp. 117–141, 374–375) */
+const LL=(R,pairs)=>pairs.map(([a,b,c])=>roll(R,a,b,c??null)).filter(l=>l&&l.text);
+function realm(R){const one=R.text('wwn.p129.number-of-rulers');const ru=/single|^One/i.test(one)?'wwn.p130.single-rulers':'wwn.p130.multiple-rulers';
+  return{'Government':LL(R,[['Rulers','wwn.p129.number-of-rulers'],['Who rules',ru],['Ruling class','wwn.p129.example-ruling-classes'],['Claim to rule','wwn.p129.sources-of-legitimacy'],['Holds power through','wwn.p129.institutions-and-agents-of-control'],['Struggle within','wwn.p130.current-struggle-within-the-government'],['How established','wwn.p131.how-established-is-the-current-ruler'],['Ministers’ trouble','wwn.p131.what-problems-do-their-ministers-have'],['Strength','wwn.p131.a-strength-of-the-government'],['Stability','wwn.p131.how-stable-is-the-government'],['Officials causing problems','wwn.p131.officials-recently-causing-problems'],['Recent event','wwn.p131.recent-governmental-event']]),
+   'History':LL(R,[['Origin','wwn.p132.how-did-they-originate'],['The first inhabitants','wwn.p132.what-became-of-the-original-inhabitants'],['Great crisis','wwn.p132.historical-crises'],['Survived it by','wwn.p132.how-did-they-overcome-the-crisis'],['Height of glory','wwn.p133.what-was-great-about-its-peak-6-they-wer',0],['The unabsorbed','wwn.p133.what-became-of-the-unabsorbed-survivors']]),
+   'People':LL(R,[['Build','wwn.p125.whats-the-typical-build-of-the-people'],['Skin','wwn.p125.typical-skin-colors-in-the-populace'],['Hair','wwn.p125.hair-color-hair-texture'],['Adornment','wwn.p125.optional-common-forms-of-adornment'],['Quirk','wwn.p125.optional-physical-quirks-or-traits'],['They esteem','wwn.p126.values-they-esteem'],['And','wwn.p126.values-they-esteem'],['Core loyalty','wwn.p127.major-unit-of-social-identity'],['Model society','wwn.p127.example-template-societies']]),
+   'Neighbours':LL(R,[['Dispute with a neighbour','wwn.p121.disputes-with-a-neighboring-state'],['Tie to a neighbour','wwn.p121.positive-ties-with-a-neighboring-state']]),
+   'Building style':LL(R,[['Buildings are','wwn.p374.architectural-adjectives'],['Built of','wwn.p374.favorite-materials'],['Colours','wwn.p374.favorite-color-schemes'],['Motifs','wwn.p375.common-visual-motifs'],['Adorned with','wwn.p375.structure-adornment'],['Features','wwn.p375.favorite-structural-features'],['Towns laid out','wwn.p375.settlement-design-patterns']])}}
+function faith(R){return{title:'Faith',lines:[line('God of',R.roll('wwn.p138.human-concern-natural-principle',R.dice.pick(['Human Concern','Natural Principle']))),...LL(R,[['Role in society','wwn.p137.what-does-this-god-do-in-society'],['Came from','wwn.p136.where-did-the-god-come-from'],['Why it matters','wwn.p136.why-does-the-faith-matter'],['Church','wwn.p136.church-structures'],['Clergy','wwn.p137.what-are-the-clerics-like'],['Wants','wwn.p137.what-does-the-faith-want']])]}}
+function cult(R){return{title:'Cult',lines:LL(R,[['Goal','wwn.p141.what-general-goal-do-they-have'],['What is horrible','wwn.p141.whats-so-horrible-about-the-faith'],['Rewards','wwn.p140.rewards-of-the-sinister-faith'],['Enforces its will by','wwn.p141.how-do-the-clergy-enforce-their-will'],['Unity','wwn.p141.how-unified-is-the-cult'],['Trouble','wwn.p141.what-problems-does-it-have'],['Trait','wwn.p141.specific-traits-of-the-cult']])}}
+function greatFeature(R){return item('feature','Great feature',[line('What',R.roll('wwn.p117.significant-terrain-features')),...LL(R,[['Danger','wwn.p119.how-dangerous-is-the-feature'],['Use','wwn.p119.what-use-is-the-feature'],['Last event','wwn.p119.what-kind-of-event-last-happened-there'],['People','wwn.p119.how-populated-is-the-feature'],['Antagonists','wwn.p119.what-antagonists-are-common-there'],['Quirk','wwn.p119.optional-quirk-of-the-feature']])])}
 
 /* ---- settlements */
 const SS_RANGE={'trading post':[10,30],village:[49,67],town:[95,113],city:[141,172],capital:[209,251],fortress:[297,321]};
@@ -326,6 +358,17 @@ function hireling(R){return{name:namePerson(R),role:'hireling',lines:[roll(R,'Wa
 function tradeJob(R){const a=R.roll('uvg.p180.they-want-because'),b=R.roll('uvg.p180.the-catch-is-and-the-destination');const va=Object.values(a.values),vb=Object.values(b.values);
   const lc=s=>s?s[0].toLowerCase()+s.slice(1):s;const want=String(va[0]).replace(/\.$/,'').replace(/\. /g,', ').toLowerCase();
   return line('Trade job',`They want ${want}, because ${lc(va[va.length-1])} The catch: ${lc(vb[0])} Bound for ${lc(vb[vb.length-1])}`,a.cite)}
+const SS_SHOPS={'trading post':['ss.p19.shops','ss.p21.services'],village:['ss.p62.other-locations',null],town:['ss.p109.shops','ss.p110.services'],city:['ss.p109.shops','ss.p110.services'],capital:['ss.p109.shops','ss.p110.services'],fortress:['ss.p19.shops',null]};
+const FORT=/shape|base-size|number-of-floors|raised-entrance|entry-defenses|exterior-wall|curtain|tower-|moat|gatehouse|barracks|outbuilding|style-amplifications|brutal-defenses|magical-defenses/;
+const ssName=t=>tidySS(t).split(/\.\s/)[0];
+function ssExtras(R,size){const places=new Set();for(const t of SS_SHOPS[size])if(t&&R.has(t))for(let i=0;i<({village:2,'trading post':2,fortress:1}[size]||4);i++)places.add(`${ssName(R.text(t))} (${ssName(R.text('ss.p111.quality')).toLowerCase()})`);
+  const L=places.size?[line('Also here',[...places].sort().join(', '),'SS')]:[];
+  return L.concat([roll(R,'Tavern reputation','ss.p448.establishment-reputation'),roll(R,'Tavern staff','ss.p448.establishment-staff'),roll(R,'Regulars','ss.p448.patrons'),
+    line('Grows',`${R.text('ss.p450.crops')}; raises ${R.text('ss.p450.farm-animals-meat').toLowerCase()}; mines ${R.text('ss.p450.minerals').toLowerCase()}`,'SS p.450'),
+    line('Street scene',`${R.text('ss.p452.time-of-day')}: ${R.text('ss.p451.smells').toLowerCase()}, ${R.text('ss.p452.street-debris').toLowerCase()} underfoot; a ${R.text('ss.p453.appearance').toLowerCase()} figure in ${R.text('ss.p454.clothing').toLowerCase()} is ${R.text('ss.p454.verbs').toLowerCase()}`,'SS pp.451–454'),
+    roll(R,'Someone needs help','ss.p453.problems'),roll(R,'Rumour','ss.p445.rumors')].filter(l=>l&&l.text))}
+function fortressLayout(R){const[lo,hi]=SS_RANGE.fortress;return Object.keys(R.T).filter(t=>t.startsWith('ss.')&&(R.T[t].p||0)>=lo&&(R.T[t].p||0)<=hi&&FORT.test(t)&&!R.T[t].x).sort().map(t=>{
+  const w=R.title(t).split(/\s(?=[a-z(])/)[0].split(/\s+/);const label=w.filter((x,i)=>w.indexOf(x)===i).join(' ');const r=R.roll(t);return{label,text:tidySS(String(Object.values(r.values)[0]??r.text)),cite:r.cite}})}
 const PORT_ROW={'trading post':0,village:0,fortress:0,town:1,city:2,capital:2};
 function port(R,size){const t=R.get('sea.port-d6');const row=t.r[Math.min(PORT_ROW[size],t.r.length-1)];const q=R.roll('sea.in-port');const n={'trading post':1,village:1,fortress:1,town:3,city:5,capital:7}[size];
   const ships=[];for(let i=0;i<n;i++)ships.push(ship(R,true));const a=R.roll('oh.available-ship'),c=R.roll('oh.captain');
@@ -338,7 +381,9 @@ function settlement(R,sys,size,coastal,terrain,name){
   const ns={'trading post':2,village:3,town:5,city:8,capital:10,fortress:2}[size];const shops=new Set();for(let i=0;i<ns;i++)shops.add(R.text('oh.shops',R.dice.pick(['Poor','Standard','Standard','Wealthy'])));s.shops=[...shops].sort();
   s.tavern=tavern(R);s.event=roll(R,'Event','oh.settlement-events');s.rumours=[0,1,2].map(()=>roll(R,'Rumour','oh.rumours'));
   const roles=[['ruler or headman','gentry'],['innkeeper','commoner'],['someone who needs help',null]];if(size==='city'||size==='capital')roles.push(['rival','gentry'],['fixer','underclass']);
-  s.npcs=roles.map(([r,st])=>npc(R,r,st));
+  s.npcs=roles.map(([r,st])=>npc(R,r,st));bond(R,R.dice.pick(s.npcs));
+  s.quests=Array.from({length:({'trading post':1,village:1,fortress:1,town:2}[size]||3)},()=>quest(R));
+  s.extra=ssExtras(R,size);if(size==='fortress')s.layout=fortressLayout(R);
   s.hirelings=[];for(let i=0;i<({'trading post':1,village:1,fortress:2}[size]||3);i++)s.hirelings.push(hireling(R));
   if(['town','city','capital','trading post'].includes(size))s.jobs=[tradeJob(R),tradeJob(R)];
   if(['town','city','capital'].includes(size))s.temple=[roll(R,'In charge','wwn.p139.who-is-in-charge-there'),roll(R,'Can provide','wwn.p139.what-particular-help-can-it-provide'),roll(R,'Trouble','wwn.p139.what-problems-does-it-have'),roll(R,'Quirk','wwn.p139.particular-quirks-about-the-temple')].filter(Boolean);
@@ -368,13 +413,36 @@ function special(R){const s=R.roll('oh.special');const sub=SPECIAL[s.text];const
   if(sub)L.push(roll(R,'Detail',sub));else if(s.text.toLowerCase().includes('landmark'))L.push(landmark(R).lines[0]);else L.push(roll(R,'Prompt','pw.discovery'));return item('special','Situation',L)}
 function poi(R,t){const id='oh.points-of-interest-'+OH_SLUG[t];if(!R.has(id))return null;const r=R.roll(id);return item('poi',r.values['Location']||r.text,[line('Development',r.values['Development']||'',r.cite)])}
 function wildTag(R){const t=pickTag(R,'wilderness');if(!t)return null;return item('tag',t.tag,[line('',t.desc,t.cite),line('Enemy',t.enemy),line('Friend',t.friend),line('Complication',t.complication),line('Thing',t.thing),line('Place',t.place)])}
-function ruin(R,sys){const L=[roll(R,'What it was','wwn.p183.what-basic-kind-of-ruin-is-it'),roll(R,'Age','wwn.p183.how-old-is-the-ruin'),roll(R,'How it fell','wwn.p183.how-did-it-become-ruined'),roll(R,'Since then','wwn.p183.whos-used-the-ruin-before'),roll(R,'Not yet plundered because','wwn.p183.why-hasnt-it-been-plundered-bare-yet'),roll(R,'Locals say','wwn.p183.what-do-the-locals-think-of-it'),roll(R,'Form','pw.dungeon.form'),roll(R,'Dungeon type','oh.dungeon-type'),roll(R,'Size','oh.dungeon-size'),roll(R,'Quirk inside','oh.dungeon-effects'),roll(R,'Hazard','wwn.p241.example-types-of-hazards'),roll(R,'Enigma','wwn.p241.example-enigmas'),roll(R,'Treasure hidden in','wwn.p241.possible-treasure-locations')];
-  const t=pickTag(R,'ruin');if(t){L.push(line('Tag: '+t.tag,t.desc,t.cite),line('Enemy',t.enemy),line('Complication',t.complication),line('Thing',t.thing))}
-  const e=sys.dungeon(R);L.push(line('Wandering inside',e.text,e.cite));L.push(roll(R,'Treasure',R.dice.pick(['oh.treasure-0-3','oh.treasure-4-6','oh.treasure-7-9'])));return item('ruin','Ruin',L)}
-function lair(R,sys,x){const e=sys.encounter(R,x.terrain,x.river,x.coast);return item('lair','Lair',[line('Whose',e.text,e.cite),roll(R,'What it is doing','wwn.p229.whats-that-bestial-monster-doing'),roll(R,'Complication','wwn.p229.wilderness-lair-complications'),roll(R,'Lair','pw.natural.lair'),roll(R,'Hoard',R.dice.pick(['oh.treasure-0-3','oh.treasure-4-6']))])}
+const dungeonKind=f=>{f=f.toLowerCase();return f.includes('cave')?'cave':/crypt|tomb|catacomb/.test(f)?'tomb':f.includes('mine')?'deep':'ruins'};
+const HAZ_KIND={cave:'oh.hazards-caves',deep:'oh.hazards-deep-tunnels',tomb:'oh.hazards-tomb',ruins:'oh.hazards-ruins'};
+function trap(R){if(R.dice.chance(1,3)){const t=R.roll('oh.magical-traps');return line('Magic trap',`${t.values['Manifestation']||t.text} — ${t.values['Effect, in rounds']||''}`.replace(/ — $/,''),t.cite)}
+  const t=R.roll('oh.traps',R.dice.pick([0,1]));return line('Trap',`${t.text}, set off by ${R.text('oh.trigger').toLowerCase()}`,t.cite)}
+function area(R,sys,kind,n){const L=[roll(R,'Dressing','pw.area.dressing'),roll(R,'Exits','pw.area.exits')];const k=R.dice.roll('d8');
+  if(k<=2){const e=sys.dungeon(R,kind);L.push(line('Creatures',e.text,e.cite),roll(R,'Doing','wwn.p243.what-are-they-trying-to-do'))}
+  else if(k===3)L.push(trap(R));else if(k===4)L.push(line('Hazard',R.roll(HAZ_KIND[kind],R.dice.pick([0,1,2]))),roll(R,'Also','wwn.p241.example-types-of-hazards'));
+  else if(k===5)L.push(roll(R,'Enigma','wwn.p241.example-enigmas'),roll(R,'Distraction','wwn.p241.example-distractors'));
+  else if(k===6){const g=R.dice.pick(R.get('oh.guardian-property').r);L.push(roll(R,'Sealed chamber','oh.sealed-chamber'),line('Guardian',`${g[1]}: ${g[2]}`,'OH'))}
+  else if(k===7)L.push(roll(R,'Discovery','pw.dungeon.discovery'));else L.push(roll(R,'Event','wwn.p243.example-dungeon-events'));
+  return{n,lines:L.filter(l=>l&&l.text)}}
+function valuable(R){const v=R.roll('wwn.p253.valuable-objects-or-precious-goods');return line('Valuable',`${v.text} — ${R.text('wwn.p253.why-is-the-object-particularly-valuable').toLowerCase()}`,v.cite)}
+function ruin(R,sys){const form=R.roll('pw.dungeon.form'),kind=dungeonKind(form.text),size=R.roll('pw.dungeon.size');
+  const nt=Math.max(1,Math.min(4,parseInt(size.values['Themes'])||2));const themes=Array.from({length:nt},()=>R.text('pw.dungeon.theme'));
+  const L=[roll(R,'What it was','wwn.p183.what-basic-kind-of-ruin-is-it'),roll(R,'Age','wwn.p183.how-old-is-the-ruin'),roll(R,'How it fell','wwn.p183.how-did-it-become-ruined'),roll(R,'Since then','wwn.p183.whos-used-the-ruin-before'),roll(R,'Not yet plundered because','wwn.p183.why-hasnt-it-been-plundered-bare-yet'),roll(R,'Locals say','wwn.p183.what-do-the-locals-think-of-it'),
+    line('Form',form),line('Size',`${size.values['Size']}, ${size.values['Areas']} areas`,size.cite),line('Themes',themes.join('; '),'PW p.65'),
+    roll(R,'Built by','pw.dungeon.builder'),roll(R,'Built for','pw.dungeon.function'),roll(R,'Ruined by','pw.dungeon.ruin'),roll(R,'Lies','pw.dungeon.situation'),roll(R,'Way in','pw.dungeon.access'),
+    roll(R,'Quirk inside','oh.dungeon-effects'),roll(R,'Deep chamber','wwn.p229.deep-chamber-complications'),roll(R,'Treasure hidden in','wwn.p241.possible-treasure-locations')];
+  const t=pickTag(R,'ruin');if(t)L.push(line('Tag: '+t.tag,t.desc,t.cite),line('Enemy',t.enemy),line('Complication',t.complication),line('Thing',t.thing));
+  L.push(roll(R,'Treasure',R.dice.pick(['oh.treasure-0-3','oh.treasure-4-6','oh.treasure-7-9'])),valuable(R));
+  const it=item('ruin','Ruin',L);it.areas=Array.from({length:R.dice.between(3,6)},(_,i)=>area(R,sys,kind,i+1));return it}
+function uniqueMonster(R){const plan=R.roll('wwn.p281.what-is-its-basic-body-plan'),like=R.roll('wwn.p281.what-kind-of-animal-is-it-most-like');
+  return[line('Unique beast',`${plan.text}, most like ${like.text.toLowerCase()}`,plan.cite),roll(R,'Hunts by','wwn.p281.how-does-it-usually-hunt-2-3-bipedal-gen',0),roll(R,'Arose','wwn.p289.how-did-the-monster-arise'),roll(R,'Tie to the past','wwn.p289.what-is-its-connection-with-the-past'),roll(R,'Locals react','wwn.p289.how-do-the-locals-react-to-its-drive'),roll(R,'Scars it left','wwn.p289.what-scars-has-it-left-here'),roll(R,'Twist','wwn.p289.a-twist-to-its-activities')]}
+function lair(R,sys,x){const e=sys.encounter(R,x.terrain,x.river,x.coast);const L=[line('Whose',e.text,e.cite),roll(R,'What it is doing','wwn.p229.whats-that-bestial-monster-doing'),roll(R,'Complication','wwn.p229.wilderness-lair-complications'),roll(R,'Lair','pw.natural.lair'),roll(R,'Hoard',R.dice.pick(['oh.treasure-0-3','oh.treasure-4-6']))];
+  if(R.dice.chance(1,3))L.splice(1,0,...uniqueMonster(R));return item('lair','Lair',L)}
+const SEA_TROUBLE={boat:'oh.the-boat',crew:'oh.crew-trouble',natural:'oh.natural-hazard',creature:'oh.dangerous-creature',weather:'oh.weather-sea-folk-or-else'};
+function seaTrouble(R){const w=R.roll('oh.what-could-go-wrong');const k=Object.keys(SEA_TROUBLE).find(k=>w.text.toLowerCase().includes(k));const L=[line('Trouble',w)];if(k)L.push(roll(R,'Detail',SEA_TROUBLE[k]));if(R.dice.chance(1,2))L.push(roll(R,'Ship hazard','oss.hazard'));return item('sea','Trouble aboard',L)}
 function stock(R,sys,x){const out=[];const c=R.text('oh.content-and-treasure','What is here');
   if(c==='Hazard')out.push(hazard(R,x.terrain));else if(c==='Empty')out.push(item('lore','Something to learn',[roll(R,'What can be learned','oh.empty'),roll(R,'How it comes','oh.how-you-learn-it')]));
-  else if(c==='Special')out.push(special(R));else{const e=sys.encounter(R,x.terrain,x.river,x.coast);out.push(item('creatures','Creatures',[line('Who',e.text,e.cite),roll(R,'Mood','pw.disposition'),roll(R,'Doing','pw.activity')]))}
+  else if(c==='Special')out.push(special(R));else{const e=sys.encounter(R,x.terrain,x.river,x.coast);out.push(item('creatures','Creatures',[line('Who',e.text,e.cite),line('Looks',`${R.text('pw.size')}, ${R.text('pw.adjective')}, ${R.text('pw.color')}, ${R.text('pw.age')}; ${R.text('pw.tag')}`,'PW pp.54–55'),roll(R,'Mood','pw.disposition'),roll(R,'Doing','pw.activity')]))}
   if(R.dice.chance(1,3))out.unshift(poi(R,x.terrain));if(R.dice.chance(1,4))out.push(landmark(R));if(R.dice.chance(1,4))out.push(item('discovery','Discovery',[roll(R,'Found','pw.discovery')]));return out.filter(Boolean)}
 function seaHex(R,sys,x,nearLand){const out=[];const u=R.roll('sea.uncharted-hex-1-for-each-open-sea-in-a-r');
   if(!u.text.startsWith('Open sea')){out.push(item('sea','At sea',[line('The hex holds',u.text.split('(§')[0].trim(),u.cite)]));
@@ -382,7 +450,10 @@ function seaHex(R,sys,x,nearLand){const out=[];const u=R.roll('sea.uncharted-hex
   if(R.dice.chance(1,3))out.push(item('sea','Find',[roll(R,'On the water','sea.finds')]));
   if(/island/i.test(u.text)||R.dice.chance(1,6))out.push(item('sea','Island',[roll(R,'Island','sea.island'),roll(R,'Name','pw.place.template')]));
   if(nearLand&&R.dice.chance(1,3)){const p=poi(R,'sea');if(p)out.push(p)}
-  if(R.dice.chance(1,3)){const e=sys.encounter(R,'sea');out.push(item('creatures','Creatures',[line('Who',e.text,e.cite)]))}return out}
+  if(R.dice.chance(1,3)){const e=sys.encounter(R,'sea');out.push(item('creatures','Creatures',[line('Who',e.text,e.cite)]))}
+  else if(R.dice.chance(1,4))out.push(item('creatures','Open water',[roll(R,'Met',R.dice.pick(['oss.enc.low','oss.enc.low','oss.enc.mid']))]));
+  if(R.dice.chance(1,3))out.push(item('sea','Sea event',[roll(R,'Event','sea.sea-event')]));if(R.dice.chance(1,5))out.push(seaTrouble(R));
+  if(R.dice.chance(1,6))out.push(item('sea','Flotsam',[roll(R,'Treasure','sea.sea-treasure')]));return out}
 
 /* ---- powers */
 const COURTS={'Noble court':'p163','Merchant house':'p164','Criminal court':'p165','Barbarian court':'p166','Priestly court':'p167'};
@@ -414,11 +485,14 @@ function build(R,o){const sys=SYSTEMS[o.system];const M=new HexMap(o.w,o.h,R.dic
   for(const x of R.dice.shuffle(land).slice(0,Math.max(2,Math.floor(land.length/18))))x.contents.unshift(ruin(R,sys));
   for(const x of R.dice.shuffle(land).slice(0,Math.max(2,Math.floor(land.length/16))))x.contents.unshift(lair(R,sys,x));
   for(const x of R.dice.shuffle(land).slice(0,Math.max(2,Math.floor(land.length/14)))){const t=wildTag(R);if(t)x.contents.push(t)}
+  for(const x of R.dice.shuffle(land).slice(0,Math.max(1,Math.floor(land.length/60))))x.contents.unshift(greatFeature(R));
+  for(const x of M.all())if(x.road&&!x.settlement&&R.dice.chance(1,3))x.contents.push(item('road','On the road',[roll(R,'Met','oh.path-encounters')]));
   const powers=[court(R),court(R),faction(R),faction(R)];
   return{name:o.name||regionName(R,M),seed:o.seed,sys,climate:o.climate,w:o.w,h:o.h,M,sites,powers,rel:relations(R,powers),
     hooks:[0,1,2].map(()=>roll(R,'Hook','wwn.p372.ways-of-introducing-an-adventure-hook')),
     rumours:Array.from({length:10},()=>roll(R,'Rumour','oh.rumours')),
     ships:M.all().some(x=>x.terrain==='sea')?Array.from({length:6},()=>ship(R)):[],
+    realm:realm(R),faiths:[faith(R),faith(R),cult(R)],adventures:[0,1,2].map(()=>adventure(R)),family:[0,1,2,3].map(()=>roll(R,'Family lore','oh.family-lore')),
     problems:[roll(R,'National problem','wwn.p121.current-national-problems'),roll(R,'Good news','wwn.p121.good-things-happening-right-now'),roll(R,'Thematic element','wwn.p122.thematic-element')]}}
 
 /* ============================================================ rendering */
@@ -441,6 +515,8 @@ function settlementBody(s){const o=[];
   o.push('<h4>People</h4><div class="twocol">'+s.npcs.map(npcH).join('')+'</div>');
   o.push('<h4>For hire</h4><div class="twocol">'+s.hirelings.map(npcH).join('')+'</div>');
   if(s.jobs)o.push('<h4>Work going</h4>'+linesH(s.jobs));
+  if(s.quests)o.push('<h4>Quests</h4><div class="twocol">'+s.quests.map(q=>`<div class="sub"><h5>${E(q.title)}</h5>${linesH(q.lines)}</div>`).join('')+'</div>');
+  if(s.extra)o.push('<h4>More of the place</h4>'+linesH(s.extra));if(s.layout)o.push('<h4>Fortress layout</h4>'+linesH(s.layout));
   if(s.port){const p=s.port,ps=p.passage;o.push(`<h4>Port — ${E(p.kind)}</h4><p>${E(p.has)}${cite(p.cite)}</p><p><b>Who rules the docks.</b> ${E(p.rules)}. <b>Trouble on the quay.</b> ${E(p.trouble)}${cite(p.rcite)}</p>`+
     `<p><b>Passage.</b> ${E(Object.entries(ps.ship).map(([k,v])=>k+' '+v).join(' · '))}; captain ${E(Object.entries(ps.captain).map(([k,v])=>k+' '+v).join(' · '))}.${cite(ps.cite)}</p><h4>At anchor</h4>`+p.ships.map(shipH).join(''))}
   return o.join('')}
@@ -448,7 +524,7 @@ function settlementH(x){const s=x.settlement;return`<details class="entry" id="h
 function hexH(x){const tags=[x.terrain].concat(x.river?['river']:[],x.road?['road']:[],x.coast?['coast']:[]);
   const hot=x.contents.some(c=>c.kind==='lair'||c.kind==='ruin');
   return`<article class="hexcard" id="hex-${x.id}"><h4>${x.id} <span class="chips">${tags.map(t=>`<span class="chip">${E(t)}</span>`).join('')}${hot?`<span class="chip hot">${x.contents.filter(c=>c.kind==='lair'||c.kind==='ruin').map(c=>c.kind).join(' · ')}</span>`:''}</span></h4>`+
-    x.contents.map(c=>`<h5>${E(c.title)}</h5>${linesH(c.lines)}`).join('')+'</article>'}
+    x.contents.map(c=>`<h5>${E(c.title)}</h5>${linesH(c.lines)}`+(c.areas?'<ol class="lines">'+c.areas.map(a=>`<li>${a.lines.map(l=>`<b>${E(l.label)}:</b> ${E(l.text)}`).join('; ')}</li>`).join('')+'</ol>':'')).join('')+'</article>'}
 function svgMap(reg,s=26){const M=reg.M,k=Math.sqrt(3);const cx=c=>1.5*s*c+s+4,cy=(c,r)=>k*s*(r+.5*(c&1))+k*s/2+4;
   const W=1.5*s*(M.w-1)+2*s+8,H=k*s*(M.h+.5)+8;const o=[`<svg class="map" viewBox="0 0 ${W.toFixed(0)} ${H.toFixed(0)}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hex map of ${E(reg.name)}">`];
   for(const x of M.all()){const X=cx(x.c),Y=cy(x.c,x.r);const pts=[0,1,2,3,4,5].map(i=>`${(X+s*Math.cos(Math.PI/3*i)).toFixed(1)},${(Y+s*Math.sin(Math.PI/3*i)).toFixed(1)}`).join(' ');
@@ -466,6 +542,13 @@ function playTables(R,reg){const M=reg.M,sys=reg.sys;const ters=[...new Set(M.al
   o.push(`<details class="entry"><summary>Daily weather <small>2d6 · 2–4 stormy, 10–12 excellent ${cite('OH')}</small></summary><div class="tw"><table><tr><th>2d6</th>${cols.map(c=>`<th>${E(c)}</th>`).join('')}</tr>${t.r.map(r=>`<tr><td class="n">${E(r[0])}</td>${idx.map(i=>`<td>${E(r[i])}</td>`).join('')}</tr>`).join('')}</table></div></details>`);
   const done=new Set();for(const x of ters){const id=sys.tableFor(x);if(done.has(id)||!R.has(id))continue;done.add(id);const tb=R.get(id);
     o.push(`<details class="entry"><summary>${E(R.title(id))} <small>${E(tb.d)} · ${E(sys.odds(x))} ${cite(R.cite(id))}</small></summary><div class="tw"><table>${tb.r.map(r=>`<tr><td class="n">${E(r[0])}</td><td>${E(r.slice(1).join(' — '))}</td></tr>`).join('')}</table></div></details>`)}
+  const full=(id,ttl)=>{if(!R.has(id))return'';const tb=R.get(id);const head=tb.c&&tb.c.length>1?`<tr><th></th>${tb.c.map(c=>`<th>${E(c)}</th>`).join('')}</tr>`:'';
+    return`<details class="entry"><summary>${E(ttl||R.title(id))} <small>${E(tb.d||'')} ${cite(R.cite(id))}</small></summary><div class="tw"><table>${head}${tb.r.map(r=>`<tr>${r.map((v,i)=>`<td${i?'':' class="n"'}>${E(v??'')}</td>`).join('')}</tr>`).join('')}</table></div></details>`};
+  const ex=[];if(sys.key==='sd')ex.push(full('sd.enc.cave'),full('sd.enc.deep-tunnels'),full('sd.enc.tomb'),full('sd.enc.ruins'),full('oh.rumours-wr','Rumours in the Reaches'));else ex.push(...R.find('ose.dungeon.').map(t=>full(t)));
+  if(M.all().some(x=>x.road))ex.push(full('oh.path-encounters','On the road'));
+  if(M.all().some(x=>x.terrain==='sea'))ex.push(full('sea.weather','Weather at sea'),full('sea.wind-strength-roll-when-the-last-wind-en','Wind strength'),full('sea.wind-direction-first-day-the-edge-it-blo','Wind direction'),full('sea.sea-event','Sea event'),full('sea.denizens-4d6','Denizens'),full('oss.enc.low'),full('oss.enc.mid'),full('oss.enc.high'),full('oss.hazard','Ship hazard'),full('oss.hazard.results','Ship hazard results'),full('sea.reaction-2d6-cha','Reaction at sea'),full('sea.sea-treasure','Sea treasure'));
+  ex.push(full('uvg.p177.general-travel-misfortune-and-misery-a-c','Travel misfortune'),full('oh.quest-archetypes','Quest archetypes'),full('oh.patron','Patron'),full('oh.reward','Reward'),full('oh.acts-of-devotion-the-outcome','Downtime: devotion'),full('oh.combat-training-the-outcome','Downtime: training'),full('oh.magical-study-the-outcome','Downtime: study'));
+  o.push('<h3>More tables for play</h3>'+ex.join(''));
   if(sys.key==='ose')for(const id of Object.keys(R.T).filter(k=>k.startsWith('ose.enc.')&&!k.startsWith('ose.enc.by.')).sort()){const tb=R.get(id);
     o.push(`<details class="entry"><summary>${E(R.title(id))} <small>${E(tb.d)} ${cite(R.cite(id))}</small></summary><div class="tw"><table><tr><th></th>${(tb.c||[]).map(c=>`<th>${E(c)}</th>`).join('')}</tr>${tb.r.map(r=>`<tr>${r.map((v,i)=>`<td${i?'':' class="n"'}>${E(v)}</td>`).join('')}</tr>`).join('')}</table></div></details>`)}
   return o.join('')}
@@ -473,6 +556,9 @@ function regionH(R,reg){const M=reg.M,present=new Set(M.all().map(x=>x.terrain))
   o.push(`<h2 style="margin-top:.4em">${E(reg.name)}</h2><p class="note">${E(reg.sys.name)} · ${E(reg.climate)} · ${reg.w}×${reg.h} hexes of 6 miles · seed ${reg.seed}. Tap a hex to jump to its entry.</p>`);
   o.push(`<div class="mapplate">${svgMap(reg)}</div><div class="legend">${Object.keys(COLOR).filter(t=>present.has(t)).map(t=>`<span><i style="background:${COLOR[t]}"></i>${t}</span>`).join('')}<span>★ capital ■ city ● town • village ◦ trading post ▲ fortress ⌂ ruin ☠ lair</span></div>`);
   o.push('<div class="twocol"><div><h2>The region</h2>'+linesH(reg.problems)+'<h4>Hooks</h4>'+linesH(reg.hooks)+'</div><div><h2>Rumours <small>d10</small></h2><ol>'+reg.rumours.filter(Boolean).map(r=>`<li>${E(r.text)}${cite(r.cite)}</li>`).join('')+'</ol></div></div>');
+  o.push('<h2>The realm</h2>'+Object.entries(reg.realm).map(([k,v])=>`<details class="entry"><summary>${E(k)}</summary>${linesH(v)}</details>`).join('')+
+    '<h4>Faiths</h4><div class="twocol">'+reg.faiths.map(f=>`<div class="sub"><h5>${E(f.title)}</h5>${linesH(f.lines)}</div>`).join('')+'</div>');
+  o.push('<h2>Adventures</h2><div class="twocol">'+reg.adventures.map((a,i)=>`<div class="sub"><h5>Adventure ${i+1}</h5>${linesH(a.lines)}</div>`).join('')+'</div><h4>Family lore for the PCs</h4>'+linesH(reg.family));
   o.push('<h2>Powers</h2>'+reg.powers.map(p=>`<details class="entry"><summary>${E(p.name)} <small>${E(p.kind)}</small></summary>${linesH(p.lines)}</details>`).join(''));
   o.push('<h4>How they stand</h4><ul class="lines">'+reg.rel.map(r=>`<li><b>${E(r.a)} ↔ ${E(r.b)}:</b> ${E(r.state)} — ${E(r.why)}${cite(r.cite)}</li>`).join('')+'</ul>');
   o.push('<h2>Settlements</h2>'+reg.sites.map(settlementH).join(''));

@@ -37,5 +37,7 @@ for key, s in S.items():
         a, b = s['pages']
         run(py + [os.path.join(HERE, 'extract_pdf.py'), pdf, str(a), str(b), out,
                   '--cols', str(s.get('cols', 2)), '--offset', str(s.get('offset', 0))])
+    if key == 'ose':
+        run(py + [os.path.join(HERE, 'ose_dungeon.py'), pdf, os.path.join(REPO, 'data', 'gen', 'ose_dungeon.yaml')])
     if key == 'wwn':
         run(py + [os.path.join(HERE, 'extract_wwn_tags.py'), pdf, out, os.path.join(RAW, 'wwn_tags.json')])

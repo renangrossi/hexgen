@@ -2,7 +2,7 @@ source:
   id: OSE
   title: Old-School Essentials — Referee's Book (2026)
   file: OSR/Systems/Old-School Essentials/Old-School Essentials - Referee's Book [2026].pdf
-  offset: 0
+  offset: 2
   pages:
   - 142
   - 147
@@ -11,7 +11,7 @@ tables:
   ose.enc.sub1:
     title: Wilderness Encounter Sub-table 1
     die: d20
-    page: 142
+    page: 140
     cols:
     - Dragon
     - Flyer
@@ -100,7 +100,7 @@ tables:
   ose.enc.sub2:
     title: Wilderness Encounter Sub-table 2
     die: d20
-    page: 143
+    page: 141
     cols:
     - Prehistoric Animal
     - Undead
@@ -189,7 +189,7 @@ tables:
   ose.enc.B:
     title: 'Wilderness Encounter Sub-table B: Broken, Hills, Mountains'
     die: d20
-    page: 143
+    page: 141
     cols:
     - Animal
     - Human
@@ -299,7 +299,7 @@ tables:
   ose.enc.C:
     title: 'Wilderness Encounter Sub-table C: City, Settled'
     die: d20
-    page: 144
+    page: 142
     cols:
     - Animal
     - Human, City
@@ -409,7 +409,7 @@ tables:
   ose.enc.D:
     title: 'Wilderness Encounter Sub-table D: Desert'
     die: d20
-    page: 144
+    page: 142
     cols:
     - Animal
     - Human
@@ -519,7 +519,7 @@ tables:
   ose.enc.F:
     title: 'Wilderness Encounter Sub-table F: Forest'
     die: d20
-    page: 145
+    page: 143
     cols:
     - Animal
     - Human
@@ -629,7 +629,7 @@ tables:
   ose.enc.G:
     title: 'Wilderness Encounter Sub-table G: Clear, Grasslands'
     die: d20
-    page: 145
+    page: 143
     cols:
     - Animal
     - Human
@@ -739,7 +739,7 @@ tables:
   ose.enc.J:
     title: 'Wilderness Encounter Sub-table J: Jungle'
     die: d20
-    page: 146
+    page: 144
     cols:
     - Animal
     - Human
@@ -849,7 +849,7 @@ tables:
   ose.enc.L:
     title: 'Wilderness Encounter Sub-table L: Lake, River'
     die: d20
-    page: 146
+    page: 144
     cols:
     - Animal
     - Human
@@ -959,7 +959,7 @@ tables:
   ose.enc.O:
     title: 'Wilderness Encounter Sub-table O: Ocean, Sea'
     die: d20
-    page: 147
+    page: 145
     cols:
     - Human
     - Swimmer
@@ -1027,7 +1027,7 @@ tables:
   ose.enc.S:
     title: 'Wilderness Encounter Sub-table S: Swamp'
     die: d20
-    page: 147
+    page: 145
     cols:
     - Human
     - Humanoid
@@ -1137,7 +1137,7 @@ tables:
   ose.enc.by.mountains:
     title: Encounter type — Mountains
     die: d8
-    page: 142
+    page: 140
     rows:
     - - '1'
       - B—Animal
@@ -1158,7 +1158,7 @@ tables:
   ose.enc.by.city:
     title: Encounter type — City
     die: d8
-    page: 142
+    page: 140
     rows:
     - - '1'
       - C—Human
@@ -1179,7 +1179,7 @@ tables:
   ose.enc.by.grasslands:
     title: Encounter type — Grasslands
     die: d8
-    page: 142
+    page: 140
     rows:
     - - '1'
       - G—Animal
@@ -1200,7 +1200,7 @@ tables:
   ose.enc.by.desert:
     title: Encounter type — Desert
     die: d8
-    page: 142
+    page: 140
     rows:
     - - '1'
       - D—Animal
@@ -1221,7 +1221,7 @@ tables:
   ose.enc.by.forest:
     title: Encounter type — Forest
     die: d8
-    page: 142
+    page: 140
     rows:
     - - '1'
       - F—Animal
@@ -1242,7 +1242,7 @@ tables:
   ose.enc.by.jungle:
     title: Encounter type — Jungle
     die: d8
-    page: 142
+    page: 140
     rows:
     - - '1'
       - J—Animal
@@ -1263,7 +1263,7 @@ tables:
   ose.enc.by.lake-river:
     title: Encounter type — Lake, River
     die: d8
-    page: 142
+    page: 140
     rows:
     - - '1'
       - L—Animal
@@ -1284,7 +1284,7 @@ tables:
   ose.enc.by.ocean-sea:
     title: Encounter type — Ocean, Sea
     die: d8
-    page: 142
+    page: 140
     rows:
     - - '1'
       - 1—Dragon
@@ -1305,7 +1305,7 @@ tables:
   ose.enc.by.settled:
     title: Encounter type — Settled
     die: d8
-    page: 142
+    page: 140
     rows:
     - - '1'
       - C—Animal
@@ -1326,7 +1326,7 @@ tables:
   ose.enc.by.swamp:
     title: Encounter type — Swamp
     die: d8
-    page: 142
+    page: 140
     rows:
     - - '1'
       - 1—Dragon

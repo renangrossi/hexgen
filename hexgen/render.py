@@ -120,6 +120,12 @@ def settlement_html(h):
         o.append('<h4>For hire</h4>' + ''.join(npc_html(dict(h, role='hireling')) for h in s['hirelings']))
     if s.get('jobs'):
         o.append('<h4>Work going</h4>' + lines_html(s['jobs']))
+    if s.get('quests'):
+        o.append('<h4>Quests</h4>' + ''.join(f'<div class="npc"><h5>{E(q["title"])}</h5>{lines_html(q["lines"])}</div>' for q in s['quests']))
+    if s.get('extra'):
+        o.append('<h4>More of the place</h4>' + lines_html(s['extra']))
+    if s.get('layout'):
+        o.append('<h4>Fortress layout</h4>' + lines_html(s['layout']))
     if s.get('port'):
         p = s['port']
         o.append(f'<h4>Port — {E(p["kind"])}</h4><p>{E(p["has"])}{cite(p["cite"])}</p>'
@@ -135,7 +141,10 @@ def settlement_html(h):
 def hex_html(h):
     feat = []
     for c in h.contents:
-        feat.append(f'<div class="item {E(c["kind"])}"><h5>{E(c["title"])}</h5>{lines_html(c["lines"])}</div>')
+        areas = ''.join(f'<li><b>Area {a["n"]}.</b> ' + '; '.join(f'{E(l["label"])}: {E(l["text"])}' for l in a['lines']) + '</li>'
+                        for a in c.get('areas', []))
+        feat.append(f'<div class="item {E(c["kind"])}"><h5>{E(c["title"])}</h5>{lines_html(c["lines"])}'
+                    + (f'<ol class="lines areas">{areas}</ol>' if areas else '') + '</div>')
     tags = [h.terrain] + (['river'] if h.river else []) + (['road'] if h.road else []) + (['coast'] if h.coast else [])
     return f'<section class="hex" id="hex-{h.id}"><h4>{h.id} <small>{E(", ".join(tags))}</small></h4>{"".join(feat)}</section>'
 
@@ -169,6 +178,30 @@ def play_tables(R, reg):
         for r in tb.rows:
             o.append(f'<tr><td>{E(r[0])}</td><td>{E(" — ".join(str(x) for x in r[1:]))}</td></tr>')
         o.append('</table></div>')
+    def full(tid, title=None):
+        if tid not in R: return ''
+        tb = R.get(tid)
+        head = f'<tr><th></th>' + ''.join(f'<th>{E(c)}</th>' for c in tb.cols) + '</tr>' if tb.cols and len(tb.cols) > 1 else ''
+        rows = ''.join('<tr>' + ''.join(f'<td>{E(x if x is not None else "")}</td>' for x in r) + '</tr>' for r in tb.rows)
+        return f'<div class="keep"><h3>{E(title or tb.title)} <small>{E(tb.die or "")} · {E(tb.cite())}</small></h3><table class="enc">{head}{rows}</table></div>'
+    extra = []
+    if sysp.key == 'sd':
+        extra += [full('sd.enc.cave'), full('sd.enc.deep-tunnels'), full('sd.enc.tomb'), full('sd.enc.ruins'), full('oh.rumours-wr')]
+    else:
+        extra += [full(t) for t in sorted(R.find('ose.dungeon.'))]
+    if any(h.road for h in M):
+        extra.append(full('oh.path-encounters', 'On the road'))
+    if any(h.terrain == 'sea' for h in M):
+        extra += [full('sea.weather', 'Weather at sea'), full('sea.wind-strength-roll-when-the-last-wind-en', 'Wind strength'),
+                  full('sea.wind-direction-first-day-the-edge-it-blo', 'Wind direction'), full('sea.sea-event', 'Sea event'),
+                  full('sea.denizens-4d6', 'Denizens'), full('oss.enc.low'), full('oss.enc.mid'), full('oss.enc.high'),
+                  full('oss.hazard', 'Ship hazard'), full('oss.hazard.results', 'Ship hazard results'),
+                  full('sea.reaction-2d6-cha', 'Reaction at sea'), full('sea.sea-treasure', 'Sea treasure')]
+    extra += [full('uvg.p177.general-travel-misfortune-and-misery-a-c', 'Travel misfortune'),
+              full('oh.quest-archetypes', 'Quest archetypes'), full('oh.patron', 'Patron'), full('oh.reward', 'Reward'),
+              full('oh.acts-of-devotion-the-outcome', 'Downtime: devotion'), full('oh.combat-training-the-outcome', 'Downtime: training'),
+              full('oh.magical-study-the-outcome', 'Downtime: study')]
+    o.append('<h2>More tables for play</h2>' + ''.join(extra))
     if sysp.key == 'ose':
         for tid in sorted(t for t in R.tables if t.startswith('ose.enc.') and not t.startswith('ose.enc.by.')):
             tb = R.get(tid)
@@ -213,7 +246,7 @@ def write_html(R, reg, path, tables=True):
     o = [f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
          f'<title>{E(reg["name"])}</title><style>{CSS}</style></head><body><main>']
     o.append(f'<h1>{E(reg["name"])}</h1><p><small>{E(sysp.name)} · {E(reg["climate"])} · {reg["w"]}×{reg["h"]} hexes of {sysp.hex_miles} miles · seed {reg["seed"]}</small></p>')
-    o.append('<nav><a href="#region">Region</a><a href="#powers">Powers</a><a href="#settlements">Settlements</a>'
+    o.append('<nav><a href="#region">Region</a><a href="#realm">Realm</a><a href="#adventures">Adventures</a><a href="#powers">Powers</a><a href="#settlements">Settlements</a>'
              '<a href="#hexes">Hex key</a><a href="#sea">At sea</a><a href="#tables">Play tables</a></nav>')
     o.append(svg_map(reg))
     o.append('<p class="legend">' + ''.join(f'<span><i style="background:{c}"></i>{t}</span>' for t, c in COLORS.items() if any(h.terrain == t for h in M))
@@ -221,6 +254,12 @@ def write_html(R, reg, path, tables=True):
     o.append('<h2 id="region">The region</h2>' + lines_html(reg['problems']))
     o.append('<h3>Hooks</h3>' + lines_html(reg['hooks']))
     o.append('<h3>Rumours <small>d10</small></h3><ol>' + ''.join(f'<li>{E(r["text"])}{cite(r["cite"])}</li>' for r in reg['rumours'] if r) + '</ol>')
+    o.append('<h2 id="realm">The realm</h2>')
+    for k, v in reg['realm'].items():
+        o.append(f'<h3>{E(k)}</h3>' + lines_html(v))
+    o.append('<h3>Faiths</h3>' + ''.join(f'<div class="npc"><h5>{E(f["title"])}</h5>{lines_html(f["lines"])}</div>' for f in reg['faiths']))
+    o.append('<h2 id="adventures">Adventures</h2>' + ''.join(f'<div class="npc"><h5>Adventure {i}</h5>{lines_html(a["lines"])}</div>' for i, a in enumerate(reg['adventures'], 1)))
+    o.append('<h3>Family lore for the PCs</h3>' + lines_html(reg['family']))
     o.append('<h2 id="powers">Powers</h2>')
     for p in reg['powers']:
         o.append(f'<h3>{E(p["name"])} <small>{E(p["kind"])}</small></h3>{lines_html(p["lines"])}')
@@ -259,7 +298,15 @@ def write_md(reg, path):
     M = reg['map']
     o = [f"# {reg['name']}", f"_{reg['system'].name} · {reg['climate']} · seed {reg['seed']}_", '',
          '## The region', md_lines(reg['problems']), '', '### Hooks', md_lines(reg['hooks']), '',
-         '### Rumours (d10)'] + [f"{i}. {r['text']}" for i, r in enumerate(reg['rumours'], 1) if r] + ['', '## Powers']
+         '### Rumours (d10)'] + [f"{i}. {r['text']}" for i, r in enumerate(reg['rumours'], 1) if r] + ['', '## The realm']
+    for k, v in reg['realm'].items():
+        o += [f'### {k}', md_lines(v), '']
+    for f in reg['faiths']:
+        o += [f"### {f['title']}", md_lines(f['lines']), '']
+    o.append('## Adventures')
+    for i, a in enumerate(reg['adventures'], 1):
+        o += [f'### Adventure {i}', md_lines(a['lines']), '']
+    o += ['### Family lore', md_lines(reg['family']), '', '## Powers']
     for p in reg['powers']:
         o += [f"### {p['name']} ({p['kind']})", md_lines(p['lines']), '']
     o += ['### How they stand'] + [f"- **{r['a']} ↔ {r['b']}:** {r['state']} — {r['why']}" for r in reg['relations']] + ['', '## Settlements']
@@ -276,6 +323,10 @@ def write_md(reg, path):
               md_lines([s['event']] + s['rumours']), '', '**People**']
         for n in s['npcs']:
             o += [f"- **{n['name']}** ({n['role']}): " + '; '.join(l['text'] for l in n['lines'])]
+        for q in s.get('quests', []):
+            o += [f"\n**Quest: {q['title']}**", md_lines(q['lines'])]
+        if s.get('extra'):
+            o += ['', md_lines(s['extra'])]
         if s.get('port'):
             p = s['port']
             o += [f"\n**Port — {p['kind']}.** {p['has']} Docks ruled by {p['rules'].lower()}; {p['trouble']}"]
@@ -288,6 +339,7 @@ def write_md(reg, path):
         o.append(f"### {h.id} ({h.terrain}{', river' if h.river else ''}{', road' if h.road else ''})")
         for c in h.contents:
             o += [f"**{c['title']}**", md_lines(c['lines'])]
+            o += [f"{a['n']}. " + '; '.join(f"{l['label']}: {l['text']}" for l in a['lines']) for a in c.get('areas', [])]
         o.append('')
     with open(path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(o))

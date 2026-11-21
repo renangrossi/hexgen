@@ -5,7 +5,7 @@ the renderers turn into Markdown, HTML and JSON."""
 from .hexmap import HexMap, distance
 from .systems import SYSTEMS, OH_COL
 from .gen.common import line, roll
-from .gen import settlement as S, site, faction, ship as SH
+from .gen import settlement as S, site, faction, ship as SH, quest as Q, realm as RM
 
 SIZES = ['capital', 'city', 'town', 'town', 'village', 'village', 'village', 'village', 'village', 'trading post',
          'fortress']
@@ -76,6 +76,11 @@ def build(R, w=16, h=12, system='sd', climate='temperate', sea='w', settlements=
     for hx in R.dice.shuffle(land)[:max(2, len(land) // 14)]:
         t = site.wilderness_tag(R)
         if t: hx.contents.append(t)
+    for hx in R.dice.shuffle(land)[:max(1, len(land) // 60)]:
+        hx.contents.insert(0, RM.great_feature(R))
+    for hx in [x for x in M if x.road and not x.settlement]:
+        if R.dice.chance(1, 3):
+            hx.contents.append(site.road_encounter(R))
     # powers
     powers = [faction.court(R) for _ in range(2)] + [faction.faction(R) for _ in range(2)]
     rel = faction.relations(R, powers)
@@ -91,5 +96,8 @@ def build(R, w=16, h=12, system='sd', climate='temperate', sea='w', settlements=
                      roll(R, 'Good news', 'wwn.p121.good-things-happening-right-now'),
                      roll(R, 'Thematic element', 'wwn.p122.thematic-element')],
         'weather_cols': OH_COL,
+        'realm': RM.realm(R), 'faiths': [RM.faith(R), RM.faith(R), RM.cult(R)],
+        'adventures': [Q.adventure(R) for _ in range(3)],
+        'family': [Q.family_lore(R) for _ in range(4)],
     }
     return region

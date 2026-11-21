@@ -60,3 +60,61 @@ tables:
     die: d4
     page: 3
     rows: [['1', The ship’s crew is lost.], ['2', The ship is damaged and drifts with the current.], ['3', The ship is stuck on a sandbar.], ['4', The ship is sinking.]]
+  oss.enc.low:
+    title: Open water encounters (levels 1–4)
+    die: d100
+    page: 3
+    rows: [['01–03', 3d6 quippers], ['04–08', 1 swarm of quippers], ['09–12', 3d10 dolphins], ['13–14', 1 giant octopus], ['15–16', 1d4 killer whales], ['17–18', 1d6 merfolk], ['19–20', 1d6 giant sea horses], ['21–24', 1d8 giant crabs], ['25–28', 1d4 reef sharks], ['29', 1 hunter shark], ['30–34', 1d4 sahuagin], ['35–37', 1d4 koalinth], ['38–40', A small whirlpool to the Plane of Water], ['41–45', 1d4 locathahs], ['46–51', 1d3 harpies], ['52–54', 2 merrow], ['55–57', 1 sahuagin priestess and 1d4 sahuagin], ['58–59', 1 koalinth sergeant and 2d4 koalinth], ['60–62', 1 plesiosaurus], ['63–64', 1d3 sea hags], ['65–67', 1d4 blood hawks], ['68–70', 1 sahuagin champion], ['71–74', 1 giant shark], ['75', 1 young bronze dragon], ['76–00', 'A ship: {oss.ship.line}']]
+  oss.enc.mid:
+    title: Open water encounters (levels 5–10)
+    die: d100
+    page: 3
+    rows: [['01–03', 1 giant shark], ['04–07', 1d4 swarms of quippers], ['08–11', 1d10 killer whales], ['12–17', 3d6 merfolk], ['18–25', 1 sahuagin high priestess and 1 sahuagin wave shaper], ['26–30', 2d8 giant crabs], ['31–35', 2d4 reef sharks], ['36–38', 1d4 hunter sharks], ['39–40', 1d4 water elementals], ['41', A whirlpool to the Plane of Water], ['42–45', 2d4 locathahs], ['46–47', 1 harpy matriarch and 1d4 harpies], ['48–49', 2d4 merrow], ['50–52', 1 sahuagin baron and 1d4 sahuagin], ['53–57', 1 koalinth sergeant and 2d4 koalinth], ['58–59', 2d8 giant crabs], ['60–61', 1d4 plesiosauruses], ['62–63', A coven of 3 sea hags], ['64–65', 1d4 sahuagin blademasters], ['66–69', 1 hydra], ['70–71', 1 marid], ['72', 1 storm giant], ['73', 1 adult bronze dragon], ['74', 1 dragon turtle], ['75–90', 'A ship: {oss.ship.line}'], ['91–00', 'A mysterious island: {sea.island}']]
+  oss.enc.high:
+    title: Open water encounters (levels 11–20)
+    die: d100
+    page: 3
+    rows: [['01–03', 1 storm giant], ['04–07', 2d6 giant sharks], ['08–11', 1 marid], ['12–18', 1 sahuagin high priestess and 2d4 sahuagin champions], ['19–25', 1 sahuagin baron and 1d4 sahuagin blademasters], ['26–28', 3d6 reef sharks], ['29–32', 2d6 hunter sharks], ['33–39', A great whirlpool to the Plane of Water], ['40–43', A vast whirlpool to the Plane of Water], ['44–45', 1d3 hydras], ['46–48', 1d4 koalinth sergeants and 3d10 koalinth], ['49–50', 2d4 plesiosauruses], ['51–53', 3d6 merrow], ['54–57', 1 harpy matriarch and 2d8 harpies], ['58–60', A coven of 3 sea hags], ['61–63', 1 dragon turtle], ['64', 1 ancient bronze dragon], ['65–75', 'A ship: {oss.ship.line}'], ['76–00', 'A mysterious island: {sea.island}']]
+  oss.ship.line:
+    title: A ship, in one line
+    rows: [['{oss.ship.type}, {oss.ship.purpose}, {oss.ship.attitude}; {oss.ship.disposition}']]
+  oss.hazard:
+    title: Hazard type and DC
+    die: d20
+    page: 3
+    rows: [['1–3', 'Crew conflict: {oss.hazard.conflict}'], ['4–6', 'Fire: {oss.hazard.fire}'], ['7–9', 'Fog: {oss.hazard.fog}'], ['10–12', 'Infestation: {oss.hazard.infestation}'], ['13–20', 'Storm: {oss.hazard.storm}']]
+  oss.hazard.dc:
+    title: Hazard DC
+    die: d20
+    page: 3
+    rows: [['1–9', '10'], ['10–17', '15'], ['18–19', '20'], ['20', '25']]
+  oss.hazard.conflict:
+    die: d20
+    page: 3
+    rows: [['1–9', 'minor scuffle or petty theft (DC 10)'], ['10–17', 'brawl involving several people, theft of a valuable (DC 15)'], ['18–19', 'large brawl, several injuries, theft of a prized item (DC 20)'], ['20', 'murder, or a brawl involving most of the crew (DC 25)']]
+  oss.hazard.fire:
+    die: d20
+    page: 3
+    rows: [['1–9', 'small contained fire, like an oil lantern (DC 10)'], ['10–17', 'dangerous flame, like a large campfire or several small fires (DC 15)'], ['18–19', 'intense fire likely to spread, like a bonfire (DC 20)'], ['20', 'sudden pervasive flames, a hold of flammable cargo alight (DC 25)']]
+  oss.hazard.fog:
+    die: d20
+    page: 3
+    rows: [['1–9', 'light fog (DC 10)'], ['10–17', 'moderate fog (DC 15)'], ['18–19', 'heavy fog (DC 20)'], ['20', 'very heavy fog (DC 25)']]
+  oss.hazard.infestation:
+    die: d20
+    page: 3
+    rows: [['1–9', 'minor bug or rat infestation, common cold (DC 10)'], ['10–17', 'persistent vermin, stomach ailment or flu (DC 15)'], ['18–19', 'serious vermin, contagious flu or spoiled food (DC 20)'], ['20', 'overwhelming vermin, lethal plague (DC 25)']]
+  oss.hazard.storm:
+    die: d20
+    page: 3
+    rows: [['1–9', 'heavy gale (DC 10)'], ['10–17', 'strong storm (DC 15)'], ['18–19', 'typical hurricane (DC 20)'], ['20', 'overwhelming hurricane (DC 25)']]
+  oss.hazard.results:
+    title: Hazard check results (summary)
+    page: 3
+    cols: [Hazard, Total success, Success, Failure, Total failure]
+    rows:
+      - [null, Crew conflict, 'Crew better for 1d4 days; it ends', It ends, Crew worse, 'Crew worse, and they mutiny']
+      - [null, Fire, Out; cosmetic damage only, 'Out; hull and 1d3 parts take 6d6', 'Hull and 1d3 parts take 6d6; it burns on', 'Crew hurt; hull and 1d3 parts take 6d6; it burns on']
+      - [null, Fog, 'No effect; crew better 1d3 days', No effect, Half speed today, Half speed and off course]
+      - [null, Infestation, 'Crew better 1d4 days; it ends', It ends, Crew worse, 'Crew worse; half speed today']
+      - [null, Storm, 'Unscathed; crew better 1d4 days', Unscathed, 'Parts take 4d10; crew worse; half speed', 'Parts take 10d10; crew worse ×2; a tenth lost overboard; off course']

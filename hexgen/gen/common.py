@@ -29,6 +29,7 @@ def tidy_ss(text):
     """Drop Spectacular Settlements' mechanical asides: '(+2 to size roll)'."""
     text = re.sub(r'\s*\((?:[+−-]\d+|Skip|Roll|Re-?roll)[^)]*\)', '', text)
     text = re.sub(r'\s*\[[^\]]*\]', '', text)
+    text = re.split(r'\s[A-Z]\s[a-z]+\s[A-Z]\s[a-z]+', text)[0]          # 'M apping W alls' sidebar headings
     return text.strip()
 
 

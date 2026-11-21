@@ -31,6 +31,10 @@ class Shadowdark:
         return '1 in 6, ×2 day ×2 night'
 
     def encounter(self, R, terrain, river=False, coast=False, ruins=False):
+        if terrain == 'sea' and R.dice.chance(1, 2) and 'sea.denizens-4d6' in R:
+            d = R.roll('sea.denizens-4d6'); v = d['values']
+            return {'text': f"{v.get('No.', '1')} × {v.get('Foe')} (LV {v.get('LV')}, AC {v.get('AC')}, HP {v.get('HP')}, {v.get('Attack')}). {v.get('Trait', '')}".strip(),
+                    'cite': d['cite']}
         tid = 'sd.enc.river-coast' if (river or coast) and R.dice.chance(1, 3) else self.ENC[terrain]
         if ruins and R.dice.chance(1, 2):
             tid = 'sd.enc.ruins'
@@ -90,7 +94,9 @@ class OSE:
         return self._resolve(R, 'ose.enc.by.city')
 
     def dungeon_encounter(self, R, kind):
-        return {'text': 'Roll on the dungeon level table (OSE Referee’s Book, Dungeon Encounters)', 'cite': 'OSE'}
+        lv = R.dice.pick(['1', '1', '2', '2', '3', '4-5'])
+        r = R.roll(f'ose.dungeon.l{lv}')
+        return {'text': f"{r['text']}, level {lv.replace('-', '–')} table", 'cite': r['cite']}
 
 
 SYSTEMS = {'sd': Shadowdark(), 'ose': OSE()}
