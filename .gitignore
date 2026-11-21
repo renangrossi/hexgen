@@ -1,0 +1,4 @@
+out/
+raw/
+__pycache__/
+*.pyc

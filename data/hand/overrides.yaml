@@ -1,0 +1,30 @@
+# Hand corrections for tables the extractor mangled. Each entry replaces the curated
+# table of the same id (data/gen is loaded first).
+source: {id: FIX, title: hand corrections}
+overrides:
+  ose.enc.O:
+    title: "Wilderness Encounter Sub-table O: Ocean, Sea"
+    die: d20
+    page: 147
+    cols: [Human, Swimmer]
+    rows:
+      - ['1', Buccaneer, Dragon Turtle]
+      - ['2', Buccaneer, 'Fish, Swordfish']
+      - ['3', Buccaneer, 'Hag, Sea']
+      - ['4', Buccaneer, Hippocampus]
+      - ['5', Ex. Adventurers, 'Hydra, Sea']
+      - ['6', Ex. Adventurers, 'Jellyfish, Giant']
+      - ['7', Merchant, Locanth]
+      - ['8', Merchant, Merfolk]
+      - ['9', Merchant, Merrow]
+      - ['10', Merchant, 'Octopus, Giant']
+      - ['11', Merchant, Sahuagin]
+      - ['12', Merchant, Sea Dragon]
+      - ['13', Merchant, Sea Serpent]
+      - ['14', Pirate, Shark]
+      - ['15', Pirate, 'Snake, Sea']
+      - ['16', Pirate, 'Squid, Giant']
+      - ['17', Pirate, Triton]
+      - ['18', Pirate, 'Turtle, Sea']
+      - ['19', Pirate, Water Termite]
+      - ['20', Pirate, Whale]

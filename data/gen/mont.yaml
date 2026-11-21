@@ -1,0 +1,770 @@
+source:
+  id: MONT
+  title: WWN — The Diocesi of Montfroid
+  file: OSR/Tools & Maps/Tables/Worlds_Without_Number_SNP_The_Diocesi_of_Montfroid_OEF,_2024.pdf
+  offset: 0
+  pages:
+  - 1
+  - 71
+  cols: 2
+tables:
+  mont.p24.recent:
+    title: Recent
+    die: d10
+    page: 24
+    rows:
+    - - '1'
+      - A village’s ruler has grown gravely ill, and all eyes
+    - - '2'
+      - Pagans launched a fierce raid at a village, killing
+    - - '3'
+      - A villager was accused of being a loup-garou; the
+    - - '4'
+      - A band of foreign adventurers has turned bandit
+    - - '5'
+      - A spell of vicious, unseasonable weather is making
+    - - '6'
+      - People say that a fae knight and his wolf-rider retinue
+    - - '7'
+      - A village churchbell has cracked, and the bellfounders
+    - - '8'
+      - A blight is wilting the crops or plaguing the cattle,
+    - - '9'
+      - A new joglar has come up from Auvergne bringing
+    - - '10'
+      - A village ruler’s storehouses were recently plundered
+    - - '1'
+      - A heretical preacher in the woods is gathering
+    - - '2'
+      - An abat has died suddenly, and people murmur
+    - - '3'
+      - A foreign scholar is staying in Castelnou, and people
+    - - '4'
+      - Smugglers quarreled among themselves off the
+    - - '5'
+      - A plague has sprung up in a village. They desperately
+    - - '6'
+      - Miners in La Parra have struck a lode of silver,
+    - - '7'
+      - There is to be a tournament this month at Castelnou
+    - - '8'
+      - A ruler’s heir has perished battling pagans or
+    - - '9'
+      - A foreign merchant has set up in Castelnou, throwing
+    - - '10'
+      - A demagogue in Castelnou is rallying malcontents
+    - - '1'
+      - A ruler has been struck down by a sickness or palsy,
+    - - '2'
+      - An important caravan of goods was seized by
+    - - '3'
+      - A quarrel has arisen between two villages, and they
+    - - '4'
+      - A village ruler is recruiting a personal guard of
+    - - '5'
+      - A clan feud has been sparked in a village and it’s
+    - - '6'
+      - A fresh Deep has been uncovered, and bands of
+    - - '7'
+      - A troubadour has sent out a call for inspiration;
+    - - '8'
+      - A small band of pagans seeks refuge and ostensible
+    - - '9'
+      - A rich foreigner seeks residence in a village for some
+    - - '10'
+      - A wayhouse is raided by gobelins or pagans and
+  mont.p25.male-given-female-given-family-places-mo:
+    title: Male Given Female Given Family Places More Places
+    die: d10
+    page: 25
+    rows:
+    - - '1'
+      - Adhemar
+      - Agnes
+      - Affaros
+      - Auzits
+      - Alfar
+    - - '2'
+      - Almaric
+      - Aicelina
+      - Alaman
+      - Carlot
+      - Algais
+    - - '3'
+      - Arnal
+      - Alamanda
+      - Aldebal
+      - Cayro
+      - Anonnay
+    - - '4'
+      - Arnald
+      - Andreva
+      - Bandeli
+      - Condat
+      - Balencs
+    - - '5'
+      - Bec
+      - Astruga
+      - Barbier
+      - Cros
+      - Bidacha
+    - - '6'
+      - Berengar
+      - Aymeriga
+      - Bocart
+      - Fontencha
+      - Breil
+    - - '7'
+      - Bernat
+      - Beatrisia
+      - Bournazels
+      - Fraysse
+      - Brezi
+    - - '8'
+      - Bertran
+      - Berengaria
+      - Bozesa
+      - Gualhac
+      - Cabaretz
+    - - '9'
+      - Deodat
+      - Biatris
+      - Brau
+      - La Fon
+      - Castelnou
+    - - '10'
+      - Duran
+      - Brunissende
+      - Caissac
+      - La Parra
+      - Charra
+    - - '1'
+      - Estol
+      - Cambola
+      - Camboulas
+      - Limayrac
+      - Cusset
+    - - '2'
+      - Fontanier
+      - Constansa
+      - Campanhac
+      - Manso
+      - Escorralha
+    - - '3'
+      - Galhart
+      - Catorna
+      - Canac
+      - Mauro
+      - Espaza
+    - - '4'
+      - Gerald
+      - Ciragua
+      - Charay
+      - Mayres
+      - Gueret
+    - - '5'
+      - Grigori
+      - Favia
+      - Contet
+      - Moncado
+      - Juratz
+    - - '6'
+      - Gui
+      - Fina
+      - Ebrart
+      - Monmato
+      - La Mota
+    - - '7'
+      - Guilhem
+      - Guilberta
+      - Engels
+      - Navarra
+      - Lambesc
+    - - '8'
+      - Guiral
+      - Guiralda
+      - Fabre
+      - Penavayra
+      - Lhivro
+    - - '9'
+      - Helias
+      - Helena
+      - Gasc
+      - Pessolis
+      - Lomanha
+    - - '10'
+      - Huc
+      - Helis
+      - Mansaga
+      - Petra
+      - Montbron
+    - - '1'
+      - Johan
+      - Henrietta
+      - Marro
+      - Peyrasmortas
+      - Mozencs
+    - - '2'
+      - Jorda
+      - Isabella
+      - Martel
+      - Pineto
+      - Olitz
+    - - '3'
+      - Marot
+      - Marguarida
+      - Montes
+      - Podeo
+      - Porcelens
+    - - '4'
+      - Miquel
+      - Petronilla
+      - Payra
+      - Scoralha
+      - Riberac
+    - - '5'
+      - Odo
+      - Ramunda
+      - Pontier
+      - Segur
+      - Saissi
+    - - '6'
+      - Peyre
+      - Rixenda
+      - Roquier
+      - Sortiz
+      - Seguret
+    - - '7'
+      - Phelip
+      - Rubea
+      - Samoral
+      - Terralh
+      - Sent Beat
+    - - '8'
+      - Ramon
+      - Sebienda
+      - Segui
+      - Verdier
+      - Sent Just
+    - - '9'
+      - Sicart
+      - Seguina
+      - Teldes
+      - Vernholes
+      - Sent Marti
+    - - '10'
+      - Simos
+      - Sobeyrana
+      - Valeta
+      - Veyrac
+      - Vezis
+    cols:
+    - Male Given
+    - Female Given
+    - Family
+    - Places
+    - More Places
+  mont.p28.name-sex-and-age-hd-hp-ac-atk-dmg-shock:
+    title: Name, Sex, and Age HD/HP AC Atk Dmg Shock ML Skill Save
+    die: d12
+    page: 28
+    rows:
+    - - '1'
+      - Jean Valmort (M/42) A new grandfather frustrated
+      - 2/12 hp 14 at years of training
+      - (Pieced/Shield) militia; he wants
+      - +3 1d6+1 do something
+      - Mace big to make
+      - 2/AC 18 his grandson
+      - 10 proud
+      - +1 14+ of him
+    - - '2'
+      - Clarisse Beaumont (F/18) Newly-graduated joglaressa;
+      - 1/5 hp 13 (Buff beautiful, ambitious,
+      - Coat) and eager
+      - +2 1d6+1 to make tales
+      - Shortswd of herself as a
+      - 3/AC 15 fearless
+      - 8 wanderer
+      - +2 15+
+    - - '3'
+      - Agnes Marro (F/28) Rude, socially-inept huntress
+      - 1/8 hp 13 (Buff who feels old and
+      - Coat) lonely; just wants
+      - +2 1d8+1 human
+      - L. Bow company that will
+      - '- tolerate her'
+      - '9'
+      - +2 15+
+    - - '4'
+      - Bad Grigori (M/19) Ex tailor-prentice; Good with
+      - 1/4 hp 13 (Buff locks, bad with
+      - Coat) impulse control.
+      - +2 1d4+1 Wants to be a
+      - Stiletto rogueish hero
+      - 2/AC 18 and not the
+      - 9 town
+      - +2 15+ sneak-thief
+    - - '5'
+      - Marot Payra (M/31) Widowered blacksmith; Has
+      - 1/8 hp 15 ten young children
+      - (Pieced/Shield) and a failing
+      - +2 1d8+1 business, needs
+      - Warhmmr money badly
+      - 2/AC 18
+      - '9'
+      - +1 15+
+    - - '6'
+      - Galhart the Fat (M/30) Cheerful ox-strong farmhand
+      - 2/9 hp 12 (Buff with near-limitless
+      - Coat) thirst for drink
+      - +3 1d10+2 and minimal
+      - Grtclub awareness of
+      - 4/AC 15 danger
+      - '11'
+      - +1 14+
+    - - '7'
+      - Brother Luc (M/27) Defrocked monk with a weakness
+      - 1/5 hp 11 (Robe) for women;
+      - Always seeking
+      - +2 1d6+1 money to
+      - Qtrstaff blandish a new
+      - 2/AC 13 lady-love
+      - '8'
+      - +1 15+
+    - - '8'
+      - Heinrich Stern (M/22) Southern mercenary; his Court
+      - 2/10 hp 14 Riu is mostly
+      - (Pieced Armr) obscenities. Wants
+      - +3 1d10+1 to earn fame
+      - War Ax to get a militia
+      - 4/AC 15 captaincy
+      - '9'
+      - +1 14+
+    - - '9'
+      - Ramunda the Lame (F/18) Seamstress who won every
+      - 2/8 hp 15 village race except
+      - (Linothrx) the one she threw
+      - +3 1d6+2 to her
+      - L. Spear sweetheart; gobelins
+      - 4/AC 13 killed him
+      - 11 last
+      - +2 14+ winter
+    - - '10'
+      - Mistress Helena (F/29) Herbalist-scholar, can cast as
+      - 1/4 hp 10 a 1st level High
+      - (Robes) Mage with 1d4
+      - +0 1d4 known spells.
+      - Dagger Wants to prove
+      - 1/AC 15 she’s not a
+      - 9 bad
+      - +2 15+ witch
+    - - '11'
+      - Biatris Segur (F/33) Ex-farmwife, ex-harlot, ex-bandit;
+      - 1/6 hp 14 wants to make
+      - (Pieced Armr) a big score
+      - +2 1d10+1 and retire to
+      - Xbow open a brothel in
+      - '- Castelnou'
+      - '8'
+      - +1 15+
+    - - '12'
+      - Black Huc (M/29) Charcoal burner; Knows much
+      - 1/7 hp 13 of the forest and
+      - (Buff/Shield) wants to get rich
+      - +2 1d6+1 enough to
+      - H. Axe never enter it
+      - 2/AC 15 again
+      - '9'
+      - +2 15+
+    cols:
+    - Name, Sex, and Age
+    - HD/HP
+    - AC
+    - Atk
+    - Dmg
+    - Shock
+    - ML
+    - Skill Save
+  mont.p29.how-do-they-fight:
+    title: How Do They Fight?
+    die: d6
+    page: 29
+    rows:
+    - - '1'
+      - Terribly; their talents don’t lie in martial aptitude.
+    - - '2'
+      - With weapons close to their professional tools
+    - - '3'
+      - They use a bow or crossbow by choice
+    - - '4'
+      - They favor simple peasant or militia weapons
+    - - '5'
+      - They have a sword or other martial implement
+    - - '6'
+      - They have some large or unusual weapon
+  mont.p29.what-other-talent-do-they-have:
+    title: What Other Talent Do They Have?
+    die: d8
+    page: 29
+    rows:
+    - - '1'
+      - Very sharp senses, hard to ambush or surprise
+    - - '2'
+      - Blind luck that gives them a Save bonus
+    - - '3'
+      - They have numerous non-adventurer friends
+    - - '4'
+      - They’re very hard to kill and have bonus HP
+    - - '5'
+      - They’re unusually good at their trade
+    - - '6'
+      - Abnormally clear-headed in situations of danger
+    - - '7'
+      - A second profession before their current one
+    - - '8'
+      - A horse, war dog, or useful animal companion
+  mont.p29.why-are-they-doing-this:
+    title: Why Are They Doing This?
+    die: d10
+    page: 29
+    rows:
+    - - '1'
+      - They’re a criminal who needs to get out of town
+    - - '2'
+      - A family member needs money desperately
+    - - '3'
+      - They’ve failed utterly at their chosen profession
+    - - '4'
+      - They’re an incorrigible adrenaline junkie
+    - - '5'
+      - They’re emotionally damaged and need this life
+    - - '6'
+      - They crave wealth to escape their present poverty
+    - - '7'
+      - They want glory and the respect of their peers
+    - - '8'
+      - They want to impress a man or woman
+    - - '9'
+      - They want to gain power for the sake of revenge
+    - - '10'
+      - They’re at rock bottom, having nowhere else to go
+  mont.p29.how-old-is-the-hireling:
+    title: How Old is the Hireling?
+    die: d4
+    page: 29
+    rows:
+    - - '1'
+      - Disturbingly young, barely old enough for their job
+    - - '2'
+      - Young, but with some years of experience
+    - - '3'
+      - In their prime with a career behind them
+    - - '4'
+      - Almost too old for this sort of thing
+  mont.p29.what-was-their-original-profession:
+    title: What Was Their Original Profession?
+    die: d12
+    page: 29
+    rows:
+    - - '1'
+      - Bandit, thug, or other strong-arm criminal
+    - - '2'
+      - Farmer or field hand
+    - - '3'
+      - Sailor, fisherman, or riverman
+    - - '4'
+      - Harlot, mistress, tavern wench, or entertainer
+    - - '5'
+      - Physician or surgeon, whether real or quack
+    - - '6'
+      - Hunter, trapper, or hermit
+    - - '7'
+      - Charcoal burner, lumberjack, or woodsman
+    - - '8'
+      - Peddler, shopkeeper, or small trader
+    - - '9'
+      - Pickpocket, con man, or petty thief
+    - - '10'
+      - Monk, nun, or likely-defrocked priest
+    - - '11'
+      - Militiaman, mercenary, or hired soldier
+    - - '12'
+      - Artisan, blacksmith, carpenter, or crafter
+  mont.p29.particular-traits-or-personality-quirks:
+    title: Particular Traits or Personality Quirks
+    die: d20
+    page: 29
+    rows:
+    - - '1'
+      - Affable, quick to make friends and socialize
+    - - '2'
+      - Beautiful, exceptionally fine to look at
+    - - '3'
+      - Brave, steady in the face of peril
+    - - '4'
+      - Clever, quick to see the solution to puzzles
+    - - '5'
+      - Disciplined, putting money or time to good use
+    - - '6'
+      - Honest, terrible at lying or deceit
+    - - '7'
+      - Industrious, always taking care of useful work
+    - - '8'
+      - Powerful, very strong or sturdy of form
+    - - '9'
+      - Selfless, willing to sacrifice for friends and allies
+    - - '10'
+      - Thoughtful, acting more out of reason than passion
+    - - '11'
+      - Cowardly, with lower Morale and quick to run
+    - - '12'
+      - Deceitful, preferring lies over truth
+    - - '13'
+      - Feeble, being unusually weak or frail
+    - - '14'
+      - Greedy, willing to steal from the party
+    - - '15'
+      - Indulgent, quick to gorge on pleasures
+    - - '16'
+      - Lazy, doing only what they absolutely must
+    - - '17'
+      - Reckless, prone to acting on first impulses
+    - - '18'
+      - Stupid, tending to act thoughtlessly by instinct
+    - - '19'
+      - Ugly, with some notable deformation
+    - - '20'
+      - Unsociable, bad at social interactions
+  mont.p45.encounters-in-the-swamps-of-the-maresc:
+    title: Encounters in the Swamps of the Maresc
+    die: d6
+    page: 45
+    rows:
+    - - '1'
+      - 1 pagan shaman with 1d6+4 skilled raider henchmen seeks unclean occult knowledge in the swamp.
+    - - '2'
+      - Cursed quicksand; each PC must make an Evasion save or fall in; Str/Exert difficulty 10 to swim out if not rescued by someone on the shore.
+    - - '3'
+      - 1d6+1 devil beavers are building a dam
+    - - '4'
+      - A hermit has taken up residence here; 50% chance he’s a bandit chief hiding from the law.
+    - - '5'
+      - 1 Fae forest witch is looking for ingredients; she may feign being a village girl.
+    - - '6'
+      - 1 king panther is out hunting; 50% chance it’s recently fed, otherwise it’s altogether hungry.
+  mont.p45.encounters-near-the-terra-perduda:
+    title: Encounters near the Terra Perduda
+    die: d6
+    page: 45
+    rows:
+    - - '1'
+      - 1 Fae knight with a retinue of 2d6 gobelins, 1d6 woses, and 1 ogre
+    - - '2'
+      - Pagan raiders; 3d6 rabble, 1d6 skilled raiders, 1 shaman, and 1 raid leader
+    - - '3'
+      - 1 desperate Montfroider seeking a taken family member or escaping pagan captivity.
+    - - '4'
+      - 2d6 gobelins have set up near 1d4 bloodvines to lure or drive prey into the plants as a trap.
+    - - '5'
+      - 1 cursed beast prowls the area, tormented by its unnatural existence.
+    - - '6'
+      - 1d8+2 woses riding fae wolves patrol the borders of the Terra Perduda.
+  mont.p45.encounters-on-roads-or-trails:
+    title: Encounters on Roads or Trails
+    die: d8
+    page: 45
+    rows:
+    - - '1'
+      - Signs of fighting or murder; roll again to see who died or who attacked here. They may still be close.
+    - - '2'
+      - A trade caravan from the nearest village; 2 carts, 1d6+4 carters, and 1d6+2 militia guards.
+    - - '3'
+      - 1d8+2 bandits lie in wait; they won’t challenge groups that outnumber them.
+    - - '4'
+      - A militia patrol of 2d4+2 men march along, with a veteran militiaman rider leading them.
+    - - '5'
+      - A joglar is making their way to the next village; 10% chance they’re in league with bandits.
+    - - '6'
+      - 3d6 gobelins are accompanied by 1d4 woses or 1 gobelin boss. The can be heard 1,000’ distant.
+    - - '7'
+      - 2d6+2 pagan rabble are led by 1 skilled raider. They’re stealthy, but won’t chase small prizes.
+    - - '8'
+      - 1d6+2 pilgrims on their way to the next monastery. 25% chance they’re bandits robbing the unwary.
+  mont.p45.encounters-on-plains-or-shallow-forest:
+    title: Encounters on Plains or Shallow Forest
+    die: d6
+    page: 45
+    rows:
+    - - '1'
+      - 1d4+2 lumberjacks or charcoal burners are going about their trade.
+    - - '2'
+      - A flight of 1d6 gobelin hawks are circling the PCs, seeing if any of them are wounded and good prey.
+    - - '3'
+      - 3d6 gobelins are skulking, looking for likely prey. They’re quieter than most gobelins.
+    - - '4'
+      - 1d2+1 hunters from the nearest village are bringing back their prey.
+    - - '5'
+      - 1 ogre is hungry, and lying in wait to capture the first human unlucky enough to meet him.
+    - - '6'
+      - 1d8+2 pagan rabble are hunting for easy prey; they’ll avoid strong groups.
+  mont.p45.encounters-in-the-deep-forest-or-hills:
+    title: Encounters in the Deep Forest or Hills
+    die: d6
+    page: 45
+    rows:
+    - - '1'
+      - 1 forest bear is hiding amid the branches of a downed spruce tree, waiting for prey.
+    - - '2'
+      - Loup-garous are out hunting; 1d4 whelps with a 50% chance of either a savage or a tempter too
+    - - '3'
+      - 1 faerie knight out riding with 2d6 gobelins mounted on fae wolves; their horns warn of their coming.
+    - - '4'
+      - 2d6 pagan rabble, 1d6 skilled raiders, and 1 raid leader are on their way to their hidden raid camp.
+    - - '5'
+      - A pack of 2d6 Montfroid wolves are out hunting and have scented the PCs.
+    - - '6'
+      - A thicket of 1d4 bloodvines lies in the group’s path, appearing to be a raspberry bramble patch.
+  mont.p49.rumors-in-castelnou-bite-shock-n-a-skill:
+    title: Rumors in Castelnou bite, Shock N/A, Skill +1, Morale 8, Instinct 5) are
+    die: d10
+    page: 49
+    rows:
+    - - '1'
+      - Baron Sicard in Nouvila is sure to give Milon’s End as a fief to anyone who can conquer it.
+      - out hunting. A low Reaction Roll means hunger; they may attack if the party is few or bloodied.
+    - - '2'
+      - There is more than one way into the Deep.
+      - 4 A frantic woodsman begs help; a tree fell on his
+    - - '3'
+      - A holy hermit in the depths of Milon’s End can cure any sickness if he can be found. (F)
+      - partner Jacques and broke his leg, and he cannot get the wounded man back to safety before nightfall. Even odds that the plea is sincere, earning the
+    - - '4'
+      - A band of pagan raiders was spotted near the Deep last week.
+      - gratitude of the two men, or that it is an ambush laid by four BANDITS (AC 12, HD 1, HP 6/5/3/3, Atk
+    - - '5'
+      - The Deep is full of the shades of its restless dead. (F)
+      - +1, Dmg 1d6 bow or spear, Shock N/A bow or
+    - - '6'
+      - There are four levels to the Deep.
+      - 2/13 spear, Skill +1, Morale 9, Instinct 3)
+    - - '7'
+      - Some villagers from Lebret were going to the Deep last month, for reasons none can say.
+      - 5 A huntsman is found pinned to a tree by a bronze-headed spear, the body stripped and
+    - - '8'
+      - The Deep has many hidden passages.
+      - hideously mutilated.
+    - - '9'
+      - The water of the stalagmite pool has a magical blessing for those who drink it. (F)
+      - 6 Saintly old Brother Jean the hermit encounters the party. He has arts of healing, and can cure 1d6 damage for each of them at no System Strain cost.
+    - - '10'
+      - They call it Milon’s End, but Milon de Lomagne is not as dead as he should be.
+      - He can lead them to Milon’s End or Castelnou with no chance of hostile encounters, and will do so if the PCs seem to be godly adventurers.
+    cols:
+    - Rumors in Castelnou
+    - bite, Shock N/A, Skill +1, Morale 8, Instinct 5) are
+  mont.p49.random-encounters-on-the-way:
+    title: Random Encounters On the Way
+    die: d8
+    page: 49
+    rows:
+    - - '1'
+      - 1d4+2 PEASANT CULTISTS (AC 12, HD 1, Atk +1, Dmg 1d6 spear, Shock 2/13, Skill +0, Morale 9, Instinct 3) are on their way to Milon’s End. They will claim to be woodsmen working in the Bosc Rimasser,
+        though they have but one axe among them. They will report this meeting to Father Marceau.
+    - - '2'
+      - 1d6+2 GOBELINS (AC 13, HD 1, Atk +1, Dmg
+    review: 6 results uncovered
+  mont.p55.wandering-encounters-on-this-level:
+    title: Wandering Encounters on This Level
+    die: d10
+    page: 55
+    rows:
+    - - '1'
+      - 2 GOBELIN WARRIORS (AC 12, HD 1, Atk +1, Dmg 1d6 spear, Shock 2/13, Skill +0, Morale 9, Instinct 3) are on patrol; if they detect intruders, they will immediately flee back to the closer of room
+        13 or room 19 in order to raise the alarm.
+    - - '2'
+      - The nearest glowing blue sun-glyphs briefly flare to a blindingly bright intensity; those within 30 feet must make a Physical save or be blinded for 1 turn and gain 1 System Strain from the alien
+        radiance.
+    - - '3'
+      - A boneless SOFT THRALL slowly oozes down the hallway, searching for a skeleton to wrap around and animate. It ignores intruders; if attacked, it will wetly beg for mercy in the Deepfolk tongue.
+    - - '4'
+      - A swarm of rats rushes through the area, feasting on any corpses present but ignoring live creatures capable of resistance. If attacked, they flee noisily.
+    - - '5'
+      - 1d4+2 GOBELIN WARRIORS (AC 12, HD 1, Atk +1, Dmg 1d6 spear, Shock 2/13, Skill +0, Morale 9, Instinct 3) are on their way back to room 19 with a stolen sheep on a pole.
+    - - '6'
+      - A mastiff-sized CAVE SPIDER (AC 13, HD 2, HP 10, Atk +3, Dmg 1d6+Physical save or be Mortally Wounded by poison, No Shock, Skill +1, Morale 9, Instinct 4) starts stalking the PCs, hiding until one
+        is wounded or weakened. It will flee after it downs a victim, and will press the attack only if the PCs try to steal its kill.
+    - - '7'
+      - A haggard peasant has escaped his gobelin captors and is trying to find a way out. He knows of the gobelin barracks in room 19 and the prisoners in room 17. He will not fight, but only seeks to
+        flee.
+    - - '8'
+      - 1d4+2 GOBELIN WARRIORS (AC 12, HD 1, Atk +1, Dmg 1d6 spear, Shock 2/13, Skill +0, Morale 9, Instinct 3) are on their way out of the Deep to raid the surface.
+    - - '9'
+      - A sudden fierce gust from the ventilation shafts blows out torches and unprotected lanterns.
+    - - '10'
+      - The PCs overhear echoes of the nearest inhabitants quarreling, fighting, or celebrating.
+  mont.p59.wandering-encounters-on-this-level:
+    title: Wandering Encounters on This Level
+    die: d8
+    page: 59
+    rows:
+    - - '1'
+      - 1d4+2 PAGAN RAIDERS (AC 12, HD 1, Atk +1, Dmg 1d6 spear, Shock 2/13, Skill +1, Morale 9, Instinct 3) are looking for Sighild, and might parley for knowledge of her whereabouts.
+    - - '2'
+      - The party’s intended path forward is blocked by a mass of damp, swollen fungus. It extinguishes fire instantly, and will take 1d4 turns to chop through.
+    - - '3'
+      - A mastiff-sized CAVE SPIDER (AC 13, HD 2, HP 10, Atk +3, Dmg 1d6+Physical save or be Mortally Wounded by poison, No Shock, Skill +1, Morale 9, Instinct 4) starts stalking the PCs, hiding until one
+        is wounded or weakened. It will flee after it downs a victim, and will press the attack only if the PCs try to steal its kill.
+    - - '4'
+      - The SOFT THRALL BEAST YOD-JHAAL (AC 13, HD 3, HP 15, Atk +4, Dmg1d6+2, No Shock, Skill +1, Morale 12, Instinct 4) has squeezed itself into the exoskeletal husk of a dead cave spider and clumsily
+        mimics its behavior, saying “chitter chitter” and “I will bite you.” in the Court Riu it learned from an old victim. Its chief concern is acting as it thinks a cave spider should, but most of its
+        thoughts are wrong.
+    - - '5'
+      - The party stumbles across the remains of a fight, two dead pagan raiders slain by their fellows’ bronze spears. They’ve been butchered like meat animals by the hungry apostates.
+    - - '6'
+      - 1d4+2 GOBELIN WARRIORS (AC 12, HD 1, Atk +1, Dmg 1d6 spear, Shock 2/13, Skill +0, Morale 9, Instinct 3) have ventured down in search of fresh loot or fresh meat.
+    - - '7'
+      - A cloud of invisible spores chokes and stifles the PCs. Each must make a Physical save or gain 1d2 System Strain and lose their Move action each round for the next 1d4 turns.
+    - - '8'
+      - The PCs’ intended path leads through an ankle-deep slime of water and fungus. If they pass through it, they need at least a turn to scrub it off their boots or they have a 1in 6 chance of slipping
+        and falling prone during each round of combat for the next 6 turns.
+  mont.p65.wandering-encounters-on-this-level:
+    title: Wandering Encounters on This Level
+    die: d8
+    page: 65
+    rows:
+    - - '1'
+      - The SOFT THRALL ABOMINATION EIGHT-FIVEVOMAL (AC 15, HD 5, HP 30, Atk +6 x2, Dmg 1d8+2, Shock 4/-, Skill +1, Morale 12, Instinct 5) stalks the halls, and will be audible the round before it arrives.
+        It moves at a steady pace of 20’ per move, or 40’ if attacked at range. It paces the corridors and rooms endlessly, seeking intruders to kill. PCs can flee ahead of it and it will not actively pursue,
+        but it will attack if any human comes within its reach. It will not be encountered inside any room except for 10, 11 and 13.
+    - - '2'
+      - A weak plea for help is heard around the corner, where a village girl lies clutching her eviscerated belly. The girl can do nothing but repeat her pleas, as it is actually a Soft Thrall that mantled
+        the bones of an abandoned cult sacrifice. It has been re-enacting her last moments for years now and cannot think to do anything else.
+    - - '3'
+      - A patch of flesh-seeking fungus clings to the ceiling ahead of the PCs. Unless they take special precautions or have encountered it before, the lead PC must make an Evasion save or have it drop
+        on them, inflicting 2d6 acid damage and ruining their armor or clothing before they can scrape it off.
+    - - '4'
+      - A choral bellow of many-throated anguish echoes through the salle. It’s the only sound that Eight-FiveVomal can make.
+    - - '5'
+      - 1d4+4 GOBELIN WARRIORS (AC 12, HD 1, Atk +1, Dmg 1d6 spear, Shock 2/13, Skill +0, Morale 9, Instinct 3) are venturing below to look for loot.
+    - - '6'
+      - 1d6+4 BLUE SUN CULTISTS (AC 12, HD 1, Atk +1, Dmg 1d6 spear, Shock 2/13, Skill +0, Morale 10, Instinct 4) have come up from level 4, on their way to seek sacrifices above.
+    - - '7'
+      - Noxious, spore-laden fumes billow from halfclogged ventilation holes, inflicting 1 System Strain on the party.
+    - - '8'
+      - 1d8+2 PAGAN RAIDERS (AC 12, HD 1, Atk +1, Dmg 1d6 spear, Shock 2/13, Skill +0, Morale 9, Instinct 3) are on an errand to fetch food for the cultists, a task they sullenly resent.
+  mont.p70.wandering-encounters-on-this-level:
+    title: Wandering Encounters on This Level
+    die: d8
+    page: 70
+    rows:
+    - - '1'
+      - The SOFT THRALL ABOMINATION FOUR-NINETEEN-HOKMAL (AC 15, HD 6, HP 50, Atk +7 x2, Dmg 1d10+4, Shock 5/-, Skill +1, Morale 12, Instinct 5) from area 14 approaches. It moves very quietly, requiring
+        a Wis/Notice check by the sharpest PC at difficulty 10 to hear it the round before it arrives. Hokmal won’t finish off downed or playing-dead PCs, leaving them for the Charwoman.
+    - - '2'
+      - The PCs are approached by THE CHARWOMAN (AC 15, HD 5, HP 30, Atk +6 x3, Dmg 1d6+4 acid, Shock 4/-, Skill +1, Morale 10, Instinct 5) from room 1. Her degree of present hunger is determined by her
+        Reaction Roll; her willingness to attack is based on that and how well the PCs satisfy her longing for new songs.
+    - - '3'
+      - The sinister GLASS CRAWLER (AC 18, HD 5, HP 28, Atk +7, Dmg 1d6+Physical save or paralyzed for 1d4+1 rounds, Shock N/A, Skill +3, Morale 8, Instinct 4) from room 18 is stalking the party. It takes
+        a Wis/Notice check by the keenest PC at difficulty 10 to spot it on the ceiling. It will follow them for
+    review: 5 results uncovered

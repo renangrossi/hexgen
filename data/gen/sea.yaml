@@ -1,0 +1,1044 @@
+source:
+  id: SV
+  title: Sea Voyages (your book; WR
+  Wolves: null
+  Emerald Sea: null
+  ShadowSails: null
+  Pirate Borg inside): null
+  file: Shadowdark/My Projects/Sea-Voyages-Shadowdark.pdf
+  offset: 0
+tables:
+  sea.weather:
+    title: Weather
+    page: null
+    cols:
+    - Sky
+    - Effect
+    rows:
+    - - '1'
+      - Stormy
+      - Storm check (§8). Visibility −1. Navigate DC 18. No vessel encounters; creatures still come. In harsh seas, below, it is a hurricane.
+    - - 2–5
+      - Fair
+      - —
+    - - '6'
+      - Excellent
+      - Visibility +1. Roll the next Weather with ADV.
+    die: d6
+    note: 'source: Source: Western Reaches GM’s Guide pp. 40, 43'
+  sea.harsh-seas-double-rations-fish-dc-18-non:
+    title: Harsh seas · double rations; Fish DC 18, none on a stormy day
+    page: null
+    cols:
+    - Waters
+    - Harsh
+    - Stormy day there
+    rows:
+    - - null
+      - The Last Sea
+      - Summer and winter, on stormy days
+      - Hurricane
+    - - null
+      - Isles of Andrik
+      - Spring and fall on stormy days; all winter
+      - Hurricane
+    - - null
+      - Anywhere else
+      - Never
+      - Storm
+    note: 'source: Source: Western Reaches GM’s Guide pp. 42–43'
+  sea.wind-strength-roll-when-the-last-wind-en:
+    title: Wind strength · roll when the last wind ends; it holds 1d6 days
+    page: null
+    cols:
+    - Wind
+    - Astern
+    - Quarter
+    rows:
+    - - 2–3
+      - Calm
+      - Sail-only boats at half Speed
+      - —
+    - - 4–8
+      - Light breeze
+      - +1 hex
+      - +1 hex
+    - - 9–11
+      - Strong breeze
+      - +2 hexes
+      - +1 hex
+    - - '12'
+      - Gale
+      - +3 hexes
+      - +2 hexes · the day is Stormy
+    die: 2d6
+    note: 'source: Source: Wolves Upon the Coast p. 11'
+  sea.wind-direction-first-day-the-edge-it-blo:
+    title: Wind direction · first day, the edge it blows from
+    page: null
+    cols:
+    - From
+    - Each later day
+    rows:
+    - - '1'
+      - N
+      - 1–2 one edge anticlockwise
+    - - '2'
+      - NE
+      - 3–4 holds
+    - - '3'
+      - SE
+      - 5–6 one edge clockwise
+    - - '4'
+      - S
+      - ''
+    - - '5'
+      - SW
+      - ''
+    - - '6'
+      - NW
+      - ''
+    die: d6
+    note: 'source: Flat-topped hexes. Source: Wolves Upon the Coast p. 11 · Pirate Borg p. 78'
+  sea.point-of-sail-where-the-wind-comes-from:
+    title: Point of sail · where the wind comes from, against your heading
+    page: null
+    cols:
+    - Wind
+    - Sail-only boat
+    rows:
+    - - null
+      - Astern — dead behind
+      - Speed + the Astern bonus
+    - - null
+      - Quarter — either edge beside astern
+      - Speed + the Quarter bonus
+    - - null
+      - Bow — either edge beside ahead
+      - Speed
+    - - null
+      - Ahead — in irons
+      - Half Speed, beating to windward
+    note: 'source: Source: Wolves Upon the Coast p. 11 · Pirate Borg p. 78'
+  sea.navigate-wis:
+    title: Navigate · WIS
+    page: null
+    cols:
+    - Waters
+    rows:
+    - - '12'
+      - A charted lane, or a sea you have crossed before
+    - - '15'
+      - Open sea
+    - - '18'
+      - Stormy, or sailing through the night
+    note: 'source: ADV with a chart of these waters or navigation instruments (50 gp). DISADV if no one aboard is a sailor or navigator.'
+  sea.drift-when-the-check-fails:
+    title: Drift · when the check fails
+    page: null
+    cols:
+    - The ship…
+    rows:
+    - - '1'
+      - makes no headway
+    - - 2–5
+      - goes a random edge (d6) instead
+    - - '6'
+      - holds its course after all
+    die: d6
+    note: 'source: Source: Curse of the Emerald Sea p. 9'
+  sea.boats:
+    title: Boats
+    page: null
+    cols:
+    - Boat
+    - Cost
+    - Spd
+    - AC
+    - HP
+    - Slots
+    - Props
+    - Drive
+    rows:
+    - - null
+      - Raft
+      - 40 gp
+      - '2'
+      - '9'
+      - '10'
+      - '20'
+      - U
+      - Pole
+    - - null
+      - Canoe
+      - 200 gp
+      - '4'
+      - '9'
+      - '10'
+      - '20'
+      - —
+      - Paddle
+    - - null
+      - Rowboat
+      - 200 gp
+      - '4'
+      - '12'
+      - '10'
+      - '30'
+      - U
+      - Oars
+    - - null
+      - Sloop
+      - 400 gp
+      - '8'
+      - '15'
+      - '30'
+      - '300'
+      - C
+      - Sail
+    - - null
+      - Junk
+      - 400 gp
+      - '8'
+      - '12'
+      - '50'
+      - '300'
+      - C R W
+      - Sail, oars
+    - - null
+      - Longboat
+      - 500 gp
+      - '10'
+      - '15'
+      - '40'
+      - '200'
+      - C F R
+      - Sail, oars
+    - - null
+      - Sailboat
+      - 700 gp
+      - '8'
+      - '15'
+      - '60'
+      - '200'
+      - C F W
+      - Sail
+    - - null
+      - Galleon
+      - 1,500 gp
+      - '8'
+      - '18'
+      - '80'
+      - '500'
+      - C R W
+      - Sail, oars
+    note: 'source: Source: Western Reaches Player’s Guide p. 118'
+  sea.table:
+    title: ''
+    page: null
+    cols:
+    - Prop
+    - Meaning
+    rows:
+    - - null
+      - C
+      - Can’t move without 4+ trained crew.
+    - - null
+      - F
+      - 'Fast: moves two bands a round in combat.'
+    - - null
+      - R
+      - 'Row galley: can row; difficult terrain counts as normal.'
+    - - null
+      - U
+      - 'Unseaworthy: cumulative 1-in-6 to sink each stormy day on open sea.'
+    - - null
+      - W
+      - Up to two siege weapons (§10).
+  sea.fast-travel-between-hexes-already-sailed:
+    title: Fast Travel · between hexes already sailed
+    page: null
+    cols:
+    - Voyage
+    - Rations each
+    rows:
+    - - null
+      - A few days
+      - 1–3
+    - - null
+      - About a week
+      - '3'
+    - - null
+      - Several weeks
+      - 3 a week
+    note: 'source: Roll 2d6 days per week of voyage. One PC may make an INT check (fishing) for the group; on a failure, short of rations means arriving drained. Source: Western Reaches GM’s Guide p. 45'
+  sea.uncharted-hex-1-for-each-open-sea-in-a-r:
+    title: Uncharted hex · +1 for each Open sea in a row
+    page: null
+    cols:
+    - The hex holds…
+    rows:
+    - - '2'
+      - Deep water. The kraken’s hex (§11). The next encounter check here is automatic, and it comes.
+    - - 3–6
+      - Open sea.
+    - - '7'
+      - Open sea and a find — d12 below.
+    - - 8–9
+      - A sail. A vessel holds this hex (§7, Vessel).
+    - - 10+
+      - Island — d8 below.
+    die: 2d6
+    note: 'source: Anything but Open sea resets the bonus. Source: Curse of the Emerald Sea p. 8'
+    review: 2 results uncovered
+  sea.finds:
+    title: Finds
+    page: null
+    cols:
+    - On the water
+    rows:
+    - - '1'
+      - Someone clinging to debris. 1-in-6 hostile.
+    - - '2'
+      - A mirage — an island or a sail that is not there.
+    - - '3'
+      - A sunken mast breaks the surface. Undead crew and treasure below.
+    - - '4'
+      - A floating body. 1-in-6 it is a creature.
+    - - '5'
+      - A voice sings a shanty, nowhere to be seen. Heard every night after.
+    - - '6'
+      - A message in a bottle.
+    - - '7'
+      - 'Clear skies: no Navigate check tomorrow.'
+    - - '8'
+      - A small package on a fishing line.
+    - - '9'
+      - A castaway on a raft. Joins the crew if saved.
+    - - '10'
+      - 'A floating crate: 1d4 rations and one treasure.'
+    - - '11'
+      - A blue hole — a drowned cave with two treasures.
+    - - '12'
+      - 'A tiny atoll: rum, gold and one treasure.'
+    die: d12
+    note: 'source: Treasure → §13. Source: Curse of the Emerald Sea p. 11'
+  sea.island:
+    title: Island
+    page: null
+    cols:
+    - Island
+    - Here
+    rows:
+    - - '1'
+      - Volcano
+      - Ash beaches, hot springs. 1-in-6 it erupts.
+    - - '2'
+      - Jungle
+      - Fresh water. Hunt and forage as on land.
+    - - '3'
+      - Smuggler’s cove
+      - Lagoon and cave of rum and gold. 1-in-6 the smugglers are home.
+    - - '4'
+      - Mountain peak
+      - From the top, the next island needs no Navigate check. 1-in-6 a cult at the summit.
+    - - '5'
+      - Mangroves
+      - Mud crabs, crocodiles, insects. 1-in-6 a hermit gone wild.
+    - - '6'
+      - Oasis
+      - Palms, a spring, coconuts. Refill all water.
+    - - '7'
+      - Village
+      - A fishing hamlet (§14). Roll reaction (§13).
+    - - '8'
+      - Ruin
+      - A drowned temple or a tower. A dungeon below; two treasures.
+    die: d8
+    note: 'source: Source: Curse of the Emerald Sea pp. 14–15'
+  sea.sea-event:
+    title: Sea Event
+    page: null
+    cols:
+    - Event
+    rows:
+    - - '3'
+      - Signs of land. Birds, drift, a scent. Land is a day off.
+    - - '4'
+      - Boat trouble. Fire, a leak, rats, shipworm, a torn sail. Repair fixes it.
+    - - '5'
+      - Crew trouble. Sickness, drink, sabotage, a man overboard. Crew morale check.
+    - - '6'
+      - Shallow life. Seals, turtles, a shoal. Free Fish task.
+    - - '7'
+      - Vessel sighted. Roll Vessel, below, then reaction.
+    - - '8'
+      - Hazard. Freak wave, reef, sandbar, whirlpool, wreck. 2d6 to the boat if it beats her AC.
+    - - '9'
+      - Clear sailing.
+    - - '10'
+      - Island (§6). Land or sail on.
+    - - '11'
+      - Deep life. Dolphins, whales, flying fish. Free Fish task.
+    - - '12'
+      - Weather turns. The day becomes Stormy.
+    - - '13'
+      - Sea folk. 1d6+2 deep ones, or 1d3 sharkmen on 4–6 (§12). Reaction; they know these waters.
+    - - 14–15
+      - Wind dies. Calm for the rest of the day.
+    - - '16'
+      - Pirates give chase (§10, Chase).
+    - - 17–18
+      - Dangerous creature. Roll §11 until one of LV 5+ comes up.
+    die: 3d6
+    note: 'source: Source: Overland Hexcrawl §24.5 · When Sea Is Calling p. 51'
+  sea.vessel:
+    title: Vessel
+    page: null
+    cols:
+    - Ship
+    - Hull
+    - Aboard (§12)
+    rows:
+    - - '1'
+      - Merchants
+      - Junk or galleon
+      - Sailors, 1d4 marines. Trade, or pay to pass.
+    - - '2'
+      - Fishers or whalers
+      - Rowboat or sloop
+      - 1d6+2 sailors. News, fish, a rumour.
+    - - '3'
+      - Navy patrol
+      - Sailboat or galleon
+      - 2d6 marines, 1d4 gunners, a captain. Tolls or arrests.
+    - - '4'
+      - Pirates
+      - Sloop or sailboat
+      - 1d6+1 pirates, a captain. Hostile unless outmatched.
+    - - '5'
+      - Raiders
+      - 1d6 longboats near a coast
+      - 1d6+2 freebooters each.
+    - - '6'
+      - Ghost ship
+      - Any, rotting
+      - 1d6+1 drowned crew; 2-in-6 their captain.
+    die: d6
+    note: 'source: Source: Wolves Upon the Coast p. 12 · Thematic Foe Tables p. 77'
+  sea.storm-check-helm-task-dex:
+    title: Storm check · Helm task, DEX
+    page: null
+    cols:
+    - Result
+    - What happens
+    rows:
+    - - null
+      - DC 15 met (18 in a hurricane)
+      - The ship rides it out.
+    - - null
+      - Failure, or no one at the helm
+      - 2d6 damage to the boat.
+    - - null
+      - Natural 1
+      - 'Capsized. Loose cargo lost; all on deck DEX DC 12 or overboard; d6: 4–6 she starts sinking.'
+    note: 'source: An Unseaworthy boat also rolls its 1-in-6 (§4). Source: Wolves Upon the Coast p. 11 · ShadowSails p. 35'
+  sea.crew-morale-dc-15-wis-on-the-captains-mo:
+    title: Crew morale · DC 15 WIS on the captain’s modifier
+    page: null
+    cols:
+    - Roll when…
+    - Modifiers
+    rows:
+    - - null
+      - The crew is halved
+      - +1 grog aboard
+    - - null
+      - Rations or water run out
+      - ADV with a Shanty today
+    - - null
+      - The grog runs out
+      - DISADV if unpaid a month
+    - - null
+      - The boat drops below half HP
+      - ''
+    - - null
+      - A month with no prize or pay
+      - ''
+    - - null
+      - A horror comes aboard
+      - ''
+    note: 'source: Source: Shadowdark core · ShadowSails p. 35 · Pirate Borg p. 76'
+  sea.failed-morale-out-of-combat:
+    title: Failed morale · out of combat
+    page: null
+    cols:
+    - The crew…
+    rows:
+    - - 1–3
+      - Sullen. DISADV on ship checks until shore leave or a prize.
+    - - 4–5
+      - 1d4 desert at the next landfall.
+    - - '6'
+      - Mutiny. Parley (CHA DC 15) or fight.
+    die: d6
+    note: 'source: In combat a failure means they flee, or strike the colours.'
+  sea.crew-actions:
+    title: Crew actions
+    page: null
+    cols:
+    - Action
+    - Roll
+    - Effect
+    rows:
+    - - null
+      - Fire
+      - d20+DEX vs AC
+      - One siege weapon fires. Reloading takes a full turn.
+    - - null
+      - Trim
+      - INT vs weather
+      - +1 band of movement this round.
+    - - null
+      - Evade
+      - DEX vs weather
+      - Enemy siege attacks at DISADV this round.
+    - - null
+      - Repair
+      - STR/INT 12
+      - 1d6 HP (half max at sea), or clear a jammed weapon.
+    - - null
+      - Douse
+      - DEX/STR 12
+      - Remove one fire die.
+    - - null
+      - Ram
+      - DEX vs AC
+      - At close. 1d6 per 30 HP of the rammer (min 1d6); she takes 1d6.
+    - - null
+      - Board
+      - DEX 9
+      - At close. Sailors need no roll. Then ordinary combat.
+    note: 'source: Source: Pirate Borg p. 75 · ShadowSails p. 34 · Wolves Upon the Coast p. 12'
+  sea.weather-dc-for-trim-evade-and-storm:
+    title: Weather DC · for Trim, Evade and Storm
+    page: null
+    cols:
+    - Weather
+    - DC
+    rows:
+    - - null
+      - Calm, clear
+      - ADV
+    - - null
+      - Wind or fog
+      - '9'
+    - - null
+      - Heavy rain
+      - '12'
+    - - null
+      - Storm
+      - '15'
+    - - null
+      - Hurricane
+      - '18'
+    note: 'source: Source: ShadowSails p. 35'
+  sea.siege-weapons-30-slots-each-ammo-1-gp-2:
+    title: Siege weapons · 30 slots each; ammo 1 gp, 2 slots
+    page: null
+    cols:
+    - Weapon
+    - Cost
+    - Damage
+    - Props
+    rows:
+    - - null
+      - Heavy crossbow
+      - 50 gp
+      - 2d8
+      - —
+    - - null
+      - Catapult
+      - 100 gp
+      - 3d8
+      - Blast
+    - - null
+      - Ballista
+      - 150 gp
+      - 3d6
+      - Exploding
+    - - null
+      - Trebuchet
+      - 300 gp
+      - 5d6
+      - Blast, Exploding · galleon only
+    note: 'source: Blast: everything in a near cube. Exploding: a max die rolls again. Source: Western Reaches Player’s Guide p. 119'
+  sea.cannon-where-there-is-powder:
+    title: Cannon · where there is powder
+    page: null
+    cols:
+    - Gun
+    - Cost
+    - Damage
+    rows:
+    - - null
+      - Light
+      - 50 gp
+      - 1d8
+    - - null
+      - Standard
+      - 100 gp
+      - 2d8
+    - - null
+      - Heavy
+      - 200 gp
+      - 3d8
+    note: 'source: Chain shot: the target can’t move next round. Grape shot: no hull damage; casualties on 4+. A powder barrel that blows deals 6d6 near. Source: ShadowSails p. 33'
+  sea.denizens-4d6:
+    title: Denizens · 4d6
+    page: null
+    cols:
+    - Foe
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Trait
+    rows:
+    - - '4'
+      - Great white shark
+      - '1'
+      - '8'
+      - '14'
+      - '40'
+      - bite +6 (2d8)
+      - 'Rams a small boat: all aboard DC 12 DEX or overboard. ADV vs anyone below half HP.'
+    - - '5'
+      - Killer whale
+      - 1d3
+      - '8'
+      - '12'
+      - '39'
+      - 2 bite +5 (1d10)
+      - 'Washes the deck: DC 15 DEX or in the water. 1–2 on d6 each round: the pod loses interest.'
+    - - '6'
+      - Giant squid
+      - '1'
+      - '6'
+      - '13'
+      - '30'
+      - 2 tentacle +5 (2d6) or beak +5 (2d8)
+      - 'Tentacle: DC 15 STR or dragged over the side next turn. Surprises at night.'
+    - - '7'
+      - Giant crab
+      - 1d3
+      - '5'
+      - '15'
+      - '24'
+      - 2 pincer +4 (1d8)
+      - 'Crush: DC 15 STR or 1d8 more.'
+    - - '8'
+      - Barracuda
+      - 1d4+1
+      - '3'
+      - '13'
+      - '15'
+      - bite +3 (1d10)
+      - Strikes first, every other round, at whoever carries most metal, with ADV.
+    - - '9'
+      - Moray eel
+      - 1d4+1
+      - '3'
+      - '13'
+      - '17'
+      - bite +3 (1d8)
+      - 'Holds: DC 15 STR to pull free, 1d4 on a fail. DISADV to hit it in its hole.'
+    - - '10'
+      - Barbed star
+      - 1d4+1
+      - '2'
+      - '13'
+      - '11'
+      - rasp +2 (1d6)
+      - 'Clings: auto damage each round; DC 12 STR to prise off. Climbs aboard at night.'
+    - - '11'
+      - Seal
+      - 1d6
+      - '1'
+      - '12'
+      - '6'
+      - bite +1 (1d4)
+      - 'Won’t fight. 1–3 on d6: something hunts them — roll again for LV 6+.'
+    - - '12'
+      - Carnivorous fish
+      - 2d6
+      - '1'
+      - '12'
+      - '6'
+      - bite +1 (1d4)
+      - Harmless out of the water. ADV vs anyone below half HP.
+    - - '13'
+      - Sea lice
+      - 2d6
+      - '1'
+      - '11'
+      - '4'
+      - bite +1 (1)
+      - A swimmer loses 1d4 HP a round until out of the water.
+    - - '14'
+      - Jellyfish bloom
+      - 2d6
+      - '1'
+      - '12'
+      - '5'
+      - sting +1 (1d4)
+      - DC 9 CON or 1d4 more and can’t swim 1d4 rounds. Unseen without DC 12 WIS.
+    - - '15'
+      - Gull flock
+      - 2d6
+      - '1'
+      - '12'
+      - '5'
+      - beak +1 (1d4)
+      - '1–3 on d6 each round: one steals food or something shiny.'
+    - - '16'
+      - Urchin bed
+      - 1d6+2
+      - '1'
+      - '14'
+      - '5'
+      - spine +1 (1d4)
+      - Terrain. Wading it costs a hit; DC 9 CON or half speed for a day.
+    - - '17'
+      - Sea snake
+      - 1d6
+      - '2'
+      - '13'
+      - '9'
+      - bite +2 (1d4)
+      - DC 12 CON or 2d6 next round, and can’t swim till then.
+    - - '18'
+      - Dolphin
+      - 1d6
+      - '2'
+      - '13'
+      - '13'
+      - ram +2 (1d6)
+      - Won’t fight. Sharks flee; a drowning PC is pushed to the boat.
+    - - '19'
+      - Reef shark
+      - 1d4+1
+      - '3'
+      - '13'
+      - '16'
+      - bite +3 (1d8)
+      - Circles a round first. +1d6 and ADV vs anyone below half HP.
+    - - '20'
+      - Man-o’-war
+      - 1d3
+      - '3'
+      - '12'
+      - '15'
+      - 2 tendril (near) +3 (1d6)
+      - DC 12 CON or 2d6 more and lose the next turn.
+    - - '21'
+      - Giant octopus
+      - 1d2
+      - '5'
+      - '13'
+      - '23'
+      - 2 tentacle (near) +4 (1d8)
+      - 'Grabs: DC 15 STR. Or seizes the gunwale: helm DC 15 STR or swamped. Inks once.'
+    - - '22'
+      - Plesiosaur
+      - '1'
+      - '6'
+      - '13'
+      - '31'
+      - 2 bite +5 (2d8)
+      - 'Reaches the deck. A PC at 0 HP is taken under: kill it within 1d6 rounds.'
+    - - '23'
+      - Megalodon
+      - '1'
+      - '8'
+      - '14'
+      - '41'
+      - 3 bite +7 (2d8)
+      - 'First strike holes the keel: sinks in 1d6 rounds unless 15 HP repaired. No morale.'
+    - - '24'
+      - Sperm whale
+      - '1'
+      - '8'
+      - '14'
+      - '41'
+      - 3 ram +6 (2d10) or bite +6 (3d10)
+      - Fights only if struck. Its ram destroys a boat outright.
+    die: 4d6
+    note: 'source: All swim; MV double near. Source: Thematic Foe Tables pp. 115–118'
+  sea.the-kraken:
+    title: The Kraken
+    page: null
+    cols:
+    - AC
+    - HP
+    - Attack
+    - Trait
+    rows:
+    - - '8'
+      - '16'
+      - '41'
+      - 4 tentacle (near) +7 (1d10)
+      - 'Each tentacle a different target. Crit: dragged under, drowning until a DC 15 STR frees them.'
+    note: 'source: Coast and open water. Source: Thematic Foe Tables p. 78'
+  sea.table-2:
+    title: ''
+    page: null
+    cols:
+    - Foe
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Trait
+    rows:
+    - - null
+      - Sailor
+      - '2'
+      - '12'
+      - '8'
+      - cutlass +3 (1d6)
+      - Morale at DISADV.
+    - - null
+      - Marine
+      - '4'
+      - '15'
+      - '20'
+      - cutlass +4 (1d8) or bow (far) +4 (1d6)
+      - Three of a band shoot before reaction.
+    - - null
+      - Freebooter
+      - '4'
+      - '16'
+      - '18'
+      - rapier +4 (1d8) or crossbow (far) +4 (1d8)
+      - 'Crit: ADV on the target till its next turn.'
+    - - null
+      - Gunner
+      - '5'
+      - '13'
+      - '26'
+      - ballista (far) +5 (2d8) or sword +5 (1d8)
+      - One volley, then a turn drawing steel.
+    - - null
+      - Pirate
+      - '5'
+      - '15'
+      - '24'
+      - 2 cutlass +5 (1d8)
+      - ADV in the first round of a boarding.
+    - - null
+      - Captain
+      - '5'
+      - '17'
+      - '26'
+      - 2 scimitar +5 (1d8+1)
+      - Crew within far check morale with ADV.
+    - - null
+      - Deep one
+      - '2'
+      - '13'
+      - '10'
+      - 2 spear +2 (1d6)
+      - Swims. Blinded in bright light.
+    - - null
+      - Sharkman
+      - '4'
+      - '15'
+      - '22'
+      - bite +4 (1d10)
+      - In water, attacks on it at DISADV. ADV vs the wounded.
+    - - null
+      - Drowned crew
+      - '5'
+      - '14'
+      - '24'
+      - cutlass +5 (1d8)
+      - Undead. No morale until a cleric blesses them.
+    - - null
+      - Captain of the Drowned
+      - '7'
+      - '16'
+      - '36'
+      - cursed cutlass +7 (2d8)
+      - Undead. The cutlass burns living hands for 2d6.
+    note: 'source: MV near. Source: Thematic Foe Tables pp. 77–78'
+  sea.reaction-2d6-cha:
+    title: Reaction · 2d6 + CHA
+    page: null
+    cols:
+    - Attitude
+    rows:
+    - - 0–6
+      - Hostile
+    - - 7–8
+      - Suspicious
+    - - '9'
+      - Neutral
+    - - 10–11
+      - Curious
+    - - 12+
+      - Friendly
+    die: 2d6
+    note: 'source: Pirates, undead and anything hunting are hostile. Source: Shadowdark core p. 117'
+  sea.sea-treasure:
+    title: Sea treasure
+    page: null
+    cols:
+    - Find
+    rows:
+    - - '1'
+      - A chest of silver.
+    - - '2'
+      - 1d6 casks of rum. One is laced with powder.
+    - - '3'
+      - 'Fine navigation instruments: ADV on Navigate.'
+    - - '4'
+      - 'A book of shanties: ADV on the Shanty task.'
+    - - '5'
+      - 'Crates of hardtack: 2d6 rations.'
+    - - '6'
+      - A crate of cutlasses, boarding axes and crossbows.
+    - - '7'
+      - 'A potion. d6: 1–2 healing, 3 strength, 4–5 something strange, 6 poison.'
+    - - '8'
+      - A shark-tooth necklace. The wearer becomes a wereshark.
+    - - '9'
+      - 'A seashell ring: immune to sea curses.'
+    - - '10'
+      - 'A seashell harpoon: thrown, it always hits underwater.'
+    - - '11'
+      - 'A jar of blue clay. Smeared on a thing, it blows within a minute: 2d6 near.'
+    - - '12'
+      - 'A chart of these waters: ADV on Navigate here.'
+    die: d12
+    note: 'source: Source: Curse of the Emerald Sea pp. 11, 13'
+  sea.port-d6:
+    title: Port · d6
+    page: null
+    cols:
+    - Port
+    - Has
+    rows:
+    - - 1–2
+      - Fishing hamlet
+      - Rations, water. Repair to half HP. Rowboats. 1d4 sailors.
+    - - 3–5
+      - Port town
+      - Full repair, careening, grog, siege ammo. Boats up to a sailboat. 2d6 sailors.
+    - - '6'
+      - Harbour city
+      - Shipwright, siege weapons, cannon, galleons. A navy. 4d6 sailors.
+    die: d6
+    note: 'source: A village from §6 is a hamlet.'
+  sea.prices:
+    title: Prices
+    page: null
+    cols:
+    - Item
+    - Cost
+    rows:
+    - - null
+      - Rations (3)
+      - 5 sp
+    - - null
+      - Ship’s stores, a week for the crew
+      - 5 / 10 / 20 gp — hull up to 30 / 60 / 80 HP
+    - - null
+      - Grog, a week for the crew
+      - 5 / 10 / 20 gp, 1 slot
+    - - null
+      - Repair
+      - 1 gp per HP, one week
+    - - null
+      - Navigation instruments
+      - 50 gp
+    - - null
+      - Siege ammunition
+      - 1 gp a shot
+    - - null
+      - Sailors
+      - 'Sign on for shares: one each, two for the captain'
+    note: 'source: Source: Shadowdark core · ShadowSails p. 33 · Western Reaches Player’s Guide pp. 118–119 · Pirate Borg p. 77'
+  sea.in-port:
+    title: In port
+    page: null
+    cols:
+    - Who rules
+    - Trouble on the quay
+    rows:
+    - - '1'
+      - A navy governor
+      - A press gang works the docks.
+    - - '2'
+      - A merchant guild
+      - A plague ship lies in quarantine.
+    - - '3'
+      - A pirate lord
+      - The harbour toll has doubled.
+    - - '4'
+      - The temple of the sea
+      - A pirate hangs at dawn.
+    - - '5'
+      - A council of captains
+      - The fishing boats come back empty.
+    - - '6'
+      - Smugglers, behind a figurehead
+      - A ghost ship was seen off the point.
+    die: d6
+    note: 'source: Source: Curse of the Emerald Sea p. 5 · ShadowSails p. 40'
+  sea.table-3:
+    title: ''
+    page: null
+    cols:
+    - Task
+    - Stat
+    - Success
+    rows:
+    - - null
+      - Bed Down
+      - WIS/CON
+      - Broken sleep needs no CON check.
+    - - null
+      - Cook
+      - INT/WIS
+      - Each who eats a ration gains 2 temp HP for a day.
+    - - null
+      - Fish
+      - DEX/WIS
+      - 1d4 rations. Not on a pushed day.
+    - - null
+      - Helm
+      - DEX/INT
+      - +1 hex today, unless calm. On a stormy day this is the Storm check (§8).
+    - - null
+      - Keep Watch
+      - WIS
+      - The ship can’t be surprised by day, or by night — choose.
+    - - null
+      - Navigate
+      - WIS
+      - Holds the course (§3).
+    - - null
+      - Predict
+      - INT/WIS
+      - Reroll tomorrow’s Weather or Wind after seeing it.
+    - - null
+      - Repair
+      - STR/INT
+      - 1d6 HP to the boat, never above half its max at sea; or fix one broken part.
+    - - null
+      - Shanty
+      - CHA
+      - A luck token to another PC, or ADV on crew morale today.
+    note: 'source: * A raft, canoe or rowboat has no galley fire: DISADV. Hired sailors work the ship; tasks are what the PCs add. Source: Western Reaches GM’s Guide p. 44'

@@ -1,0 +1,277 @@
+source:
+  id: CWN
+  title: Cities Without Number
+  file: OSR/Tools & Maps/Tables/Cities Without Number.pdf
+  offset: 0
+  pages:
+  - 1
+  - 265
+  cols: 2
+tables:
+  cwn.p134.the:
+    title: The
+    die: d20
+    page: 134
+    rows:
+    - - '1'
+      - Charm, able to persuade other NPCs and
+    - - '2'
+      - Cunning, having plans for any occasion
+    - - '3'
+      - Debts, being owed favors by one or more
+    - - '4'
+      - Deception, capable of tricking and misleading
+    - - '5'
+      - Fame, being known and widely respected
+    - - '6'
+      - Family, related to someone of greater
+    - - '7'
+      - Foresight, able to clearly predict the likely
+    - - '8'
+      - Friendship, being good friends with someone
+    - - '9'
+      - Gear, possessed of high-quality cyber,
+    - - '10'
+      - Inspiration, able to goad others to pursue
+    - - '11'
+      - Luck, beyond any ordinary measure to a
+    - - '12'
+      - Money, being unusually wealthy for someone
+    - - '13'
+      - Prowess, with their physical form somehow
+    - - '14'
+      - Secrets, privy to blackmail information or
+    - - '15'
+      - Skills, possessed of a rare or important skill
+    - - '16'
+      - Stealth, very difficult to locate or follow if
+    - - '17'
+      - Ties, linked professionally to an organization
+    - - '18'
+      - Violence, either being personally fearsome
+    - - '19'
+      - Willpower, driven to obtain their aim with
+    - - '20'
+      - Wisdom, able to discern a practical path
+  cwn.p135.notable-npc-virtues-or-qualities:
+    title: Notable NPC Virtues or Qualities
+    die: d20
+    page: 135
+    rows:
+    - - '1'
+      - Always keeps the spirit of their bargains
+    - - '2'
+      - Avoids lying in all but dire circumstances
+    - - '3'
+      - Cherishes an idealistic dream
+    - - '4'
+      - Courage of unusual degree
+    - - '5'
+      - Devoted to their family
+    - - '6'
+      - Exceptionally kind to the weak
+    - - '7'
+      - Extremely fastidious about their duties
+    - - '8'
+      - Extremely trustworthy to friends
+    - - '9'
+      - Forgiving temperament, even if unwise
+    - - '10'
+      - Generous even when it is difficult
+    - - '11'
+      - Has an excellent sense of humor
+    - - '12'
+      - Hates underhanded schemes and plots
+    - - '13'
+      - Incorrupt about their given responsibilities
+    - - '14'
+      - Is a good, trustworthy leader to minions
+    - - '15'
+      - Keeps calm even under intense pressure
+    - - '16'
+      - Loyal subordinate to their chosen leader
+    - - '17'
+      - Never backs down from a promise
+    - - '18'
+      - Patient when taxed or annoyed
+    - - '19'
+      - Self-sacrificing for what they believe in
+    - - '20'
+      - Thoughtful and not given to quick anger
+  cwn.p135.current-npc-problems:
+    title: Current NPC Problems
+    die: d20
+    page: 135
+    rows:
+    - - '1'
+      - A family member or friend has a problem
+    - - '2'
+      - A subordinate wants their job
+    - - '3'
+      - Their kids are doing something stupid
+    - - '4'
+      - Their spouse or partner is furious
+    - - '5'
+      - Their superior is very displeased with them
+    - - '6'
+      - They botched their last responsibility
+    - - '7'
+      - They hate their current job or boss
+    - - '8'
+      - They need rare or costly medical aid
+    - - '9'
+      - They owe more than they can pay
+    - - '10'
+      - They’re being blackmailed or coerced
+    - - '11'
+      - They’re being pursued by a dire nemesis
+    - - '12'
+      - They’re in dire need of money
+    - - '13'
+      - They’re stifled and bored in their job
+    - - '14'
+      - They’re struggling with mental trauma
+    - - '15'
+      - They’ve been given a job too big for them
+    - - '16'
+      - They’ve earned a dangerous foe
+    - - '17'
+      - They’ve gotten addicted to something
+    - - '18'
+      - They’ve inherited someone else’s problem
+    - - '19'
+      - They’ve lost or had stolen a vital thing
+    - - '20'
+      - They’ve made promises they can’t keep
+  cwn.p135.npc-personality-flaws:
+    title: NPC Personality Flaws
+    die: d20
+    page: 135
+    rows:
+    - - '1'
+      - Accepts bribes or considerations
+    - - '2'
+      - Addicted to a drug or indulgence
+    - - '3'
+      - Blames their failures on something else
+    - - '4'
+      - Careless and sloppy with their duties
+    - - '5'
+      - Easily breaks promises to others
+    - - '6'
+      - Easily led astray by a pretty face
+    - - '7'
+      - Exceptionally greedy despite its dangers
+    - - '8'
+      - Has fits of violent anger
+    - - '9'
+      - Irrational hatred for a class or type
+    - - '10'
+      - Leaves a trail of mistreated lovers
+    - - '11'
+      - Lies even when it’s not terribly useful
+    - - '12'
+      - Militantly unfaithful to their partner
+    - - '13'
+      - Obsessed with a very expensive pastime
+    - - '14'
+      - Promises far more than they actually do
+    - - '15'
+      - Prone to betraying unprofitable causes
+    - - '16'
+      - Prone to fits of cowardice
+    - - '17'
+      - Reckless desire for fame and glory
+    - - '18'
+      - Spendthrift prone to getting into debt
+    - - '19'
+      - Steals even when it’s not very convenient
+    - - '20'
+      - Thoughtless with those closest to them
+  cwn.p135.current-npc-desires:
+    title: Current NPC Desires
+    die: d20
+    page: 135
+    rows:
+    - - '1'
+      - They want an appealing new lover
+    - - '2'
+      - They want more leisure time to themselves
+    - - '3'
+      - They want more money
+    - - '4'
+      - They want respect and admiration
+    - - '5'
+      - They want to acquire a different job
+    - - '6'
+      - They want to boost a friend’s career
+    - - '7'
+      - They want to carry out a secret command
+    - - '8'
+      - They want to depose their boss
+    - - '9'
+      - They want to earn forgiveness
+    - - '10'
+      - They want to escape their past choices
+    - - '11'
+      - They want to harm an enemy organization
+    - - '12'
+      - They want to indulge in pleasures
+    - - '13'
+      - They want to kill some enemy
+    - - '14'
+      - They want to leave their current life
+    - - '15'
+      - They want to live in a different place
+    - - '16'
+      - They want to obtain a particular item
+    - - '17'
+      - They want to prove themselves to others
+    - - '18'
+      - They want to pursue a tempting secret
+    - - '19'
+      - They want to rescue someone from trouble
+    - - '20'
+      - They want to take revenge on a foe
+  cwn.p186.positive-reaction-reasons:
+    title: Positive Reaction Reasons
+    die: d8
+    page: 186
+    rows:
+    - - '1'
+      - They know a PC from somewhere else
+    - - '2'
+      - They need help from people like the PCs
+    - - '3'
+      - They’re looking to earn a bribe
+    - - '4'
+      - They’re intimidated by the PCs
+    - - '5'
+      - They’re weakened and can’t pick fights
+    - - '6'
+      - They’re prejudiced in favor of a PC type
+    - - '7'
+      - The PCs somehow solved a recent problem
+    - - '8'
+      - They don’t want trouble right now
+  cwn.p186.negative-reaction-reasons:
+    title: Negative Reaction Reasons
+    die: d8
+    page: 186
+    rows:
+    - - '1'
+      - A plan of theirs just went wrong
+    - - '2'
+      - They’re prejudiced against a PC type
+    - - '3'
+      - They’re offended or insulted by something
+    - - '4'
+      - They’ve had a terrible day so far
+    - - '5'
+      - The PCs have just made them more work
+    - - '6'
+      - They’re afraid of being seen associating
+    - - '7'
+      - The PCs look like easy prey to them
+    - - '8'
+      - They just don’t want to deal with them

@@ -1,0 +1,1346 @@
+source:
+  id: OSE
+  title: Old-School Essentials — Referee's Book (2026)
+  file: OSR/Systems/Old-School Essentials/Old-School Essentials - Referee's Book [2026].pdf
+  offset: 0
+  pages:
+  - 142
+  - 147
+  cols: 1
+tables:
+  ose.enc.sub1:
+    title: Wilderness Encounter Sub-table 1
+    die: d20
+    page: 142
+    cols:
+    - Dragon
+    - Flyer
+    - Insect
+    rows:
+    - - '1'
+      - Chimera
+      - Cockatrice
+      - Ankheg
+    - - '2'
+      - Dragon, Black
+      - Couatl
+      - Beetle, Fire
+    - - '3'
+      - Dragon, Blue
+      - Gargoyle
+      - Beetle, Oil
+    - - '4'
+      - Dragon, Brass
+      - Griffon
+      - Beetle, Tiger
+    - - '5'
+      - Dragon, Bronze
+      - Hawk, Giant
+      - Centipede, Giant
+    - - '6'
+      - Dragon, Copper
+      - Hippogriff
+      - Driver Ant
+    - - '7'
+      - Dragon, Gold
+      - Killer Bee
+      - Driver Ant
+    - - '8'
+      - Dragon, Green
+      - Mantis, Giant
+      - Flail Snail
+    - - '9'
+      - Dragon, Red
+      - Nightmare
+      - Killer Bee
+    - - '10'
+      - Dragon, Silver
+      - Pegasus
+      - Mantis, Giant
+    - - '11'
+      - Dragon, White
+      - Peryton
+      - Rhagodessa
+    - - '12'
+      - Hydra (or Sea Hydra)
+      - Phoenix
+      - Robber Fly
+    - - '13'
+      - Hydra (or Sea Hydra)
+      - Pixie
+      - Rot Grub
+    - - '14'
+      - Pseudo-Dragon
+      - Pseudo-Dragon
+      - Scorpion, Giant
+    - - '15'
+      - Wyvern
+      - Robber Fly
+      - Slug, Giant
+    - - '16'
+      - Amphisbaena*
+      - Roc, Small
+      - Spider, Black Widow
+    - - '17'
+      - Basilisk*
+      - Sphinx
+      - Spider, Crab
+    - - '18'
+      - Dragonne*
+      - Sprite
+      - Spider, Phase
+    - - '19'
+      - Lizard, Flame*
+      - Stirge
+      - Spider, Tarantella
+    - - '20'
+      - Salamander* * Re-roll at sea.
+      - Wasp, Giant
+      - Wasp, Giant
+  ose.enc.sub2:
+    title: Wilderness Encounter Sub-table 2
+    die: d20
+    page: 143
+    cols:
+    - Prehistoric Animal
+    - Undead
+    - Unusual
+    rows:
+    - - '1'
+      - Bear, Cave
+      - Banshee
+      - Basilisk
+    - - '2'
+      - Bear, Cave
+      - Coffer Wight
+      - Blink Dog
+    - - '3'
+      - Cat, Sabre-Toothed
+      - Coffer Wight
+      - Bulette
+    - - '4'
+      - Cat, Sabre-Toothed
+      - Ghast
+      - Catoblepas
+    - - '5'
+      - Crocodile, Giant
+      - Ghost
+      - Centaur
+    - - '6'
+      - Crocodile, Giant
+      - Ghost
+      - Gorgon
+    - - '7'
+      - Gorilla
+      - Ghoul
+      - Jackalwere
+    - - '8'
+      - Hippo, Behemoth
+      - Ghoul
+      - Lamia
+    - - '9'
+      - Mastodon
+      - Mummy
+      - Leucrocotta
+    - - '10'
+      - Pterosaur, Pteranodon
+      - Necrophidius
+      - Lycanthrope, Werebear
+    - - '11'
+      - Pterosaur, Pterodactyl
+      - Poltergeist
+      - Lycanthrope, Wereboar
+    - - '12'
+      - Rhino, Woolly
+      - Revenant
+      - Lycanthrope, Wererat
+    - - '13'
+      - Rhino, Woolly
+      - Skeleton
+      - Lycanthrope, Weretiger
+    - - '14'
+      - Snake, Pit Viper
+      - Skeleton
+      - Lycanthrope, Werewolf
+    - - '15'
+      - Stegosaurus
+      - Spectre
+      - Medusa
+    - - '16'
+      - Titanothere
+      - Vampire
+      - Otyugh
+    - - '17'
+      - Triceratops
+      - Wight
+      - Roper
+    - - '18'
+      - Tyrannosaurus Rex
+      - Wraith
+      - Shambling Mound
+    - - '19'
+      - Wolf, Dire
+      - Zombie
+      - Treant
+    - - '20'
+      - Yeti Wilderness Encounter Sub-Table
+      - 'Zombie B: Broken, Hills, Mountains'
+      - Warp Beast
+  ose.enc.B:
+    title: 'Wilderness Encounter Sub-table B: Broken, Hills, Mountains'
+    die: d20
+    page: 143
+    cols:
+    - Animal
+    - Human
+    - Humanoid
+    - Monster
+    rows:
+    - - '1'
+      - Ape, White
+      - Bandit
+      - Dwarf
+      - Gargoyle
+    - - '2'
+      - Ape, White
+      - Bandit
+      - Ettin
+      - Griffon
+    - - '3'
+      - Bear, Cave
+      - Berserker
+      - Giant, Cloud
+      - Harpy
+    - - '4'
+      - Cat, Mntn. Lion
+      - Berserker
+      - Giant, Frost
+      - Hawk
+    - - '5'
+      - Dog, Wild
+      - Berserker
+      - Giant, Hill
+      - Hawk, Giant
+    - - '6'
+      - Dragonne
+      - Brigand
+      - Giant, Stone
+      - Hippogriff
+    - - '7'
+      - Gorilla
+      - Brigand
+      - Giant, Storm
+      - Lamia
+    - - '8'
+      - Hawk
+      - Brigand
+      - Gnome
+      - Leucrocotta
+    - - '9'
+      - Herd Animal
+      - Expert Adventurers
+      - Goblin
+      - Manticore
+    - - '10'
+      - Lizard, Flame
+      - Expert Adventurers
+      - Hag, Black
+      - Manticore
+    - - '11'
+      - Lizard, Subterr.
+      - High-Level Cleric
+      - Jackalwere
+      - Nightmare
+    - - '12'
+      - Mule
+      - High-Level Fighter
+      - Kobold
+      - Pegasus
+    - - '13'
+      - Rock Baboon
+      - High-Level Fighter
+      - Mutoid
+      - Peryton
+    - - '14'
+      - Snake, Pit Viper
+      - High-Level MU
+      - Orc
+      - Peryton
+    - - '15'
+      - Snake, Rattler
+      - High-Level MU
+      - Scorpionoid
+      - Roc, Giant
+    - - '16'
+      - Spider, Phase
+      - Merchant
+      - Svirfneblin
+      - Roc, Large
+    - - '17'
+      - Wasp, Giant
+      - Merchant
+      - Titan
+      - Roc, Small
+    - - '18'
+      - Wolf
+      - Neanderthal
+      - Troglodyte
+      - Sphinx
+    - - '19'
+      - Wolf, Dire
+      - Neanderthal
+      - Troll
+      - Will-o’-the-Wisp
+    - - '20'
+      - Wolf, Winter
+      - Neanderthal
+      - Yeti
+      - Xorn
+  ose.enc.C:
+    title: 'Wilderness Encounter Sub-table C: City, Settled'
+    die: d20
+    page: 144
+    cols:
+    - Animal
+    - Human, City
+    - Human, Settled
+    - Humanoid
+    rows:
+    - - '1'
+      - Boar
+      - Acolyte
+      - Acolyte
+      - Brownie
+    - - '2'
+      - Boar
+      - Acolyte
+      - Acolyte
+      - Dwarf
+    - - '3'
+      - Cat, Tiger
+      - Bandit
+      - Bandit
+      - Dwarf
+    - - '4'
+      - Dog, Hunting
+      - Bandit
+      - Bandit
+      - Elf
+    - - '5'
+      - Dog, Hunting
+      - Bandit
+      - Bandit
+      - Elf
+    - - '6'
+      - Dog, War
+      - Beginner Adv.
+      - Beginner Adv.
+      - Giant, Hill
+    - - '7'
+      - Ferret, Giant
+      - Beginner Adv.
+      - Beginner Adv.
+      - Gnoll
+    - - '8'
+      - Hawk
+      - Expert Adventurers
+      - Expert Adventurers
+      - Gnome
+    - - '9'
+      - Hawk
+      - High-Level Fighter
+      - High-Level Cleric
+      - Gnome
+    - - '10'
+      - Herd Animal
+      - High-Level Fighter
+      - High-Level Cleric
+      - Goblin
+    - - '11'
+      - Herd Animal
+      - Medium
+      - High-Level Fighter
+      - Gullygug
+    - - '12'
+      - Herd Animal
+      - Merchant
+      - High-Level MU
+      - Halfling
+    - - '13'
+      - Rat, Giant
+      - Merchant
+      - Medium
+      - Halfling
+    - - '14'
+      - Rat, Giant
+      - Noble
+      - Merchant
+      - Hobgoblin
+    - - '15'
+      - Shrew, Giant
+      - Noble
+      - Merchant
+      - Leprechaun
+    - - '16'
+      - Snake, Pit Viper
+      - Trader
+      - Noble
+      - Mutoid
+    - - '17'
+      - Spider, Tarantella
+      - Trader
+      - Noble
+      - Ogre
+    - - '18'
+      - Weasel, Giant
+      - Trader
+      - Trader
+      - Orc
+    - - '19'
+      - Wolf
+      - Trader
+      - Trader
+      - Pixie
+    - - '20'
+      - Wolf Wilderness Encounter Sub-Table
+      - 'Veteran D: Desert'
+      - Veteran
+      - Sprite
+  ose.enc.D:
+    title: 'Wilderness Encounter Sub-table D: Desert'
+    die: d20
+    page: 144
+    cols:
+    - Animal
+    - Human
+    - Humanoid
+    - Monster
+    rows:
+    - - '1'
+      - Camel
+      - Devotee
+      - Giant, Fire
+      - Amphisbaena
+    - - '2'
+      - Camel
+      - Devotee
+      - Goblin
+      - Bulette
+    - - '3'
+      - Camel
+      - Devotee
+      - Goblin
+      - Dragonne
+    - - '4'
+      - Cat, Lion
+      - Expert Adventurers
+      - Hobgoblin
+      - Gargoyle
+    - - '5'
+      - Cat, Lion
+      - Expert Adventurers
+      - Hobgoblin
+      - Gargoyle
+    - - '6'
+      - Cat, Lion
+      - High-Level Cleric
+      - Jackalwere
+      - Griffon
+    - - '7'
+      - Dog, Wild Dog
+      - High-Level Cleric
+      - Mantid
+      - Hawk
+    - - '8'
+      - Hawk
+      - High-Level Fighter
+      - Mutoid
+      - Hawk, Giant
+    - - '9'
+      - Herd Animal
+      - High-Level Fighter
+      - Mutoid
+      - Hawk, Giant
+    - - '10'
+      - Herd Animal
+      - High-Level MU
+      - Ogre
+      - Lamia
+    - - '11'
+      - Herd Animal
+      - Merchant
+      - Ogre
+      - Leucrocotta
+    - - '12'
+      - Lizard, Gecko
+      - Merchant
+      - Ogre
+      - Manticore
+    - - '13'
+      - Lizard, Monitor
+      - Noble
+      - Orc
+      - Manticore
+    - - '14'
+      - Lizard, Tuatara
+      - Noble
+      - Orc
+      - Manticore
+    - - '15'
+      - Mantis, Giant
+      - Nomad
+      - Pixie
+      - Roc, Giant
+    - - '16'
+      - Snake, Pit Viper
+      - Nomad
+      - Rakshasa
+      - Roc, Large
+    - - '17'
+      - Snake, Rattler
+      - Nomad
+      - Scorpionoid
+      - Roc, Small
+    - - '18'
+      - Snake, Rattler
+      - Nomad
+      - Slyssthra
+      - Sphinx
+    - - '19'
+      - Spider, Tarantella
+      - Nomad
+      - Sprite
+      - Sphinx
+    - - '20'
+      - Spider, Tarantella
+      - Nomad
+      - Thoul
+      - Wasp, Giant
+  ose.enc.F:
+    title: 'Wilderness Encounter Sub-table F: Forest'
+    die: d20
+    page: 145
+    cols:
+    - Animal
+    - Human
+    - Humanoid
+    - Monster
+    rows:
+    - - '1'
+      - Bear, Grizzly
+      - Bandit
+      - Brownie
+      - Catoblepas
+    - - '2'
+      - Boar
+      - Bandit
+      - Bugbear
+      - Centaur
+    - - '3'
+      - Cat, Panther
+      - Bandit
+      - Cyclops
+      - Cockatrice
+    - - '4'
+      - Cat, Tiger
+      - Beginner Adv.
+      - Dryad
+      - Gas Spore
+    - - '5'
+      - Dog, Wild Dog
+      - Beginner Adv.
+      - Elf
+      - Ghost
+    - - '6'
+      - Frog, Mutant
+      - Berserker
+      - Ettin
+      - Gibbering Mouther
+    - - '7'
+      - Frog, Poisonous
+      - Berserker
+      - Giant, Hill
+      - Manticore
+    - - '8'
+      - Hawk
+      - Brigand
+      - Gnoll
+      - Otyugh
+    - - '9'
+      - Herd Animal
+      - Brigand
+      - Goblin
+      - Owl Bear
+    - - '10'
+      - Lizard, Gecko
+      - Brigand
+      - Gullygug
+      - Peryton
+    - - '11'
+      - Lizard, Tuatara
+      - Brigand
+      - Hag, Black
+      - Poltergeist
+    - - '12'
+      - Snake, Pit Viper
+      - Expert Adventurers
+      - Hobgoblin
+      - Pseudo-Dragon
+    - - '13'
+      - Spider, Crab
+      - Expert Adventurers
+      - Leprechaun
+      - Roper
+    - - '14'
+      - Spider, Crab
+      - High-Level Cleric
+      - Mutoid
+      - Shambling Mound
+    - - '15'
+      - Spider, Phase
+      - High-Level Fighter
+      - Ogre
+      - Slithering Stalker
+    - - '16'
+      - Toad, Poisonous
+      - High-Level MU
+      - Ogre
+      - Spider, Aranea
+    - - '17'
+      - Unicorn
+      - Merchant
+      - Orc
+      - Treant
+    - - '18'
+      - Wolf
+      - Merchant
+      - Satyr
+      - Violet Fungus
+    - - '19'
+      - Wolf
+      - Trader
+      - Thoul
+      - Will-o’-the-Wisp
+    - - '20'
+      - Wolf, Dire Wilderness Encounter Sub-Table
+      - 'Trader G: Clear, Grasslands'
+      - Troll
+      - Wyvern
+  ose.enc.G:
+    title: 'Wilderness Encounter Sub-table G: Clear, Grasslands'
+    die: d20
+    page: 145
+    cols:
+    - Animal
+    - Human
+    - Humanoid
+    - Monster
+    rows:
+    - - '1'
+      - Ankheg
+      - Bandit
+      - Brownie
+      - Amphisbaena
+    - - '2'
+      - Boar
+      - Bandit
+      - Bugbear
+      - Amphisbaena
+    - - '3'
+      - Cat, Lion
+      - Bandit
+      - Elf
+      - Blink Dog
+    - - '4'
+      - Dog, Wild
+      - Berserker
+      - Giant, Hill
+      - Blink Dog
+    - - '5'
+      - Elephant
+      - Berserker
+      - Gnoll
+      - Bulette
+    - - '6'
+      - Ferret, Giant
+      - Brigand
+      - Goblin
+      - Bulette
+    - - '7'
+      - Hawk, Giant
+      - Brigand
+      - Halfling
+      - Dragonne
+    - - '8'
+      - Herd Animal
+      - Expert Adventurers
+      - Hobgoblin
+      - Dragonne
+    - - '9'
+      - Herd Animal
+      - Expert Adventurers
+      - Jackalwere
+      - Gorgon
+    - - '10'
+      - Hippo, Normal
+      - High-Level Cleric
+      - Leprechaun
+      - Griffon
+    - - '11'
+      - Horse, Wild
+      - High-Level Fighter
+      - Mantid
+      - Griffon
+    - - '12'
+      - Lizard, Flame
+      - High-Level MU
+      - Mutoid
+      - Harpy
+    - - '13'
+      - Mantis, Giant
+      - Merchant
+      - Ogre
+      - Hippogriff
+    - - '14'
+      - Mule
+      - Merchant
+      - Orc
+      - Leucrocotta
+    - - '15'
+      - Rock Baboon
+      - Merchant
+      - Pixie
+      - Manticore
+    - - '16'
+      - Snake, Pit Viper
+      - Noble
+      - Rakshasa
+      - Minotaur
+    - - '17'
+      - Snake, Rattler
+      - Noble
+      - Slyssthra
+      - Nightmare
+    - - '18'
+      - Spider, Phase
+      - Nomad
+      - Thoul
+      - Pegasus
+    - - '19'
+      - Wasp, Giant
+      - Nomad
+      - Titan
+      - Warp Beast
+    - - '20'
+      - Weasel, Giant
+      - Trader
+      - Troll
+      - Wyvern
+  ose.enc.J:
+    title: 'Wilderness Encounter Sub-table J: Jungle'
+    die: d20
+    page: 146
+    cols:
+    - Animal
+    - Human
+    - Humanoid
+    - Monster
+    rows:
+    - - '1'
+      - Boar
+      - Bandit
+      - Bugbear
+      - Amphisbaena
+    - - '2'
+      - Cat, Panther
+      - Bandit
+      - Cyclops
+      - Basilisk
+    - - '3'
+      - Elephant
+      - Berserker
+      - Elf
+      - Caecilia
+    - - '4'
+      - Frog, Poisonous
+      - Berserker
+      - Ettin
+      - Couatl
+    - - '5'
+      - Gorilla
+      - Brigand
+      - Giant, Fire
+      - Couatl
+    - - '6'
+      - Herd Animal
+      - Brigand
+      - Giant, Hill
+      - Flail Snail
+    - - '7'
+      - Hippo, Behemoth
+      - Brigand
+      - Gnoll
+      - Ghost
+    - - '8'
+      - Hippo, Normal
+      - Brigand
+      - Goblin
+      - Gibbering Mouther
+    - - '9'
+      - Lizard, Draco
+      - Expert Adventurers
+      - Gullygug
+      - Leech, Giant
+    - - '10'
+      - Lizard, Gecko
+      - Expert Adventurers
+      - Gullygug
+      - Nightmare
+    - - '11'
+      - Lizard, Monitor
+      - Expert Adventurers
+      - Hag, Black
+      - Otyugh
+    - - '12'
+      - Lzd., H. Chameleon
+      - High-Level Cleric
+      - Lizardfolk
+      - Otyugh
+    - - '13'
+      - Rat, Giant
+      - High-Level Fighter
+      - Mantid
+      - Pseudo-Dragon
+    - - '14'
+      - Shrew, Giant
+      - High-Level Fighter
+      - Mutoid
+      - Roper
+    - - '15'
+      - Slug, Giant
+      - High-Level MU
+      - Ogre
+      - Roper
+    - - '16'
+      - Snake, Pit Viper
+      - High-Level MU
+      - Orc
+      - Sphinx
+    - - '17'
+      - Snake, Rock Python
+      - Merchant
+      - Rakshasa
+      - Spider, Phase
+    - - '18'
+      - Snake, Sp. Cobra
+      - Neanderthal
+      - Slyssthra
+      - Violet Fungus
+    - - '19'
+      - Spider, Crab
+      - Neanderthal
+      - Troglodyte
+      - Violet Fungus
+    - - '20'
+      - Toad, Poisonous Wilderness Encounter Sub-Table
+      - 'Trader L: Lake, River'
+      - Troll
+      - Warp Beast
+  ose.enc.L:
+    title: 'Wilderness Encounter Sub-table L: Lake, River'
+    die: d20
+    page: 146
+    cols:
+    - Animal
+    - Human
+    - Humanoid
+    - Swimmer
+    rows:
+    - - '1'
+      - Boar
+      - Bandit
+      - Brownie
+      - Crab, Giant
+    - - '2'
+      - Cat, Panther
+      - Bandit
+      - Brownie
+      - Crocodile
+    - - '3'
+      - Cat, Tiger
+      - Beginner Adv.
+      - Bugbear
+      - Crocodile, Large
+    - - '4'
+      - Crab, Giant
+      - Beginner Adv.
+      - Elf
+      - Fish, Catfish
+    - - '5'
+      - Crocodile
+      - Brigand
+      - Gnoll
+      - Fish, Electric Eel
+    - - '6'
+      - Crocodile
+      - Buccaneer
+      - Gullygug
+      - Fish, Electric Eel
+    - - '7'
+      - Crocodile, Large
+      - Buccaneer
+      - Gullygug
+      - Fish, Pike
+    - - '8'
+      - Fish, Piranha
+      - Buccaneer
+      - Hobgoblin
+      - Fish, Pike
+    - - '9'
+      - Frog, Mutant
+      - Buccaneer
+      - Leprechaun
+      - Fish, Piranha
+    - - '10'
+      - Herd Animal
+      - Expert Adventurers
+      - Lizardfolk
+      - Fish, Sturgeon
+    - - '11'
+      - Herd Animal
+      - Expert Adventurers
+      - Lizardfolk
+      - Frog, Mutant
+    - - '12'
+      - Hippo, Behemoth
+      - High-Level Cleric
+      - Merrow
+      - Frog, Mutant
+    - - '13'
+      - Hippo, Normal
+      - High-Level Cleric
+      - Merrow
+      - Gullygug
+    - - '14'
+      - Lamprey, Giant
+      - High-Level Fighter
+      - Mutoid
+      - Hippo, Normal
+    - - '15'
+      - Leech, Giant
+      - High-Level Fighter
+      - Nixie
+      - Leech, Giant
+    - - '16'
+      - Leech, Giant
+      - High-Level MU
+      - Ogre
+      - Lizardfolk
+    - - '17'
+      - Rat, Giant
+      - Merchant
+      - Orc
+      - Nixie
+    - - '18'
+      - Shrew, Giant
+      - Merchant
+      - Sprite
+      - Spider, Aquatic
+    - - '19'
+      - Toad, Chameleon
+      - Merchant
+      - Thoul
+      - Turtle, Snapping
+    - - '20'
+      - Toad, Poisonous
+      - Trader
+      - Troll
+      - Water Termite
+  ose.enc.O:
+    title: 'Wilderness Encounter Sub-table O: Ocean, Sea'
+    die: d20
+    page: 147
+    cols:
+    - Human
+    - Swimmer
+    rows:
+    - - '1'
+      - Buccaneer Dragon Turtle
+      - ''
+    - - '2'
+      - Buccaneer Fish, Swordfish
+      - ''
+    - - '3'
+      - Buccaneer Hag, Sea
+      - ''
+    - - '4'
+      - Buccaneer Hippocampus
+      - ''
+    - - '5'
+      - Ex. Adventurers Hydra, Sea
+      - ''
+    - - '6'
+      - Ex. Adventurers Jellyfish, Giant
+      - ''
+    - - '7'
+      - Merchant Locanth
+      - ''
+    - - '8'
+      - Merchant Merfolk
+      - ''
+    - - '9'
+      - Merchant Merrow
+      - ''
+    - - '10'
+      - Merchant Octopus, Giant
+      - ''
+    - - '11'
+      - Merchant Sahuagin
+      - ''
+    - - '12'
+      - Merchant Sea Dragon
+      - ''
+    - - '13'
+      - Merchant Sea Serpent
+      - ''
+    - - '14'
+      - Pirate Shark
+      - ''
+    - - '15'
+      - Pirate Snake, Sea
+      - ''
+    - - '16'
+      - Pirate Squid, Giant
+      - ''
+    - - '17'
+      - Pirate Triton
+      - ''
+    - - '18'
+      - Pirate Turtle, Sea
+      - ''
+    - - '19'
+      - Pirate Water Termite
+      - ''
+    - - '20'
+      - 'Pirate Whale Wilderness Encounter Sub-Table S: Swamp'
+      - © FRANK SCACALOSSI
+  ose.enc.S:
+    title: 'Wilderness Encounter Sub-table S: Swamp'
+    die: d20
+    page: 147
+    cols:
+    - Human
+    - Humanoid
+    - Monster
+    - Swimmer
+    rows:
+    - - '1'
+      - Bandit
+      - Ettin
+      - Banshee
+      - Crab, Giant
+    - - '2'
+      - Bandit
+      - Gnoll
+      - Carcass Crawler
+      - Crocodile
+    - - '3'
+      - Bandit
+      - Goblin
+      - Catoblepas
+      - Crocodile, Giant
+    - - '4'
+      - Beginner Adv.
+      - Gullygug
+      - Frog, Mutant
+      - Crocodile, Large
+    - - '5'
+      - Berserker
+      - Gullygug
+      - Frog, Poisonous
+      - Fish, Catfish
+    - - '6'
+      - Berserker
+      - Gullygug
+      - Ghost
+      - Fish, Electric Eel
+    - - '7'
+      - Brigand
+      - Hag, Black
+      - Ghoul
+      - Fish, Pike
+    - - '8'
+      - Brigand
+      - Hobgoblin
+      - Hydra
+      - Gullygug
+    - - '9'
+      - Expert Adventurers
+      - Lizardfolk
+      - Leucrocotta
+      - Gullygug
+    - - '10'
+      - Expert Adventurers
+      - Lizardfolk
+      - Merrow
+      - Insect Swarm
+    - - '11'
+      - Expert Adventurers
+      - Lizardfolk
+      - Merrow
+      - Insect Swarm
+    - - '12'
+      - High-Level Cleric
+      - Merrow
+      - Otyugh
+      - Lamprey, Giant
+    - - '13'
+      - High-Level Cleric
+      - Mutoid
+      - Rot Grub
+      - Lamprey, Giant
+    - - '14'
+      - High-Level Fighter
+      - Nixie
+      - Shambling Mound
+      - Leech, Giant
+    - - '15'
+      - High-Level Fighter
+      - Ogre
+      - Spawn of the Worm
+      - Leech, Giant
+    - - '16'
+      - High-Level MU
+      - Orc
+      - Toad, Poisonous
+      - Lizardfolk
+    - - '17'
+      - High-Level MU
+      - Slyssthra
+      - Water Fiend
+      - Lizardfolk
+    - - '18'
+      - Merchant
+      - Troglodyte
+      - Will-o'-the-Wisp
+      - Spider, Aquatic
+    - - '19'
+      - Trader
+      - Troll
+      - Will-o'-the-Wisp
+      - Turtle, Snapping
+    - - '20'
+      - Trader
+      - Troll
+      - Wraith
+      - Water Termite
+  ose.enc.by.mountains:
+    title: Encounter type — Mountains
+    die: d8
+    page: 142
+    rows:
+    - - '1'
+      - B—Animal
+    - - '2'
+      - 1—Dragon
+    - - '3'
+      - 1—Dragon
+    - - '4'
+      - B—Human
+    - - '5'
+      - B—Humanoid
+    - - '6'
+      - B—Humanoid
+    - - '7'
+      - B—Monster
+    - - '8'
+      - 2—Unusual
+  ose.enc.by.city:
+    title: Encounter type — City
+    die: d8
+    page: 142
+    rows:
+    - - '1'
+      - C—Human
+    - - '2'
+      - C—Human
+    - - '3'
+      - C—Human
+    - - '4'
+      - C—Human
+    - - '5'
+      - C—Human
+    - - '6'
+      - C—Human
+    - - '7'
+      - C—Humanoid
+    - - '8'
+      - 2—Undead
+  ose.enc.by.grasslands:
+    title: Encounter type — Grasslands
+    die: d8
+    page: 142
+    rows:
+    - - '1'
+      - G—Animal
+    - - '2'
+      - 1—Dragon
+    - - '3'
+      - 1—Flyer
+    - - '4'
+      - G—Human
+    - - '5'
+      - G—Humanoid
+    - - '6'
+      - 1—Insect
+    - - '7'
+      - G—Monster
+    - - '8'
+      - 2—Unusual
+  ose.enc.by.desert:
+    title: Encounter type — Desert
+    die: d8
+    page: 142
+    rows:
+    - - '1'
+      - D—Animal
+    - - '2'
+      - D—Animal
+    - - '3'
+      - 1—Dragon
+    - - '4'
+      - D—Human
+    - - '5'
+      - D—Human
+    - - '6'
+      - D—Humanoid
+    - - '7'
+      - D—Monster
+    - - '8'
+      - 2—Undead
+  ose.enc.by.forest:
+    title: Encounter type — Forest
+    die: d8
+    page: 142
+    rows:
+    - - '1'
+      - F—Animal
+    - - '2'
+      - 1—Dragon
+    - - '3'
+      - 1—Flyer
+    - - '4'
+      - F—Human
+    - - '5'
+      - F—Humanoid
+    - - '6'
+      - 1—Insect
+    - - '7'
+      - F—Monster
+    - - '8'
+      - 2—Unusual
+  ose.enc.by.jungle:
+    title: Encounter type — Jungle
+    die: d8
+    page: 142
+    rows:
+    - - '1'
+      - J—Animal
+    - - '2'
+      - 1—Dragon
+    - - '3'
+      - 1—Flyer
+    - - '4'
+      - J—Human
+    - - '5'
+      - J—Humanoid
+    - - '6'
+      - 1—Insect
+    - - '7'
+      - 1—Insect
+    - - '8'
+      - J—Monster Wilderness Encounter
+  ose.enc.by.lake-river:
+    title: Encounter type — Lake, River
+    die: d8
+    page: 142
+    rows:
+    - - '1'
+      - L—Animal
+    - - '2'
+      - 1—Dragon
+    - - '3'
+      - 1—Flyer
+    - - '4'
+      - L—Human
+    - - '5'
+      - L—Humanoid
+    - - '6'
+      - 1—Insect
+    - - '7'
+      - L—Swimmer
+    - - '8'
+      - L—Swimmer Sub-Table 1
+  ose.enc.by.ocean-sea:
+    title: Encounter type — Ocean, Sea
+    die: d8
+    page: 142
+    rows:
+    - - '1'
+      - 1—Dragon
+    - - '2'
+      - 1—Flyer
+    - - '3'
+      - O—Human
+    - - '4'
+      - O—Swimmer
+    - - '5'
+      - O—Swimmer
+    - - '6'
+      - O—Swimmer
+    - - '7'
+      - O—Swimmer
+    - - '8'
+      - O—Swimmer
+  ose.enc.by.settled:
+    title: Encounter type — Settled
+    die: d8
+    page: 142
+    rows:
+    - - '1'
+      - C—Animal
+    - - '2'
+      - 1—Dragon
+    - - '3'
+      - 1—Flyer
+    - - '4'
+      - C—Human
+    - - '5'
+      - C—Human
+    - - '6'
+      - C—Human
+    - - '7'
+      - C—Humanoid
+    - - '8'
+      - 1—Insect
+  ose.enc.by.swamp:
+    title: Encounter type — Swamp
+    die: d8
+    page: 142
+    rows:
+    - - '1'
+      - 1—Dragon
+    - - '2'
+      - 1—Flyer
+    - - '3'
+      - S—Human
+    - - '4'
+      - S—Humanoid
+    - - '5'
+      - 1—Insect
+    - - '6'
+      - S—Swimmer
+    - - '7'
+      - S—Monster
+    - - '8'
+      - 2—Undead

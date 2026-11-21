@@ -1,0 +1,452 @@
+# Perilous Wilds (Revised), Jason Lutes — hand-transcribed; nested 1d12 grids flattened
+# into linked tables. Page numbers are printed pages.
+source: {id: PW, title: The Perilous Wilds (Revised), file: "OSR/Tools & Maps/Tables/Perilous Wilds Revised Edition.pdf", offset: 0}
+tables:
+  # ---------------------------------------------------------------- discovery p48–49
+  pw.discovery:
+    title: Discovery
+    die: 1d12
+    page: 48
+    rows:
+      - ['1', 'Unnatural feature: {pw.discovery.unnatural}']
+      - ['2–4', 'Natural feature: {pw.discovery.natural}']
+      - ['5–6', 'Evidence: {pw.discovery.evidence}']
+      - ['7–8', 'Creature, not yet a threat: {pw.creature}']
+      - ['9–12', 'Structure: {pw.discovery.structure}']
+  pw.discovery.unnatural:
+    title: Unnatural feature
+    die: 1d12
+    page: 48
+    rows:
+      - ['1', 'divine — {pw.unnatural.divine}']
+      - ['2–3', 'planar — {pw.unnatural.planar}']
+      - ['4–12', 'arcane — {pw.unnatural.arcane}']
+  pw.unnatural.divine:
+    die: 1d12
+    page: 48
+    rows: [['1', presence/manifestation], ['2–7', protected place], ['8–10', cursed/defiled place], ['11–12', blessed/sacred place]]
+  pw.unnatural.planar:
+    die: 1d12
+    page: 48
+    rows: [['1', outpost], ['2–4', portal/gate], ['5–8', rift/tear], ['9–12', distortion/warp]]
+  pw.unnatural.arcane:
+    die: 1d12
+    page: 48
+    rows: [['1–4', blight/mutation], ['5–7', enchantment/portal], ['8–10', taint/residue], ['11–12', source/resource]]
+  pw.discovery.natural:
+    title: Natural feature
+    die: 1d12
+    page: 48
+    rows:
+      - ['1–2', 'lair — {pw.natural.lair}']
+      - ['3–5', 'terrain change — {pw.natural.terrain}']
+      - ['6–8', 'water feature — {pw.natural.water}']
+      - ['9–10', 'landmark — {pw.natural.landmark}']
+      - ['11', 'flora/fauna — {pw.natural.flora}']
+      - ['12', 'resource — {pw.natural.resource}']
+  pw.natural.lair:
+    die: 1d12
+    page: 48
+    rows: [['1–4', 'ruin ({pw.ruination})'], ['5–7', cave/tunnel], ['8–9', nest/hive/aerie], ['10–12', den/burrow/warren]]
+  pw.natural.terrain:
+    die: 1d12
+    page: 48
+    rows: [['1–3', hollow/cleft/defile], ['4–6', canyon/valley/vale/dale], ['7–8', multilevel/tiered], ['9–10', 'pocket of {pw.terrain} terrain'], ['11–12', slope up/down]]
+  pw.natural.water:
+    die: 1d12
+    page: 48
+    rows: [['1', sea/ocean], ['2–4', river], ['5–6', lake/pond/mere/tarn], ['7–10', brook/stream/rill], ['11–12', spring/hot spring]]
+  pw.natural.landmark:
+    die: 1d12
+    page: 48
+    rows: [['1', 'oddity: {pw.oddity}'], ['2–3', striking landscape], ['4–6', earth-based], ['7–9', plant-based], ['10–12', water-based]]
+  pw.natural.flora:
+    die: 1d12
+    page: 48
+    rows: [['1–3', notable plant/flower], ['4–5', notable tree/brush], ['6–8', 'notable beast: {pw.beast}'], ['9–10', useful plant/herb/root], ['11–12', 'useful beast: {pw.beast}']]
+  pw.natural.resource:
+    die: 1d12
+    page: 48
+    rows: [['1–3', game/fruit/vegetable], ['4–6', timber/stone], ['7–9', herbs/spice/dye source], ['10–11', copper/tin/iron], ['12', gold/silver/gems]]
+  pw.discovery.evidence:
+    title: Evidence
+    die: 1d12
+    page: 49
+    rows:
+      - ['1–6', 'tracks/spoor — {pw.evidence.tracks}']
+      - ['7–10', 'remains/debris — {pw.evidence.remains}']
+      - ['11–12', 'stash/cache — {pw.evidence.stash}']
+  pw.evidence.tracks:
+    die: 1d12
+    page: 49
+    rows: [['1–2', trail of blood/fluid], ['3–4', signs of violence], ['5–7', multiple/many signs], ['8–10', definite/recent/clear], ['11–12', faint/old/unclear]]
+  pw.evidence.remains:
+    die: 1d12
+    page: 49
+    rows: [['1–4', 'bones of a {pw.beast}'], ['5–7', 'carcass of a {pw.beast}'], ['8–10', junk/refuse], ['11', lost supplies/cargo], ['12', tools/weapons/armor]]
+  pw.evidence.stash:
+    die: 1d12
+    page: 49
+    rows: [['1–5', trinkets/coins], ['6–8', tools/weapons/armor], ['9–10', map/note], ['11', food/supplies], ['12', treasure]]
+  pw.discovery.structure:
+    title: Structure
+    die: 1d12
+    page: 49
+    rows:
+      - ['1', 'enigmatic — {pw.structure.enigmatic}']
+      - ['2–3', 'infrastructure — {pw.structure.infrastructure}']
+      - ['4–5', 'dwelling — {pw.structure.dwelling}']
+      - ['6–7', 'religious — {pw.structure.religious}']
+      - ['8–11', 'ruin — {pw.structure.ruin}']
+      - ['12', 'steading — {pw.structure.steading}']
+  pw.structure.enigmatic:
+    die: 1d12
+    page: 49
+    rows: [['1–2', 'oddity: {pw.oddity}'], ['3–6', mound/earthworks], ['7–9', monument/megalith], ['10–12', statue/idol/totem]]
+  pw.structure.infrastructure:
+    die: 1d12
+    page: 49
+    rows: [['1–4', signpost/marker], ['5–6', bridge/aqueduct], ['7–10', track/path/trail/road], ['11–12', mine/quarry]]
+  pw.structure.dwelling:
+    die: 1d12
+    page: 49
+    rows: [['1–4', campsite/hovel/hut], ['5–7', homestead/farmstead], ['8–10', inn/toll house/mill], ['11–12', tower/keep/castle]]
+  pw.structure.religious:
+    die: 1d12
+    page: 49
+    rows: [['1–3', grave marker], ['4–6', graveyard/burial ground], ['7–9', tomb/crypt/barrow], ['10–11', temple/monastery], ['12', great temple/sanctuary]]
+  pw.structure.ruin:
+    die: 1d12
+    page: 49
+    rows: [['1–3', 'dungeon ({pw.dungeon.form})'], ['4–6', 'ruined steading'], ['7–8', 'ruined {pw.structure.religious}'], ['9–10', 'ruined {pw.structure.dwelling}'], ['11–12', 'ruined {pw.structure.infrastructure}']]
+  pw.structure.steading:
+    die: 1d12
+    page: 49
+    rows: [['1–5', village], ['6–8', town], ['9–11', keep], ['12', city]]
+
+  # ---------------------------------------------------------------- danger p52
+  pw.danger:
+    title: Danger
+    die: 1d12
+    page: 52
+    rows:
+      - ['1', 'Unnatural entity: {pw.discovery.unnatural}']
+      - ['2–6', 'Hazard: {pw.hazard}']
+      - ['7–12', 'Creature, an immediate threat: {pw.creature}']
+  pw.hazard:
+    die: 1d12
+    page: 52
+    rows:
+      - ['1–2', 'unnatural — {pw.hazard.unnatural}']
+      - ['3–12', 'natural — {pw.hazard.natural}']
+  pw.hazard.unnatural:
+    die: 1d12
+    page: 52
+    rows: [['1–5', taint/blight/curse], ['6–9', 'magical: {pw.hazard.natural} + {pw.magic}'], ['10–11', 'planar: {pw.hazard.natural} + {pw.element}'], ['12', 'divine: {pw.hazard.natural} + a deity']]
+  pw.hazard.natural:
+    die: 1d12
+    page: 52
+    rows:
+      - ['1', 'oddity-based ({pw.oddity})']
+      - ['2', tectonic/volcanic]
+      - ['3–4', 'unseen pitfall (chasm, crevasse, abyss, rift)']
+      - ['5–6', 'ensnaring (bog, mire, tarpit, quicksand)']
+      - ['7', defensive (created by a local creature)]
+      - ['8–10', 'meteorological (blizzard, thunderstorm, sandstorm)']
+      - ['11', 'seasonal (fire, flood, avalanche)']
+      - ['12', 'impairing (mist, fog, murk, gloom, miasma)']
+
+  # ---------------------------------------------------------------- creature p53
+  pw.creature:
+    title: Creature
+    die: 1d12
+    page: 53
+    rows:
+      - ['1–4', '{pw.monster}, {pw.number}, {pw.disposition}, {pw.activity}']
+      - ['5–10', '{pw.beast}, {pw.number}, {pw.disposition}, {pw.activity}']
+      - ['11–12', '{pw.humanoid}, {pw.number}, {pw.disposition}, {pw.activity}']
+  pw.monster:
+    die: 1d12
+    page: 53
+    rows:
+      - ['1', 'extraplanar: {pw.monster.extraplanar}']
+      - ['2', 'legendary: {pw.monster.legendary}']
+      - ['3–5', 'undead: {pw.monster.undead}']
+      - ['6–7', 'unusual: {pw.monster.unusual}']
+      - ['8–9', 'beastly: {pw.monster.beastly}']
+      - ['10–12', 'wild humanoid: {pw.monster.wild}']
+  pw.monster.extraplanar:
+    die: 1d12
+    page: 53
+    rows: [['1', divine/demonic lord], ['2', angel/demon], ['3–5', cherub/imp], ['6–12', '{pw.element} elemental']]
+  pw.monster.legendary:
+    die: 1d12
+    page: 53
+    rows: [['1', 'huge {pw.oddity} thing'], ['2', 'dragon/giant + {pw.beast}'], ['3–4', dragon/giant], ['5–12', 'huge {pw.beast}']]
+  pw.monster.undead:
+    die: 1d12
+    page: 53
+    rows: [['1', lich/vampire/mummy], ['2', wight/wraith], ['3–4', wisp/ghost/specter], ['5–12', skeleton/zombie/ghoul]]
+  pw.monster.unusual:
+    die: 1d12
+    page: 53
+    rows: [['1–4', slime/ooze/jelly], ['5–8', plant/fungus/parasite], ['9–10', golem/homunculus], ['11–12', fey/fairy]]
+  pw.monster.beastly:
+    die: 1d12
+    page: 53
+    rows: [['1', '{pw.beast} + {pw.aberrance}'], ['2', '{pw.beast} + {pw.element}'], ['3', '{pw.beast} + {pw.oddity}'], ['4–7', '{pw.beast} + {pw.ability}'], ['8–12', '{pw.beast} crossed with {pw.beast}']]
+  pw.monster.wild:
+    die: 1d12
+    page: 53
+    rows: [['1', ogre/troll/giant], ['2–5', orc/hobgoblin/gnoll], ['6–9', goblin/kobold], ['10', 'humanoid + {pw.oddity}'], ['11–12', 'human + {pw.beast}']]
+  pw.beast:
+    die: 1d12
+    page: 53
+    rows:
+      - ['1–2', '{pw.beast.water}']
+      - ['3–5', '{pw.beast.air}']
+      - ['6–12', '{pw.beast.earth}']
+  pw.beast.water:
+    die: 1d12
+    page: 53
+    rows: [['1', whale], ['2', squid/octopus], ['3', dolphin/shark], ['4', alligator/crocodile], ['5', turtle], ['6', fish], ['7', crab/lobster], ['8', frog/toad], ['9', eel/snake], ['10', clam/oyster/snail], ['11', jelly/anemone], ['12', insect]]
+  pw.beast.air:
+    die: 1d12
+    page: 53
+    rows: [['1', pteranodon], ['2', condor], ['3', eagle/owl], ['4', hawk/falcon], ['5', heron/crane/stork], ['6', crow/raven], ['7', gull/waterbird], ['8', songbird/parrot], ['9', chicken/duck/goose], ['10', bee/wasp], ['11', locust/dragonfly/moth], ['12', mosquito/gnat/firefly]]
+  pw.beast.earth:
+    die: 1d12
+    page: 53
+    rows: [['1', mammoth/dinosaur], ['2', ox/rhino], ['3', bear/ape/gorilla], ['4', deer/horse/camel], ['5', cat/lion/panther], ['6', boar/pig], ['7', dog/fox/wolf], ['8', vole/rat/weasel], ['9', snake/lizard], ['10', ant/centipede/scorpion], ['11', snail/slug/worm], ['12', termite/tick/louse]]
+  pw.humanoid:
+    die: 1d12
+    page: 53
+    note: Common = the most populous people of the region; elf/dwarf/halfling stand for the setting's peoples.
+    rows:
+      - ['1', 'rare: {pw.humanoid.rare}']
+      - ['2–5', 'uncommon: {pw.humanoid.uncommon}']
+      - ['6–12', 'common: {pw.humanoid.common}']
+  pw.humanoid.rare:
+    die: 1d12
+    page: 53
+    rows: [['1–8', elf], ['9–12', 'human + {pw.beast}']]
+  pw.humanoid.uncommon:
+    die: 1d12
+    page: 53
+    rows: [['1–3', 'human + {pw.beast}'], ['4–7', dwarf], ['8–12', halfling]]
+  pw.humanoid.common:
+    die: 1d12
+    page: 53
+    rows: [['1–3', mixed group], ['4–12', human]]
+
+  # ---------------------------------------------------------------- details p54–55
+  pw.aberrance:
+    die: 1d12
+    page: 54
+    rows: [['1', multicephalous], ['2', profuse sensory organs], ['3–4', anatomical oddity], ['5', many limbs/digits], ['6', acephalous/decentralized], ['7', tentacles/feelers], ['8', gibbering/babbling], ['9', exudes chaos/blight], ['10', shapechanging], ['11–12', 'multicephalous and many-limbed']]
+  pw.ability:
+    die: 1d12
+    page: 54
+    rows: [['1', bless/curse], ['2', entrap/paralyze], ['3', levitate/fly/teleport], ['4', telepathy/mind control], ['5', mimic/camouflage], ['6', seduce/hypnotize], ['7', dissolve/disintegrate], ['8', 'power of {pw.aspect}'], ['9', 'power of {pw.element}'], ['10', drain life/drain magic], ['11', '{pw.magic} magic'], ['12', 'entrap/paralyze and drain life']]
+  pw.activity:
+    die: 1d12
+    page: 54
+    rows: [['1', laying trap/ambush], ['2', fighting/at war], ['3', prowling/on patrol], ['4', hunting/foraging], ['5', eating/resting/camping], ['6', arguing/infighting], ['7', traveling/exploring], ['8', trading/negotiating], ['9', fleeing/running away], ['10', building/excavating], ['11', sleeping/unconscious], ['12', nursing injury/dying]]
+  pw.adjective:
+    die: 1d12
+    page: 54
+    rows: [['1', slick/slimy], ['2', rough/hard/sharp], ['3', smooth/soft/dull], ['4', corroded/rusty], ['5', rotten/decaying], ['6', broken/brittle], ['7', stinking/smelly], ['8', weak/thin/drained], ['9', strong/fat/full], ['10', pale/poor/shallow], ['11', dark/rich/deep], ['12', colorful]]
+  pw.age:
+    die: 1d12
+    page: 54
+    rows: [['1', unborn/nascent], ['2', being born/budding], ['3', newborn/blossoming], ['4–6', young/green], ['7–9', mature/ripe], ['10', old/going soft], ['11', dead/withered/ancient], ['12', dust/pre-historic]]
+  pw.alignment:
+    die: 1d12
+    page: 54
+    rows: [['1–2', evil], ['3–4', chaotic], ['5–8', neutral], ['9–10', lawful], ['11–12', good]]
+  pw.aspect:
+    die: 1d12
+    page: 54
+    rows: [['1', war/discord], ['2', hate/envy], ['3', power/strength], ['4', trickery/dexterity], ['5', time/constitution], ['6', lore/intelligence], ['7', nature/wisdom], ['8', culture/charisma], ['9', luck/fortune], ['10', love/admiration], ['11', peace/balance], ['12', glory/divinity]]
+  pw.color:
+    die: 1d12
+    page: 54
+    rows: [['1', white/bright/pale], ['2', red/pink/maroon], ['3', orange/peach], ['4', yellow/mustard/ochre], ['5', green/chartreuse/sage], ['6', blue/aquamarine/indigo], ['7', violet/purple], ['8', gray/slate], ['9', brown/beige/tan], ['10', black/dark], ['11', metallic/prismatic], ['12', transparent/clear]]
+  pw.condition:
+    die: 1d12
+    page: 54
+    rows: [['1', being built/born], ['2–4', intact/healthy], ['5–7', active/alert], ['8–9', weathered/tired/weak], ['10', vacant/lost], ['11', damaged/hurt/dying], ['12', broken/missing/dead]]
+  pw.disposition:
+    die: 1d12
+    page: 55
+    rows: [['1', attacking], ['2–4', hostile/aggressive], ['5–6', cautious/doubtful], ['7', fearful/fleeing], ['8–10', neutral], ['11', curious/hopeful], ['12', friendly]]
+  pw.element:
+    die: 1d12
+    page: 55
+    rows: [['1', void], ['2', death/darkness], ['3–4', fire/metal/smoke], ['5–6', earth/stone/vegetation], ['7–8', water/ice/mist], ['9–10', air/wind/storm], ['11', life/light], ['12', stars/cosmos]]
+  pw.magic:
+    die: 1d12
+    page: 55
+    rows: [['1', necromancy], ['2–3', evocation/destruction], ['4', conjuration/summoning], ['5', illusion/glamour], ['6', enchantment/artifice], ['7', transformation], ['8', warding/binding], ['9–10', elemental], ['11', restoration/healing], ['12', divination/scrying]]
+  pw.number:
+    die: 1d12
+    page: 55
+    rows: [['1–2', 'a horde (4d6 per wave)'], ['3–8', 'a group of {1d6+2}'], ['9–12', 'solitary']]
+  pw.oddity:
+    die: 1d12
+    page: 55
+    rows: [['1', bright/garish/harsh], ['2', geometric/concentric], ['3', web/network], ['4', crystalline/glassy], ['5', fungal/slimy/moldy], ['6', gaseous/misty/illusory], ['7', volcanic/explosive], ['8', magnetic/repellant], ['9', multilevel/tiered], ['10', absurd/impossible], ['11–12', 'crystalline and gaseous']]
+  pw.orientation:
+    die: 1d12
+    page: 55
+    rows: [['1–2', down/earthward], ['3', north], ['4', northeast], ['5', east], ['6', southeast], ['7', south], ['8', southwest], ['9', west], ['10', northwest], ['11–12', up/skyward]]
+  pw.ruination:
+    die: 1d12
+    page: 55
+    rows: [['1', arcane disaster], ['2', damnation/curse], ['3–4', earthquake/fire/flood], ['5–6', plague/famine/drought], ['7–8', overrun by monsters], ['9–10', war/invasion], ['11', depleted resources], ['12', emigration]]
+  pw.size:
+    die: 1d12
+    page: 55
+    rows: [['1', tiny], ['2–3', small], ['4–9', medium-sized], ['10–11', large], ['12', huge]]
+  pw.tag:
+    die: 1d12
+    page: 55
+    rows: [['1', amorphous], ['2', cautious], ['3', construct], ['4', devious], ['5', intelligent], ['6', magical], ['7', organized], ['8', planar], ['9', stealthy], ['10', terrifying], ['11–12', 'intelligent and organized']]
+  pw.terrain:
+    die: 1d12
+    page: 55
+    rows: [['1', sea/ocean], ['2–3', wasteland/desert], ['4–5', lowland/plains], ['6', wetland/swamp], ['7–8', woodland/jungle], ['9–10', highland/hills], ['11', mountains], ['12', 'strange {pw.oddity}']]
+  pw.visibility:
+    die: 1d12
+    page: 55
+    rows: [['1–2', buried/hidden/invisible], ['3–6', obscured/overgrown], ['7–9', obvious/in plain sight], ['10–11', visible at near distance], ['12', visible at far distance]]
+
+  # ---------------------------------------------------------------- dungeon p66
+  pw.dungeon.form:
+    die: 1d12
+    page: 66
+    rows: [['1', caves/caverns], ['2–3', 'ruins of a {pw.discovery.structure}'], ['4', mine], ['5', prison], ['6–7', crypt/tomb/catacombs], ['8', stronghold/fortress/citadel], ['9', temple/sanctuary], ['10', tower/spire], ['11', 'caves/caverns, {pw.oddity}'], ['12', ruins of a steading]]
+
+  # ---------------------------------------------------------------- steadings p50–51
+  pw.steading.village.feature:
+    die: 1d12
+    page: 50
+    rows:
+      - ['1–3', 'Natural defenses: safe, −defenses']
+      - ['4–6', 'Abundant resources: +prosperity, a resource, an enmity']
+      - ['7–8', 'Protected by another steading: oath to it, +defenses']
+      - ['9–10', 'On a major road: trade, +prosperity']
+      - ['11', 'Built around a wizard’s tower: the wizard is a personage, blight (arcane creatures)']
+      - ['12', 'Built on a site of religious significance: divine, history']
+  pw.steading.village.problem:
+    die: 1d12
+    page: 50
+    rows:
+      - ['1–2', 'Surrounded by arid or uncultivable land: needs food']
+      - ['3–4', 'Dedicated to a deity: religious, enmity with a steading of an opposing deity']
+      - ['5–6', 'Recently at war: −population, −prosperity, −defenses if they lost']
+      - ['7–8', 'Monster problem: blight ({pw.creature}), needs adventurers']
+      - ['9–10', 'Absorbed another village: +population, lawless']
+      - ['11–12', 'Remote or unwelcoming: −prosperity, non-human folk']
+  pw.steading.town.feature:
+    die: 1d12
+    page: 50
+    rows:
+      - ['1', 'Booming: booming, lawless']
+      - ['2–3', 'At a crossroads: market, +prosperity']
+      - ['4–5', 'Defended by another steading: oath to it, +defenses']
+      - ['6–7', 'Built around a church: power (divine)']
+      - ['8–10', 'Center of craft: a craft, and the resource it needs']
+      - ['11–12', 'Built around a military post: +defenses']
+  pw.steading.town.problem:
+    die: 1d12
+    page: 50
+    rows:
+      - ['1–2', 'Outgrowing a vital resource: needs it, trades with a steading that has it']
+      - ['3–4', 'Offers defense to others: oaths owed to it, −defenses']
+      - ['5–6', 'Outlaw rumored to live there: the outlaw is a personage, enmity with the steading preyed upon']
+      - ['7–8', 'Controls a good or service: exotic, enmity with an ambitious steading']
+      - ['9–10', 'Suffers from disease: −population']
+      - ['11–12', 'Popular meeting place: +population, lawless']
+  pw.steading.keep.feature:
+    die: 1d12
+    page: 51
+    rows:
+      - ['1–2', 'Belongs to a noble family: +prosperity, power (political)']
+      - ['3–4', 'Run by a skilled commander: the commander is a personage, +defenses']
+      - ['5–6', 'Stands watch over a trade road: +prosperity, a trade guild']
+      - ['7–8', 'Used to train special troops: arcane, −population']
+      - ['9–10', 'Surrounded by fertile land: no need for supplies']
+      - ['11–12', 'Stands on a border: +defenses, enmity with the steading across it']
+  pw.steading.keep.problem:
+    die: 1d12
+    page: 51
+    rows:
+      - ['1–3', 'Built on a naturally defensible position: safe, −population']
+      - ['4', 'Formerly occupied by another power: enmity with its steadings']
+      - ['5', 'Safe haven for brigands: lawless']
+      - ['6', 'Built to defend from a specific threat: blight ({pw.creature})']
+      - ['7', 'Has seen horrible bloody war: history (battle), restless spirits']
+      - ['8', 'Is given the worst of the worst: needs skilled recruits']
+      - ['9–10', 'Suffers from disease: −population']
+      - ['11–12', 'Popular meeting place: +population, −law']
+  pw.steading.city.feature:
+    die: 1d12
+    page: 51
+    rows:
+      - ['1–3', 'Permanent defenses, such as walls: +defenses']
+      - ['4–6', 'Ruled by a single individual: the ruler is a personage, power (political)']
+      - ['7', 'Diverse: several peoples live here']
+      - ['8–10', 'Trade hub: trades with every nearby steading, +prosperity']
+      - ['11', 'Ancient, built on top of its own ruins: history, divine']
+      - ['12', 'Center of learning: arcane, a craft, power (arcane)']
+  pw.steading.city.problem:
+    die: 1d12
+    page: 51
+    rows:
+      - ['1–3', 'Outgrown its resources: +population, needs food']
+      - ['4–6', 'Designs on nearby territory: enmity with nearby steadings, +defenses']
+      - ['7–8', 'Ruled by a theocracy: −defenses, power (divine)']
+      - ['9–10', 'Ruled by the people: −defenses, +population']
+      - ['11', 'Supernatural defenses: +defenses, blight (related creatures)']
+      - ['12', 'Occupies a place of power: arcane, a watcher, blight (arcane creatures)']
+
+  # ---------------------------------------------------------------- names p20–21
+  pw.region.template:
+    die: 1d12
+    page: 20
+    rows:
+      - ['1–4', 'The {pw.name.adjective} {pw.name.terrain}']
+      - ['5–7', '{pw.name.terrain} of the {pw.name.noun}']
+      - ['8', 'The {pw.name.terrain} {pw.name.adjective}']
+      - ['9–10', 'The {pw.name.noun} {pw.name.terrain}']
+      - ['11', 'The {pw.name.noun}’s {pw.name.adjective} {pw.name.terrain}']
+      - ['12', '{pw.name.adjective} {pw.name.terrain} of the {pw.name.noun}']
+  pw.place.template:
+    die: 1d12
+    page: 21
+    rows:
+      - ['1–2', 'The {pw.place.place}']
+      - ['3–4', 'The {pw.place.adjective} {pw.place.place}']
+      - ['5–6', 'The {pw.place.place} of the {pw.place.noun}']
+      - ['7–8', 'The {pw.place.noun}’s {pw.place.place}']
+      - ['9–10', '{pw.place.place} of the {pw.place.adjective} {pw.place.noun}']
+      - ['11–12', 'The {pw.place.adjective} {pw.place.noun}']
+  pw.name.terrain:
+    page: 20
+    rows: [Bay, Bluffs, Bog, Cliffs, Desert, Downs, Dunes, Expanse, Fells, Fen, Flats, Foothills, Forest, Groves, Heath, Heights, Hills, Hollows, Jungle, Lake, Lowland, March, Marsh, Meadows, Moor, Morass, Mounds, Mountains, Peaks, Plains, Prairie, Quagmire, Range, Reach, Sands, Savanna, Scarps, Sea, Slough, Sound, Steppe, Swamp, Sweep, Teeth, Thicket, Upland, Wall, Waste, Wasteland, Woods]
+  pw.name.adjective:
+    page: 20
+    rows: [Ageless, Ashen, Black, Blessed, Blighted, Blue, Broken, Burning, Cold, Cursed, Dark, Dead, Deadly, Deep, Desolate, Diamond, Dim, Dismal, Dun, Eerie, Endless, Fallen, Far, Fell, Flaming, Forgotten, Forsaken, Frozen, Glittering, Golden, Green, Grim, Holy, Impassable, Jagged, Light, Long, Misty, Perilous, Purple, Red, Savage, Shadowy, Shattered, Shifting, Shining, Silver, White, Wicked, Yellow]
+  pw.name.noun:
+    page: 20
+    rows: ['{names.given}', Ash, Bone, Darkness, Dead, Death, Desolation, Despair, Devil, Doom, Dragon, Fate, Fear, Fire, Fury, Ghost, Giant, God, Gold, Heaven, Hell, Honor, Hope, Horror, King, Life, Light, Lord, Mist, Peril, Queen, Rain, Refuge, Regret, Savior, Shadow, Silver, Skull, Sky, Smoke, Snake, Sorrow, Storm, Sun, Thorn, Thunder, Traitor, Troll, Victory, Witch]
+  pw.place.place:
+    page: 21
+    rows: [Barrier, Beach, Bowl, Camp, Cave, Circle, City, Cliff, Crater, Crossing, Crypt, Den, Ditch, Falls, Fence, Field, Fort, Gate, Grove, Hill, Hole, Hut, Keep, Lake, Marsh, Meadow, Mountain, Pit, Post, Ridge, Ring, Rise, Road, Rock, Ruin, Shrine, Spire, Spring, Stone, Tangle, Temple, Throne, Tomb, Tower, Town, Tree, Vale, Valley, Village, Wall]
+  pw.place.adjective:
+    page: 21
+    rows: [Ancient, Ashen, Black, Bloody, Blue, Bright, Broken, Burning, Clouded, Copper, Cracked, Dark, Dead, Doomed, Endless, Fallen, Far, Fearsome, Floating, Forbidden, Frozen, Ghostly, Gloomy, Golden, Grim, Hidden, High, Iron, Jagged, Lonely, Lost, Low, Near, Petrified, Red, Screaming, Sharp, Shattered, Shifting, Shining, Shivering, Shrouded, Silver, Stalwart, Stoney, Sunken, Thorny, Thundering, White, Withered]
+  pw.place.noun:
+    page: 21
+    rows: ['{names.given}', Arm, Ash, Blood, Child, Cinder, Corpse, Crystal, Dagger, Death, Demon, Devil, Doom, Eye, Fear, Finger, Fire, Foot, Ghost, Giant, Goblin, God, Gold, Hand, Head, Heart, Hero, Hope, King, Knave, Knight, Muck, Mud, Priest, Queen, Sailor, Silver, Skull, Smoke, Souls, Spear, Spirit, Stone, Sword, Thief, Troll, Warrior, Water, Witch, Wizard]

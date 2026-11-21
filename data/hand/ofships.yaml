@@ -1,0 +1,62 @@
+# DM Screen — Of Ships & the Sea (WotC, 2019), "Random Ships" panel. Read from the
+# image-only PDF by hand. Crews' peoples are left as printed; map them to your setting.
+source: {id: OSS, title: "DM Screen — Of Ships & the Sea", file: "OSR/Tools & Maps/Tables/DM Screen - Of Ships & the Sea.pdf", offset: 0}
+tables:
+  oss.ship.type:
+    title: Ship type
+    die: d100
+    page: 3
+    rows: [['01–09', Rowboat], ['10–25', Keelboat], ['26–38', Longship], ['39–60', Sailing ship], ['61–79', Galley], ['80–00', Warship]]
+  oss.ship.purpose:
+    title: Ship purpose
+    die: d100
+    page: 3
+    rows: [['01–17', Cargo], ['18–34', Passenger], ['35–51', Fishing], ['52–68', Military], ['69–85', Piracy], ['86–95', Mercenary], ['96–00', Ghost]]
+  oss.ship.attitude:
+    title: Ship attitude
+    die: d6
+    page: 3
+    rows: [['1–2', Friendly], ['3–4', Neutral], ['5–6', Hostile]]
+  oss.ship.crew.friendly:
+    title: Friendly ship — crew
+    die: d100
+    page: 3
+    rows: [['01–05', Dragonborn], ['06–10', Dwarves], ['11–30', Elves], ['31–40', Gnomes], ['41–50', Tieflings], ['51–60', Halflings], ['61–00', Humans]]
+  oss.ship.crew.neutral:
+    title: Neutral ship — crew
+    die: d100
+    page: 3
+    rows: [['01–05', Dragonborn], ['06–10', Dwarves], ['11–30', Lizardfolk], ['31–40', Hobgoblins], ['41–50', Orcs], ['51–60', Halflings], ['61–00', Humans]]
+  oss.ship.crew.hostile:
+    title: Hostile ship — crew
+    die: d100
+    page: 3
+    rows: [['01–05', Frost giants], ['06–10', Kobolds], ['11–30', Orcs], ['31–40', Hobgoblins], ['41–50', Undead], ['51–60', Gnolls], ['61–00', Humans]]
+  oss.ship.name:
+    title: Ship name
+    die: d20
+    page: 3
+    cols: [Adjective, Noun]
+    rows: [['1', Beautiful, Adventure], ['2', Bilious, Barnacle], ['3', Bold, Brawler], ['4', Cold, Devil], ['5', Dandy, Dragon], ['6', Dawn, Gem], ['7', Drunken, Flower], ['8', Fiery, Jester], ['9', Furious, Kraken], ['10', Grinning, Leviathan], ['11', Intrepid, Mermaid], ['12', Jolly, Prince], ['13', Misty, Princess], ['14', Rambunctious, Revenge], ['15', Red, Saber], ['16', Royal, Shark], ['17', Salty, Tide], ['18', Sinful, Treasure], ['19', Twilight, Victory], ['20', Zealous, Wanderer]]
+  oss.crew.name:
+    title: Crew member name
+    die: d20
+    page: 3
+    cols: [First half, Second half]
+    rows: [['1', Salty, Beard], ['2', Ol’, Eye], ['3', Silver, Copper], ['4', Golden, Fish], ['5', Black, Whale], ['6', Blue, Dog], ['7', Silky, Cur], ['8', Heartless, Fingers], ['9', Drizzly, Patches], ['10', Thirsty, Hook], ['11', Rum, Salt], ['12', Gloomy, Rat], ['13', Handsome, Charm], ['14', Wee, Beast], ['15', Clever, Devil], ['16', Ugly, Liar], ['17', Pretty, Angel], ['18', Lost, Blood], ['19', Mad, Maps], ['20', Poor, Mast]]
+  oss.ship.disposition:
+    title: Ship disposition
+    die: d10
+    page: 3
+    rows:
+      - ['1', 'Diseased: {d100}% of crew and passengers sick; they beg or demand help']
+      - ['2', 'Emergency: {oss.ship.emergency}']
+      - ['3', 'Help with purpose: they ask for direct aid with their task, for pay']
+      - ['4', 'Mutiny: officers or crew ask for help against the other side']
+      - ['5', 'Trading: they offer cargo or services for deeds, items or coin']
+      - ['6–10', 'No special disposition; reacts by attitude']
+  oss.ship.emergency:
+    title: Ship emergency
+    die: d4
+    page: 3
+    rows: [['1', The ship’s crew is lost.], ['2', The ship is damaged and drifts with the current.], ['3', The ship is stuck on a sandbar.], ['4', The ship is sinking.]]

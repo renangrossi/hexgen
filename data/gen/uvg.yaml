@@ -1,0 +1,1015 @@
+source:
+  id: UVG
+  title: Ultraviolet Grasslands and the Black City (2e)
+  file: OSR/Tools & Maps/Tables/UVG_2E_Ultraviolet_Grasslands_and_the_Black_City_Digital_Small_1.pdf
+  offset: 0
+  pages:
+  - 1
+  - 260
+  cols: 2
+tables:
+  uvg.p10.who-are-they-why-are-they-on-the-road-wh:
+    title: Who are they? Why are they on the road? What do they bear?
+    die: d50
+    page: 10
+    rows:
+    - - '1'
+      - Decapolitan ambassador
+      - Sent by a grim corporation
+      - One black metal vertebra
+    - - '2'
+      - Redland District folk historian
+      - Dreams of a world ending
+      - Half a white porcelain skull
+    - - '3'
+      - Hexad enforcer militant
+      - Blood memories of a great patrimony
+      - Green brick with the light and warmth of a candle
+    - - '4'
+      - Safranian merchant adventurer
+      - Tracking a missing ledger
+      - Pink bottle with a singing spirit
+    - - '5'
+      - Emerald City preacher
+      - Seeking new converts
+      - Three machine beetles with gem eyes
+    - - '6'
+      - Redland bourgeoise botanist
+      - Rumors of a fabulous autofac
+      - Precious yellow plastic tablet with four truths
+    - - '7'
+      - Oranjetic traveling entertainer
+      - Found clue to abmortality
+      - Silver book proclaiming revolution
+    - - '8'
+      - Greenlander nomad herdsfolk
+      - Ordered by an ominous disembodied voice
+      - Cabochon ruby with a regal hologram inside
+    - - '9'
+      - Exiled pirate liberal
+      - Map to an unclaimed aerolith
+      - Intaglio red pearl of a lingish trader
+    - - '10'
+      - Salt dwarf prospector
+      - Soul of loved one stolen by a horror
+      - Violet bone crystalized in soulfire
+    - - '11'
+      - Yellowlander spice apothecary
+      - Stories of a secret healing vegetable
+      - Copper star incised with naughty limericks
+    - - '12'
+      - Undercover rainbow inquisitor
+      - Portents of a deadly machine demon
+      - Four brassy cogs from a soul mill
+    - - '13'
+      - Undergraduate purple wizard
+      - Paintings of a gorgeous cyan seaside
+      - Dusty positronic rat brain in a crystal case
+    - - '14'
+      - Dilettante noble tourist
+      - Pursued by loving enemies
+      - Small lavender plant that cannot die
+    - - '15'
+      - Exiled Bluelander noble big game hunter
+      - Grandmother’s lost autowagon
+      - Translucent dinner plate-sized force disk
+    - - '16'
+      - Secret azure cult bio-mechanic
+      - Sibling was stripped into a ba-zombie
+      - Grey healing lichen culture in ceramic jar
+    - - '17'
+      - Violet revolutionary émigré
+      - Master boneworker sent an invitation
+      - Manual of the vechs, annotated with scribbles
+    - - '18'
+      - Oranjist courtesan singer-comedian
+      - Delivering a letter of inheritance to a count
+      - Stainless steel thermos of blood wine
+    - - '19'
+      - Metropolitan accountant monk
+      - Cure for a plague that killed your child
+      - Glass tub of vampire-grade sunscreen
+    - - '20'
+      - Volkan diesel dwarf barista
+      - Biomantic bible in a lost library
+      - Platinum necrogoggles that reveal undead
+    - - '21'
+      - Woodlander elf-touched trapper
+      - Repaying debts to the butcher bank
+      - Small furry brown vome that giggles when petted
+    - - '22'
+      - Settled Steppelander engineer
+      - Visions of a world ending in falling fire
+      - Machine horse in dappled shades of rust
+    - - '23'
+      - Wine vampire priest
+      - Bearing a priceless pearl for a princess
+      - Crystal personality box to create ka-zombies
+    - - '24'
+      - Purplefolk doghead anarchist
+      - Tracking a vile intruder from the void
+      - Yellow-orange weightless rock—an aerolith
+    - - '25'
+      - Halfling lunatic seer
+      - Mind entwined with a dying sentience
+      - Blue and white mechanical hand
+    - - '26'
+      - Scrubland barbarian gun runner
+      - Nightly dreams of a lost world
+      - Quartzite tooth of a space worm
+    - - '27'
+      - Black gold industrialist
+      - Seeking a prosthetic body for mother
+      - Animate furry chitin kite
+    - - '28'
+      - Violet City mendicant healer
+      - Ordered by the clan quest golem
+      - Carmine cactus that secretes drops of blood
+    - - '29'
+      - Independent freehold archaeologist
+      - Keeping tabs on a rival explorer
+      - Cogwheel monocle with small pits
+    - - '30'
+      - Old city academic tutor
+      - Exploring clues to the great forgetting
+      - Seven strands of unbreakable silver wire
+    - - '31'
+      - Exotic wastelander summoner
+      - Possessed by a demon in childhood
+      - Citrine soul stone with a third of a hero’s soul
+    - - '32'
+      - Tumult fisher wizard
+      - Seeking allies for a revolution
+      - Gourd fetish with cowrie teeth
+    - - '33'
+      - Safirian ruins scavenger
+      - Looking for new lands for lost tribe
+      - Teal warlock helmet with three white stripes
+    - - '34'
+      - Wildfolk demon hunter
+      - Compulsion after meeting a seer
+      - Yellow cape of pure steel silk
+    - - '35'
+      - Cogflower necromancer lawyer
+      - Sheer industrial greed
+      - Unaging plastic travel cutlery
+    - - '36'
+      - Pueblo heretic rancher
+      - Determined to end a crippling disease
+      - Rainbow unicorn horn
+    - - '37'
+      - Dessicated slaver spy
+      - Found the testament of a dead god
+      - Grey cube that weighs five times more than lead
+    - - '38'
+      - Moon mountain witch narco-herbalist
+      - Pursued by furies and a dark fate
+      - Lime green onion-and-skull cup
+    - - '39'
+      - Half-island syndicalist tinker
+      - Visions of glory and rebirth
+      - Clear crystal heart of a V.I.L.E.
+    - - '40'
+      - Union machinehunter general
+      - Queer unease after reading a metal book
+      - Red staff made of fused ancient pistols
+    - - '41'
+      - Redland district golem encoder
+      - Experience of a tragic vomish outbreak
+      - Sentient donkey. Greenish plastic hat.
+    - - '42'
+      - Lilac shore delivery driver
+      - Their aged clone whispered prophecies
+      - Liquid metal shapeshifting executioner’s blade
+    - - '43'
+      - Luxury resort animal groom
+      - Hallucinatory star, guiding, leading West
+      - Preserved and revived heart of a beloved
+    - - '44'
+      - Decapolitan oldtech project manager
+      - Songs in the blood of a Flesh God scion
+      - Vantablack propaganda reduction sunglasses
+    - - '45'
+      - Orangelander grove-born phytomancer
+      - Mystic manual talked of a divine workshop
+      - Tempting intelligent gun-wand of porcelain and jade
+    - - '46'
+      - Overmountain skinshifter tactician
+      - Post-mortal messenger gave a portal key
+      - Faceless terracotta helmet with no name
+    - - '47'
+      - Redland vintner aristocrat surgeon
+      - Bone-deep ennui at an unchanging order
+      - Self-playing zither with seventy tunes
+    - - '48'
+      - Starstruck Decapolitan artists
+      - Dying grandparent’s oath to a lacquer queen
+      - Ivory set of Zu Complex ignition tables
+    - - '49'
+      - Deep Yellow refugee navigator
+      - Promise to take a friend’s ashes to the last sea
+      - Undying replacement organ
+    - - '50'
+      - Ashen deserter from the flower war
+      - Dream quest order to destroy an invisible ring
+      - Source-bonded replacement clone seed
+    cols:
+    - Who are they?
+    - Why are they on the road?
+    - What do they bear?
+  uvg.p177.general-travel-misfortune-and-misery-a-c:
+    title: General Travel Misfortune and Misery A character can spend one point of Charisma to re-roll their misfor-
+    die: d20
+    page: 177
+    rows:
+    - - '1'
+      - Horribly lost (-1 week).
+      - tune. The concept of Charisma comes from Ancient Greek, where
+    - - '2'
+      - Contracted a debilitating disease (-3 stat points).
+      - it referred to grace and bestowed by capricious deities. This wasn’t
+    - - '3'
+      - Drought-afflicted land without fodder. Each animal needs a sack of supplies. Starvation follows if there is not enough.
+      - some approximation of “sex appeal” or “leadership potential.” This was straight up divine favoritism. A hero could be a complete
+    - - '4'
+      - Vicious food poisoning (- 1d6 Life), humorous side effects.
+      - dirtbag but her divine mother had dipped her in god ju-ju and given
+    - - '5'
+      - Floods wash away road (-1d4 days).
+      - her teflon skin. Others got the plague, she was untouched. Others
+    - - '6'
+      - Contracted a loud, attention-grabbing cough (need medicine).
+      - got scarred, she glowed with beauty and grace. Classical Charisma is
+    - - '7'
+      - Storm blows away loose items, soaks documents (-1 item).
+      - utterly unfair which is why it works so well as a proxy for luck.
+    - - '8'
+      - Weevils or dust rats get into supplies (-1 sack).
+      - ''
+    - - '9'
+      - Pack animal wanders off (-1 day or -1 animal).
+      - ''
+    - - 10–11
+      - A piece of equipment has worn out (useless until repaired in town).
+      - ''
+    - - '12'
+      - The road is dusty, long, and dull. Boredom grows.
+      - ''
+    - - '13'
+      - The road is exhausting but … hey … wait … what’s that? A risky gamble to acquire some unexpected resources? Spend 1d6 Life to attempt a moderate test to gain 1d4 supplies.
+      - ''
+    - - 14–19
+      - The road is arduous, but due to good packing and a few travel games, it is manageable.
+      - ''
+    - - 20+
+      - Your understanding of the steppes grows, advance one step towards acquiring a UVG wilderness skill, like Mule Whispering, Steppeland Protocols, or Storytelling.
+      - ''
+    cols:
+    - General Travel Misfortune and Misery
+    - A character can spend one point of Charisma to re-roll their misfor-
+  uvg.p178.relevant-test-usually:
+    title: Relevant Test (Usually
+    die: d20
+    page: 178
+    rows:
+    - - '1'
+      - Nothing but blank experience an
+    - - 2–3
+      - Nothing interesting
+    - - 4–10
+      - Dust and haze and
+    - - '11'
+      - Nothing here, but there’s
+    - - 12–15
+      - The locals mutter and Note down one
+    - - 16–19
+      - In the silences. In the there is a map. Two
+    - - 20+
+      - The locals no longer read crypts of their founders,
+  uvg.p178.how-far-away:
+    title: How Far Away?
+    die: d20
+    page: 178
+    rows:
+    - - '1'
+      - A full week away.
+    - - 2–4
+      - Six days.
+    - - 5–7
+      - Five days.
+    - - 8–10
+      - Four days.
+    - - 11–13
+      - Three days.
+    - - 14–16
+      - Two days.
+    - - 17–19
+      - A day. Maybe less?
+    - - '20'
+      - Right here! Hidden!
+  uvg.p178.which-way:
+    title: Which Way?
+    die: d8
+    page: 178
+    rows:
+    - - '1'
+      - West, towards the Black City.
+    - - '2'
+      - Southwest, towards the unknown.
+    - - '3'
+      - South, towards the Cyan Sea.
+    - - '4'
+      - Southeast, to the Red Mountains.
+    - - '5'
+      - East, towards civilization.
+    - - '6'
+      - Northeast, to the Moon Mountains.
+    - - '7'
+      - North, towards the Silent Forest.
+    - - '8'
+      - Northwest, towards the Flesh Coast.
+  uvg.p180.factor-notes-1-theres-a-bomb-in-the-carg:
+    title: Factor Notes 1 There’s a bomb in the cargo. An adjacent, well-known destination.
+    die: d20
+    page: 180
+    rows:
+    - - '1'
+      - '0'
+      - It’s taboo. Nobody talks about it. Like it doesn’t exist. There certainly isn’t a local morality cult that murders dealers.
+      - '2'
+      - The cargo is secretly faulty. A nearby (2–3 stops) destination.
+    - - '2'
+      - '0'
+      - No demand or brainwashing? They don’t want it at all.
+      - '3'
+      - Local patrols demand bribes. A far away (4–6 stops) destination.
+    - - 3–6
+      - '0.5'
+      - Low demand.
+      - '4'
+      - Problem with the paperwork. A small, hidden settlement (2–3 stops).
+    - - 7–12
+      - '1'
+      - Normal market.
+      - '5'
+      - Thieves are stalking the cargo. An illegal camp on the road (2–3 stops).
+    - - '13'
+      - '1'
+      - Depressed market. Haggling checks at a disadvantage.
+      - '6'
+      - A competitor is racing to sell X marks the spot a week off the road at the same location. Hurry! (1–3 stops away).
+    - - 14–15
+      - '2'
+      - Popular but illegal. Stiff penalties for captured dealers.
+      - '7'
+      - A third party wants to ensure A discovery, here, it’s famous. I’ll mark it
+    - - 16–17
+      - '2'
+      - High demand.
+      - ''
+      - the delivery fails. on the map for you (1–3 stops away).
+    - - '18'
+      - '3'
+      - Market bubble! 1 in 6 chance per caravan visit that the market has collapsed (roll 1d10 on this table).
+      - '8'
+      - The cargo is stolen. And Another caravan, it passed through here someone scary wants it back. 2 weeks ago. It’s slow. You can catch it.
+    - - '19'
+      - '4'
+      - The motherload! You’re really in business now. 1 in 6 chance per caravan visit that the market has readjusted (roll again on this table).
+      - 9 10
+      - The local character is in A lone traveler. Ask at this totally legal cahoots with armed bandits. watering hole 2–3 stops away. The drop-off is under A dangerous discovery, off in the wilds,
+    - - '20'
+      - '1'
+      - Source! They make the trade good here. Buyers make haggling checks at an advantage, sellers at a disadvantage.
+      - ''
+      - surveillance. Make the a few days from here. Make yourself delivery ... discreetly. scarce after the delivery.
+    cols:
+    - Factor Notes
+    - '1'
+    - There’s a bomb in the cargo.
+    - An adjacent, well-known destination.
+  uvg.p180.factor-interesting-note:
+    title: Factor Interesting Note
+    die: d20
+    page: 180
+    rows:
+    - - '1'
+      - 0 Local authorities (or thugs?) confiscate the goods!
+    - - 2–5
+      - 0.5 Ripped off! Was it knives in the milk or the fine print?
+    - - 6–13
+      - 1 A fair and reasonable sale.
+    - - 14–17
+      - 1.2 A solid, profitable sale.
+    - - 18–19
+      - 1.5 A good trade. Anyone should be proud.
+    - - 20+
+      - 3 This might be almost too good. Perhaps it wouldn’t hurt to quickly skip town now...
+  uvg.p180.they-want-because:
+    title: They want ... ... Because
+    die: d10
+    page: 180
+    rows:
+    - - '1'
+      - Basic staples, water, or fuel.
+      - The crops have failed. Again.
+    - - '2'
+      - Rare delicacies, fine wines.
+      - A grinding war of attrition.
+    - - '3'
+      - Illegal drugs or medicines.
+      - A penultimate reincarnation party.
+    - - '4'
+      - Live animals. Or humans.
+      - Spiritual plague is shutting minds.
+    - - '5'
+      - New machines. Golems.
+      - A nearby autofac has died.
+    - - '6'
+      - Gems, jewelry, gold.
+      - A fresh addiction. Very convenient.
+    - - '7'
+      - Tecknowledge. Old books.
+      - A jubilee demands everything new.
+    - - '8'
+      - Construction materials.
+      - A local demiurge demands it.
+    - - '9'
+      - Strange arcane resources.
+      - Raids have left the settlement bereft.
+    - - '10'
+      - Weapons. Vehicles. Armors.
+      - A rich seam of artifacts was dug up.
+    cols:
+    - They want ...
+    - '... Because'
+  uvg.p180.the-catch-is-and-the-destination:
+    title: The catch is ... ... and the Destination
+    die: d10
+    page: 180
+    rows:
+    - - '1'
+      - There’s a bomb in the cargo.
+      - An adjacent, well-known destination.
+    - - '2'
+      - The cargo is secretly faulty.
+      - A nearby (2–3 stops) destination.
+    - - '3'
+      - Local patrols demand bribes.
+      - A far away (4–6 stops) destination.
+    - - '4'
+      - Problem with the paperwork.
+      - A small, hidden settlement (2–3 stops).
+    - - '5'
+      - Thieves are stalking the cargo.
+      - An illegal camp on the road (2–3 stops).
+    - - '6'
+      - A competitor is racing to sell at the same location. Hurry!
+      - X marks the spot a week off the road (1–3 stops away).
+    - - '7'
+      - A third party wants to ensure the delivery fails.
+      - A discovery, here, it’s famous. I’ll mark it on the map for you (1–3 stops away).
+    - - '8'
+      - The cargo is stolen. And someone scary wants it back.
+      - Another caravan, it passed through here 2 weeks ago. It’s slow. You can catch it.
+    - - '9'
+      - The local character is in cahoots with armed bandits.
+      - A lone traveler. Ask at this totally legal watering hole 2–3 stops away.
+    - - '10'
+      - The drop-off is under surveillance. Make the delivery ... discreetly.
+      - A dangerous discovery, off in the wilds, a few days from here. Make yourself scarce after the delivery.
+    cols:
+    - The catch is ...
+    - '... and the Destination'
+  uvg.p184.who-are-they-what-do-they-want-their-org:
+    title: Who Are They? What Do They Want? Their Organization Their Opponents Weaknesses and Oddities
+    die: d20
+    page: 184
+    rows:
+    - - '1'
+      - Hexad RLD smuggler
+      - Money and respect
+      - Ruthless incorporation
+      - Disgruntled nobles
+      - Communicates through telepathy.
+    - - '2'
+      - Vintner lord’s butler
+      - Willing blood-donor serfs
+      - Aristocratic moiety
+      - Organized proles
+      - Uses a synthetic body-replacement.
+    - - '3'
+      - Metropolitan banker
+      - Infinite cash
+      - Butcher investment fund
+      - Oppressed dogheads
+      - Has many clones. Sends them as agents.
+    - - '4'
+      - D.W.A.R.F. industrialist
+      - Rebuild oldtech factory
+      - Synthetic machine guild
+      - Anti-machine fanatics
+      - Wears a modular face replacement.
+    - - '5'
+      - Safranj merchant baron
+      - Destroy foe. Financially.
+      - Family company. Mob?
+      - Pro-machine cultists
+      - Always levitates 10cm above the ground.
+    - - '6'
+      - Blue cult revolutionary
+      - Get a secret weapon
+      - Collective temple hive
+      - Occultist imperialists
+      - Uses detachable limbs to deliver missives.
+    - - '7'
+      - Cat witch faction leader
+      - Acquire forbidden magic
+      - Cat-first society
+      - Savage capitalist scions
+      - Appears only as a hologram.
+    - - '8'
+      - Academic high priest
+      - Create the best museum
+      - University militant
+      - Voidwalker Ultra cell
+      - Permanently integrated in a building.
+    - - '9'
+      - Steppe clan leader
+      - Assimilate foe. Vomishly.
+      - Vome-slug rebel cell
+      - Steppe horde khanate
+      - Can download mind-copies into vehicles.
+    - - '10'
+      - Secret abmortalist
+      - True immortality
+      - Medical coven
+      - Satrap-Prince heresy
+      - Requires a steady diet of illegal delicacies.
+    - - '11'
+      - Decapolitan summoner
+      - Find their family
+      - Undead hunting cabal
+      - Nature-loving oligarch
+      - Has five detachable faces.
+    - - '12'
+      - Dog-head mystic
+      - Convince their true love
+      - Rancher druid circle
+      - Royalist cat lord
+      - Is part of a 5-rainbow polybody.
+    - - '13'
+      - Assimilated steppelander
+      - Get revenge for their kin
+      - Star-worshipping cult
+      - Awakened Old Mind
+      - Has a secondary brain and personality.
+    - - '14'
+      - Ex-porcelain prince poet
+      - Become whole again
+      - Oligarchic cooperative
+      - Golem demiurge
+      - Requires vital bodily fluid infusions.
+    - - '15'
+      - Synthetic human trader
+      - Subsume the best minds
+      - Pharma-petroleum cartel
+      - Aggressive elven hive
+      - Subsists on sunlight alone.
+    - - '16'
+      - Advisory head in a jar
+      - Infiltrate the fast stars
+      - Venture capital guild
+      - Time-lost invader
+      - Cannot use gate travel.
+    - - '17'
+      - Lone satrap parasite
+      - Create a dynasty
+      - Orchard association
+      - Anarchist capitalists
+      - Sparkles in moonlight.
+    - - '18'
+      - Ghostly voice in a pot
+      - Resurrect their child
+      - Road warrior union
+      - Mummified ancestor
+      - Turns into a felinoid in sunlight.
+    - - '19'
+      - Magic black metal ax
+      - Relight the second sun
+      - Adventurer bank
+      - Devolved demigodling
+      - Robes hide insectile machine body.
+    - - '20'
+      - Money-eating daemon Who Really Stands
+      - Eat the rich. Literally. Behind the Patron?
+      - Mil-ind complex museum
+      - Quarterling infiltrators
+      - Is a golem made of ur-clay.
+    cols:
+    - Who Are They?
+    - What Do They Want?
+    - Their Organization
+    - Their Opponents
+    - Weaknesses and Oddities
+  uvg.p184.who-is-coughing-up-how-do-they-hope-to-b:
+    title: Who is coughing up? How do they hope to benefit? What extra help can they send along?
+    die: d20
+    page: 184
+    rows:
+    - - '1'
+      - Secret cult of the Blue God.
+      - Confirmation of their faith.
+      - Religious oldtech scholar.
+    - - '2'
+      - RLD institute of applied proletarian sciences.
+      - Useful and efficient food sources.
+      - Moral rectitude commissar.
+    - - '3'
+      - Zealous Cogflower accountancy abbey.
+      - Fiscally responsible truth-enhancing serums.
+      - Slaved logic engine atoning for its machine sins.
+    - - '4'
+      - Emerald City applied engineering museum.
+      - New industrial oldtech engineering processes.
+      - Branch rep of the regional colonial trading co.
+    - - '5'
+      - Safranj opera & investment banking concern.
+      - Valuable pets and mood-altering houseplants.
+      - Attractive marketing influencer.
+    - - '6'
+      - Oranjist Biomantic-pharmaceutical conglomerate.
+      - Palliative drugs to optimize life quality.
+      - Synthetic human drug sampler.
+    - - '7'
+      - Rich and eccentric Redland philanthropist.
+      - Magic bullets to help the poor.
+      - Senior big game hunting guide.
+    - - '8'
+      - Heavily indebted, misanthropic capitalist landlord.
+      - Superior labor automatons to replace workers.
+      - Heretical biomancer agronomist.
+    - - '9'
+      - Nouveau riche pirate industrialist.
+      - Sources of industrial raw materials.
+      - Applied biomechanical engineer.
+    - - '10'
+      - Halfling multinational circus franchise.
+      - Humorous cultural and physical products.
+      - Uplifting musician humanitarian.
+    - - '11'
+      - Secretive Violet military research laboratory.
+      - Weapons-grade monsters and forgotten magics.
+      - Vometech-augmented savant researcher.
+    - - '12'
+      - Rancher-environmentalist country club.
+      - Charismatic poster-creatures for fund-raising.
+      - Wealthy animal-loving sybarite.
+    - - '13'
+      - Spouse of an autocratic hereditary president.
+      - Proof of presidential superiority.
+      - Sergeant of the immortal presidential guard.
+    - - '14'
+      - Official militia of the Circle Road Consortium.
+      - Discrete road warfare upgrades.
+      - Corrupt military quartermaster major.
+    - - '15'
+      - Secret enlightenmentist society. Very secret.
+      - Mind-expanding extracts and literatures.
+      - Alcoholic bone-reading oracle and dowser.
+    - - '16'
+      - Royal republican imperial society. Vampires.
+      - New ideologies to rationalize parasitic mastery.
+      - Zealous imperial anthropologist.
+    - - '17'
+      - Post-mortal criminal drug conglomerate.
+      - Opiates for the masses to boost self-perception.
+      - Nervous uplifted lower lifeform servant (slave).
+    - - '18'
+      - Local governor with cultural inferiority complex.
+      - Attractions for their white elephant project.
+      - Unctuous, but canny bureaucrat.
+    - - '19'
+      - Under-funded second-tier military complex.
+      - Practical evidence to justify continued funding.
+      - Annoying but capable administrator.
+    - - '20'
+      - Prestigious butcher banking branch.
+      - Blue ocean disruptive commercial innovation.
+      - Well-connected aristocratic gentle-person.
+    cols:
+    - Who is coughing up?
+    - How do they hope to benefit?
+    - What extra help can they send along?
+  uvg.p196.brands-of-long-long-ago-dubious-features:
+    title: Brands of Long Long Ago Dubious Features
+    die: d20
+    page: 196
+    rows:
+    - - '1'
+      - Macaroni Integrale Self-threading caps
+    - - '2'
+      - Atomkraftwagen Anti-tampering engine configuration
+    - - '3'
+      - Spitz-Schnauzer Synchrotronic gearbox
+    - - '4'
+      - Deus Machina Electric transix variator
+    - - '5'
+      - Olive Garden Dilithium superfluid compressors
+    - - '6'
+      - Singer Metal Humans Dante’s Gate propulsion unit
+    - - '7'
+      - Void Y Microhydraulic homeostatic brain
+    - - '8'
+      - <=5H1N3=> Inhalator body air scoops
+    - - '9'
+      - Vanta-Chouette Anti-rapture heartbeat sensors
+    - - '10'
+      - AXE Vehicle Lubricants Nine-axis suspension struts
+    - - '11'
+      - Podzol Kozmos Swivel bucket seats
+    - - '12'
+      - Vega Utopia Industries Gyroscopic auto-leveler
+    - - '13'
+      - Barca Real ESL Automatic anti-crash foam nozzles
+    - - '14'
+      - Omnisentience UI Extruded poly-chromium trim
+    - - '15'
+      - Langmorgen KNVX Telepathic key systems
+    - - '16'
+      - Three Ritual Extensible omniadaptors
+    - - '17'
+      - Aquarius Trained underbody rust slimes
+    - - '18'
+      - Maya Yuga Mercurial dimagnetic levitation bearings
+    - - '19'
+      - Feltz & Filtz Ghost-bone dry-clutch
+    - - '20'
+      - Sombrero Corporation Hydrophobic faux-fur seat covers
+  uvg.p196.what-broke-how-do-we-fix-it:
+    title: What Broke? How Do We Fix It?
+    die: d20
+    page: 196
+    rows:
+    - - '1'
+      - Sparkulators clogged.
+      - Take ‘em out & file them.
+    - - '2'
+      - Lightning whirler isn’t whirling.
+      - Squint and twiddle some screws.
+    - - '3'
+      - Fuel tube burst.
+      - Run a new one.
+    - - '4'
+      - Brakes gone.
+      - It’ll probably be fine.
+    - - '5'
+      - Flat tire.
+      - Get the tools, patch ‘n’ swap.
+    - - '6'
+      - Radumilator blown.
+      - Keep adding fluids on the go.
+    - - '7'
+      - Fuel pump seized.
+      - Probably need a new one.
+    - - '8'
+      - Won’t hold pressure.
+      - Time for bubblegum welding.
+    - - '9'
+      - Carbassimilator stuck.
+      - Hit it with a wrench.
+    - - '10'
+      - Wheel bearings locked up.
+      - Grease and hammer.
+    - - '11'
+      - Threw a belt.
+      - Find something long & stretchy.
+    - - '12'
+      - Radiothermals leaking.
+      - Duct tape time.
+    - - '13'
+      - Confuser unit ERROR.
+      - Diagnosticator red button time.
+    - - '14'
+      - Transmission goes “clunk”.
+      - Take the whole thing off.
+    - - '15'
+      - It goes “grrtschuktuktuk.”
+      - Don’t use that gear.
+    - - '16'
+      - Thorbox won’t charge the battery.
+      - Replace it. Maybe with a Zeusbox.
+    - - '17'
+      - Omnibattery won’t hold a charge.
+      - Chemical ritual time.
+    - - '18'
+      - No dead dinosaur juice.
+      - Get more juice. Add more juice.
+    - - '19'
+      - Hole in the metal-fragment shield.
+      - Patch it, add liquid, pray.
+    - - '20'
+      - Piston went to space. Animal (or Human) Trouble
+      - Needs a full rebuild.
+    cols:
+    - What Broke?
+    - How Do We Fix It?
+  uvg.p196.whats-the-matter-how-do-we-fix-it:
+    title: What’s the Matter? How Do We Fix It?
+    die: d20
+    page: 196
+    rows:
+    - - '1'
+      - Threw a shoe.
+      - New shoe (and maybe a ferrier).
+    - - '2'
+      - Perambulator tendon pulled.
+      - Long rest and light duties.
+    - - '3'
+      - Infected spottle-fly bites.
+      - Apply soothing Liger balm daily.
+    - - '4'
+      - Runny yellows from bad water.
+      - Antidiarrheals and extra water.
+    - - '5'
+      - Noxious flatulence.
+      - Regular bleeding. Leeches?
+    - - '6'
+      - Secondary head growth.
+      - Surgical decapitation.
+    - - '7'
+      - Sprained primary foot joint.
+      - Rest, compression, pain killers.
+    - - '8'
+      - Gangrenous amoeboid cyst.
+      - Limb amputation. Or antibiotics.
+    - - '9'
+      - Broken walker appendage.
+      - Needs a new leg.
+    - - '10'
+      - Infectious omnivampirism.
+      - Daily blood rations. Or a stake.
+    - - '11'
+      - Eye fell out.
+      - A fresh optic seed. Or a patch.
+    - - '12'
+      - Bullet hole out of nowhere.
+      - Duck and cover! Then bandage.
+    - - '13'
+      - Sudden philosophical bent.
+      - Teach them to keep a journal.
+    - - '14'
+      - Intense and constant hunger.
+      - Extra rations. De-worming pills.
+    - - '15'
+      - Hair loss and vomiting.
+      - Anti-radiation medicine.
+    - - '16'
+      - Tremors and loss of motor control.
+      - Please visit a neuromancer.
+    - - '17'
+      - Dryland flu.
+      - Anti-virals and quarantine.
+    - - '18'
+      - Vivid hallucinations.
+      - Dark glasses?
+    - - '19'
+      - Creeping, cosmic ennui.
+      - Hide the pain, Kharold.
+    - - '20'
+      - Freak cosmic ray mind wipe.
+      - Needs a new personality.
+    cols:
+    - What’s the Matter?
+    - How Do We Fix It?
+  uvg.p257.how-far-away-are-they-6-13-x1-fair-and-r:
+    title: how far away are they? 6–13 x1 Fair and reasonable 2–7 Bad luck, silver linings
+    die: d6
+    page: 257
+    rows:
+    - - '1'
+      - Right here! An ambush!
+      - 14–17
+      - x1.2
+      - Solid profit
+      - 8–11
+      - Annoying consequences
+    - - '2'
+      - Close enough to talk
+      - 18–19
+      - x1.5
+      - Good profit
+      - 12–15
+      - Silly results
+    - - '3'
+      - Gesture distance
+      - 20+
+      - x3
+      - Better skip town ...
+      - 16–19
+      - Color, but all's well
+    - - '4'
+      - Broad outlines visible
+      - ''
+      - ''
+      - ''
+      - 20–24
+      - Jolly, humorous boon
+    - - '5'
+      - Specks and distant dust
+      - ''
+      - ''
+      - ''
+      - 25+
+      - A magical or rare gift
+    - - '6'
+      - Tracks and traces remain
+      - ''
+      - ''
+      - P171
+      - ''
+      - ''
+    cols:
+    - how far away are they?
+    - 6–13
+    - x1
+    - Fair and reasonable
+    - 2–7
+    - Bad luck, silver linings
+  uvg.p257.how-many-are-they-forage-p168:
+    title: how many are they? Forage P168
+    die: d6
+    page: 257
+    rows:
+    - - '1'
+      - Many! PCs far outnumbered
+      - Any character. Rich lands = bonus [+],
+      - Care
+    - - '2'
+      - Plenty. More than the PCs
+      - poor lands = penalty [-].
+      - Any character. Once per patient.
+    - - '3'
+      - About equal in number
+      - ''
+      - » Patient recovers an additional
+    - - '4'
+      - Fewer than the party
+      - roll ... and foraging
+      - attribute this week.
+    - - '5'
+      - Just one. A sole survivor?
+      - 1 Nothing and an injury
+      - ''
+    - - '6'
+      - None. Or all deceased.
+      - 2–3 Nothing 4–6 1 sack of supplies (€10)
+      - P4
+    cols:
+    - how many are they?
+    - Forage
+    - P168
+  uvg.p257.what-is-their-attitude-7-1-sack-10-and-a:
+    title: what is their attitude? 7 1 sack (€10) and a discovery Study
+    die: d6
+    page: 257
+    rows:
+    - - '1'
+      - Aggressive. Ready weapons!
+      - 8–12
+      - 2 sacks of supplies (€20)
+      - Any character. Learning most new
+    - - '2'
+      - Hostile. Scared
+      - '13'
+      - 2 sacks and an injury
+      - skills requires 4 successes from
+    - - '3'
+      - Suspicious. With good reason?
+      - 14–15
+      - 2 sk of rich supplies (€40)
+      - different sources.
+    - - '4'
+      - Wary. Noncommital
+      - 16–19
+      - 3 sacks of supplies (€30)
+      - ''
+    - - '5'
+      - Neutral. Ready to talk
+      - 20–24
+      - 4 sacks of supplies (€40)
+      - roll study outcome
+    - - '6'
+      - Friendly. What fools P202 Morale Goes to 11. When the omens turn grim, NPCs roll 2d6. If the result is higher than morale, it flees. » Morale math = 3 + half level P000 Chase Run, rabbit run. Both
+        parties roll. Faster = [+], slower = [-]. Victories increase / decrease distance. « » Here. Melee range. Caught « » There. Short range « » Over there. Long range « » Off-stage. Escaped
+      - 25+ Hide Once traces » Bonus Treasure d00 01–50 51–80 81–98 99–00 00/0
+      - 2 sacks (€20) and a discovery P202 per week, a PC works to hide of the camped caravan. [+] to avoid or choose encounters that week. P167 roughly ...value uncommon €50 valuable €250 rare €1,000 exceptional
+        €5,000 unique €25,000
+      - '1–3 Dead end. Need +1 success 4–11 Learned nothing 12–19 A success! 20–24 2 successes! 25+ A success and a new trait P4 Ambush Once per week, a PC works to lay an ambush for another group. If a
+        conflict breaks out: » [+] to surprise opponents. » Each ally gains a tactical bonus [+] to one roll. P4 Initiative?! d6 + Agility. Random character rolls for each side. High roll wins. » Tie =
+        everything happens at once.'
+    cols:
+    - what is their attitude?
+    - '7'
+    - 1 sack (€10) and a discovery
+    - Study
