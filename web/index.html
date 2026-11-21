@@ -1,0 +1,520 @@
+<title>Hexcrawl Forge</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,600;0,700;1,400&family=Alegreya+SC:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a surveyor's desk — control strip on top, the map plate, then the gazetteer in folding sections */
+:root{
+  --paper:#f2f3ee; --sheet:#fbfbf8; --ink:#1c2321; --muted:#5d6763; --rule:#cfd4cc;
+  --accent:#1f5d58; --accent-ink:#ffffff; --danger:#8a2f2a; --chip:#e3e8e1;
+  --sea:#86aac4; --lake:#a3c3d9; --grass:#cfd99c; --forest:#7fa86c; --jungle:#4e9459; --swamp:#8ea489;
+  --hills:#c6b282; --mount:#988a79; --desert:#e8d6a0; --arctic:#eef1f3; --hexline:#56605c; --river:#2f6fa8; --road:#7a4a22;
+  --display:'Alegreya SC',Georgia,serif; --body:'Alegreya',Georgia,'Times New Roman',serif; --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#151a19; --sheet:#1c2321; --ink:#e3e7e2; --muted:#9aa49f; --rule:#34403c; --accent:#6fb8b0; --accent-ink:#0f1514;
+  --danger:#e08a80; --chip:#26302d; --hexline:#202826; --river:#5aa2e0; --road:#d49a62; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#151a19; --sheet:#1c2321; --ink:#e3e7e2; --muted:#9aa49f; --rule:#34403c; --accent:#6fb8b0; --accent-ink:#0f1514;
+  --danger:#e08a80; --chip:#26302d; --hexline:#202826; --river:#5aa2e0; --road:#d49a62; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:1080px;margin:0 auto}
+header.top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;padding-block:20px 8px}
+header.top h1{font:700 30px/1.1 var(--display);margin:0;letter-spacing:.02em;color:var(--accent)}
+header.top p{margin:0;color:var(--muted);font-size:15px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1px solid var(--rule);margin-bottom:14px}
+.tabs button{font:600 15px var(--body);background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:8px 12px;cursor:pointer}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.panel{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:14px;display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-end}
+.field{display:flex;flex-direction:column;gap:3px;min-width:0}
+.field label,.lbl{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+select,input[type=text],input[type=number]{font:15px var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:6px 8px;min-width:0}
+input[type=number]{width:5.2em}
+.seas{display:flex;gap:8px;font-size:15px}
+.seas label{text-transform:none;letter-spacing:0;font:15px var(--body);color:var(--ink);display:flex;gap:3px;align-items:center}
+button.go{font:700 15px var(--body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:4px;padding:8px 16px;cursor:pointer}
+button.ghost{font:600 14px var(--body);background:var(--chip);color:var(--ink);border:1px solid var(--rule);border-radius:4px;padding:6px 10px;cursor:pointer}
+button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.status{font:13px var(--mono);color:var(--muted);min-height:1.4em;margin:8px 0}
+.mapplate{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:8px;margin:12px 0;overflow-x:auto}
+svg.map{display:block;width:100%;height:auto;min-width:560px}
+svg.map polygon{stroke:var(--hexline);stroke-width:.6}
+svg.map a:hover polygon{stroke:var(--ink);stroke-width:1.6}
+svg.map .hid{font:6px var(--mono);fill:#2a302e;text-anchor:middle;opacity:.65;pointer-events:none}
+svg.map .town{font:15px sans-serif;text-anchor:middle;fill:#2b1a10;pointer-events:none}
+svg.map .mark{font:12px sans-serif;text-anchor:middle;fill:#2b1a10;pointer-events:none}
+svg.map .tname{font:700 7px var(--body);text-anchor:middle;fill:#121615;paint-order:stroke;stroke:#fbfbf8;stroke-width:1.8px;pointer-events:none}
+svg.map .river{stroke:var(--river);stroke-width:2.3;stroke-linecap:round}
+svg.map .road{stroke:var(--road);stroke-width:1.5;stroke-dasharray:3 2}
+.legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13px;color:var(--muted);margin:4px 2px}
+.legend i{display:inline-block;width:11px;height:11px;border:1px solid var(--hexline);vertical-align:-1px;margin-right:4px}
+h2{font:700 23px var(--display);letter-spacing:.02em;border-bottom:2px solid var(--accent);padding-bottom:2px;margin:1.6em 0 .5em;text-wrap:balance}
+h3{font:700 19px var(--body);margin:1em 0 .3em;text-wrap:balance}
+h4{font:600 13px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:1em 0 .2em}
+h5{font:700 16px var(--body);margin:.5em 0 .1em}
+small,.cite{color:var(--muted);font-weight:400}
+.cite{font:12px var(--mono);margin-left:.4em;white-space:nowrap}
+ul.lines{margin:.15em 0 .5em;padding-left:1.1em} ul.lines li{margin:.12em 0}
+details.entry{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;margin:8px 0;padding:0 14px}
+details.entry>summary{cursor:pointer;padding:10px 0;font:700 18px var(--body);list-style-position:outside}
+details.entry>summary small{font:14px var(--body);margin-left:.4em}
+details.entry[open]{padding-bottom:10px}
+.chips{display:inline-flex;gap:4px;flex-wrap:wrap;vertical-align:middle;margin-left:6px}
+.chip{font:500 11px var(--mono);letter-spacing:.05em;text-transform:uppercase;background:var(--chip);color:var(--muted);padding:1px 6px;border-radius:3px}
+.chip.hot{color:var(--danger)}
+.hexgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.hexcard{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:8px 12px;min-width:0;scroll-margin-top:12px}
+.hexcard:target,details.entry:target{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.hexcard h4{margin-top:.2em}
+.sub{margin-left:.2em}
+.tw{overflow-x:auto} table{border-collapse:collapse;width:100%;font-size:14px;margin:.3em 0 1em}
+td,th{border-bottom:1px solid var(--rule);padding:3px 7px;text-align:left;vertical-align:top} th{background:var(--chip);font-weight:600}
+td.n{font:12px var(--mono);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.result{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;margin-top:12px}
+.result .roll{font:500 13px var(--mono);color:var(--accent);margin-right:8px}
+.twocol{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0 24px}
+.twocol>*{min-width:0}
+.note{font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){details.entry>summary{transition:color .15s} details.entry>summary:hover{color:var(--accent)}}
+</style>
+
+<div class="wrap">
+<header class="top"><h1>Hexcrawl Forge</h1><p>Rolls a whole region from your table library: map, settlements, ports, ships, keyed hexes, powers. Every line cites its book.</p></header>
+
+<nav class="tabs" role="tablist">
+  <button role="tab" data-view="region" aria-selected="true">Region</button>
+  <button role="tab" data-view="settlement" aria-selected="false">Settlement</button>
+  <button role="tab" data-view="ship" aria-selected="false">Ships</button>
+  <button role="tab" data-view="tables" aria-selected="false">Any table</button>
+</nav>
+
+<section id="v-region">
+  <form class="panel" id="f-region">
+    <div class="field"><label for="sys">System</label><select id="sys"><option value="sd">Shadowdark (Western Reaches)</option><option value="ose">Old-School Essentials</option></select></div>
+    <div class="field"><label for="w">Width</label><input id="w" type="number" min="6" max="40" value="16"></div>
+    <div class="field"><label for="h">Height</label><input id="h" type="number" min="6" max="30" value="12"></div>
+    <div class="field"><label for="clim">Climate</label><select id="clim"><option>temperate</option><option>cold</option><option>hot</option><option>dry</option></select></div>
+    <div class="field"><span class="lbl">Sea on</span><div class="seas">
+      <label><input type="checkbox" id="sea-n">N</label><label><input type="checkbox" id="sea-e">E</label>
+      <label><input type="checkbox" id="sea-s">S</label><label><input type="checkbox" id="sea-w" checked>W</label></div></div>
+    <div class="field"><label for="seed">Seed</label><input id="seed" type="number" min="0" value="1"></div>
+    <div class="field" style="flex:1 1 160px"><label for="rname">Name (optional)</label><input id="rname" type="text" placeholder="rolled if blank"></div>
+    <button class="go" type="submit">Generate region</button>
+    <button class="ghost" type="button" id="newseed">New seed</button>
+  </form>
+  <div class="status" id="status">Loading tables…</div>
+  <div id="out"></div>
+</section>
+
+<section id="v-settlement" hidden>
+  <form class="panel" id="f-set">
+    <div class="field"><label for="skind">Kind</label><select id="skind"><option>trading post</option><option selected>village</option><option>town</option><option>city</option><option>capital</option><option>fortress</option></select></div>
+    <div class="field"><label for="sterr">Terrain</label><select id="sterr"><option>grassland</option><option>forest</option><option>hills</option><option>swamp</option><option>jungle</option><option>desert</option><option>arctic</option></select></div>
+    <div class="field"><label for="ssys">Street encounters</label><select id="ssys"><option value="sd">Shadowdark</option><option value="ose">OSE</option></select></div>
+    <div class="field"><span class="lbl">Coast</span><div class="seas"><label><input type="checkbox" id="scoast">Has a port</label></div></div>
+    <button class="go" type="submit">Roll settlement</button>
+  </form>
+  <div id="sout"></div>
+</section>
+
+<section id="v-ship" hidden>
+  <form class="panel" id="f-ship">
+    <div class="field"><label for="nships">How many</label><input id="nships" type="number" min="1" max="20" value="3"></div>
+    <button class="go" type="submit">Roll ships</button>
+  </form>
+  <div id="shout"></div>
+</section>
+
+<section id="v-tables" hidden>
+  <form class="panel" id="f-tab">
+    <div class="field" style="flex:1 1 320px"><label for="tq">Table — type to search ids and titles</label><input id="tq" type="text" list="tlist" placeholder="pw.discovery, wwn.p183, sd.enc.forest…"></div>
+    <div class="field"><label for="ttimes">Times</label><input id="ttimes" type="number" min="1" max="50" value="3"></div>
+    <button class="go" type="submit">Roll</button>
+    <button class="ghost" type="button" id="tshow">Show table</button>
+    <datalist id="tlist"></datalist>
+  </form>
+  <div id="tout"></div>
+</section>
+</div>
+
+<script>
+'use strict';
+/* ============================================================ dice */
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const DICE=/^\s*(\d*)d(\d+|00)\s*([+-]\s*\d+)?\s*$/i;
+class Dice{
+  constructor(seed){this.seed=seed;this.r=mulberry(seed*2654435761>>>0)}
+  real(){return this.r()}
+  between(lo,hi){return lo+Math.floor(this.r()*(hi-lo+1))}
+  roll(e){if(typeof e==='number')return e;const m=DICE.exec(String(e));if(!m)return parseInt(e,10)||0;
+    const n=+(m[1]||1),s=m[2]==='00'?100:+m[2],mod=m[3]?+m[3].replace(/\s/g,''):0;let t=0;for(let i=0;i<n;i++)t+=this.between(1,s);return t+mod}
+  chance(n,d){return this.between(1,d)<=n}
+  pick(a){return a[Math.floor(this.r()*a.length)]}
+  shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(this.r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+}
+function dieRange(e){const m=DICE.exec(String(e));const n=+(m[1]||1),s=m[2]==='00'?100:+m[2],mod=m[3]?+m[3].replace(/\s/g,''):0;return[n+mod,n*s+mod]}
+const LABEL=/^\s*(\d{1,3})(?:\s*[–—-]\s*(\d{1,3}))?\+?\s*$/;
+function parseLabel(l,size){const m=LABEL.exec(String(l));if(!m)return null;let lo=+m[1],hi=m[2]!==undefined?+m[2]:lo;
+  if((m[1]==='0'||m[1]==='00')&&(size===10||size===100))lo=size;
+  if(m[2]!==undefined&&(m[2]==='0'||m[2]==='00')&&(size===10||size===100))hi=size;
+  if(hi===0)hi=size;if(hi<lo)hi=lo;return[lo,hi]}
+
+/* ============================================================ registry */
+class Registry{
+  constructor(data,dice){this.dice=dice;this.T=data.tables;this.extras=data.extras;this.sources=data.sources}
+  has(id){return id in this.T}
+  get(id){const t=this.T[id];if(!t)throw new Error('no table '+id);
+    if(t.d&&!t._rg){const hi=dieRange(t.d)[1];t._rg=t.r.map(r=>parseLabel(r[0],hi))}return t}
+  title(id){return this.T[id].t||id}
+  cite(id){const t=this.T[id];return t.p?`${t.s} p.${t.p}`:t.s}
+  find(p){return Object.keys(this.T).filter(k=>k.startsWith(p)).sort()}
+  roll(id,col=null,mod=0,depth=0){
+    const t=this.get(id);let n=null,row;
+    if(t.d){n=this.dice.roll(t.d)+mod;row=null;
+      for(let i=0;i<t.r.length;i++){const g=t._rg[i];if(g&&g[0]<=n&&n<=g[1]){row=t.r[i];break}}
+      if(!row)row=n<(t._rg[0]||[1])[0]?t.r[0]:t.r[t.r.length-1];
+    }else row=this.dice.pick(t.r);
+    const cells=row.slice(1).map(c=>typeof c==='string'?this.expand(c,depth+1):c);
+    const names=(t.c||cells.map(()=>null)).slice();
+    if(t.c)names.forEach((nm,i)=>{if(nm){const c=t.c.slice(0,i).filter(x=>x===nm).length;if(c)names[i]=nm+' '+(c+1)}});
+    const values={};cells.forEach((v,i)=>{values[(names[i])||('c'+i)]=v});
+    let text;
+    if(col!==null&&col!==undefined){
+      if(col in values)text=values[col];else if(/^\d+$/.test(String(col)))text=Object.values(values)[+col];else text='';
+    }else text=cells.filter(c=>c!==''&&c!==null).join(' — ');
+    return{text:String(text??''),roll:n,table:id,cite:this.cite(id),values};
+  }
+  text(id,col=null,mod=0){return this.roll(id,col,mod).text}
+  expand(s,depth=0){if(depth>8||s.indexOf('{')<0)return s;
+    return s.replace(/\{([^{}]+)\}/g,(m,inner)=>{inner=inner.trim();
+      if(inner.includes('|'))return this.dice.pick(inner.split('|'));
+      if(/^\d*d(\d+|00)([+-]\d+)?$/.test(inner))return String(this.dice.roll(inner));
+      const [tid,col]=inner.split('#');if(this.has(tid))return this.roll(tid,col||null,0,depth).text;return m})}
+}
+
+/* ============================================================ hex map */
+const MOVE={grassland:1,forest:2,jungle:2,swamp:2,hills:2,mountains:3,desert:2,arctic:2,sea:99,lake:99};
+const hid=(c,r)=>String(c+1).padStart(2,'0')+String(r+1).padStart(2,'0');
+function* neighbours(c,r,w,h){const odd=c&1;for(const[dc,dr]of[[0,-1],[0,1],[-1,-1+odd],[-1,odd],[1,-1+odd],[1,odd]]){const cc=c+dc,rr=r+dr;if(cc>=0&&cc<w&&rr>=0&&rr<h)yield[cc,rr]}}
+function cube(c,r){const x=c,z=r-(c-(c&1))/2;return[x,-x-z,z]}
+function dist(a,b){const A=cube(...a),B=cube(...b);return Math.max(Math.abs(A[0]-B[0]),Math.abs(A[1]-B[1]),Math.abs(A[2]-B[2]))}
+class HexMap{
+  constructor(w,h,dice,climate,sea){this.w=w;this.h=h;this.dice=dice;this.climate=climate;this.sea=sea||'';
+    this.H=new Map();for(let c=0;c<w;c++)for(let r=0;r<h;r++)this.H.set(c+','+r,{c,r,id:hid(c,r),terrain:null,height:0,wet:0,river:false,river_to:null,road:false,coast:false,settlement:null,contents:[]});
+    this.terrain();this.rivers()}
+  all(){return[...this.H.values()]}
+  at(c,r){return this.H.get(c+','+r)}
+  nbrs(x){return[...neighbours(x.c,x.r,this.w,this.h)].map(([c,r])=>this.at(c,r))}
+  water(x){return x.terrain==='sea'||x.terrain==='lake'}
+  field(scale,oct=3){const tot=new Map();for(const k of this.H.keys())tot.set(k,0);let amp=1;
+    for(let o=0;o<oct;o++){const step=Math.max(1.5,scale/2**o),gw=Math.floor(this.w/step)+3,gh=Math.floor(this.h/step)+3;
+      const g=[];for(let i=0;i<gw;i++){g.push([]);for(let j=0;j<gh;j++)g[i].push(this.dice.real())}
+      for(const x of this.H.values()){const X=x.c/step,Y=(x.r+.5*(x.c&1))/step,i=Math.floor(X),j=Math.floor(Y);let fx=X-i,fy=Y-j;fx=fx*fx*(3-2*fx);fy=fy*fy*(3-2*fy);
+        const a=g[i][j]*(1-fx)+g[i+1][j]*fx,b=g[i][j+1]*(1-fx)+g[i+1][j+1]*fx;tot.set(x.c+','+x.r,tot.get(x.c+','+x.r)+amp*(a*(1-fy)+b*fy))}amp*=.5}
+    const v=[...tot.values()],lo=Math.min(...v),hi=Math.max(...v);for(const[k,x]of tot)tot.set(k,(x-lo)/(hi-lo||1));return tot}
+  terrain(){const S=Math.max(this.w,this.h),Hf=this.field(S/2.5),Wf=this.field(S/3);
+    for(const x of this.H.values()){const k=x.c+','+x.r;let edge=1;
+      for(const e of this.sea){const d={w:x.c,e:this.w-1-x.c,n:x.r,s:this.h-1-x.r}[e],span=(e==='w'||e==='e')?this.w:this.h;if(d===undefined)continue;edge=Math.min(edge,Math.min(1,d/Math.max(2,span*.22)))}
+      x.height=Hf.get(k)*(.35+.65*edge);x.wet=Wf.get(k)}
+    const cl=this.climate;
+    for(const x of this.H.values()){const h=x.height,wet=x.wet;let t;
+      if(h<.22&&this.sea)t='sea';else if(h>.84)t='mountains';else if(h>.68)t='hills';else if(wet>.78&&h<.40)t='swamp';
+      else if(wet>.52)t=cl==='hot'?'jungle':'forest';else if(wet<.18)t=(cl==='hot'||cl==='dry')?'desert':'grassland';else t='grassland';
+      if(cl==='cold'&&(t==='grassland'||t==='swamp')&&h>.45)t='arctic';if(cl==='dry'&&t==='grassland'&&wet<.35)t='desert';x.terrain=t}
+    const edgeHex=x=>(this.sea.includes('w')&&x.c===0)||(this.sea.includes('e')&&x.c===this.w-1)||(this.sea.includes('n')&&x.r===0)||(this.sea.includes('s')&&x.r===this.h-1);
+    const seen=new Set(),st=this.all().filter(x=>x.terrain==='sea'&&edgeHex(x));
+    while(st.length){const x=st.pop();if(seen.has(x.id))continue;seen.add(x.id);for(const n of this.nbrs(x))if(n.terrain==='sea'&&!seen.has(n.id))st.push(n)}
+    for(const x of this.H.values())if(x.terrain==='sea'&&!seen.has(x.id))x.terrain=x.wet>.45?'lake':(x.wet>.3?'swamp':'grassland');
+    const basins=this.all().filter(x=>['grassland','forest','swamp','jungle'].includes(x.terrain)&&this.nbrs(x).every(n=>n.height>=x.height)).sort((a,b)=>b.wet-a.wet);
+    for(const x of basins.slice(0,Math.max(1,Math.floor(this.w*this.h/160))))x.terrain='lake';
+    for(const x of this.H.values())x.coast=!this.water(x)&&this.nbrs(x).some(n=>n.terrain==='sea')}
+  rivers(){const springs=this.dice.shuffle(this.all().filter(x=>(x.terrain==='mountains'||x.terrain==='hills')&&x.wet>.35));
+    const n=Math.max(1,Math.floor(this.w*this.h/90));let made=0;
+    for(const s of springs){if(made>=n)break;let path=[s],cur=s;const seen=new Set([s.id]);
+      while(true){const cand=this.nbrs(cur).filter(x=>!seen.has(x.id));if(!cand.length){path=[];break}
+        const nx=cand.reduce((a,b)=>b.height<a.height?b:a);path.push(nx);seen.add(nx.id);if(this.water(nx)||nx.river)break;cur=nx;if(path.length>this.w+this.h){path=[];break}}
+      if(path.length>=4){for(let i=0;i<path.length-1;i++){const a=path[i];if(!this.water(a)){a.river=true;a.river_to=[path[i+1].c,path[i+1].r]}}made++}}}
+  road(a,b){const cost=x=>x.road?1:MOVE[x.terrain]+(x.river?1:0);const key=x=>x.c+','+x.r;
+    const g=new Map([[key(a),0]]),came=new Map([[key(a),null]]);let open=[[0,a]];
+    while(open.length){open.sort((p,q)=>p[0]-q[0]);const[,cur]=open.shift();if(cur===b)break;
+      for(const nb of this.nbrs(cur)){if(this.water(nb)&&nb!==b)continue;const ng=g.get(key(cur))+cost(nb);
+        if(!g.has(key(nb))||ng<g.get(key(nb))){g.set(key(nb),ng);came.set(key(nb),cur);open.push([ng+dist([nb.c,nb.r],[b.c,b.r]),nb])}}}
+    if(!came.has(key(b)))return[];let cur=b;while(cur){if(!this.water(cur))cur.road=true;cur=came.get(key(cur))}}
+}
+
+/* ============================================================ systems */
+const OH_COL={grassland:'Grasslands',forest:'Forest',hills:'Hills, Mountains',mountains:'Hills, Mountains',jungle:'Jungle',swamp:'Swamp',desert:'Desert',arctic:'Glacier',sea:'Sea / Lake',lake:'Sea / Lake'};
+const OH_SLUG={grassland:'grasslands',forest:'forest',hills:'hills-and-mountains',mountains:'hills-and-mountains',jungle:'jungle',swamp:'swamp',desert:'desert',arctic:'glacier',sea:'sea-lake',lake:'sea-lake'};
+const SYSTEMS={
+  sd:{key:'sd',name:'Shadowdark RPG (Western Reaches travel)',
+    travel:'Walking 4 hexes a day, mounted 6, sailing 8; difficult terrain costs 2 (WR GM Guide p.40).',
+    check:'Roll 1-in-6 twice by day and twice by night (WR); on a hit roll the terrain table below.',
+    ENC:{grassland:'sd.enc.grassland',forest:'sd.enc.forest',jungle:'sd.enc.jungle',swamp:'sd.enc.swamp',hills:'sd.enc.mountain',mountains:'sd.enc.mountain',desert:'sd.enc.desert',arctic:'sd.enc.arctic',sea:'sd.enc.ocean',lake:'sd.enc.river-coast'},
+    DISTRICT:{Transient:'sd.enc.slums',Common:'sd.enc.low-district',Craft:'sd.enc.artisan',Mercantile:'sd.enc.market',Affluent:'sd.enc.high-district',Education:'sd.enc.university',Religious:'sd.enc.temple',Military:'sd.enc.castle',Spectacle:'sd.enc.tavern',Palace:'sd.enc.castle'},
+    odds(){return '1 in 6, ×2 day ×2 night'},
+    encounter(R,t,river,coast){let id=(river||coast)&&R.dice.chance(1,3)?'sd.enc.river-coast':this.ENC[t];const r=R.roll(id);return{text:r.text,cite:r.cite}},
+    town(R,d){const r=R.roll(this.DISTRICT[d.split(' ')[0]]||'sd.enc.low-district');return{text:r.text,cite:r.cite}},
+    dungeon(R){const r=R.roll('sd.enc.ruins');return{text:r.text,cite:r.cite}},
+    tableFor(t){return this.ENC[t]}},
+  ose:{key:'ose',name:'Old-School Essentials',
+    travel:'Base movement ÷ 5 = miles a day (120′ → 24 mi, 4 hexes); forest, hills, swamp ×⅔, mountains ×½; roads ×1½.',
+    check:'Roll once a day; encounter on the terrain odds below. Distance 4d6×10 yards; surprise as normal.',
+    CH:{grassland:1,forest:2,hills:2,desert:2,sea:2,lake:2,jungle:3,swamp:3,mountains:3,arctic:2},
+    BY:{grassland:'grasslands',forest:'forest',hills:'mountains',mountains:'mountains',jungle:'jungle',swamp:'swamp',desert:'desert',arctic:'mountains',sea:'ocean-sea',lake:'lake-river'},
+    SUB:{'1':'ose.enc.sub1','2':'ose.enc.sub2',B:'ose.enc.B',C:'ose.enc.C',D:'ose.enc.D',F:'ose.enc.F',G:'ose.enc.G',J:'ose.enc.J',L:'ose.enc.L',O:'ose.enc.O',S:'ose.enc.S'},
+    odds(t){return `${this.CH[t]||2} in 6, once a day`},
+    resolve(R,by){const t=R.roll(by);const[letter,kind0]=t.text.split('—');const kind=(kind0||'').trim(),L=letter.trim();const sub=this.SUB[L];
+      if(!sub||!R.has(sub))return{text:kind||t.text,cite:t.cite};const tb=R.get(sub);
+      let col=(tb.c||[]).find(c=>c.toLowerCase().startsWith(kind.toLowerCase().slice(0,5)));
+      if(!col&&kind.toLowerCase().startsWith('human'))col=(tb.c||[]).find(c=>c.toLowerCase().startsWith('human'))||tb.c[0];
+      const res=R.roll(sub,col??0);const name=res.text.replace(/\*$/,'').trim();return{text:`${name} (${kind.toLowerCase()})`,cite:`${t.cite}, ${res.cite}`}},
+    encounter(R,t,river,coast){let k=this.BY[t];if((river||coast)&&t!=='sea'&&t!=='lake'&&R.dice.chance(1,3))k='lake-river';return this.resolve(R,'ose.enc.by.'+k)},
+    town(R){return this.resolve(R,'ose.enc.by.city')},
+    dungeon(){return{text:'Roll on the dungeon level table (OSE Referee’s Book)',cite:'OSE'}},
+    tableFor(t){return 'ose.enc.by.'+this.BY[t]}}
+};
+
+/* ============================================================ generator helpers */
+const line=(label,res,cite)=>res&&typeof res==='object'?{label,text:res.text,cite:cite||res.cite||''}:{label,text:String(res??''),cite:cite||''};
+const roll=(R,label,id,col=null)=>R.has(id)?line(label,R.roll(id,col)):null;
+const cap=s=>s?s[0].toUpperCase()+s.slice(1):s;
+const title=s=>s.toLowerCase().replace(/(^|[\s-])\w/g,m=>m.toUpperCase());
+function namePerson(R){const f=R.text(R.dice.chance(1,2)?'oh.male':'oh.female');const sur=(R.text('oh.surname-prefix').replace(/-$/,'')+R.text('oh.surname-suffix').replace(/^-/,''));return f+' '+title(sur)}
+function nameSettlement(R){return title(R.text('oh.surname-prefix').replace(/-$/,'')+R.text('oh.surname-suffix').replace(/^-/,''))}
+function tidySS(t){return t.replace(/\s*\((?:[+−-]\d+|Skip|Roll|Re-?roll)[^)]*\)/g,'').replace(/\s*\[[^\]]*\]/g,'').trim()}
+
+/* ---- NPCs (WWN pp. 380–387) */
+const STATION={underclass:'Underclass',commoner:'Commoners',gentry:'Gentry'};
+function npc(R,role,station){const st=station||R.dice.pick(['underclass','commoner','commoner','gentry']);
+  const L=[roll(R,'Who','wwn.p380.underclass-commoners-gentry',STATION[st])];
+  for(const[l,id]of[['First noticed','wwn.p383.the-first-thing-noticed'],['Manner','wwn.p383.visible-mannerisms-or-traits'],['Unexpected','wwn.p383.one-way-they-differ-from-expectations'],['Twist','wwn.p380.npc-characteristic-twists'],['Wants','wwn.p384.whats-the-basic-ambitions-form'],['In the way','wwn.p384.whats-the-biggest-immediate-obstacle']])L.push(roll(R,l,id));
+  return{name:namePerson(R),role:role||'',lines:L.filter(Boolean)}}
+
+/* ---- settlements */
+const SS_RANGE={'trading post':[10,30],village:[49,67],town:[95,113],city:[141,172],capital:[209,251],fortress:[297,321]};
+const SS_SKIP=/additional-locations|^shops|^services|quality|hired-help|table-title|base-size|thickness|height|tower-|curtain|moat|gatehouse|outbuilding|barracks|number-of|shape|floors|rooms|raised-entrance|entry-defenses|exterior-wall|vendor|overflow|market-square|magic-shop|district|housing|noble-residence|guild-member|shop-or-service|non-commercial|location-notability|place-of-worship|fervency|alignment-of|resource-origin|population-capacity|primary-nobles|connection|visitor-roles|reason-for-visit|how-much-you-love|change$|^name|environment|^weather|danger-level/;
+const OH_TYPE_ROWS={'trading post':[0],village:[1,2],town:[3,4],city:[5,6,7],capital:[8,9],fortress:[4]};
+const PW_KIND={'trading post':'village',village:'village',town:'town',city:'city',capital:'city',fortress:'keep'};
+const WWN_KIND={'trading post':'p145',village:'p145',town:'p146',city:'p146',capital:'p146',fortress:'p147'};
+const DT={Transient:'oh.transient-and-craft.transient',Craft:'oh.transient-and-craft.craft',Common:'oh.common-and-mercantile.common',Mercantile:'oh.common-and-mercantile.mercantile',Affluent:'oh.affluent-and-education.affluent',Education:'oh.affluent-and-education.education',Religious:'oh.religious-and-military.religious',Military:'oh.religious-and-military.military',Spectacle:'oh.spectacle-and-palace.spectacle',Palace:'oh.spectacle-and-palace.palace'};
+function ssProfile(R,size){const[lo,hi]=SS_RANGE[size];const out=[],seen=new Set();
+  const ids=Object.keys(R.T).filter(k=>k.startsWith('ss.')).sort((a,b)=>((R.T[a].p||0)-(R.T[b].p||0))||(a<b?-1:a>b?1:0));
+  for(const id of ids){const t=R.T[id],slug=id.split('.').slice(2).join('.');
+    if(!((t.p||0)>=lo&&(t.p||0)<=hi)||SS_SKIP.test(slug)||t.x)continue;const k=slug.replace(/-\d+$/,'');if(seen.has(k))continue;seen.add(k);
+    const words=[];for(const w of(t.t||id).split(/\s(?=\S\s\S\s)/)[0].split(/\s+/)){if(/^[A-Z]/.test(w)||['of','the','and','in','a','-','to'].includes(w))words.push(w);else break}
+    const ttl=words.slice(0,5).join(' ').replace(/[\s-]+$/,'')||t.t;
+    const res=R.roll(id);let tx=String(Object.values(res.values)[0]??res.text);
+    tx=tx.split(/(?<=\.)\s+(?=[a-z])|\s+\d+\s+[A-Z][a-z]+(?:-[A-Z][a-z]+)?\.\s/)[0];tx=tidySS(tx.replace(/^Note:.*?(?=[A-Z][a-z]+\.)/,''));
+    if(tx)out.push({label:ttl,text:tx,cite:res.cite})}return out}
+function wwnLayer(R,size){const p=WWN_KIND[size],L=[];
+  L.push(p==='p145'?roll(R,'Why it is here','wwn.p145.rationale-for-the-villages-existence'):p==='p146'?roll(R,'Why it is here','wwn.p146.rationale-for-the-citys-existence'):roll(R,'Why it is here','wwn.p147.why-are-they-staying-here'));
+  let b=`wwn.${p}.who-runs-it-significant-locals-a-current`;
+  for(const[c,l]of[['Who Runs It?','Who runs it'],['Significant Locals','A notable local'],['A Current Pressing Problem','Pressing problem']])L.push(roll(R,l,b,c));
+  b=`wwn.${p}.local-likely-to-interact-with-adventurer`;
+  L.push(roll(R,'Who comes to the PCs',b,'Local Likely to Interact with Adventurers'));L.push(roll(R,'What it can offer heroes',b,'Interesting Things the Place Can Offer Heroes'));
+  return L.filter(Boolean)}
+function pickTag(R,kind){const tags=(R.extras.wwn_tags||{})[kind]||{};const names=Object.keys(tags);if(!names.length)return null;const n=R.dice.pick(names),t=tags[n];
+  const p=k=>t[k]&&t[k].length?R.dice.pick(t[k]):'';return{tag:n,desc:t.desc,cite:'WWN p.'+R.T['wwn.tag.'+kind].p,enemy:p('enemies'),friend:p('friends'),complication:p('complications'),thing:p('things'),place:p('places')}}
+function districts(R,size,sys){const t=R.get('oh.settlement-type');const row=t.r[R.dice.pick(OH_TYPE_ROWS[size])];let n=Math.max(1,Math.min(12,R.dice.roll(row[2])));
+  const names=R.get('oh.district-type').r.map(r=>r[1]);const out=[];
+  for(let i=0;i<n;i++){const d=R.dice.pick(names),k=d.split(' ')[0];const stands=[];if(DT[k]){const m=R.dice.between(1,3);for(let j=0;j<m;j++)stands.push(R.text(DT[k]))}
+    out.push({name:d,stands,enc:sys.town(R,k)})}return[row[1],out]}
+function tavern(R){const a=R.roll('oh.tavern-generator'),b=R.roll('oh.tavern-generator'),c=R.roll('oh.tavern-generator');const cls=R.dice.pick(['Poor — 1d4 cp','Standard — 1d6 sp','Wealthy — 1d8 gp']);
+  return{name:`${a.values['Name']} ${b.values['Name 2']}`,known:c.values['Known for'],menu:R.text('oh.menu',cls),drink:R.text('oh.drinks'),cls:cls.split(' —')[0],cite:a.cite}}
+function hireling(R){return{name:namePerson(R),role:'hireling',lines:[roll(R,'Was','mont.p29.what-was-their-original-profession'),roll(R,'Age','mont.p29.how-old-is-the-hireling'),roll(R,'Fights','mont.p29.how-do-they-fight'),roll(R,'Also','mont.p29.what-other-talent-do-they-have'),roll(R,'Signs on because','mont.p29.why-are-they-doing-this'),roll(R,'Quirk','mont.p29.particular-traits-or-personality-quirks')].filter(Boolean)}}
+function tradeJob(R){const a=R.roll('uvg.p180.they-want-because'),b=R.roll('uvg.p180.the-catch-is-and-the-destination');const va=Object.values(a.values),vb=Object.values(b.values);
+  const lc=s=>s?s[0].toLowerCase()+s.slice(1):s;const want=String(va[0]).replace(/\.$/,'').replace(/\. /g,', ').toLowerCase();
+  return line('Trade job',`They want ${want}, because ${lc(va[va.length-1])} The catch: ${lc(vb[0])} Bound for ${lc(vb[vb.length-1])}`,a.cite)}
+const PORT_ROW={'trading post':0,village:0,fortress:0,town:1,city:2,capital:2};
+function port(R,size){const t=R.get('sea.port-d6');const row=t.r[Math.min(PORT_ROW[size],t.r.length-1)];const q=R.roll('sea.in-port');const n={'trading post':1,village:1,fortress:1,town:3,city:5,capital:7}[size];
+  const ships=[];for(let i=0;i<n;i++)ships.push(ship(R,true));const a=R.roll('oh.available-ship'),c=R.roll('oh.captain');
+  return{kind:row[1],has:row[2],cite:R.cite('sea.port-d6'),rules:q.values['Who rules'],trouble:q.values['Trouble on the quay'],rcite:q.cite,ships,passage:{ship:a.values,captain:c.values,cite:a.cite}}}
+function settlement(R,sys,size,coastal,terrain,name){
+  const s={name:name||nameSettlement(R),size,coastal,terrain};s.ss=ssProfile(R,size);s.wwn=wwnLayer(R,size);
+  s.tags=[];const n=size==='village'||size==='trading post'?2:3;const used=new Set();for(let i=0;i<n*3&&s.tags.length<n;i++){const t=pickTag(R,'community');if(t&&!used.has(t.tag)){used.add(t.tag);s.tags.push(t)}}
+  const k=PW_KIND[size];s.pw=[roll(R,'Feature',`pw.steading.${k}.feature`),roll(R,'Problem',`pw.steading.${k}.problem`)].filter(Boolean);
+  [s.ohType,s.districts]=districts(R,size,sys);
+  const ns={'trading post':2,village:3,town:5,city:8,capital:10,fortress:2}[size];const shops=new Set();for(let i=0;i<ns;i++)shops.add(R.text('oh.shops',R.dice.pick(['Poor','Standard','Standard','Wealthy'])));s.shops=[...shops].sort();
+  s.tavern=tavern(R);s.event=roll(R,'Event','oh.settlement-events');s.rumours=[0,1,2].map(()=>roll(R,'Rumour','oh.rumours'));
+  const roles=[['ruler or headman','gentry'],['innkeeper','commoner'],['someone who needs help',null]];if(size==='city'||size==='capital')roles.push(['rival','gentry'],['fixer','underclass']);
+  s.npcs=roles.map(([r,st])=>npc(R,r,st));
+  s.hirelings=[];for(let i=0;i<({'trading post':1,village:1,fortress:2}[size]||3);i++)s.hirelings.push(hireling(R));
+  if(['town','city','capital','trading post'].includes(size))s.jobs=[tradeJob(R),tradeJob(R)];
+  if(['town','city','capital'].includes(size))s.temple=[roll(R,'In charge','wwn.p139.who-is-in-charge-there'),roll(R,'Can provide','wwn.p139.what-particular-help-can-it-provide'),roll(R,'Trouble','wwn.p139.what-problems-does-it-have'),roll(R,'Quirk','wwn.p139.particular-quirks-about-the-temple')].filter(Boolean);
+  if(coastal)s.port=port(R,size);return s}
+
+/* ---- ships (Of Ships & the Sea + OH + Sea Voyages) */
+const SV_BOAT={Rowboat:'Rowboat',Keelboat:'Sailboat',Longship:'Longship','Sailing ship':'Sloop',Galley:'Galley',Warship:'Galleon'};
+function boatStats(R,kind){if(!R.has('sea.boats'))return null;const want=(SV_BOAT[kind]||kind).toLowerCase().slice(0,5);const t=R.get('sea.boats');
+  for(const r of t.r)if(String(r[1]).toLowerCase().startsWith(want)){const o={};t.c.forEach((c,i)=>o[c]=r[i+1]);return o}return null}
+function ship(R,inPort=false){const kind=R.text('oss.ship.type'),purpose=R.text('oss.ship.purpose');const att=inPort?R.dice.pick(['Friendly','Neutral','Neutral']):R.text('oss.ship.attitude');
+  const crew=R.text('oss.ship.crew.'+att.toLowerCase());const nm=R.roll('oss.ship.name').values;
+  const s={name:`The ${nm['Adjective']} ${nm['Noun']}`,type:kind,purpose,attitude:att,crew,stats:boatStats(R,kind),lines:[]};const L=s.lines;
+  L.push(purpose==='Ghost'?line('Disposition','A ghost ship; it cannot be diseased','OSS p.3'):line('Disposition',R.roll('oss.ship.disposition')));
+  L.push(line('State',R.roll('oh.the-vessel.state')));L.push(line('Hold',R.roll('oh.who-crews-it.in-the-hold')));L.push(line('Crew are',R.roll('oh.the-crew.they-are')));
+  const one=R.roll('oh.the-crew.one-of-them-is'),cn=R.roll('oss.crew.name').values;L.push(line('Aboard',`${one.text}, called “${cn['First half']} ${cn['Second half']}”`,one.cite+', OSS p.3'));
+  const st=R.roll('oh.her-story');if(!st.text.startsWith('None'))L.push(line('Her story',st));return s}
+
+/* ---- wilderness sites */
+const SPECIAL={'Arbitrate a dispute':'oh.disputes-to-arbitrate','Prevent a threat':'oh.threats-to-prevent','Uncover a mystery':'oh.mysteries-to-uncover','NPC(s)/Monster(s) in need':'oh.trouble-an-npc-is-in'};
+const LANDMARK={Natural:['oh.natural-landmarks-d6-1-to-3','oh.natural-landmarks-d6-4-to-6'],Artificial:['oh.artificial-landmarks-d6-1-to-3','oh.artificial-landmarks-d6-4-to-6'],Magic:['oh.magic-landmarks-d6-1-to-3','oh.magic-landmarks-d6-4-to-6']};
+const item=(kind,ttl,lines)=>({kind,title:ttl,lines:lines.filter(l=>l&&l.text)});
+function hazard(R,t){const id='oh.hazards-'+OH_SLUG[t];const col=R.dice.pick([0,0,1,1,2,2]);const h=R.has(id)?R.roll(id,col):null;const k=h?R.T[id].c[col].split(' ').slice(1).join(' '):'';
+  return item('hazard','Hazard',[h?line(k+' hazard',h):null,roll(R,'Why it is dangerous','oh.hazard'),roll(R,'Prompt','pw.hazard')])}
+function landmark(R){const kind=R.text('oh.what-kind');const[a,b]=LANDMARK[kind]||LANDMARK.Natural;const k=R.dice.roll('d6');const[id,col]=k<=3?[a,k-1]:[b,k-4];const res=R.roll(id,col);
+  return item('landmark','Landmark',[line(`${kind} — ${R.T[id].c[col].split(' ').slice(1).join(' ')}`,res),roll(R,'Seen','pw.visibility')])}
+function special(R){const s=R.roll('oh.special');const sub=SPECIAL[s.text];const L=[line('Situation',s)];
+  if(sub)L.push(roll(R,'Detail',sub));else if(s.text.toLowerCase().includes('landmark'))L.push(landmark(R).lines[0]);else L.push(roll(R,'Prompt','pw.discovery'));return item('special','Situation',L)}
+function poi(R,t){const id='oh.points-of-interest-'+OH_SLUG[t];if(!R.has(id))return null;const r=R.roll(id);return item('poi',r.values['Location']||r.text,[line('Development',r.values['Development']||'',r.cite)])}
+function wildTag(R){const t=pickTag(R,'wilderness');if(!t)return null;return item('tag',t.tag,[line('',t.desc,t.cite),line('Enemy',t.enemy),line('Friend',t.friend),line('Complication',t.complication),line('Thing',t.thing),line('Place',t.place)])}
+function ruin(R,sys){const L=[roll(R,'What it was','wwn.p183.what-basic-kind-of-ruin-is-it'),roll(R,'Age','wwn.p183.how-old-is-the-ruin'),roll(R,'How it fell','wwn.p183.how-did-it-become-ruined'),roll(R,'Since then','wwn.p183.whos-used-the-ruin-before'),roll(R,'Not yet plundered because','wwn.p183.why-hasnt-it-been-plundered-bare-yet'),roll(R,'Locals say','wwn.p183.what-do-the-locals-think-of-it'),roll(R,'Form','pw.dungeon.form'),roll(R,'Dungeon type','oh.dungeon-type'),roll(R,'Size','oh.dungeon-size'),roll(R,'Quirk inside','oh.dungeon-effects'),roll(R,'Hazard','wwn.p241.example-types-of-hazards'),roll(R,'Enigma','wwn.p241.example-enigmas'),roll(R,'Treasure hidden in','wwn.p241.possible-treasure-locations')];
+  const t=pickTag(R,'ruin');if(t){L.push(line('Tag: '+t.tag,t.desc,t.cite),line('Enemy',t.enemy),line('Complication',t.complication),line('Thing',t.thing))}
+  const e=sys.dungeon(R);L.push(line('Wandering inside',e.text,e.cite));L.push(roll(R,'Treasure',R.dice.pick(['oh.treasure-0-3','oh.treasure-4-6','oh.treasure-7-9'])));return item('ruin','Ruin',L)}
+function lair(R,sys,x){const e=sys.encounter(R,x.terrain,x.river,x.coast);return item('lair','Lair',[line('Whose',e.text,e.cite),roll(R,'What it is doing','wwn.p229.whats-that-bestial-monster-doing'),roll(R,'Complication','wwn.p229.wilderness-lair-complications'),roll(R,'Lair','pw.natural.lair'),roll(R,'Hoard',R.dice.pick(['oh.treasure-0-3','oh.treasure-4-6']))])}
+function stock(R,sys,x){const out=[];const c=R.text('oh.content-and-treasure','What is here');
+  if(c==='Hazard')out.push(hazard(R,x.terrain));else if(c==='Empty')out.push(item('lore','Something to learn',[roll(R,'What can be learned','oh.empty'),roll(R,'How it comes','oh.how-you-learn-it')]));
+  else if(c==='Special')out.push(special(R));else{const e=sys.encounter(R,x.terrain,x.river,x.coast);out.push(item('creatures','Creatures',[line('Who',e.text,e.cite),roll(R,'Mood','pw.disposition'),roll(R,'Doing','pw.activity')]))}
+  if(R.dice.chance(1,3))out.unshift(poi(R,x.terrain));if(R.dice.chance(1,4))out.push(landmark(R));if(R.dice.chance(1,4))out.push(item('discovery','Discovery',[roll(R,'Found','pw.discovery')]));return out.filter(Boolean)}
+function seaHex(R,sys,x,nearLand){const out=[];const u=R.roll('sea.uncharted-hex-1-for-each-open-sea-in-a-r');
+  if(!u.text.startsWith('Open sea')){out.push(item('sea','At sea',[line('The hex holds',u.text.split('(§')[0].trim(),u.cite)]));
+    if(/vessel|sail/i.test(u.text)){const s=ship(R);out.push(item('ship',s.name,[line('Ship',`${s.type}, ${s.purpose.toLowerCase()}, ${s.attitude.toLowerCase()}; crew of ${s.crew.toLowerCase()}`,'OSS p.3'),...s.lines]))}}
+  if(R.dice.chance(1,3))out.push(item('sea','Find',[roll(R,'On the water','sea.finds')]));
+  if(/island/i.test(u.text)||R.dice.chance(1,6))out.push(item('sea','Island',[roll(R,'Island','sea.island'),roll(R,'Name','pw.place.template')]));
+  if(nearLand&&R.dice.chance(1,3)){const p=poi(R,'sea');if(p)out.push(p)}
+  if(R.dice.chance(1,3)){const e=sys.encounter(R,'sea');out.push(item('creatures','Creatures',[line('Who',e.text,e.cite)]))}return out}
+
+/* ---- powers */
+const COURTS={'Noble court':'p163','Merchant house':'p164','Criminal court':'p165','Barbarian court':'p166','Priestly court':'p167'};
+function court(R){const kind=R.dice.pick(Object.keys(COURTS)),p=COURTS[kind],b=`wwn.${p}.major-figure-minor-figure-the-source-of`;
+  const L=[roll(R,'Theme','wwn.p163.main-theme-of-the-court'),roll(R,'Major figure',b,'Major Figure'),roll(R,'Minor figure',b,'Minor Figure'),roll(R,'Their power rests on',b,'The Source of their Power in the Court'),roll(R,'Inside, they fight over',`wwn.${p}.internal-conflicts-external-conflicts`,'Internal Conflicts'),roll(R,'Outside, they fight over',`wwn.${p}.internal-conflicts-external-conflicts`,'External Conflicts')];
+  for(const t of R.find(`wwn.${p}.`).filter(t=>!/major-figure|internal-conflicts|main-theme/.test(t)))L.push(roll(R,R.title(t),t));
+  const tg=pickTag(R,'court');if(tg)L.push(line('Tag: '+tg.tag,tg.desc,tg.cite),line('Enemy',tg.enemy),line('Friend',tg.friend),line('Complication',tg.complication));
+  return{name:`${kind} of ${namePerson(R).split(' ')[1]}`,kind,lines:L.filter(l=>l&&l.text)}}
+function faction(R){const f=R.roll('oh.faction-generator').values;return{name:`The ${f['Symbol']||'Sign'}`,kind:'Faction',lines:[line('Mission',f['Mission']||'','OH'),line('Symbol',f['Symbol']||'','OH'),line('Led by',`${f['Leader']||''}, ${namePerson(R)}`,'OH')]}}
+function relations(R,P){const out=[],cols=R.get('oh.what-the-relationship-is').c;
+  for(let i=0;i<P.length;i++)for(const b of P.slice(i+1)){const st=R.roll('oh.between-two-domains');const state=cols.find(c=>st.text.toLowerCase().includes(c.toLowerCase()))||R.dice.pick(cols);
+    const why=R.roll('oh.what-the-relationship-is',state);out.push({a:P[i].name,b:b.name,state,why:why.text,cite:`${st.cite}, ${why.cite}`})}return out}
+
+/* ---- region */
+const SIZES=['capital','city','town','town','village','village','village','village','village','trading post','fortress'];
+const TW={sea:['Bay','Sea','Sound'],lake:['Lake'],grassland:['Downs','Plains','Meadows','Steppe','Reach','March','Heath','Flats'],forest:['Forest','Woods','Groves','Thicket'],jungle:['Jungle','Thicket'],swamp:['Marsh','Fen','Bog','Morass','Slough','Quagmire'],hills:['Hills','Downs','Fells','Heights','Upland','Foothills'],mountains:['Mountains','Peaks','Range','Teeth','Wall','Heights'],desert:['Desert','Dunes','Sands','Waste','Wasteland','Expanse'],arctic:['Waste','Expanse','Fells','Wall']};
+function regionName(R,M){const cnt={};for(const x of M.all())if(!M.water(x))cnt[x.terrain]=(cnt[x.terrain]||0)+1;const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1])[0]?.[0]||'sea';
+  const n=R.text('pw.region.template');const words=R.get('pw.name.terrain').r.map(r=>r[1]).sort((a,b)=>b.length-a.length);
+  for(const w of words){const re=new RegExp('\\b'+w+'\\b');if(re.test(n))return n.replace(re,R.dice.pick(TW[top]))}return n}
+function build(R,o){const sys=SYSTEMS[o.system];const M=new HexMap(o.w,o.h,R.dice,o.climate,o.sea);const n=Math.max(3,Math.floor(o.w*o.h/22));
+  const good=M.all().filter(x=>['grassland','forest','hills','jungle','desert','arctic','swamp'].includes(x.terrain)).map(x=>[(x.coast?.6:0)+(x.river?1:0)+(x.terrain==='grassland'?1:0)+M.dice.real(),x]).sort((a,b)=>b[0]-a[0]).map(p=>p[1]);
+  const sites=[];for(const x of good){if(sites.length>=n)break;if(sites.every(s=>dist([x.c,x.r],[s.c,s.r])>=3))sites.push(x)}
+  let sizes=['city'];for(let k=0;k<3;k++)sizes=sizes.concat(SIZES.slice(2));if(n>=8)sizes=['capital','city'].concat(sizes.slice(1));
+  sites.forEach((x,i)=>{const size=sizes[i]||'village';const coastal=x.coast||(['town','city','capital'].includes(size)&&M.nbrs(x).some(nb=>nb.terrain==='lake'));x.settlement=settlement(R,sys,size,coastal,x.terrain)});
+  const rk=x=>{const i=SIZES.indexOf(x.settlement.size);return i<0?99:i};const ranked=sites.slice().sort((a,b)=>rk(a)-rk(b));
+  ranked.forEach((a,i)=>{if(!i)return;const b=ranked.slice(0,i).reduce((p,q)=>dist([a.c,a.r],[q.c,q.r])<dist([a.c,a.r],[p.c,p.r])?q:p);if(a.settlement.size!=='trading post'||R.dice.chance(1,2))M.road(a,b)});
+  const land=M.all().filter(x=>!M.water(x)&&!x.settlement);
+  for(const x of M.all()){if(x.settlement)continue;x.contents=x.terrain==='sea'?seaHex(R,sys,x,M.nbrs(x).some(n=>!M.water(n))):stock(R,sys,x)}
+  for(const x of R.dice.shuffle(land).slice(0,Math.max(2,Math.floor(land.length/18))))x.contents.unshift(ruin(R,sys));
+  for(const x of R.dice.shuffle(land).slice(0,Math.max(2,Math.floor(land.length/16))))x.contents.unshift(lair(R,sys,x));
+  for(const x of R.dice.shuffle(land).slice(0,Math.max(2,Math.floor(land.length/14)))){const t=wildTag(R);if(t)x.contents.push(t)}
+  const powers=[court(R),court(R),faction(R),faction(R)];
+  return{name:o.name||regionName(R,M),seed:o.seed,sys,climate:o.climate,w:o.w,h:o.h,M,sites,powers,rel:relations(R,powers),
+    hooks:[0,1,2].map(()=>roll(R,'Hook','wwn.p372.ways-of-introducing-an-adventure-hook')),
+    rumours:Array.from({length:10},()=>roll(R,'Rumour','oh.rumours')),
+    ships:M.all().some(x=>x.terrain==='sea')?Array.from({length:6},()=>ship(R)):[],
+    problems:[roll(R,'National problem','wwn.p121.current-national-problems'),roll(R,'Good news','wwn.p121.good-things-happening-right-now'),roll(R,'Thematic element','wwn.p122.thematic-element')]}}
+
+/* ============================================================ rendering */
+const E=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const COLOR={sea:'var(--sea)',lake:'var(--lake)',grassland:'var(--grass)',forest:'var(--forest)',jungle:'var(--jungle)',swamp:'var(--swamp)',hills:'var(--hills)',mountains:'var(--mount)',desert:'var(--desert)',arctic:'var(--arctic)'};
+const GLYPH={capital:'★',city:'■',town:'●',village:'•','trading post':'◦',fortress:'▲'};
+const cite=c=>c?`<span class="cite">${E(c)}</span>`:'';
+function linesH(L){return'<ul class="lines">'+L.filter(l=>l&&l.text).map(l=>`<li>${l.label?`<b>${E(l.label)}.</b> `:''}${E(l.text)}${cite(l.cite)}</li>`).join('')+'</ul>'}
+function npcH(n){return`<div class="sub"><h5>${E(n.name)} <small>— ${E(n.role)}</small></h5>${linesH(n.lines)}</div>`}
+function shipH(s){const st=s.stats?' · '+Object.entries(s.stats).filter(([k])=>k!=='Boat').map(([k,v])=>`${k} ${v}`).join(', '):'';
+  return`<div class="sub"><h5>${E(s.name)} <small>— ${E(s.type)}, ${E(s.purpose.toLowerCase())}, ${E(s.attitude.toLowerCase())}; crew of ${E(s.crew.toLowerCase())}</small>${cite('OSS p.3'+st)}</h5>${linesH(s.lines)}</div>`}
+function tagH(t){return`<div class="sub"><b>${E(t.tag)}.</b> ${E(t.desc)}${cite(t.cite)}${linesH([line('Enemy',t.enemy),line('Friend',t.friend),line('Complication',t.complication),line('Thing',t.thing),line('Place',t.place)])}</div>`}
+function settlementBody(s){const o=[];
+  o.push('<div class="twocol"><div><h4>At a glance</h4>'+linesH(s.wwn.concat(s.pw))+'</div><div><h4>Now</h4>'+linesH([s.event].concat(s.rumours))+'</div></div>');
+  o.push('<h4>Tags</h4>'+s.tags.map(tagH).join(''));
+  o.push('<h4>The place</h4>'+linesH(s.ss));
+  o.push(`<h4>Districts <small>${E(s.ohType)}</small></h4><ul class="lines">`+s.districts.map(d=>`<li><b>${E(d.name)}.</b> ${E(d.stands.join(', '))}. <i>On the street:</i> ${E(d.enc.text)}${cite(d.enc.cite)}</li>`).join('')+'</ul>');
+  const t=s.tavern;o.push(`<p><b>Shops.</b> ${E(s.shops.join(', '))}.${cite('OH')}</p><p><b>Tavern: ${E(t.name)}</b> (${E(t.cls)}), known for ${E(String(t.known).toLowerCase())}. On the menu: ${E(t.menu)}. House drink: ${E(t.drink)}.${cite(t.cite)}</p>`);
+  if(s.temple)o.push('<h4>Temple</h4>'+linesH(s.temple));
+  o.push('<h4>People</h4><div class="twocol">'+s.npcs.map(npcH).join('')+'</div>');
+  o.push('<h4>For hire</h4><div class="twocol">'+s.hirelings.map(npcH).join('')+'</div>');
+  if(s.jobs)o.push('<h4>Work going</h4>'+linesH(s.jobs));
+  if(s.port){const p=s.port,ps=p.passage;o.push(`<h4>Port — ${E(p.kind)}</h4><p>${E(p.has)}${cite(p.cite)}</p><p><b>Who rules the docks.</b> ${E(p.rules)}. <b>Trouble on the quay.</b> ${E(p.trouble)}${cite(p.rcite)}</p>`+
+    `<p><b>Passage.</b> ${E(Object.entries(ps.ship).map(([k,v])=>k+' '+v).join(' · '))}; captain ${E(Object.entries(ps.captain).map(([k,v])=>k+' '+v).join(' · '))}.${cite(ps.cite)}</p><h4>At anchor</h4>`+p.ships.map(shipH).join(''))}
+  return o.join('')}
+function settlementH(x){const s=x.settlement;return`<details class="entry" id="hex-${x.id}"><summary>${E(s.name)} <small>${E(s.size)} · hex ${x.id} · ${E(s.terrain)}${s.port?' · port':''}</small></summary>${settlementBody(s)}</details>`}
+function hexH(x){const tags=[x.terrain].concat(x.river?['river']:[],x.road?['road']:[],x.coast?['coast']:[]);
+  const hot=x.contents.some(c=>c.kind==='lair'||c.kind==='ruin');
+  return`<article class="hexcard" id="hex-${x.id}"><h4>${x.id} <span class="chips">${tags.map(t=>`<span class="chip">${E(t)}</span>`).join('')}${hot?`<span class="chip hot">${x.contents.filter(c=>c.kind==='lair'||c.kind==='ruin').map(c=>c.kind).join(' · ')}</span>`:''}</span></h4>`+
+    x.contents.map(c=>`<h5>${E(c.title)}</h5>${linesH(c.lines)}`).join('')+'</article>'}
+function svgMap(reg,s=26){const M=reg.M,k=Math.sqrt(3);const cx=c=>1.5*s*c+s+4,cy=(c,r)=>k*s*(r+.5*(c&1))+k*s/2+4;
+  const W=1.5*s*(M.w-1)+2*s+8,H=k*s*(M.h+.5)+8;const o=[`<svg class="map" viewBox="0 0 ${W.toFixed(0)} ${H.toFixed(0)}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hex map of ${E(reg.name)}">`];
+  for(const x of M.all()){const X=cx(x.c),Y=cy(x.c,x.r);const pts=[0,1,2,3,4,5].map(i=>`${(X+s*Math.cos(Math.PI/3*i)).toFixed(1)},${(Y+s*Math.sin(Math.PI/3*i)).toFixed(1)}`).join(' ');
+    const poly=`<polygon points="${pts}" fill="${COLOR[x.terrain]}"><title>${x.id} ${x.terrain}${x.settlement?' — '+E(x.settlement.name):''}</title></polygon>`;
+    o.push((x.contents.length||x.settlement)?`<a href="#hex-${x.id}" data-hex="${x.id}">${poly}</a>`:poly);o.push(`<text x="${X.toFixed(1)}" y="${(Y-s*.55).toFixed(1)}" class="hid">${x.id}</text>`)}
+  for(const x of M.all())if(x.river&&x.river_to){const t=M.at(...x.river_to);o.push(`<line x1="${cx(x.c)}" y1="${cy(x.c,x.r)}" x2="${cx(t.c)}" y2="${cy(t.c,t.r)}" class="river"/>`)}
+  for(const x of M.all())if(x.road)for(const n of M.nbrs(x))if((n.road||n.settlement)&&(n.c>x.c||(n.c===x.c&&n.r>x.r)))o.push(`<line x1="${cx(x.c)}" y1="${cy(x.c,x.r)}" x2="${cx(n.c)}" y2="${cy(n.c,n.r)}" class="road"/>`);
+  for(const x of M.all()){const X=cx(x.c),Y=cy(x.c,x.r);
+    if(x.settlement){o.push(`<text x="${X}" y="${Y+5}" class="town">${GLYPH[x.settlement.size]||'•'}</text><text x="${X}" y="${(Y+s*.78).toFixed(1)}" class="tname">${E(x.settlement.name)}</text>`)}
+    else if(x.contents.some(c=>c.kind==='ruin'))o.push(`<text x="${X}" y="${Y+5}" class="mark">⌂</text>`);else if(x.contents.some(c=>c.kind==='lair'))o.push(`<text x="${X}" y="${Y+5}" class="mark">☠</text>`)}
+  return o.join('')+'</svg>'}
+function playTables(R,reg){const M=reg.M,sys=reg.sys;const ters=[...new Set(M.all().map(x=>x.terrain))].sort();
+  const o=['<h2 id="tables">Play tables</h2>',`<p><b>Travel.</b> ${E(sys.travel)}</p><p><b>Encounters.</b> ${E(sys.check)}</p>`];
+  const t=R.get('oh.daily-weather-by-terrain');const cols=t.c.filter(c=>ters.some(x=>OH_COL[x]===c));const idx=cols.map(c=>t.c.indexOf(c)+1);
+  o.push(`<details class="entry"><summary>Daily weather <small>2d6 · 2–4 stormy, 10–12 excellent ${cite('OH')}</small></summary><div class="tw"><table><tr><th>2d6</th>${cols.map(c=>`<th>${E(c)}</th>`).join('')}</tr>${t.r.map(r=>`<tr><td class="n">${E(r[0])}</td>${idx.map(i=>`<td>${E(r[i])}</td>`).join('')}</tr>`).join('')}</table></div></details>`);
+  const done=new Set();for(const x of ters){const id=sys.tableFor(x);if(done.has(id)||!R.has(id))continue;done.add(id);const tb=R.get(id);
+    o.push(`<details class="entry"><summary>${E(R.title(id))} <small>${E(tb.d)} · ${E(sys.odds(x))} ${cite(R.cite(id))}</small></summary><div class="tw"><table>${tb.r.map(r=>`<tr><td class="n">${E(r[0])}</td><td>${E(r.slice(1).join(' — '))}</td></tr>`).join('')}</table></div></details>`)}
+  if(sys.key==='ose')for(const id of Object.keys(R.T).filter(k=>k.startsWith('ose.enc.')&&!k.startsWith('ose.enc.by.')).sort()){const tb=R.get(id);
+    o.push(`<details class="entry"><summary>${E(R.title(id))} <small>${E(tb.d)} ${cite(R.cite(id))}</small></summary><div class="tw"><table><tr><th></th>${(tb.c||[]).map(c=>`<th>${E(c)}</th>`).join('')}</tr>${tb.r.map(r=>`<tr>${r.map((v,i)=>`<td${i?'':' class="n"'}>${E(v)}</td>`).join('')}</tr>`).join('')}</table></div></details>`)}
+  return o.join('')}
+function regionH(R,reg){const M=reg.M,present=new Set(M.all().map(x=>x.terrain));const o=[];
+  o.push(`<h2 style="margin-top:.4em">${E(reg.name)}</h2><p class="note">${E(reg.sys.name)} · ${E(reg.climate)} · ${reg.w}×${reg.h} hexes of 6 miles · seed ${reg.seed}. Tap a hex to jump to its entry.</p>`);
+  o.push(`<div class="mapplate">${svgMap(reg)}</div><div class="legend">${Object.keys(COLOR).filter(t=>present.has(t)).map(t=>`<span><i style="background:${COLOR[t]}"></i>${t}</span>`).join('')}<span>★ capital ■ city ● town • village ◦ trading post ▲ fortress ⌂ ruin ☠ lair</span></div>`);
+  o.push('<div class="twocol"><div><h2>The region</h2>'+linesH(reg.problems)+'<h4>Hooks</h4>'+linesH(reg.hooks)+'</div><div><h2>Rumours <small>d10</small></h2><ol>'+reg.rumours.filter(Boolean).map(r=>`<li>${E(r.text)}${cite(r.cite)}</li>`).join('')+'</ol></div></div>');
+  o.push('<h2>Powers</h2>'+reg.powers.map(p=>`<details class="entry"><summary>${E(p.name)} <small>${E(p.kind)}</small></summary>${linesH(p.lines)}</details>`).join(''));
+  o.push('<h4>How they stand</h4><ul class="lines">'+reg.rel.map(r=>`<li><b>${E(r.a)} ↔ ${E(r.b)}:</b> ${E(r.state)} — ${E(r.why)}${cite(r.cite)}</li>`).join('')+'</ul>');
+  o.push('<h2>Settlements</h2>'+reg.sites.map(settlementH).join(''));
+  const sorted=M.all().sort((a,b)=>a.id<b.id?-1:1);
+  o.push('<h2>Hex key</h2><div class="hexgrid">'+sorted.filter(x=>x.contents.length&&x.terrain!=='sea').map(hexH).join('')+'</div>');
+  const sea=sorted.filter(x=>x.contents.length&&x.terrain==='sea');if(sea.length)o.push('<h2>At sea</h2><div class="hexgrid">'+sea.map(hexH).join('')+'</div>');
+  if(reg.ships.length)o.push('<h4>Ships abroad</h4><div class="twocol">'+reg.ships.map(shipH).join('')+'</div>');
+  o.push(playTables(R,reg));
+  o.push('<h2>Sources</h2><ul class="lines">'+Object.values(R.sources).filter(s=>s.id!=='FIX').map(s=>`<li><b>${E(s.id)}</b> — ${E(s.title)}</li>`).join('')+'</ul>');
+  return o.join('')}
+
+/* ============================================================ UI */
+let DATA=null;const $=id=>document.getElementById(id);
+const store={get(k){try{return JSON.parse(localStorage.getItem('hexforge.'+k))}catch(e){return null}},set(k,v){try{localStorage.setItem('hexforge.'+k,JSON.stringify(v))}catch(e){}}};
+function views(name){for(const b of document.querySelectorAll('.tabs button')){const on=b.dataset.view===name;b.setAttribute('aria-selected',on);$('v-'+b.dataset.view).hidden=!on}store.set('view',name)}
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>views(b.dataset.view)));
+function opts(){return{system:$('sys').value,w:Math.max(6,Math.min(40,+$('w').value||16)),h:Math.max(6,Math.min(30,+$('h').value||12)),climate:$('clim').value,
+  sea:['n','e','s','w'].filter(k=>$('sea-'+k).checked).join(''),seed:(+$('seed').value>>>0),name:$('rname').value.trim()}}
+function genRegion(){if(!DATA)return;const o=opts();store.set('region',o);const t0=performance.now();
+  try{const R=new Registry(DATA,new Dice(o.seed));const reg=build(R,o);$('out').innerHTML=regionH(R,reg);
+    $('status').textContent=`Rolled ${reg.name}: ${reg.sites.length} settlements, ${reg.M.all().filter(x=>x.contents.length).length} keyed hexes, in ${Math.round(performance.now()-t0)} ms. Same seed, same region.`}
+  catch(e){$('status').textContent='Generation failed: '+e.message+'. Try another seed.';console.error(e)}}
+$('f-region').addEventListener('submit',e=>{e.preventDefault();genRegion()});
+$('newseed').addEventListener('click',()=>{$('seed').value=Math.floor(Math.random()*1e6);genRegion()});
+$('out').addEventListener('click',e=>{const a=e.target.closest('a[data-hex]');if(!a)return;e.preventDefault();const el=document.getElementById('hex-'+a.dataset.hex);if(el){if(el.tagName==='DETAILS')el.open=true;el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+  document.querySelectorAll('.hexcard,details.entry').forEach(x=>x.style.boxShadow='');el.style.boxShadow='0 0 0 2px var(--accent)'}});
+$('f-set').addEventListener('submit',e=>{e.preventDefault();if(!DATA)return;const R=new Registry(DATA,new Dice(Math.floor(Math.random()*1e9)));
+  const s=settlement(R,SYSTEMS[$('ssys').value],$('skind').value,$('scoast').checked,$('sterr').value);
+  $('sout').innerHTML=`<details class="entry" open><summary>${E(s.name)} <small>${E(s.size)} · ${E(s.terrain)}${s.port?' · port':''}</small></summary>${settlementBody(s)}</details>`});
+$('f-ship').addEventListener('submit',e=>{e.preventDefault();if(!DATA)return;const R=new Registry(DATA,new Dice(Math.floor(Math.random()*1e9)));const n=Math.max(1,Math.min(20,+$('nships').value||1));
+  $('shout').innerHTML='<div class="result"><div class="twocol">'+Array.from({length:n},()=>shipH(ship(R))).join('')+'</div></div>'});
+function findTable(q){q=q.trim();if(DATA.tables[q])return q;const ql=q.toLowerCase();return Object.keys(DATA.tables).find(k=>k.includes(ql)||(DATA.tables[k].t||'').toLowerCase().includes(ql))}
+$('f-tab').addEventListener('submit',e=>{e.preventDefault();if(!DATA)return;const id=findTable($('tq').value);if(!id){$('tout').innerHTML='<div class="result">No table matches that. Try a book prefix such as <code>pw.</code>, <code>wwn.p183</code> or <code>sd.enc.</code></div>';return}
+  const R=new Registry(DATA,new Dice(Math.floor(Math.random()*1e9)));const n=Math.max(1,Math.min(50,+$('ttimes').value||1));
+  $('tout').innerHTML=`<div class="result"><h3>${E(R.title(id))} <small>${E(id)} · ${E(R.T[id].d||'pick one')} ${cite(R.cite(id))}</small></h3><ul class="lines">`+Array.from({length:n},()=>{const r=R.roll(id);return`<li><span class="roll">${r.roll??'—'}</span>${E(r.text)}</li>`}).join('')+'</ul></div>'});
+$('tshow').addEventListener('click',()=>{if(!DATA)return;const id=findTable($('tq').value);if(!id)return;const R=new Registry(DATA,new Dice(1));const t=R.get(id);
+  $('tout').innerHTML=`<div class="result"><h3>${E(R.title(id))} <small>${E(id)} · ${E(t.d||'pick one')} ${cite(R.cite(id))}</small></h3><div class="tw"><table>${t.c?`<tr><th></th>${t.c.map(c=>`<th>${E(c)}</th>`).join('')}</tr>`:''}${t.r.map(r=>`<tr>${r.map((v,i)=>`<td${i?'':' class="n"'}>${E(v??'')}</td>`).join('')}</tr>`).join('')}</table></div></div>`});
+
+(function restore(){const o=store.get('region');if(o){$('sys').value=o.system;$('w').value=o.w;$('h').value=o.h;$('clim').value=o.climate;for(const k of'nesw')$('sea-'+k).checked=o.sea.includes(k);$('seed').value=o.seed;$('rname').value=o.name||''}
+  const v=store.get('view');if(v&&$('v-'+v))views(v)})();
+fetch('data.json').then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(d=>{DATA=d;
+  $('tlist').innerHTML=Object.keys(d.tables).sort().map(k=>`<option value="${E(k)}">${E(d.tables[k].t||'')}</option>`).join('');
+  $('status').textContent=`${Object.keys(d.tables).length} tables loaded.`;genRegion()})
+  .catch(e=>{$('status').textContent='Could not load the table library (data.json): '+e.message+'. Reload the page.'});
+</script>
