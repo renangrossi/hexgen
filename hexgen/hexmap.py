@@ -18,7 +18,7 @@ def hid(c, r):
     return f'{c + 1:02d}{r + 1:02d}'
 
 
-def neighbours(c, r, w, h):
+def neighbors(c, r, w, h):
     odd = c & 1
     ds = [(0, -1), (0, 1), (-1, -1 + odd), (-1, odd), (1, -1 + odd), (1, odd)]
     for dc, dr in ds:
@@ -71,7 +71,7 @@ class HexMap:
         return self.hexes.get((c, r))
 
     def nbrs(self, hx):
-        return [self.hexes[p] for p in neighbours(hx.c, hx.r, self.w, self.h)]
+        return [self.hexes[p] for p in neighbors(hx.c, hx.r, self.w, self.h)]
 
     # ------------------------------------------------------------------ noise
     def _field(self, scale, octaves=3):
@@ -185,7 +185,7 @@ class HexMap:
             _, cur = heapq.heappop(frontier)
             if cur == goal:
                 break
-            for nb in neighbours(*cur, self.w, self.h):
+            for nb in neighbors(*cur, self.w, self.h):
                 h = self.hexes[nb]
                 if h.water and nb != goal:
                     continue

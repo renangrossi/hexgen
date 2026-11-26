@@ -1,6 +1,6 @@
 import re
 """Build a whole region: map, settlements and ports, roads, hex contents, ruins, lairs,
-powers and their relations, a rumour table and a ship roster. Returns plain data that
+powers and their relations, a rumor table and a ship roster. Returns plain data that
 the renderers turn into Markdown, HTML and JSON."""
 from .hexmap import HexMap, distance
 from .systems import SYSTEMS, OH_COL
@@ -56,7 +56,7 @@ def build(R, w=16, h=12, system='sd', climate='temperate', sea='w', settlements=
         size = sizes[i] if i < len(sizes) else 'village'
         coastal = hx.coast or (size in ('town', 'city', 'capital') and any(nb.terrain == 'lake' for nb in M.nbrs(hx)))
         hx.settlement = S.settlement(R, sysp, size, coastal, hx.terrain)
-    # roads: link each settlement to its nearest larger neighbour, then the two largest
+    # roads: link each settlement to its nearest larger neighbor, then the two largest
     ranked = sorted(sites, key=lambda x: SIZES.index(x.settlement['size']) if x.settlement['size'] in SIZES else 99)
     for i, a in enumerate(ranked[1:], 1):
         b = min(ranked[:i], key=lambda o: distance((a.c, a.r), (o.c, o.r)))
@@ -90,7 +90,7 @@ def build(R, w=16, h=12, system='sd', climate='temperate', sea='w', settlements=
         'name': name, 'seed': R.dice.seed, 'system': sysp, 'climate': climate, 'w': w, 'h': h,
         'map': M, 'settlements': sites, 'powers': powers, 'relations': rel,
         'hooks': [roll(R, 'Hook', 'wwn.p372.ways-of-introducing-an-adventure-hook') for _ in range(3)],
-        'rumours': [roll(R, 'Rumour', 'oh.rumours') for _ in range(10)],
+        'rumors': [roll(R, 'Rumor', 'oh.rumors') for _ in range(10)],
         'ships': [SH.ship(R) for _ in range(6)] if any(x.terrain == 'sea' for x in M) else [],
         'problems': [roll(R, 'National problem', 'wwn.p121.current-national-problems'),
                      roll(R, 'Good news', 'wwn.p121.good-things-happening-right-now'),

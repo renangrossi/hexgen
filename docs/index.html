@@ -204,7 +204,7 @@ class Registry{
 /* ============================================================ hex map */
 const MOVE={grassland:1,forest:2,jungle:2,swamp:2,hills:2,mountains:3,desert:2,arctic:2,sea:99,lake:99};
 const hid=(c,r)=>String(c+1).padStart(2,'0')+String(r+1).padStart(2,'0');
-function* neighbours(c,r,w,h){const odd=c&1;for(const[dc,dr]of[[0,-1],[0,1],[-1,-1+odd],[-1,odd],[1,-1+odd],[1,odd]]){const cc=c+dc,rr=r+dr;if(cc>=0&&cc<w&&rr>=0&&rr<h)yield[cc,rr]}}
+function* neighbors(c,r,w,h){const odd=c&1;for(const[dc,dr]of[[0,-1],[0,1],[-1,-1+odd],[-1,odd],[1,-1+odd],[1,odd]]){const cc=c+dc,rr=r+dr;if(cc>=0&&cc<w&&rr>=0&&rr<h)yield[cc,rr]}}
 function cube(c,r){const x=c,z=r-(c-(c&1))/2;return[x,-x-z,z]}
 function dist(a,b){const A=cube(...a),B=cube(...b);return Math.max(Math.abs(A[0]-B[0]),Math.abs(A[1]-B[1]),Math.abs(A[2]-B[2]))}
 class HexMap{
@@ -213,7 +213,7 @@ class HexMap{
     this.terrain();this.rivers()}
   all(){return[...this.H.values()]}
   at(c,r){return this.H.get(c+','+r)}
-  nbrs(x){return[...neighbours(x.c,x.r,this.w,this.h)].map(([c,r])=>this.at(c,r))}
+  nbrs(x){return[...neighbors(x.c,x.r,this.w,this.h)].map(([c,r])=>this.at(c,r))}
   water(x){return x.terrain==='sea'||x.terrain==='lake'}
   field(scale,oct=3){const tot=new Map();for(const k of this.H.keys())tot.set(k,0);let amp=1;
     for(let o=0;o<oct;o++){const step=Math.max(1.5,scale/2**o),gw=Math.floor(this.w/step)+3,gh=Math.floor(this.h/step)+3;
@@ -328,8 +328,8 @@ function realm(R){const one=R.text('wwn.p129.number-of-rulers');const ru=/single
   return{'Government':LL(R,[['Rulers','wwn.p129.number-of-rulers'],['Who rules',ru],['Ruling class','wwn.p129.example-ruling-classes'],['Claim to rule','wwn.p129.sources-of-legitimacy'],['Holds power through','wwn.p129.institutions-and-agents-of-control'],['Struggle within','wwn.p130.current-struggle-within-the-government'],['How established','wwn.p131.how-established-is-the-current-ruler'],['Ministers’ trouble','wwn.p131.what-problems-do-their-ministers-have'],['Strength','wwn.p131.a-strength-of-the-government'],['Stability','wwn.p131.how-stable-is-the-government'],['Officials causing problems','wwn.p131.officials-recently-causing-problems'],['Recent event','wwn.p131.recent-governmental-event']]),
    'History':LL(R,[['Origin','wwn.p132.how-did-they-originate'],['The first inhabitants','wwn.p132.what-became-of-the-original-inhabitants'],['Great crisis','wwn.p132.historical-crises'],['Survived it by','wwn.p132.how-did-they-overcome-the-crisis'],['Height of glory','wwn.p133.what-was-great-about-its-peak-6-they-wer',0],['The unabsorbed','wwn.p133.what-became-of-the-unabsorbed-survivors']]),
    'People':LL(R,[['Build','wwn.p125.whats-the-typical-build-of-the-people'],['Skin','wwn.p125.typical-skin-colors-in-the-populace'],['Hair','wwn.p125.hair-color-hair-texture'],['Adornment','wwn.p125.optional-common-forms-of-adornment'],['Quirk','wwn.p125.optional-physical-quirks-or-traits'],['They esteem','wwn.p126.values-they-esteem'],['And','wwn.p126.values-they-esteem'],['Core loyalty','wwn.p127.major-unit-of-social-identity'],['Model society','wwn.p127.example-template-societies']]),
-   'Neighbours':LL(R,[['Dispute with a neighbour','wwn.p121.disputes-with-a-neighboring-state'],['Tie to a neighbour','wwn.p121.positive-ties-with-a-neighboring-state']]),
-   'Building style':LL(R,[['Buildings are','wwn.p374.architectural-adjectives'],['Built of','wwn.p374.favorite-materials'],['Colours','wwn.p374.favorite-color-schemes'],['Motifs','wwn.p375.common-visual-motifs'],['Adorned with','wwn.p375.structure-adornment'],['Features','wwn.p375.favorite-structural-features'],['Towns laid out','wwn.p375.settlement-design-patterns']])}}
+   'Neighbors':LL(R,[['Dispute with a neighbor','wwn.p121.disputes-with-a-neighboring-state'],['Tie to a neighbor','wwn.p121.positive-ties-with-a-neighboring-state']]),
+   'Building style':LL(R,[['Buildings are','wwn.p374.architectural-adjectives'],['Built of','wwn.p374.favorite-materials'],['Colors','wwn.p374.favorite-color-schemes'],['Motifs','wwn.p375.common-visual-motifs'],['Adorned with','wwn.p375.structure-adornment'],['Features','wwn.p375.favorite-structural-features'],['Towns laid out','wwn.p375.settlement-design-patterns']])}}
 function faith(R){return{title:'Faith',lines:[line('God of',R.roll('wwn.p138.human-concern-natural-principle',R.dice.pick(['Human Concern','Natural Principle']))),...LL(R,[['Role in society','wwn.p137.what-does-this-god-do-in-society'],['Came from','wwn.p136.where-did-the-god-come-from'],['Why it matters','wwn.p136.why-does-the-faith-matter'],['Church','wwn.p136.church-structures'],['Clergy','wwn.p137.what-are-the-clerics-like'],['Wants','wwn.p137.what-does-the-faith-want']])]}}
 function cult(R){return{title:'Cult',lines:LL(R,[['Goal','wwn.p141.what-general-goal-do-they-have'],['What is horrible','wwn.p141.whats-so-horrible-about-the-faith'],['Rewards','wwn.p140.rewards-of-the-sinister-faith'],['Enforces its will by','wwn.p141.how-do-the-clergy-enforce-their-will'],['Unity','wwn.p141.how-unified-is-the-cult'],['Trouble','wwn.p141.what-problems-does-it-have'],['Trait','wwn.p141.specific-traits-of-the-cult']])}}
 function greatFeature(R){return item('feature','Great feature',[line('What',R.roll('wwn.p117.significant-terrain-features')),...LL(R,[['Danger','wwn.p119.how-dangerous-is-the-feature'],['Use','wwn.p119.what-use-is-the-feature'],['Last event','wwn.p119.what-kind-of-event-last-happened-there'],['People','wwn.p119.how-populated-is-the-feature'],['Antagonists','wwn.p119.what-antagonists-are-common-there'],['Quirk','wwn.p119.optional-quirk-of-the-feature']])])}
@@ -377,7 +377,7 @@ function ssExtras(R,size){const places=new Set();for(const t of SS_SHOPS[size])i
   return L.concat([roll(R,'Tavern reputation','ss.p448.establishment-reputation'),roll(R,'Tavern staff','ss.p448.establishment-staff'),roll(R,'Regulars','ss.p448.patrons'),
     line('Grows',`${R.text('ss.p450.crops')}; raises ${R.text('ss.p450.farm-animals-meat').toLowerCase()}; mines ${R.text('ss.p450.minerals').toLowerCase()}`,'SS p.450'),
     line('Street scene',`${R.text('ss.p452.time-of-day')}: ${R.text('ss.p451.smells').toLowerCase()}, ${R.text('ss.p452.street-debris').toLowerCase()} underfoot; a ${R.text('ss.p453.appearance').toLowerCase()} figure in ${R.text('ss.p454.clothing').toLowerCase()} is ${R.text('ss.p454.verbs').toLowerCase()}`,'SS pp.451–454'),
-    roll(R,'Someone needs help','ss.p453.problems'),roll(R,'Rumour','ss.p445.rumors')].filter(l=>l&&l.text))}
+    roll(R,'Someone needs help','ss.p453.problems'),roll(R,'Rumor','ss.p445.rumors')].filter(l=>l&&l.text))}
 function fortressLayout(R){const[lo,hi]=SS_RANGE.fortress;return Object.keys(R.T).filter(t=>t.startsWith('ss.')&&(R.T[t].p||0)>=lo&&(R.T[t].p||0)<=hi&&FORT.test(t)&&!R.T[t].x).sort().map(t=>{
   const w=R.title(t).split(/\s(?=[a-z(])/)[0].split(/\s+/);const label=w.filter((x,i)=>w.indexOf(x)===i).join(' ');const r=R.roll(t);return{label,text:tidySS(String(Object.values(r.values)[0]??r.text)),cite:r.cite}})}
 const PORT_ROW={'trading post':0,village:0,fortress:0,town:1,city:2,capital:2};
@@ -390,7 +390,7 @@ function settlement(R,sys,size,coastal,terrain,name){
   const k=PW_KIND[size];s.pw=[roll(R,'Feature',`pw.steading.${k}.feature`),roll(R,'Problem',`pw.steading.${k}.problem`)].filter(Boolean);
   [s.ohType,s.districts]=districts(R,size,sys);
   const ns={'trading post':2,village:3,town:5,city:8,capital:10,fortress:2}[size];const shops=new Set();for(let i=0;i<ns;i++)shops.add(R.text('oh.shops',R.dice.pick(['Poor','Standard','Standard','Wealthy'])));s.shops=[...shops].sort();
-  s.tavern=tavern(R);s.event=roll(R,'Event','oh.settlement-events');s.rumours=[0,1,2].map(()=>roll(R,'Rumour','oh.rumours'));
+  s.tavern=tavern(R);s.event=roll(R,'Event','oh.settlement-events');s.rumors=[0,1,2].map(()=>roll(R,'Rumor','oh.rumors'));
   const roles=[['ruler or headman','gentry'],['innkeeper','commoner'],['someone who needs help',null]];if(size==='city'||size==='capital')roles.push(['rival','gentry'],['fixer','underclass']);
   s.npcs=roles.map(([r,st])=>npc(R,r,st));bond(R,R.dice.pick(s.npcs));
   s.quests=Array.from({length:({'trading post':1,village:1,fortress:1,town:2}[size]||3)},()=>quest(R));
@@ -501,7 +501,7 @@ function build(R,o){const sys=SYSTEMS[o.system];const M=new HexMap(o.w,o.h,R.dic
   const powers=[court(R),court(R),faction(R),faction(R)];
   return{name:o.name||regionName(R,M),seed:o.seed,sys,climate:o.climate,w:o.w,h:o.h,M,sites,powers,rel:relations(R,powers),
     hooks:[0,1,2].map(()=>roll(R,'Hook','wwn.p372.ways-of-introducing-an-adventure-hook')),
-    rumours:Array.from({length:10},()=>roll(R,'Rumour','oh.rumours')),
+    rumors:Array.from({length:10},()=>roll(R,'Rumor','oh.rumors')),
     ships:M.all().some(x=>x.terrain==='sea')?Array.from({length:6},()=>ship(R)):[],
     realm:realm(R),faiths:[faith(R),faith(R),cult(R)],adventures:[0,1,2].map(()=>adventure(R)),family:[0,1,2,3].map(()=>roll(R,'Family lore','oh.family-lore')),
     problems:[roll(R,'National problem','wwn.p121.current-national-problems'),roll(R,'Good news','wwn.p121.good-things-happening-right-now'),roll(R,'Thematic element','wwn.p122.thematic-element')]}}
@@ -517,7 +517,7 @@ function shipH(s){const st=s.stats?' · '+Object.entries(s.stats).filter(([k])=>
   return`<div class="sub"><h5>${E(s.name)} <small>— ${E(s.type)}, ${E(s.purpose.toLowerCase())}, ${E(s.attitude.toLowerCase())}; crew of ${E(s.crew.toLowerCase())}</small>${cite('OSS p.3'+st)}</h5>${linesH(s.lines)}</div>`}
 function tagH(t){return`<div class="sub"><b>${E(t.tag)}.</b> ${E(t.desc)}${cite(t.cite)}${linesH([line('Enemy',t.enemy),line('Friend',t.friend),line('Complication',t.complication),line('Thing',t.thing),line('Place',t.place)])}</div>`}
 function settlementBody(s){const o=[];
-  o.push('<div class="twocol"><div><h4>At a glance</h4>'+linesH(s.wwn.concat(s.pw))+'</div><div><h4>Now</h4>'+linesH([s.event].concat(s.rumours))+'</div></div>');
+  o.push('<div class="twocol"><div><h4>At a glance</h4>'+linesH(s.wwn.concat(s.pw))+'</div><div><h4>Now</h4>'+linesH([s.event].concat(s.rumors))+'</div></div>');
   o.push('<h4>Tags</h4>'+s.tags.map(tagH).join(''));
   o.push('<h4>The place</h4>'+linesH(s.ss));
   o.push(`<h4>Districts <small>${E(s.ohType)}</small></h4><ul class="lines">`+s.districts.map(d=>`<li><b>${E(d.name)}.</b> ${E(d.stands.join(', '))}. <i>On the street:</i> ${E(d.enc.text)}${cite(d.enc.cite)}</li>`).join('')+'</ul>');
@@ -556,7 +556,7 @@ function playTables(R,reg){const M=reg.M,sys=reg.sys;const ters=[...new Set(M.al
     o.push(`<details class="entry"><summary>${E(R.title(id))} <small>${E(tb.d)} · ${E(sys.odds(x))} ${cite(R.cite(id))}</small></summary><div class="tw"><table>${tft?`<tr><th>${E(tb.d)}</th>${tb.c.slice(0,n-1).map(c=>`<th>${E(c)}</th>`).join('')}</tr>`+tb.r.map(r=>`<tr>${r.slice(0,n).map((v,i)=>`<td${i?'':' class="n"'}>${E(v)}</td>`).join('')}</tr>`).join(''):tb.r.map(r=>`<tr><td class="n">${E(r[0])}</td><td>${E(r.slice(1).join(' — '))}</td></tr>`).join('')}</table></div></details>`)}
   const full=(id,ttl)=>{if(!R.has(id))return'';const tb=R.get(id);const head=tb.c&&tb.c.length>1?`<tr><th></th>${tb.c.map(c=>`<th>${E(c)}</th>`).join('')}</tr>`:'';
     return`<details class="entry"><summary>${E(ttl||R.title(id))} <small>${E(tb.d||'')} ${cite(R.cite(id))}</small></summary><div class="tw"><table>${head}${tb.r.map(r=>`<tr>${r.map((v,i)=>`<td${i?'':' class="n"'}>${E(v??'')}</td>`).join('')}</tr>`).join('')}</table></div></details>`};
-  const ex=[full('oh.strange-skies','Strange skies — weather rolled 2 or 12'),full('oh.cause','Why the sky is strange')];if(sys.key==='sd')ex.push(full('sd.enc.cave'),full('tft.wl.underground'),full('sd.enc.deep-tunnels'),full('sd.enc.tomb'),full('sd.enc.ruins'),full('oh.rumours-wr','Rumours in the Reaches'));else ex.push(...R.find('ose.dungeon.').map(t=>full(t)));
+  const ex=[full('oh.strange-skies','Strange skies — weather rolled 2 or 12'),full('oh.cause','Why the sky is strange')];if(sys.key==='sd')ex.push(full('sd.enc.cave'),full('tft.wl.underground'),full('sd.enc.deep-tunnels'),full('sd.enc.tomb'),full('sd.enc.ruins'),full('oh.rumors-wr','Rumors in the Reaches'));else ex.push(...R.find('ose.dungeon.').map(t=>full(t)));
   if(M.all().some(x=>x.road))ex.push(full('oh.path-encounters','On the road'));
   if(M.all().some(x=>x.terrain==='sea'))ex.push(full('sea.weather','Weather at sea'),full('sea.wind-strength-roll-when-the-last-wind-en','Wind strength'),full('sea.wind-direction-first-day-the-edge-it-blo','Wind direction'),full('sea.sea-event','Sea event'),full('sea.denizens-4d6','Denizens'),full('oss.enc.low'),full('oss.enc.mid'),full('oss.enc.high'),full('oss.hazard','Ship hazard'),full('oss.hazard.results','Ship hazard results'),full('sea.reaction-2d6-cha','Reaction at sea'),full('sea.sea-treasure','Sea treasure'));
   ex.push(full('uvg.p177.general-travel-misfortune-and-misery-a-c','Travel misfortune'),full('oh.quest-archetypes','Quest archetypes'),full('oh.patron','Patron'),full('oh.reward','Reward'),full('oh.acts-of-devotion-the-outcome','Downtime: devotion'),full('oh.combat-training-the-outcome','Downtime: training'),full('oh.magical-study-the-outcome','Downtime: study'));
@@ -567,7 +567,7 @@ function playTables(R,reg){const M=reg.M,sys=reg.sys;const ters=[...new Set(M.al
 function regionH(R,reg){const M=reg.M,present=new Set(M.all().map(x=>x.terrain));const o=[];
   o.push(`<h2 style="margin-top:.4em">${E(reg.name)}</h2><p class="note">${E(reg.sys.name)} · ${E(reg.climate)} · ${reg.w}×${reg.h} hexes of 6 miles · seed ${reg.seed}. Tap a hex to jump to its entry.</p>`);
   o.push(`<div class="mapplate">${svgMap(reg)}</div><div class="legend">${Object.keys(COLOR).filter(t=>present.has(t)).map(t=>`<span><i style="background:${COLOR[t]}"></i>${t}</span>`).join('')}<span>★ capital ■ city ● town • village ◦ trading post ▲ fortress ⌂ ruin ☠ lair</span></div>`);
-  o.push('<div class="twocol"><div><h2>The region</h2>'+linesH(reg.problems)+'<h4>Hooks</h4>'+linesH(reg.hooks)+'</div><div><h2>Rumours <small>d10</small></h2><ol>'+reg.rumours.filter(Boolean).map(r=>`<li>${E(r.text)}${cite(r.cite)}</li>`).join('')+'</ol></div></div>');
+  o.push('<div class="twocol"><div><h2>The region</h2>'+linesH(reg.problems)+'<h4>Hooks</h4>'+linesH(reg.hooks)+'</div><div><h2>Rumors <small>d10</small></h2><ol>'+reg.rumors.filter(Boolean).map(r=>`<li>${E(r.text)}${cite(r.cite)}</li>`).join('')+'</ol></div></div>');
   o.push('<h2>The realm</h2>'+Object.entries(reg.realm).map(([k,v])=>`<details class="entry"><summary>${E(k)}</summary>${linesH(v)}</details>`).join('')+
     '<h4>Faiths</h4><div class="twocol">'+reg.faiths.map(f=>`<div class="sub"><h5>${E(f.title)}</h5>${linesH(f.lines)}</div>`).join('')+'</div>');
   o.push('<h2>Adventures</h2><div class="twocol">'+reg.adventures.map((a,i)=>`<div class="sub"><h5>Adventure ${i+1}</h5>${linesH(a.lines)}</div>`).join('')+'</div><h4>Family lore for the PCs</h4>'+linesH(reg.family));
