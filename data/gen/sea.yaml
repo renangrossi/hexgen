@@ -383,13 +383,13 @@ tables:
     - - '12'
       - Weather turns. The day becomes Stormy.
     - - '13'
-      - Sea folk. 1d6+2 deep ones, or 1d3 sharkmen on 4–6 (§12). Reaction; they know these waters.
+      - Sea folk. Roll Sea folk (§12). Reaction; they know these waters.
     - - 14–15
       - Wind dies. Calm for the rest of the day.
     - - '16'
       - Pirates give chase (§10, Chase).
     - - 17–18
-      - Dangerous creature. Roll §11 until one of LV 5+ comes up.
+      - Dangerous creature. Roll §11 until one of LV 5+ comes up. Over reefs, wrecks or drowned land, roll Strange waters (§11) instead.
     die: 3d6
     note: 'source: Source: Overland Hexcrawl §24.5 · When Sea Is Calling p. 51'
   sea.vessel:
@@ -407,7 +407,7 @@ tables:
     - - '2'
       - Fishers or whalers
       - Rowboat or sloop
-      - 1d6+2 sailors. News, fish, a rumour.
+      - 1d6+2 fishermen or whalers. News, fish, a rumor.
     - - '3'
       - Navy patrol
       - Sailboat or galleon
@@ -425,7 +425,7 @@ tables:
       - Any, rotting
       - 1d6+1 drowned crew; 2-in-6 their captain.
     die: d6
-    note: 'source: Source: Wolves Upon the Coast p. 12 · Thematic Foe Tables p. 77'
+    note: 'source: Source: Wolves Upon the Coast p. 12 · Thematic Foe Tables p. 78'
   sea.storm-check-helm-task-dex:
     title: Storm check · Helm task, DEX
     page: null
@@ -482,7 +482,7 @@ tables:
     - - '6'
       - Mutiny. Parley (CHA DC 15) or fight.
     die: d6
-    note: 'source: In combat a failure means they flee, or strike the colours.'
+    note: 'source: In combat a failure means they flee, or strike the colors.'
   sea.crew-actions:
     title: Crew actions
     page: null
@@ -661,7 +661,7 @@ tables:
       - '13'
       - '11'
       - rasp +2 (1d6)
-      - 'Clings: auto damage each round; DC 12 STR to prise off. Climbs aboard at night.'
+      - 'Clings: auto damage each round; DC 12 STR to pry off. Climbs aboard at night.'
     - - '11'
       - Seal
       - 1d6
@@ -775,7 +775,7 @@ tables:
       - 3 ram +6 (2d10) or bite +6 (3d10)
       - Fights only if struck. Its ram destroys a boat outright.
     die: 4d6
-    note: 'source: All swim; MV double near. Source: Thematic Foe Tables pp. 115–118'
+    note: 'source: All swim; MV double near. Source: Wildland pp. 25–28'
   sea.the-kraken:
     title: The Kraken
     page: null
@@ -790,7 +790,157 @@ tables:
       - '41'
       - 4 tentacle (near) +7 (1d10)
       - 'Each tentacle a different target. Crit: dragged under, drowning until a DC 15 STR frees them.'
-    note: 'source: Coast and open water. Source: Thematic Foe Tables p. 78'
+    note: 'source: Coast and open water.'
+  sea.strange-waters-4d6-reefs-wrecks-and-drow:
+    title: Strange waters · 4d6 · reefs, wrecks and drowned land
+    page: null
+    cols:
+    - Foe
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Trait
+    rows:
+    - - '4'
+      - Dragon turtle
+      - '1'
+      - '15'
+      - '18'
+      - '73'
+      - 4 claw +9 (2d8) and bite +10 (2d10)
+      - 'Heaves under a boat a sloop or smaller: helm DC 15 DEX or capsized. 2-in-6 to shrug off nonmagical harm. A tenth of the cargo buys passage.'
+    - - '5'
+      - Reef wraith
+      - '1'
+      - '7'
+      - '14'
+      - '31'
+      - 2 death touch +5 (1d8 + drain)
+      - 'Undead; only silver or magic hurts it. Drain: 1d4 CON. Bound to its wreck: burn or sink the wreck and it goes.'
+    - - '6'
+      - Salt golem
+      - '1'
+      - '6'
+      - '14'
+      - '29'
+      - 3 slam +6 (1d8) or salt spray
+      - 'Immune to cold and nonmagical harm; fire heals it. Spray: all within near DC 15 DEX or 3d6 and no healing 1d4 rounds.'
+    - - '7'
+      - Lung-shark
+      - '1'
+      - '6'
+      - '12'
+      - '31'
+      - 2 claw +5 (1d10) and bite +5 (1d12)
+      - Lies buried in the mud; +1d4 damage when it surprises. Submerges every 4 hours or suffocates.
+    - - 8–9
+      - Chuul
+      - 1d2
+      - '5'
+      - '15'
+      - '25'
+      - 2 pincer +4 (1d8 + grab)
+      - 'Grab: DC 15 STR or held.'
+    - - 10–11
+      - Seaweed strangler
+      - 1d3
+      - '4'
+      - '12'
+      - '20'
+      - tendril +2 (1d6 + toxin)
+      - 'Unseen in weed; double damage on surprise. Toxin: DC 12 CON or drowning for 1d4 rounds.'
+    - - '12'
+      - Bloated one
+      - 1d6
+      - '2'
+      - '8'
+      - '10'
+      - slam +2 (1d6)
+      - 'Undead, no morale. Bursts when killed: within close DC 12 DEX or 1d6.'
+    - - '13'
+      - Flesheater coral
+      - 1d6
+      - '1'
+      - '10'
+      - '6'
+      - slam +2 (1d4)
+      - 'Senses the hidden within near on 1–3 on d6. Once a day, 3 rounds of rage: no morale, +1d4 damage.'
+    - - '14'
+      - Glowburst shoal
+      - '1'
+      - '1'
+      - '11'
+      - '4'
+      - burst +2 (1d6)
+      - 'Swimmers within close at the end of its turn: DC 12 DEX or 1d6. Lights the water at night.'
+    - - '15'
+      - Salt corpse
+      - 2d6
+      - '1'
+      - '12'
+      - '4'
+      - slam +2 (1d6)
+      - Walks the sea floor, needs no air. Double damage from blunt weapons. No morale.
+    - - '16'
+      - Face-eel
+      - 2d4
+      - '2'
+      - '12'
+      - '9'
+      - bite +2 (1d6)
+      - 'Wears a face you know: DC 12 WIS or no attack on it in the first round. It says one true thing about them.'
+    - - '17'
+      - Tide mutant
+      - 2d6
+      - '1'
+      - '9'
+      - '6'
+      - claw +2 (1d6 + mutation) or club +2 (1d4)
+      - 'Claw: DC 12 CON or −1 CHA a day until a priest ends it.'
+    - - '18'
+      - Asprit
+      - 1d4
+      - '1'
+      - '12'
+      - '4'
+      - bite +2 (1 + poison)
+      - Flies. DC 15 CON or asleep 1d4 rounds. Fed three days, it stays aboard and wakes the watch.
+    - - 19–20
+      - Gullet-bird
+      - '1'
+      - '3'
+      - '13'
+      - '15'
+      - bite +1 (1d6 + swallow)
+      - 'Flies. Swallows a small creature or anyone at 0 HP: DC 12 STR to cut free, 1d4 a round. Spits out 1d4 bloated ones once a day.'
+    - - '21'
+      - Talking swordfish
+      - '1'
+      - '4'
+      - '12'
+      - '19'
+      - 2 sword +2 (1d6)
+      - Parries on 1–2 on d6, with a free riposte. Calls out the best blade aboard to a duel, and keeps the terms.
+    - - 22–23
+      - Phantom jellyfish
+      - 1d3
+      - '5'
+      - '10'
+      - '24'
+      - 2 sting +2 (1d6)
+      - Once a day invisible 1d4 rounds; twice a day an illusion within near. Jets triple near.
+    - - '24'
+      - Ashiar’s lantern
+      - '1'
+      - '3'
+      - '14'
+      - '12'
+      - zap (near) +4 (1d4)
+      - Flies; glows to double near. A tribute (a song, a coin, a lamp lit) buys ADV on the next Navigate or a fair wind.
+    die: 4d6
+    note: 'source: All swim unless they fly or walk the bottom; MV near. Source: ShadowSails pp. 50–56'
   sea.table-2:
     title: ''
     page: null
@@ -803,6 +953,13 @@ tables:
     - Trait
     rows:
     - - null
+      - Fisherman
+      - '1'
+      - '11'
+      - '6'
+      - fish-spear (near) +1 (1d6) or net
+      - 'Two throw a net: DC 12 DEX or held. Fight only for boat and village.'
+    - - null
       - Sailor
       - '2'
       - '12'
@@ -810,32 +967,53 @@ tables:
       - cutlass +3 (1d6)
       - Morale at DISADV.
     - - null
-      - Marine
-      - '4'
+      - Smuggler
+      - '2'
+      - '12'
+      - '9'
+      - cutlass +2 (1d6)
+      - At night on the water, surprises on 1–3 on d6. Dumps the cargo and runs.
+    - - null
+      - Whaler
+      - '3'
+      - '11'
+      - '16'
+      - harpoon (near) +3 (1d8)
+      - A harpooned target can’t get beyond near until DC 12 STR. Morale at ADV.
+    - - null
+      - Slaver
+      - '3'
+      - '13'
       - '15'
-      - '20'
-      - cutlass +4 (1d8) or bow (far) +4 (1d6)
-      - Three of a band shoot before reaction.
+      - scimitar +3 (1d8) or bow (far) +3 (1d6)
+      - A foe it drops to 0 HP is chained, not dying; then it withdraws.
+    - - null
+      - Marine
+      - '2'
+      - '15'
+      - '11'
+      - spear (near) +2 (1d6) or crossbow (far) +2 (1d8)
+      - 'Two side by side: AC 16 each. Pays 10 gp for a live pirate.'
     - - null
       - Freebooter
-      - '4'
+      - '2'
       - '16'
-      - '18'
-      - rapier +4 (1d8) or crossbow (far) +4 (1d8)
+      - '11'
+      - rapier +3 (1d8) or crossbow (far) +3 (1d8)
       - 'Crit: ADV on the target till its next turn.'
     - - null
       - Gunner
-      - '5'
+      - '3'
       - '13'
-      - '26'
-      - ballista (far) +5 (2d8) or sword +5 (1d8)
+      - '16'
+      - ballista (far) +3 (2d8) or sword +3 (1d8)
       - One volley, then a turn drawing steel.
     - - null
       - Pirate
-      - '5'
+      - '2'
       - '15'
-      - '24'
-      - 2 cutlass +5 (1d8)
+      - '12'
+      - cutlass +3 (1d6)
       - ADV in the first round of a boarding.
     - - null
       - Captain
@@ -844,20 +1022,6 @@ tables:
       - '26'
       - 2 scimitar +5 (1d8+1)
       - Crew within far check morale with ADV.
-    - - null
-      - Deep one
-      - '2'
-      - '13'
-      - '10'
-      - 2 spear +2 (1d6)
-      - Swims. Blinded in bright light.
-    - - null
-      - Sharkman
-      - '4'
-      - '15'
-      - '22'
-      - bite +4 (1d10)
-      - In water, attacks on it at DISADV. ADV vs the wounded.
     - - null
       - Drowned crew
       - '5'
@@ -872,7 +1036,165 @@ tables:
       - '36'
       - cursed cutlass +7 (2d8)
       - Undead. The cutlass burns living hands for 2d6.
-    note: 'source: MV near. Source: Thematic Foe Tables pp. 77–78'
+    note: 'source: MV near. Living crews: Thematic Foe Tables pp. 78–79'
+  sea.sea-folk-4d6:
+    title: Sea folk · 4d6
+    page: null
+    cols:
+    - Foe
+    - No.
+    - LV
+    - AC
+    - HP
+    - Attack
+    - Trait
+    rows:
+    - - '4'
+      - The Sea Urchin
+      - '1'
+      - '17'
+      - '16'
+      - '78'
+      - 3 slingshot (near) +10 (2d10) or spell
+      - 'A bored demigod; only magic hurts it. Amuse it for a favor. Spells: two bodies swap, the weather turns, a ship is sent elsewhere. Vanishes at half HP.'
+    - - '5'
+      - Aboleth
+      - '1'
+      - '8'
+      - '16'
+      - '39'
+      - 2 tentacle (near) +5 (1d8 + curse) or tail +5 (3d6)
+      - 'Curse: DC 15 CON or a deep one in 2d10 days. Enslaves one within far: DC 15 WIS. Reads minds.'
+    - - '6'
+      - Sea ettin
+      - '1'
+      - '8'
+      - '11'
+      - '39'
+      - 2 club +6 (1d10) and 2 mace +6 (1d12)
+      - 'Two heads: mind spells on it are DC 15.'
+    - - '7'
+      - Sea hag
+      - '1'
+      - '6'
+      - '15'
+      - '28'
+      - 2 claw +4 (1d8)
+      - 'Wears any humanoid’s face. Her true form: DC 15 CHA or DISADV on attacks 1d4 rounds.'
+    - - '8'
+      - Sea troll
+      - 1d2
+      - '5'
+      - '12'
+      - '26'
+      - 2 claw +4 (1d6) and bite +4 (1d10)
+      - 'Regains 2d6 a turn while wet unless burned. Bite drags a swimmer under: DC 15 STR.'
+    - - '9'
+      - Siren
+      - 1d4
+      - '4'
+      - '12'
+      - '18'
+      - 2 claw +2 (1d6) or song
+      - 'Flies. Song: all within double near DC 15 CHA or paralyzed 1d4 rounds; a pass is immune for a day.'
+    - - '10'
+      - Sharkman
+      - 1d3
+      - '4'
+      - '15'
+      - '22'
+      - bite +4 (1d10)
+      - In water, attacks on it at DISADV. ADV vs the wounded.
+    - - '11'
+      - Octoman
+      - 1d4
+      - '3'
+      - '13'
+      - '15'
+      - 2 spear +2 (1d6) or ink
+      - 'Ink fills near in water: all in it blinded 1d4 rounds.'
+    - - '12'
+      - Sahuagin
+      - 2d6
+      - '2'
+      - '14'
+      - '9'
+      - 2 trident (near) +1 (1d6)
+      - Hunt in packs after dark. Submerge every 4 hours or suffocate.
+    - - '13'
+      - Merfolk
+      - 1d6
+      - '2'
+      - '11'
+      - '9'
+      - spear (near) +2 (1d6)
+      - Want to know what you are doing on their reef.
+    - - '14'
+      - Deep one
+      - 2d4
+      - '2'
+      - '13'
+      - '10'
+      - 2 spear +2 (1d6)
+      - Blinded in bright light.
+    - - '15'
+      - Tidefolk
+      - 2d6
+      - '1'
+      - '11'
+      - '5'
+      - shell knife +1 (1d4)
+      - 'Pilgrims led by an aboleth: they act on its turn and never check morale.'
+    - - 16–17
+      - Sea goblin
+      - 2d6
+      - '1'
+      - '12'
+      - '5'
+      - hook +1 (1d4)
+      - 'In place of attacks, one cuts a line or sail: the boat loses its next round of movement.'
+    - - 18–19
+      - Sea tortle
+      - 1d6
+      - '2'
+      - '15'
+      - '11'
+      - club +2 (1d6)
+      - 'In place of moving, it withdraws: AC 18 until it acts.'
+    - - 20–21
+      - Triton
+      - 1d4
+      - '3'
+      - '13'
+      - '15'
+      - trident (near) +3 (1d8)
+      - Once a day its conch calls 1d4 reef sharks.
+    - - '22'
+      - Bloated leechfolk
+      - 2d6
+      - '2'
+      - '10'
+      - '11'
+      - bite +2 (1d4 + attach)
+      - Attached, the bite hits each round; DC 12 STR to tear it off. DISADV until first wounded.
+    - - '23'
+      - Sea elf
+      - 1d3
+      - '3'
+      - '13'
+      - '14'
+      - trident +2 (1d6) or spell +3
+      - 'Water bolt: 2d6 at far, DC 12. Calms the sea within near for an hour.'
+    - - '24'
+      - The Ferryman
+      - '1'
+      - '15'
+      - '15'
+      - '73'
+      - 3 oar (near) +10 (2d6 + drain)
+      - 'Comes only when a ship has sunk; only magic hurts him. Ferries anyone anywhere for a fair price; who won’t pay is cursed. Drain: 1d4 STR.'
+    die: 4d6
+    note: 'source: All swim; MV near. Reaction §13. Source: ShadowSails pp. 50–56'
   sea.reaction-2d6-cha:
     title: Reaction · 2d6 + CHA
     page: null
@@ -937,7 +1259,7 @@ tables:
       - Port town
       - Full repair, careening, grog, siege ammo. Boats up to a sailboat. 2d6 sailors.
     - - '6'
-      - Harbour city
+      - Harbor city
       - Shipwright, siege weapons, cannon, galleons. A navy. 4d6 sailors.
     die: d6
     note: 'source: A village from §6 is a hamlet.'
@@ -985,7 +1307,7 @@ tables:
       - A plague ship lies in quarantine.
     - - '3'
       - A pirate lord
-      - The harbour toll has doubled.
+      - The harbor toll has doubled.
     - - '4'
       - The temple of the sea
       - A pirate hangs at dawn.

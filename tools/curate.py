@@ -239,10 +239,10 @@ def from_harvest(key, prefix, srcid):
             if t.get('src'): d['note'] = 'source: ' + clean(t['src'])
             if d.get('die') and check(d): d['review'] = '; '.join(check(d))
             tables[tid] = d
-    if 'oh.rumours-in-the-reaches-1-50' in tables:
-        a = tables.pop('oh.rumours-in-the-reaches-1-50'); b = tables.pop('oh.rumours-in-the-reaches-51-100')
-        a['rows'] += b['rows']; a['title'] = 'Rumours in the Reaches'; a.pop('review', None)
-        tables['oh.rumours-wr'] = a
+    if 'oh.rumors-in-the-reaches-1-50' in tables:
+        a = tables.pop('oh.rumors-in-the-reaches-1-50'); b = tables.pop('oh.rumors-in-the-reaches-51-100')
+        a['rows'] += b['rows']; a['title'] = 'Rumors in the Reaches'; a.pop('review', None)
+        tables['oh.rumors-wr'] = a
     emit(key, SOURCES[key], tables)
 
 from_harvest('oh', 'oh', 'OH')

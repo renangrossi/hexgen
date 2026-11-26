@@ -1,4 +1,4 @@
-"""The realm the region belongs to: government, history, people, neighbours, building
+"""The realm the region belongs to: government, history, people, neighbors, building
 style (WWN pp. 121–133, 374–375); its faiths and one cult (WWN pp. 136–141); and the
 region's great terrain features (WWN pp. 117–119)."""
 from .common import line, roll
@@ -33,13 +33,13 @@ def realm(R):
                         ('They esteem', 'wwn.p126.values-they-esteem'), ('And', 'wwn.p126.values-they-esteem'),
                         ('Core loyalty', 'wwn.p127.major-unit-of-social-identity'),
                         ('Model society', 'wwn.p127.example-template-societies')])
-    neighbours = _lines(R, [('Dispute with a neighbour', 'wwn.p121.disputes-with-a-neighboring-state'),
-                            ('Tie to a neighbour', 'wwn.p121.positive-ties-with-a-neighboring-state')])
+    neighbors = _lines(R, [('Dispute with a neighbor', 'wwn.p121.disputes-with-a-neighboring-state'),
+                            ('Tie to a neighbor', 'wwn.p121.positive-ties-with-a-neighboring-state')])
     style = _lines(R, [('Buildings are', 'wwn.p374.architectural-adjectives'), ('Built of', 'wwn.p374.favorite-materials'),
-                       ('Colours', 'wwn.p374.favorite-color-schemes'), ('Motifs', 'wwn.p375.common-visual-motifs'),
+                       ('Colors', 'wwn.p374.favorite-color-schemes'), ('Motifs', 'wwn.p375.common-visual-motifs'),
                        ('Adorned with', 'wwn.p375.structure-adornment'), ('Features', 'wwn.p375.favorite-structural-features'),
                        ('Towns laid out', 'wwn.p375.settlement-design-patterns')])
-    return {'Government': gov, 'History': hist, 'People': people, 'Neighbours': neighbours, 'Building style': style}
+    return {'Government': gov, 'History': hist, 'People': people, 'Neighbors': neighbors, 'Building style': style}
 
 
 def faith(R):

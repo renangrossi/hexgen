@@ -3,7 +3,7 @@
 **Use it in the browser:** https://renangrossi.github.io/hexgen/
 
 Rolls a whole hexcrawl region from your table library: map, settlements and ports, roads
-and rivers, every hex keyed, ruins, lairs, powers and their feuds, ships, rumours, hooks.
+and rivers, every hex keyed, ruins, lairs, powers and their feuds, ships, rumors, hooks.
 It writes a printable gazetteer (HTML → PDF), Markdown and JSON. Every line cites its book
 and page. It supports **Shadowdark** (Western Reaches travel) and **Old-School Essentials**.
 
@@ -30,11 +30,11 @@ same region.
 | Why it exists, who runs it, problem, who needs the PCs, what it offers | **WWN** pp. 145–147 |
 | Community tags with enemy/friend/complication/thing/place | **WWN** pp. 148–162 (200 tags extracted) |
 | Feature and problem | Perilous Wilds steadings, pp. 50–51 |
-| Districts, shops, tavern, menu, drinks, events, rumours | Overland Hexcrawl (GC, SG, core inside) |
+| Districts, shops, tavern, menu, drinks, events, rumors | Overland Hexcrawl (GC, SG, core inside) |
 | Street encounters per district | **SD core** settlement d100s pp. 142–185 · OSE City table |
 | Temple | WWN p. 139 · NPCs: WWN pp. 380–387 · hirelings: WWN Montfroid p. 29 |
 | Trade jobs | UVG p. 180 |
-| Port, harbour master, quay trouble, passage, captains | Sea Voyages · Overland Hexcrawl |
+| Port, harbor master, quay trouble, passage, captains | Sea Voyages · Overland Hexcrawl |
 | Ships | **Of Ships & the Sea** screen (type, purpose, attitude, crew, name, disposition, emergency) + OH vessel/crew/story + SV boat stats |
 | Hex stocking | OH content roll → OH hazards / lore / situations / creatures; OH points of interest by terrain; OH landmarks (SG Landmarks); PW discovery |
 | Wilderness tags | WWN pp. 202–216 |

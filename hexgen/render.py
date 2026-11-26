@@ -19,7 +19,7 @@ def to_data(reg):
             'size': [reg['w'], reg['h']], 'hexes': hexes,
             'settlements': [dict(h.settlement, hex=h.id) for h in reg['settlements']],
             'powers': reg['powers'], 'relations': reg['relations'], 'hooks': reg['hooks'],
-            'rumours': reg['rumours'], 'ships': reg['ships'], 'problems': reg['problems']}
+            'rumors': reg['rumors'], 'ships': reg['ships'], 'problems': reg['problems']}
 
 
 def write_json(reg, path):
@@ -47,7 +47,7 @@ def svg_map(reg, s=26):
         if h.river and h.river_to:
             t = M.at(*h.river_to)
             out.append(f'<line x1="{cx(h.c):.1f}" y1="{cy(h.c, h.r):.1f}" x2="{cx(t.c):.1f}" y2="{cy(t.c, t.r):.1f}" class="river"/>')
-    for h in M:   # roads: join road hexes to road neighbours
+    for h in M:   # roads: join road hexes to road neighbors
         if h.road:
             for n in M.nbrs(h):
                 if (n.road or n.settlement) and (n.c, n.r) > (h.c, h.r):
@@ -114,7 +114,7 @@ def settlement_html(h):
              f'On the menu: {E(t["menu"])}. House drink: {E(t["drink"])}.{cite(t["cite"])}</p>')
     if s.get('temple'):
         o.append('<h4>Temple</h4>' + lines_html(s['temple']))
-    o.append('<h4>Now</h4>' + lines_html([s['event']] + s['rumours']))
+    o.append('<h4>Now</h4>' + lines_html([s['event']] + s['rumors']))
     o.append('<h4>People</h4>' + ''.join(npc_html(n) for n in s['npcs']))
     if s.get('hirelings'):
         o.append('<h4>For hire</h4>' + ''.join(npc_html(dict(h, role='hireling')) for h in s['hirelings']))
@@ -192,7 +192,7 @@ def play_tables(R, reg):
         return f'<div class="keep"><h3>{E(title or tb.title)} <small>{E(tb.die or "")} · {E(tb.cite())}</small></h3><table class="enc">{head}{rows}</table></div>'
     extra = [full('oh.strange-skies', 'Strange skies — weather rolled 2 or 12'), full('oh.cause', 'Why the sky is strange')]
     if sysp.key == 'sd':
-        extra += [full('sd.enc.cave'), full('tft.wl.underground'), full('sd.enc.deep-tunnels'), full('sd.enc.tomb'), full('sd.enc.ruins'), full('oh.rumours-wr')]
+        extra += [full('sd.enc.cave'), full('tft.wl.underground'), full('sd.enc.deep-tunnels'), full('sd.enc.tomb'), full('sd.enc.ruins'), full('oh.rumors-wr')]
     else:
         extra += [full(t) for t in sorted(R.find('ose.dungeon.'))]
     if any(h.road for h in M):
@@ -259,7 +259,7 @@ def write_html(R, reg, path, tables=True):
              + '<span>★ capital ■ city ● town • village ◦ trading post ▲ fortress ⌂ ruin ☠ lair</span></p>')
     o.append('<h2 id="region">The region</h2>' + lines_html(reg['problems']))
     o.append('<h3>Hooks</h3>' + lines_html(reg['hooks']))
-    o.append('<h3>Rumours <small>d10</small></h3><ol>' + ''.join(f'<li>{E(r["text"])}{cite(r["cite"])}</li>' for r in reg['rumours'] if r) + '</ol>')
+    o.append('<h3>Rumors <small>d10</small></h3><ol>' + ''.join(f'<li>{E(r["text"])}{cite(r["cite"])}</li>' for r in reg['rumors'] if r) + '</ol>')
     o.append('<h2 id="realm">The realm</h2>')
     for k, v in reg['realm'].items():
         o.append(f'<h3>{E(k)}</h3>' + lines_html(v))
@@ -304,7 +304,7 @@ def write_md(reg, path):
     M = reg['map']
     o = [f"# {reg['name']}", f"_{reg['system'].name} · {reg['climate']} · seed {reg['seed']}_", '',
          '## The region', md_lines(reg['problems']), '', '### Hooks', md_lines(reg['hooks']), '',
-         '### Rumours (d10)'] + [f"{i}. {r['text']}" for i, r in enumerate(reg['rumours'], 1) if r] + ['', '## The realm']
+         '### Rumors (d10)'] + [f"{i}. {r['text']}" for i, r in enumerate(reg['rumors'], 1) if r] + ['', '## The realm']
     for k, v in reg['realm'].items():
         o += [f'### {k}', md_lines(v), '']
     for f in reg['faiths']:
@@ -326,7 +326,7 @@ def write_md(reg, path):
         o += [f"- {d['name']}: {', '.join(d['stands'])}. On the street: {d['encounter']['text']}" for d in s['districts']]
         t = s['tavern']
         o += [f"\n**Shops:** {', '.join(s['shops'])}", f"**Tavern:** {t['name']} ({t['class']}), known for {t['known_for'].lower()}; {t['menu']}; {t['drink']}",
-              md_lines([s['event']] + s['rumours']), '', '**People**']
+              md_lines([s['event']] + s['rumors']), '', '**People**']
         for n in s['npcs']:
             o += [f"- **{n['name']}** ({n['role']}): " + '; '.join(l['text'] for l in n['lines'])]
         for q in s.get('quests', []):

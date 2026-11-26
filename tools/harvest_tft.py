@@ -1,7 +1,7 @@
-"""Harvest the Wildland denizen tables of Thematic Foe Tables (your book) from its
-markdown source, with each foe's stat line taken from its block.
+"""Harvest the denizen tables of Wildland (your book, once Part Three of Thematic Foe Tables)
+from its markdown source, with each foe's stat line taken from its block.
 
-Usage: harvest_tft.py MERGED_SD_DIR TFT.pdf OUT.json
+Usage: harvest_tft.py WILDLAND_BOOK_DIR Wildland.pdf OUT.json
 Reads 29-38 *-wl-*.md (and 36a, 36b) (one 4d6 table each). Pages are found in the PDF by the
 table's heading, so a TFT rebuild that moves pages only needs `make data`."""
 import glob, json, os, re, subprocess, sys

@@ -3,7 +3,7 @@
 A table starts at a header line whose first word is a die (d4 … d100, d00, 2d6, 1d12).
 Rows are lines whose first word is a number or range (3, 61–64, 2-3, 00) sitting under
 the die. Wrapped text is assigned to the nearest row number vertically, so rows whose
-number is centred between two text lines come out whole.
+number is centered between two text lines come out whole.
 
 Usage: extract_pdf.py PDF FIRST LAST OUT.json [--cols N] [--offset K]
   --cols    page columns to split (default 2)
@@ -130,13 +130,13 @@ def parse_column(lines, depth=0):
                 return [text(c) for c in out]
             inline = sum(1 for n in nums if n[3]) >= len(nums) * 0.8
             rows = {k: [] for k in range(len(nums))}
-            centres = [(a + b) / 2 for a, b, _, _ in nums]
+            centers = [(a + b) / 2 for a, b, _, _ in nums]
             tops = [a for a, _, _, _ in nums]
             for y, ws in texts:
                 if inline:
                     k = max([k for k in range(len(tops)) if tops[k] - 3 <= y] or [0])
                 else:
-                    k = min(range(len(centres)), key=lambda k: abs(centres[k] - y))
+                    k = min(range(len(centers)), key=lambda k: abs(centers[k] - y))
                 rows[k].append((y, ws))
             out = []
             for k, (_, _, lab, _) in enumerate(nums):

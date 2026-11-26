@@ -8,7 +8,7 @@ Layers, richest first:
       complications/things/places
   Perilous Wilds          — one feature and one problem with their steading tags
   Overland Hexcrawl       — districts and what stands in each, shops, a tavern with its
-      menu and drinks, events, rumours; Shadowdark core district encounter tables
+      menu and drinks, events, rumors; Shadowdark core district encounter tables
 """
 import re
 from .common import line, roll, tidy_ss, first_sentence, name_settlement, name_person
@@ -143,7 +143,7 @@ def settlement(R, system, size='village', coastal=False, terrain='grassland', na
                                          'fortress': 2}[size])})
     s['tavern'] = tavern(R)
     s['event'] = roll(R, 'Event', 'oh.settlement-events')
-    s['rumours'] = [roll(R, 'Rumour', 'oh.rumours') for _ in range(3)]
+    s['rumors'] = [roll(R, 'Rumor', 'oh.rumors') for _ in range(3)]
     roles = [('ruler or headman', 'gentry'), ('innkeeper', 'commoner'), ('someone who needs help', None)]
     if size in ('city', 'capital'):
         roles += [('rival', 'gentry'), ('fixer', 'underclass')]
@@ -197,7 +197,7 @@ def _ss_name(text):
 
 def ss_extras(R, size):
     """Spectacular Settlements' own shops and services with quality, its tavern pieces,
-    produce and a street scene (pp. 447–456), and a rumour (p. 445)."""
+    produce and a street scene (pp. 447–456), and a rumor (p. 445)."""
     shop_t, serv_t = SS_SHOPS[size]
     q = 'ss.p111.quality'
     places = []
@@ -212,7 +212,7 @@ def ss_extras(R, size):
                       line('Grows', f"{R.text('ss.p450.crops')}; raises {R.text('ss.p450.farm-animals-meat').lower()}; mines {R.text('ss.p450.minerals').lower()}", 'SS p.450'),
                       line('Street scene', f"{R.text('ss.p452.time-of-day')}: {R.text('ss.p451.smells').lower()}, {R.text('ss.p452.street-debris').lower()} underfoot; a {R.text('ss.p453.appearance').lower()} figure in {R.text('ss.p454.clothing').lower()} is {R.text('ss.p454.verbs').lower()}", 'SS pp.451–454'),
                       roll(R, 'Someone needs help', 'ss.p453.problems'),
-                      roll(R, 'Rumour', 'ss.p445.rumors')] if l and l['text']]
+                      roll(R, 'Rumor', 'ss.p445.rumors')] if l and l['text']]
     return L
 
 
